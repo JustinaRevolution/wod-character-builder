@@ -1,0 +1,39 @@
+{
+  "id": "changeling", "name": "Changeling: the Lost", "shortName": "Changeling", "color": "#70c8a0",
+  "template": {
+    "group1": {
+      "label": "Seeming", "field": "seeming",
+      "options": [
+        { "id": "beast",     "name": "Beast",     "description": "Shaped into animals — feral, instinctive, in touch with nature.", "hint": "Contracts: Fang and Talon" },
+        { "id": "darkling",  "name": "Darkling",  "description": "Creatures of shadow taken as spies and messengers.",             "hint": "Contracts: Darkness, Mirror" },
+        { "id": "elemental", "name": "Elemental", "description": "Bound to the forces of earth, air, fire, or water.",            "hint": "Contracts: Elements, Stone" },
+        { "id": "fairest",   "name": "Fairest",   "description": "The beautiful ones — taken as trophies and entertainers.",       "hint": "Contracts: Vainglory, Dream" },
+        { "id": "ogre",      "name": "Ogre",      "description": "Brutes taken as warriors, guards, and enforcers.",              "hint": "Contracts: Stone, Oath and Punishment" },
+        { "id": "wizened",   "name": "Wizened",   "description": "Craftsmen and functionaries — small, clever, precise.",         "hint": "Contracts: Artifice, Hearth" }
+      ]
+    },
+    "group2": {
+      "label": "Court", "field": "court",
+      "options": [
+        { "id": "spring",    "name": "Spring Court", "description": "Court of Desire — fight fear through hope and longing." },
+        { "id": "summer",    "name": "Summer Court", "description": "Court of Wrath — fight fear through anger and valor." },
+        { "id": "autumn",    "name": "Autumn Court", "description": "Court of Fear — use fear as your weapon." },
+        { "id": "winter",    "name": "Winter Court", "description": "Court of Sorrow — hide by becoming invisible and still." },
+        { "id": "courtless", "name": "Courtless",    "description": "Beholden to no Court — free but without seasonal protection." }
+      ]
+    }
+  },
+  "powers": {
+    "type": "picks",
+    "label": "Contracts",
+    "description": "Choose 5 dots in Contracts. You have free access to your Seeming Contracts. Each dot is one clause (level) of a Contract. Refer to Changeling: the Lost for the full Contract list.",
+    "startingDots": 5,
+    "picksFrom": [{ "source": "group1", "count": 5, "label": "Contracts" }],
+    "items": []
+  },
+  "resource": {
+    "pool":  { "name": "Glamour", "startValue": 10 },
+    "trait": { "name": "Wyrd",    "startValue": 1  }
+  },
+  "integrity": { "name": "Clarity", "startValue": 7 }
+}

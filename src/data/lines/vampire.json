@@ -1,0 +1,53 @@
+{
+  "id": "vampire",
+  "name": "Vampire: the Requiem",
+  "shortName": "Vampire",
+  "color": "#c87070",
+  "template": {
+    "group1": {
+      "label": "Clan", "field": "clan",
+      "options": [
+        { "id": "daeva",     "name": "Daeva",     "description": "Creatures of passion — beautiful, doomed, driven by desire.",        "hint": "Disciplines: Celerity, Majesty, Vigor" },
+        { "id": "gangrel",   "name": "Gangrel",   "description": "Feral Kindred who embrace the Beast — shapechangers and wanderers.", "hint": "Disciplines: Animalism, Protean, Resilience" },
+        { "id": "mekhet",    "name": "Mekhet",    "description": "Shadow-touched scholars and spies who dwell in secrets.",            "hint": "Disciplines: Auspex, Celerity, Obfuscate" },
+        { "id": "nosferatu", "name": "Nosferatu", "description": "Hideous Kindred who lurk in darkness and command primal fear.",      "hint": "Disciplines: Nightmare, Obfuscate, Vigor" },
+        { "id": "ventrue",   "name": "Ventrue",   "description": "Lords of the Danse Macabre — rulers and commanders born to lead.",  "hint": "Disciplines: Animalism, Dominate, Resilience" }
+      ]
+    },
+    "group2": {
+      "label": "Covenant", "field": "covenant",
+      "options": [
+        { "id": "carthian",  "name": "Carthian Movement",   "description": "Progressive reformers who believe Kindred society can evolve." },
+        { "id": "circle",    "name": "Circle of the Crone", "description": "Pagan spiritualists who worship the Crone and practice Crúac." },
+        { "id": "invictus",  "name": "The Invictus",        "description": "The aristocracy of the undead — tradition, power, and obligation." },
+        { "id": "lancea",    "name": "Lancea et Sanctum",   "description": "Sanctified Kindred who embrace their role as God's monsters." },
+        { "id": "ordo",      "name": "Ordo Dracul",         "description": "Students of the Dragon who seek to transcend the Kindred curse." },
+        { "id": "unaligned", "name": "Unaligned",           "description": "Beholden to no covenant — free, but without allies or protection." }
+      ]
+    }
+  },
+  "powers": {
+    "type": "pool",
+    "label": "Disciplines",
+    "description": "Distribute 3 dots among your Disciplines. Clan Disciplines are available freely; others require a teacher.",
+    "startingDots": 3,
+    "affinityFrom": "group1",
+    "items": [
+      { "id": "animalism",  "name": "Animalism",  "description": "Dominion over beasts and the Beast within.",              "affinityFor": ["gangrel","nosferatu","ventrue"] },
+      { "id": "auspex",     "name": "Auspex",     "description": "Heightened senses and psychic perception.",              "affinityFor": ["mekhet"] },
+      { "id": "celerity",   "name": "Celerity",   "description": "Supernatural speed beyond mortal limits.",               "affinityFor": ["daeva","mekhet"] },
+      { "id": "dominate",   "name": "Dominate",   "description": "The power to command minds and bend wills.",             "affinityFor": ["ventrue"] },
+      { "id": "majesty",    "name": "Majesty",    "description": "Awe-inspiring presence that commands loyalty and desire.","affinityFor": ["daeva"] },
+      { "id": "nightmare",  "name": "Nightmare",  "description": "The power to evoke and weaponize primal terror.",        "affinityFor": ["nosferatu"] },
+      { "id": "obfuscate",  "name": "Obfuscate",  "description": "The power to hide from sight and perception.",           "affinityFor": ["mekhet","nosferatu"] },
+      { "id": "protean",    "name": "Protean",    "description": "Shapeshifting and communion with the earth.",             "affinityFor": ["gangrel"] },
+      { "id": "resilience", "name": "Resilience", "description": "Supernatural fortitude and resistance to damage.",       "affinityFor": ["gangrel","ventrue"] },
+      { "id": "vigor",      "name": "Vigor",      "description": "Monstrous physical strength beyond mortal limits.",      "affinityFor": ["daeva","nosferatu"] }
+    ]
+  },
+  "resource": {
+    "pool":  { "name": "Vitae",         "startValue": 10 },
+    "trait": { "name": "Blood Potency", "startValue": 1  }
+  },
+  "integrity": { "name": "Humanity", "startValue": 7 }
+}

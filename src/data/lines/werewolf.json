@@ -1,0 +1,43 @@
+{
+  "id": "werewolf", "name": "Werewolf: the Forsaken", "shortName": "Werewolf", "color": "#70a070",
+  "template": {
+    "group1": {
+      "label": "Tribe", "field": "tribe",
+      "options": [
+        { "id": "blood_talons", "name": "Blood Talons",        "description": "Warriors for whom battle is sacred.",          "hint": "Primary Renown: Glory" },
+        { "id": "bone_shadows", "name": "Bone Shadows",        "description": "Spirit-speakers who walk between worlds.",     "hint": "Primary Renown: Wisdom" },
+        { "id": "hunters",      "name": "Hunters in Darkness", "description": "Guardians of the sacred hunt ground.",         "hint": "Primary Renown: Purity" },
+        { "id": "iron_masters", "name": "Iron Masters",        "description": "Adaptors who embrace the modern world.",       "hint": "Primary Renown: Cunning" },
+        { "id": "storm_lords",  "name": "Storm Lords",         "description": "Alphas born to lead packs ruthlessly.",        "hint": "Primary Renown: Honor" },
+        { "id": "ghost_wolves", "name": "Ghost Wolves",        "description": "Tribeless Uratha — free but without a totem.", "hint": "No primary Renown" }
+      ]
+    },
+    "group2": {
+      "label": "Auspice", "field": "auspice",
+      "options": [
+        { "id": "cahalith", "name": "Cahalith", "description": "Gibbous Moon — visionaries and lorekeepers.", "hint": "Renown: Glory. Bonus Skills: Crafts, Expression, Persuasion" },
+        { "id": "elodoth",  "name": "Elodoth",  "description": "Half Moon — judges who walk between worlds.", "hint": "Renown: Honor. Bonus Skills: Empathy, Investigation, Politics" },
+        { "id": "irraka",   "name": "Irraka",   "description": "New Moon — scouts and tricksters of shadow.", "hint": "Renown: Cunning. Bonus Skills: Larceny, Stealth, Subterfuge" },
+        { "id": "ithaeur",  "name": "Ithaeur",  "description": "Crescent Moon — shamans who deal with spirits.", "hint": "Renown: Wisdom. Bonus Skills: Animal Ken, Occult, Survival" },
+        { "id": "rahu",     "name": "Rahu",     "description": "Full Moon — warriors born for battle.",        "hint": "Renown: Purity. Bonus Skills: Brawl, Intimidation, Weaponry" }
+      ]
+    }
+  },
+  "powers": {
+    "type": "picks",
+    "label": "Gifts",
+    "description": "Choose 3 Auspice Gifts and 3 Tribe Gifts. Refer to Werewolf: the Forsaken for your Auspice and Tribe gift lists. Record gift names in the text fields below.",
+    "startingDots": 6,
+    "picksFrom": [
+      { "source": "group2", "count": 3, "label": "Auspice Gifts" },
+      { "source": "group1", "count": 3, "label": "Tribe Gifts" }
+    ],
+    "items": []
+  },
+  "renown": { "tracks": ["Cunning","Glory","Honor","Purity","Wisdom"], "startingDots": 1, "fromAuspice": true },
+  "resource": {
+    "pool":  { "name": "Essence",    "startValue": 10 },
+    "trait": { "name": "Primal Urge","startValue": 1  }
+  },
+  "integrity": { "name": "Harmony", "startValue": 7 }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "second-sight", "name": "Second Sight", "shortName": "Second Sight", "color": "#a0c8c8",
+  "template": {
+    "group1": {
+      "label": "Mortal Type", "field": "mortal_type",
+      "options": [
+        { "id": "psychic",     "name": "Psychic",     "description": "A mortal with natural gifts — telepathy, telekinesis, clairvoyance." },
+        { "id": "thaumaturge", "name": "Thaumaturge", "description": "A mortal who practices ritual magic — ceremonial or folk." },
+        { "id": "faithful",    "name": "Faithful",    "description": "A mortal whose faith grants genuine divine protection and sight." },
+        { "id": "sleepwalker", "name": "Sleepwalker", "description": "Instinctively understands magic without Awakening — resistant to disbelief." }
+      ]
+    },
+    "group2": null
+  },
+  "powers": {
+    "type": "picks",
+    "label": "Supernatural Merits",
+    "description": "Choose supernatural Merits worth up to 5 dots total from Second Sight. These are in addition to your normal 7 Merit dots.",
+    "startingDots": 5,
+    "picksFrom": [{ "source": "group1", "count": 5, "label": "Psychic / Thaumaturgic Merits" }],
+    "items": [
+      { "id": "clairvoyance",     "name": "Clairvoyance",     "description": "Remote viewing — sensing distant locations.",          "source": "psychic" },
+      { "id": "mediumship",       "name": "Mediumship",       "description": "Communicating with ghosts and ephemeral entities.",    "source": "psychic" },
+      { "id": "mind_of_killer",   "name": "Mind of a Killer", "description": "Reading psychic residue of violence at a scene.",      "source": "psychic" },
+      { "id": "postcognition",    "name": "Postcognition",    "description": "Seeing echoes of past events at a location.",          "source": "psychic" },
+      { "id": "pyrokinesis",      "name": "Pyrokinesis",      "description": "Creating and controlling fire through psychic force.", "source": "psychic" },
+      { "id": "telekinesis",      "name": "Telekinesis",      "description": "Moving objects with the power of the mind.",           "source": "psychic" },
+      { "id": "telepathy",        "name": "Telepathy",        "description": "Reading and projecting thoughts into other minds.",    "source": "psychic" },
+      { "id": "thaumaturgic_rit", "name": "Thaumaturgic Ritual", "description": "Ritual magic that takes time but produces real effects.", "source": "thaumaturge" }
+    ]
+  },
+  "resource": { "pool": null, "trait": null },
+  "integrity": { "name": "Morality", "startValue": 7 }
+}

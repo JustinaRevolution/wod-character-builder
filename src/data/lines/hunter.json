@@ -1,0 +1,39 @@
+{
+  "id": "hunter", "name": "Hunter: the Vigil", "shortName": "Hunter", "color": "#c87040",
+  "template": {
+    "group1": {
+      "label": "Organization Type", "field": "org_type",
+      "options": [
+        { "id": "compact",    "name": "Compact",    "description": "A tightly-knit hunter group with no supernatural powers.", "hint": "No Endowments — rely on skill and preparation" },
+        { "id": "conspiracy", "name": "Conspiracy", "description": "A large organization with access to supernatural Endowments.", "hint": "Grants Endowments specific to your organization" }
+      ]
+    },
+    "group2": {
+      "label": "Organization", "field": "organization",
+      "options": [
+        { "id": "ashwood",   "name": "Ashwood Abbey",       "description": "Thrill-seeking aristocrats who hunt for sport.",          "orgType": "compact" },
+        { "id": "long_night","name": "The Long Night",      "description": "Evangelical Christians preparing for the Apocalypse.",    "orgType": "compact" },
+        { "id": "loyalists", "name": "Loyalists of Thule",  "description": "Occultists cataloguing supernatural threats.",            "orgType": "compact" },
+        { "id": "null",      "name": "Null Mysteriis",      "description": "Scientists studying the supernatural as phenomenon.",     "orgType": "compact" },
+        { "id": "union",     "name": "The Union",           "description": "Blue-collar workers defending their neighborhoods.",      "orgType": "compact" },
+        { "id": "network_0", "name": "Network Zero",        "description": "Media-savvy hunters who expose the supernatural online.", "orgType": "compact" },
+        { "id": "cheiron",   "name": "Cheiron Group",       "description": "A megacorp that harvests supernatural traits.",          "orgType": "conspiracy" },
+        { "id": "malleus",   "name": "Malleus Maleficarum", "description": "The Catholic Church's secret inquisition.",              "orgType": "conspiracy" },
+        { "id": "lucifuge",  "name": "Lucifuge",            "description": "Hunters who claim demonic descent — fight fire with fire.", "orgType": "conspiracy" },
+        { "id": "aegis",     "name": "Aegis Kai Doru",      "description": "Greek artifact-hunters who wield supernatural relics.",  "orgType": "conspiracy" },
+        { "id": "ascending", "name": "Ascending Ones",      "description": "Alchemists who use elixirs to fight the supernatural.",  "orgType": "conspiracy" }
+      ]
+    }
+  },
+  "powers": {
+    "type": "picks",
+    "label": "Endowments",
+    "description": "Conspiracy members receive 3 dots of Endowments from their organization. Compact members have no Endowments. Refer to Hunter: the Vigil for your organization's specific Endowment list.",
+    "startingDots": 3,
+    "picksFrom": [{ "source": "group2", "count": 3, "label": "Organization Endowments" }],
+    "items": [],
+    "compactNote": "Compact hunters have no Endowments. Your strength is skill, preparation, and numbers."
+  },
+  "resource": { "pool": null, "trait": null },
+  "integrity": { "name": "Morality", "startValue": 7 }
+}

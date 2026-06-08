@@ -1,0 +1,50 @@
+{
+  "id": "promethean", "name": "Promethean: the Created", "shortName": "Promethean", "color": "#a0a0c8",
+  "template": {
+    "group1": {
+      "label": "Lineage", "field": "lineage",
+      "options": [
+        { "id": "wretched",    "name": "Wretched (Choleric)",  "description": "Made from brutal flesh — aggressive, rageful, given to violence.",      "hint": "Transmutations: Corporeum, Sanguinem" },
+        { "id": "osiran",      "name": "Osiran (Melancholic)", "description": "Made from preserved death — contemplative, patient, scholarly.",          "hint": "Transmutations: Deception, Vitality" },
+        { "id": "ulgan",       "name": "Ulgan (Phlegmatic)",   "description": "Made from spirit-touched flesh — shamanic, liminal, between worlds.",    "hint": "Transmutations: Saturninus, Spiritus" },
+        { "id": "galatea",     "name": "Galatea (Sanguine)",   "description": "Made from beauty — graceful, charming, tragically human.",               "hint": "Transmutations: Alchemicus, Electrum" },
+        { "id": "tammuz",      "name": "Tammuz (Supernal)",    "description": "Made from clay and divine breath — solid, enduring, purposeful.",        "hint": "Transmutations: Ferrum, Stannum" }
+      ]
+    },
+    "group2": {
+      "label": "Refinement", "field": "refinement",
+      "options": [
+        { "id": "aurum",       "name": "Aurum",       "description": "Gold — pursuing humanity through social connection." },
+        { "id": "cuprum",      "name": "Cuprum",      "description": "Copper — pursuing humanity through emotional experience." },
+        { "id": "ferrum",      "name": "Ferrum",      "description": "Iron — discipline, endurance, and physical mastery." },
+        { "id": "plumbum",     "name": "Plumbum",     "description": "Lead — studying Promethean nature and the Azothic memory." },
+        { "id": "quicksilver", "name": "Quicksilver", "description": "Mercury — constant movement and adaptability." },
+        { "id": "stannum",     "name": "Stannum",     "description": "Tin — accepting pain and imperfection as teachers." }
+      ]
+    }
+  },
+  "powers": {
+    "type": "pool",
+    "label": "Transmutations",
+    "description": "Distribute 4 dots among Transmutations. Your Lineage Transmutations are your primary access. Refer to Promethean: the Created for the full list.",
+    "startingDots": 4,
+    "affinityFrom": "group1",
+    "items": [
+      { "id": "alchemicus", "name": "Alchemicus",  "description": "Manipulation of base elements and chemical processes.", "affinityFor": ["galatea"] },
+      { "id": "corporeum",  "name": "Corporeum",   "description": "Mastery and reshaping of the physical body.",          "affinityFor": ["wretched"] },
+      { "id": "deception",  "name": "Deception",   "description": "Illusion and concealment of the Created's true nature.","affinityFor": ["osiran"] },
+      { "id": "electrum",   "name": "Electrum",    "description": "Command of electrical forces and lightning.",           "affinityFor": ["galatea"] },
+      { "id": "ferrum_t",   "name": "Ferrum",      "description": "The strength and endurance of iron.",                  "affinityFor": ["tammuz"] },
+      { "id": "sanguinem",  "name": "Sanguinem",   "description": "Power over blood and the vital humors.",               "affinityFor": ["wretched"] },
+      { "id": "saturninus", "name": "Saturninus",  "description": "Communion with spirits of blight and decay.",          "affinityFor": ["ulgan"] },
+      { "id": "spiritus",   "name": "Spiritus",    "description": "Walking between the physical and spirit worlds.",       "affinityFor": ["ulgan"] },
+      { "id": "stannum_t",  "name": "Stannum",     "description": "Endurance through suffering and humility.",            "affinityFor": ["tammuz"] },
+      { "id": "vitality",   "name": "Vitality",    "description": "The generative force of life and restoration.",        "affinityFor": ["osiran"] }
+    ]
+  },
+  "resource": {
+    "pool":  { "name": "Pyros", "startValue": 10 },
+    "trait": { "name": "Azoth", "startValue": 1  }
+  },
+  "integrity": { "name": "Humanity", "startValue": 5 }
+}

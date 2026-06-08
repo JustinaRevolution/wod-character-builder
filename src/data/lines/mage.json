@@ -1,0 +1,51 @@
+{
+  "id": "mage", "name": "Mage: the Awakening", "shortName": "Mage", "color": "#7070c8",
+  "template": {
+    "group1": {
+      "label": "Path", "field": "path",
+      "options": [
+        { "id": "acanthus", "name": "Acanthus", "description": "Enchanters of the Lunargent Thorn.",    "hint": "Ruling Arcana: Fate, Time. Inferior: Forces" },
+        { "id": "mastigos", "name": "Mastigos", "description": "Warlocks of the Iron Gauntlet.",        "hint": "Ruling Arcana: Mind, Space. Inferior: Matter" },
+        { "id": "moros",    "name": "Moros",    "description": "Necromancers of the Lead Coin.",        "hint": "Ruling Arcana: Death, Matter. Inferior: Spirit" },
+        { "id": "obrimos",  "name": "Obrimos",  "description": "Theurgists of the Golden Key.",         "hint": "Ruling Arcana: Forces, Prime. Inferior: Death" },
+        { "id": "thyrsus",  "name": "Thyrsus",  "description": "Shamans of the Stone Book.",            "hint": "Ruling Arcana: Life, Spirit. Inferior: Mind" }
+      ]
+    },
+    "group2": {
+      "label": "Order", "field": "order",
+      "options": [
+        { "id": "arrow",     "name": "Adamantine Arrow",      "description": "Warrior-mages who defend the Awakened." },
+        { "id": "free",      "name": "Free Council",          "description": "Democrats who embrace mortal innovation." },
+        { "id": "guardians", "name": "Guardians of the Veil", "description": "Secretive keepers who protect the Mysteries." },
+        { "id": "mysterium", "name": "Mysterium",             "description": "Scholars who seek to recover lost occult knowledge." },
+        { "id": "silver",    "name": "Silver Ladder",         "description": "The hierarchy — born to rule the Awakened." },
+        { "id": "seers",     "name": "Seers of the Throne",   "description": "Servants of the Exarchs who maintain the Lie." },
+        { "id": "apostate",  "name": "Apostate",              "description": "Unaffiliated — no Order, no resources, no obligations." }
+      ]
+    }
+  },
+  "powers": {
+    "type": "pool",
+    "label": "Arcana",
+    "description": "Distribute 5 dots. Ruling Arcana may reach 3; all others may reach 2. Your Inferior Arcanum cannot exceed 2. Path Ruling Arcana are shown in your template choice.",
+    "startingDots": 5,
+    "affinityFrom": "group1",
+    "items": [
+      { "id": "death",  "name": "Death",  "description": "Endings, ghosts, and entropy.",           "affinityFor": ["moros"] },
+      { "id": "fate",   "name": "Fate",   "description": "Destiny, luck, and oaths.",               "affinityFor": ["acanthus"] },
+      { "id": "forces", "name": "Forces", "description": "Fire, electricity, and physical force.",  "affinityFor": ["obrimos"] },
+      { "id": "life",   "name": "Life",   "description": "Living things — healing and transformation.", "affinityFor": ["thyrsus"] },
+      { "id": "matter", "name": "Matter", "description": "Physical objects and substances.",         "affinityFor": ["mastigos","moros"] },
+      { "id": "mind",   "name": "Mind",   "description": "Thoughts, emotions, and consciousness.",  "affinityFor": ["mastigos"] },
+      { "id": "prime",  "name": "Prime",  "description": "Raw magical power and Mana.",             "affinityFor": ["obrimos"] },
+      { "id": "space",  "name": "Space",  "description": "Connections, wards, and sympathy.",       "affinityFor": ["mastigos"] },
+      { "id": "spirit", "name": "Spirit", "description": "The spirit world and ephemeral beings.",  "affinityFor": ["thyrsus"] },
+      { "id": "time",   "name": "Time",   "description": "Past, present, and future.",              "affinityFor": ["acanthus"] }
+    ]
+  },
+  "resource": {
+    "pool":  { "name": "Mana",  "startValue": 10 },
+    "trait": { "name": "Gnosis","startValue": 1  }
+  },
+  "integrity": { "name": "Wisdom", "startValue": 7 }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "mummy", "name": "Mummy: the Curse", "shortName": "Mummy", "color": "#c8a040",
+  "template": {
+    "group1": {
+      "label": "Decree", "field": "decree",
+      "options": [
+        { "id": "ab_henu",   "name": "Ab-Henu",   "description": "Decree of the Heart — warriors who bring the justice of Fate." },
+        { "id": "ames_ankh", "name": "Ames-Ankh", "description": "Decree of the Pillar — architects who build and preserve." },
+        { "id": "ba_neterw", "name": "Ba-Neterw",  "description": "Decree of the Soul — priests who commune with the divine." },
+        { "id": "kher_minu", "name": "Kher-Minu",  "description": "Decree of the Shadow — assassins who work in darkness." },
+        { "id": "su_menenu", "name": "Su-Menenu",  "description": "Decree of the Name — scholars who protect knowledge." }
+      ]
+    },
+    "group2": {
+      "label": "Guild", "field": "guild",
+      "options": [
+        { "id": "artisans",       "name": "Guild of Artisans",       "description": "Craftsmen who create sacred relics and objects." },
+        { "id": "avengers",       "name": "Guild of Avengers",       "description": "Warriors who punish those who violate divine law." },
+        { "id": "intermediaries", "name": "Guild of Intermediaries", "description": "Diplomats who deal with the mortal world." },
+        { "id": "judges",         "name": "Guild of Judges",         "description": "Magistrates who enforce the laws of Duat." },
+        { "id": "merchants",      "name": "Guild of Merchants",      "description": "Traders who gather resources and networks." }
+      ]
+    }
+  },
+  "powers": {
+    "type": "pool",
+    "label": "Pillars",
+    "description": "Distribute 5 dots among your 5 Pillars. Your Decree and Guild determine which Pillars start highest — consult Mummy: the Curse for your starting allocations.",
+    "startingDots": 5,
+    "affinityFrom": "group1",
+    "items": [
+      { "id": "ab",     "name": "Ab (Heart)",  "description": "Will, emotion, and motivation." },
+      { "id": "ba",     "name": "Ba (Soul)",   "description": "Identity, memory, and divine connection." },
+      { "id": "ka",     "name": "Ka (Double)", "description": "Physical power and vital force." },
+      { "id": "ren",    "name": "Ren (Name)",  "description": "Reputation, destiny, and hidden name." },
+      { "id": "sekhem", "name": "Sekhem",      "description": "Raw divine power — the Mummy's core supernatural force." }
+    ]
+  },
+  "resource": {
+    "pool":  { "name": "Sekhem",        "startValue": 7 },
+    "trait": { "name": "Sekhem Rating", "startValue": 5 }
+  },
+  "integrity": { "name": "Memory", "startValue": 0 }
+}
