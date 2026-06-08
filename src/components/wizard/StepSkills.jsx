@@ -2,19 +2,29 @@ import { useState } from 'react'
 import DotRating from '../ui/DotRating'
 
 const CATEGORIES = [
-  { key: 'mental',   label: 'Mental',   budget: 11,
+  { key: 'mental',   label: 'Mental',
     skills: ['academics','computer','crafts','investigation','medicine','occult','politics','science'] },
-  { key: 'physical', label: 'Physical', budget: 7,
+  { key: 'physical', label: 'Physical',
     skills: ['athletics','brawl','drive','firearms','larceny','stealth','survival','weaponry'] },
-  { key: 'social',   label: 'Social',   budget: 4,
+  { key: 'social',   label: 'Social',
     skills: ['animal_ken','empathy','expression','intimidation','persuasion','socialize','streetwise','subterfuge'] },
 ]
+
+const BUDGETS = { primary: 11, secondary: 7, tertiary: 4 }
 
 const labelFor = s => s === 'animal_ken' ? 'Animal Ken' : s.charAt(0).toUpperCase() + s.slice(1)
 
 export default function StepSkills({ skills, specialties, onUpdateSkill, onAddSpecialty, onRemoveSpecialty }) {
   const [specSkill, setSpecSkill] = useState('')
   const [specName, setSpecName]   = useState('')
+  const [priority, setPriority] = useState({ mental: 'primary', physical: 'secondary', social: 'tertiary' })
+
+  const assignPriority = (cat, level) => {
+    const current = Object.entries(priority).find(([, v]) => v === level)?.[0]
+    const next = { ...priority, [cat]: level }
+    if (current && current !== cat) next[current] = priority[cat]
+    setPriority(next)
+  }
 
   const handleAdd = () => {
     if (!specSkill || !specName) return
@@ -26,18 +36,29 @@ export default function StepSkills({ skills, specialties, onUpdateSkill, onAddSp
   return (
     <div>
       <h2 className="text-2xl font-bold mb-2">Skills</h2>
-      <p className="text-gray-400 mb-6">Spend 11 / 7 / 4 dots across Mental / Physical / Social. Then add 3 specialties.</p>
+      <p className="text-gray-400 mb-6">Prioritize your categories (11 / 7 / 4 dots), then spend. Add 3 specialties.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {CATEGORIES.map(({ key, label, budget, skills: skillList }) => {
+        {CATEGORIES.map(({ key, label, skills: skillList }) => {
+          const level = priority[key]
+          const budget = BUDGETS[level]
           const spent = skillList.reduce((s, sk) => s + skills[key][sk], 0)
           const remaining = budget - spent
           return (
             <div key={key} className="bg-gray-900 rounded-lg p-4 border border-gray-700">
-              <div className="flex justify-between items-center mb-3">
+              <div className="flex items-center justify-between mb-3">
                 <h3 className="font-bold text-gray-100">{label}</h3>
-                <span className={`text-xs ${remaining < 0 ? 'text-red-400' : 'text-gray-500'}`}>
-                  {remaining} / {budget} remaining
-                </span>
+                <select
+                  value={level}
+                  onChange={e => assignPriority(key, e.target.value)}
+                  className="text-xs bg-gray-800 border border-gray-600 rounded px-2 py-1 text-gray-300"
+                >
+                  <option value="primary">Primary (11 dots)</option>
+                  <option value="secondary">Secondary (7 dots)</option>
+                  <option value="tertiary">Tertiary (4 dots)</option>
+                </select>
+              </div>
+              <div className={`text-xs mb-3 ${remaining < 0 ? 'text-red-400' : 'text-gray-500'}`}>
+                {remaining} dots remaining
               </div>
               <div className="space-y-2">
                 {skillList.map(sk => (
