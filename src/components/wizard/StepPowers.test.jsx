@@ -68,4 +68,10 @@ describe('StepPowers — Geist (pool + keys)', () => {
     fireEvent.click(screen.getByText('Beasts Key').closest('button'))
     expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _keys: ['beasts'] }))
   })
+
+  it('counts dots correctly when _keys is populated', () => {
+    render(<StepPowers lineData={geist} template={{}} powers={{ boneyard: 2, _keys: ['beasts'] }} onSetPowers={() => {}} />)
+    // startingDots=3, spent=2, remaining=1
+    expect(screen.getByText(/1 dot/i)).toBeInTheDocument()
+  })
 })

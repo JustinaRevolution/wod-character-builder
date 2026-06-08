@@ -3,12 +3,12 @@ import DotRating from '../ui/DotRating'
 function PoolPowers({ lineData, template, powers, onSetPowers }) {
   const { items, startingDots, affinityFrom, description } = lineData.powers
   const selectedAffinity = affinityFrom ? template[lineData.template[affinityFrom]?.field] : null
-  const spent = Object.values(powers).reduce((s, v) => s + (v || 0), 0)
+  const spent = Object.entries(powers).reduce((s, [k, v]) => k === '_keys' ? s : s + (v || 0), 0)
   const remaining = startingDots - spent
 
   const handleChange = (id, v) => {
     const next = { ...powers, [id]: v }
-    const newSpent = Object.values(next).reduce((s, val) => s + (val || 0), 0)
+    const newSpent = Object.entries(next).reduce((s, [k, val]) => k === '_keys' ? s : s + (val || 0), 0)
     if (newSpent <= startingDots || v < (powers[id] || 0)) onSetPowers(next)
   }
 
@@ -36,7 +36,7 @@ function PoolPowers({ lineData, template, powers, onSetPowers }) {
   )
 }
 
-function PicksPowers({ lineData, template, powers, onSetPowers }) {
+function PicksPowers({ lineData, powers, onSetPowers }) {
   const { picksFrom } = lineData.powers
 
   const handleChange = (groupKey, index, value) => {
@@ -113,7 +113,7 @@ export default function StepPowers({ lineData, template, powers, onSetPowers }) 
       <h2 className="text-2xl font-bold mb-2">{label}</h2>
       {type === 'pool'
         ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
-        : <PicksPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+        : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
       }
       {keys && (
         <KeysPicker keys={keys} selectedKeys={selectedKeys} onSetPowers={onSetPowers} powers={powers} />
