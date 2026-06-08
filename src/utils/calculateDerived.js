@@ -11,7 +11,7 @@ export default function calculateDerived(attributes, lineData) {
     initiative: p.dexterity + s.composure,
     resource_pool: lineData.resource.pool
       ? { name: lineData.resource.pool.name, max: lineData.resource.pool.startValue }
-      : { name: 'Willpower', max: m.resolve + s.composure },
+      : { name: '', max: 0 },
     integrity: {
       name:  lineData.integrity.name,
       value: lineData.integrity.startValue,

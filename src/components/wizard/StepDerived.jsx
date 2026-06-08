@@ -28,7 +28,7 @@ export default function StepDerived({ character, lineData, setDerived }) {
         <StatBox label="Willpower"  value={derived.willpower}  sub="boxes" />
         <StatBox label="Speed"      value={derived.speed}      />
         <StatBox label="Defense"    value={derived.defense}    />
-        <StatBox label="Initiative" value={derived.initiative} sub="pool" />
+        <StatBox label="Initiative" value={derived.initiative} />
         {derived.resource_pool.name && (
           <StatBox label={derived.resource_pool.name} value={derived.resource_pool.max} sub="max" />
         )}

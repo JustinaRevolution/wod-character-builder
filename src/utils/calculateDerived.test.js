@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import calculateDerived from './calculateDerived'
 import vampire from '../data/lines/vampire.json'
+import hunter from '../data/lines/hunter.json'
 
 const attrs = {
   mental:   { intelligence: 2, wits: 3, resolve: 2 },
@@ -45,5 +46,13 @@ describe('calculateDerived', () => {
     const d = calculateDerived(attrs, vampire)
     expect(d.supernatural_trait.name).toBe('Blood Potency')
     expect(d.supernatural_trait.value).toBe(1)
+  })
+
+  it('returns empty resource_pool when pool is null', () => {
+    expect(calculateDerived(attrs, hunter).resource_pool).toEqual({ name: '', max: 0 })
+  })
+
+  it('returns empty supernatural_trait when trait is null', () => {
+    expect(calculateDerived(attrs, hunter).supernatural_trait).toEqual({ name: '', value: 0 })
   })
 })
