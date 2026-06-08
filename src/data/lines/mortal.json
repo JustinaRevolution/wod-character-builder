@@ -1,0 +1,26 @@
+{
+  "id": "mortal",
+  "name": "Mortals",
+  "shortName": "Mortal",
+  "color": "#a0a0a0",
+  "template": {
+    "group1": {
+      "label": "Occupation",
+      "field": "occupation",
+      "freeform": true,
+      "placeholder": "What do they do? Detective, doctor, journalist, criminal...",
+      "options": []
+    },
+    "group2": null
+  },
+  "powers": {
+    "type": "picks",
+    "label": "Supernatural Powers",
+    "description": "Standard mortals have no supernatural powers. Exceptional abilities — psychic sensitivity, trained fighting styles, contacts, resources — are purchased as Merits in the next step.",
+    "startingDots": 0,
+    "picksFrom": [],
+    "items": []
+  },
+  "resource": { "pool": null, "trait": null },
+  "integrity": { "name": "Morality", "startValue": 7 }
+}

@@ -7,8 +7,9 @@ import changeling  from '../../data/lines/changeling.json'
 import promethean  from '../../data/lines/promethean.json'
 import geist       from '../../data/lines/geist.json'
 import secondSight from '../../data/lines/second-sight.json'
+import mortal      from '../../data/lines/mortal.json'
 
-const LINES = [vampire, werewolf, mage, mummy, hunter, changeling, promethean, geist, secondSight]
+const LINES = [vampire, werewolf, mage, mummy, hunter, changeling, promethean, geist, secondSight, mortal]
 
 export default function StepGameLine({ selectedLine, onSelect }) {
   return (

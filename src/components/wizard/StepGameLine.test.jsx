@@ -3,12 +3,13 @@ import { describe, it, expect, vi } from 'vitest'
 import StepGameLine from './StepGameLine'
 
 describe('StepGameLine', () => {
-  it('renders a card for each of the 9 game lines', () => {
+  it('renders a card for each game line', () => {
     render(<StepGameLine selectedLine="" onSelect={() => {}} />)
     expect(screen.getByText('Vampire: the Requiem')).toBeInTheDocument()
     expect(screen.getByText('Werewolf: the Forsaken')).toBeInTheDocument()
     expect(screen.getByText('Second Sight')).toBeInTheDocument()
-    expect(screen.getAllByRole('button')).toHaveLength(9)
+    expect(screen.getByText('Mortals')).toBeInTheDocument()
+    expect(screen.getAllByRole('button')).toHaveLength(10)
   })
 
   it('marks the selected line as active', () => {
