@@ -4,7 +4,6 @@
   body { @apply bg-gray-950 text-gray-100 min-h-screen; }
 }
 
-.no-print { display: block; }
 .print-only { display: none; }
 
 @media print {
