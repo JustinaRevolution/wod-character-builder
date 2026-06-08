@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 const STORAGE_KEY = 'wod-draft'
 
@@ -27,9 +27,12 @@ const DEFAULT = {
   notes: '',
 }
 
-export default function useCharacter() {
-  const skipSave = useRef(false)
+const save = (next) => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
+  return next
+}
 
+export default function useCharacter() {
   const [character, setCharacter] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
@@ -37,49 +40,40 @@ export default function useCharacter() {
     } catch { return structuredClone(DEFAULT) }
   })
 
-  useEffect(() => {
-    if (skipSave.current) {
-      skipSave.current = false
-      return
-    }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(character))
-  }, [character])
-
   const updateMeta = (field, value) =>
-    setCharacter(c => ({ ...c, meta: { ...c.meta, [field]: value } }))
+    setCharacter(c => save({ ...c, meta: { ...c.meta, [field]: value } }))
 
   const updateAttribute = (cat, attr, value) =>
-    setCharacter(c => ({ ...c, attributes: { ...c.attributes, [cat]: { ...c.attributes[cat], [attr]: value } } }))
+    setCharacter(c => save({ ...c, attributes: { ...c.attributes, [cat]: { ...c.attributes[cat], [attr]: value } } }))
 
   const updateSkill = (cat, skill, value) =>
-    setCharacter(c => ({ ...c, skills: { ...c.skills, [cat]: { ...c.skills[cat], [skill]: value } } }))
+    setCharacter(c => save({ ...c, skills: { ...c.skills, [cat]: { ...c.skills[cat], [skill]: value } } }))
 
   const addSpecialty = (spec) =>
-    setCharacter(c => ({ ...c, specialties: [...c.specialties, spec] }))
+    setCharacter(c => save({ ...c, specialties: [...c.specialties, spec] }))
 
   const removeSpecialty = (i) =>
-    setCharacter(c => ({ ...c, specialties: c.specialties.filter((_, idx) => idx !== i) }))
+    setCharacter(c => save({ ...c, specialties: c.specialties.filter((_, idx) => idx !== i) }))
 
   const updateTemplate = (field, value) =>
-    setCharacter(c => ({ ...c, template: { ...c.template, [field]: value } }))
+    setCharacter(c => save({ ...c, template: { ...c.template, [field]: value } }))
 
   const setPowers = (powers) =>
-    setCharacter(c => ({ ...c, powers }))
+    setCharacter(c => save({ ...c, powers }))
 
   const addMerit = (merit) =>
-    setCharacter(c => ({ ...c, merits: [...c.merits, merit] }))
+    setCharacter(c => save({ ...c, merits: [...c.merits, merit] }))
 
   const removeMerit = (i) =>
-    setCharacter(c => ({ ...c, merits: c.merits.filter((_, idx) => idx !== i) }))
+    setCharacter(c => save({ ...c, merits: c.merits.filter((_, idx) => idx !== i) }))
 
   const setDerived = (derived) =>
-    setCharacter(c => ({ ...c, derived }))
+    setCharacter(c => save({ ...c, derived }))
 
   const updateNotes = (notes) =>
-    setCharacter(c => ({ ...c, notes }))
+    setCharacter(c => save({ ...c, notes }))
 
   const resetCharacter = () => {
-    skipSave.current = true
     localStorage.removeItem(STORAGE_KEY)
     setCharacter(structuredClone(DEFAULT))
   }

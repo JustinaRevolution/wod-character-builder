@@ -59,10 +59,24 @@ describe('useCharacter', () => {
     expect(result.current.character.merits).toHaveLength(0)
   })
 
-  it('setDerived replaces derived object', () => {
+  it('setDerived replaces derived object entirely', () => {
     const { result } = renderHook(() => useCharacter())
-    act(() => result.current.setDerived({ health: 7 }))
+    const fullDerived = {
+      health: 7, willpower: 4, speed: 10, defense: 3, initiative: 5,
+      resource_pool: { name: 'Vitae', max: 10 },
+      integrity: { name: 'Humanity', value: 7 },
+      supernatural_trait: { name: 'Blood Potency', value: 1 },
+    }
+    act(() => result.current.setDerived(fullDerived))
     expect(result.current.character.derived.health).toBe(7)
+    expect(result.current.character.derived.willpower).toBe(4)
+    expect(result.current.character.derived.resource_pool.name).toBe('Vitae')
+  })
+
+  it('updateNotes updates the notes field', () => {
+    const { result } = renderHook(() => useCharacter())
+    act(() => result.current.updateNotes('A spy from Venice.'))
+    expect(result.current.character.notes).toBe('A spy from Venice.')
   })
 
   it('persists to localStorage and restores on remount', () => {
