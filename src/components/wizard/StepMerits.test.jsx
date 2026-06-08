@@ -24,4 +24,17 @@ describe('StepMerits', () => {
     fireEvent.click(screen.getByText('✕'))
     expect(onRemove).toHaveBeenCalledWith(0)
   })
+
+  it('clears the name input after adding', () => {
+    render(<StepMerits merits={[]} onAdd={() => {}} onRemove={() => {}} />)
+    fireEvent.change(screen.getByPlaceholderText('Merit name'), { target: { value: 'Contacts' } })
+    fireEvent.click(screen.getByText('Add'))
+    expect(screen.getByPlaceholderText('Merit name').value).toBe('')
+  })
+
+  it('shows remaining dots and negative when over budget', () => {
+    const overBudget = [{ name: 'A', dots: 5 }, { name: 'B', dots: 3 }]
+    render(<StepMerits merits={overBudget} onAdd={() => {}} onRemove={() => {}} />)
+    expect(screen.getByText(/-1 of 7 dots remaining/i)).toBeInTheDocument()
+  })
 })
