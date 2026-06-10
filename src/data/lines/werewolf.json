@@ -4,35 +4,30 @@
     "group1": {
       "label": "Tribe", "field": "tribe",
       "options": [
-        { "id": "blood_talons", "name": "Blood Talons",        "description": "Warriors for whom battle is sacred.",          "hint": "Primary Renown: Glory" },
-        { "id": "bone_shadows", "name": "Bone Shadows",        "description": "Spirit-speakers who walk between worlds.",     "hint": "Primary Renown: Wisdom" },
-        { "id": "hunters",      "name": "Hunters in Darkness", "description": "Guardians of the sacred hunt ground.",         "hint": "Primary Renown: Purity" },
-        { "id": "iron_masters", "name": "Iron Masters",        "description": "Adaptors who embrace the modern world.",       "hint": "Primary Renown: Cunning" },
-        { "id": "storm_lords",  "name": "Storm Lords",         "description": "Alphas born to lead packs ruthlessly.",        "hint": "Primary Renown: Honor" },
-        { "id": "ghost_wolves", "name": "Ghost Wolves",        "description": "Tribeless Uratha — free but without a totem.", "hint": "No primary Renown" }
+        { "id": "blood_talons", "name": "Blood Talons",        "description": "Warriors for whom battle is sacred.",          "hint": "Primary Renown: Glory",   "giftLists": ["inspiration", "rage", "strength"] },
+        { "id": "bone_shadows", "name": "Bone Shadows",        "description": "Spirit-speakers who walk between worlds.",     "hint": "Primary Renown: Wisdom",  "giftLists": ["death", "insight", "warding"] },
+        { "id": "hunters",      "name": "Hunters in Darkness", "description": "Guardians of the sacred hunt ground.",         "hint": "Primary Renown: Purity",  "giftLists": ["elemental", "nature", "stealth"] },
+        { "id": "iron_masters", "name": "Iron Masters",        "description": "Adaptors who embrace the modern world.",       "hint": "Primary Renown: Cunning", "giftLists": ["knowledge", "shaping", "technology"] },
+        { "id": "storm_lords",  "name": "Storm Lords",         "description": "Alphas born to lead packs ruthlessly.",        "hint": "Primary Renown: Honor",   "giftLists": ["dominance", "evasion", "weather"] },
+        { "id": "ghost_wolves", "name": "Ghost Wolves",        "description": "Tribeless Uratha — free but without a totem.", "hint": "No primary Renown",       "giftLists": ["father_wolf", "mother_luna"] }
       ]
     },
     "group2": {
       "label": "Auspice", "field": "auspice",
       "options": [
-        { "id": "cahalith", "name": "Cahalith", "description": "Gibbous Moon — visionaries and lorekeepers.", "hint": "Renown: Glory. Bonus Skills: Crafts, Expression, Persuasion",    "renownTrack": "Glory"   },
-        { "id": "elodoth",  "name": "Elodoth",  "description": "Half Moon — judges who walk between worlds.", "hint": "Renown: Honor. Bonus Skills: Empathy, Investigation, Politics",  "renownTrack": "Honor"   },
-        { "id": "irraka",   "name": "Irraka",   "description": "New Moon — scouts and tricksters of shadow.", "hint": "Renown: Cunning. Bonus Skills: Larceny, Stealth, Subterfuge",   "renownTrack": "Cunning" },
-        { "id": "ithaeur",  "name": "Ithaeur",  "description": "Crescent Moon — shamans who deal with spirits.", "hint": "Renown: Wisdom. Bonus Skills: Animal Ken, Occult, Survival", "renownTrack": "Wisdom"  },
-        { "id": "rahu",     "name": "Rahu",     "description": "Full Moon — warriors born for battle.",        "hint": "Renown: Purity. Bonus Skills: Brawl, Intimidation, Weaponry",  "renownTrack": "Purity"  }
+        { "id": "cahalith", "name": "Cahalith", "description": "Gibbous Moon — visionaries and lorekeepers.", "hint": "Renown: Glory. Bonus Skills: Crafts, Expression, Persuasion",    "renownTrack": "Glory",   "giftLists": ["gibbous_moon", "inspiration", "knowledge"] },
+        { "id": "elodoth",  "name": "Elodoth",  "description": "Half Moon — judges who walk between worlds.", "hint": "Renown: Honor. Bonus Skills: Empathy, Investigation, Politics",  "renownTrack": "Honor",   "giftLists": ["half_moon", "insight", "warding"] },
+        { "id": "irraka",   "name": "Irraka",   "description": "New Moon — scouts and tricksters of shadow.", "hint": "Renown: Cunning. Bonus Skills: Larceny, Stealth, Subterfuge",   "renownTrack": "Cunning", "giftLists": ["evasion", "new_moon", "stealth"] },
+        { "id": "ithaeur",  "name": "Ithaeur",  "description": "Crescent Moon — shamans who deal with spirits.", "hint": "Renown: Wisdom. Bonus Skills: Animal Ken, Occult, Survival", "renownTrack": "Wisdom",  "giftLists": ["crescent_moon", "elemental", "shaping"] },
+        { "id": "rahu",     "name": "Rahu",     "description": "Full Moon — warriors born for battle.",        "hint": "Renown: Purity. Bonus Skills: Brawl, Intimidation, Weaponry",  "renownTrack": "Purity",  "giftLists": ["dominance", "full_moon", "strength"] }
       ]
     }
   },
   "powers": {
-    "type": "picks",
+    "type": "gifts",
     "label": "Gifts",
-    "description": "Choose 3 Auspice Gifts and 3 Tribe Gifts. Refer to Werewolf: the Forsaken for your Auspice and Tribe gift lists. Record gift names in the text fields below.",
-    "startingDots": 6,
-    "picksFrom": [
-      { "source": "group2", "count": 3, "label": "Auspice Gifts" },
-      { "source": "group1", "count": 3, "label": "Tribe Gifts" }
-    ],
-    "items": []
+    "auspicePicks": 3,
+    "tribePicks": 3
   },
   "renown": { "tracks": ["Cunning","Glory","Honor","Purity","Wisdom"], "startingDots": 1, "fromAuspice": true },
   "resource": {
