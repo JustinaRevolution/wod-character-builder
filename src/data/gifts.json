@@ -661,5 +661,464 @@
         "description": "The werewolf transforms into a terrifying prehistoric Primal Form standing six to eight feet tall at the shoulder, with greatly enhanced Attributes, lethal damage regeneration each turn, and Lunacy as if in Gauru."
       }
     ]
+  },
+  "nature": {
+    "id": "nature",
+    "name": "Nature",
+    "gifts": [
+      {
+        "id": "speak_with_beasts",
+        "level": 1,
+        "name": "Speak with Beasts",
+        "cost": "None",
+        "dice": "Manipulation + Animal Ken + Purity",
+        "action": "Reflexive",
+        "description": "The werewolf communicates with any animal using voice and body language, though the animal has no obligation to listen or cooperate; the effect lasts one minute."
+      },
+      {
+        "id": "plant_growth",
+        "level": 2,
+        "name": "Plant Growth",
+        "cost": "1 Willpower",
+        "dice": "Wits + Survival + Honor",
+        "action": "Instant",
+        "description": "Each success increases a plant or group of plants by one cubic yard per minute, shaping vegetation into any desired form permanently."
+      },
+      {
+        "id": "forest_communion",
+        "level": 3,
+        "name": "Forest Communion",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Survival + Cunning",
+        "action": "Instant",
+        "description": "Entering a trance, the werewolf senses life within 500 yards — presence of intruders, potential fires, and fleeting glimpses through the senses of nearby animals."
+      },
+      {
+        "id": "beast_ride",
+        "level": 4,
+        "name": "Beast Ride",
+        "cost": "1 Essence",
+        "dice": "Wits + Animal Ken + Wisdom – animal's Resolve",
+        "action": "Instant",
+        "description": "The werewolf enters the mind of a mammal or bird, sensing what it does and exerting influence over where it goes; the ride lasts one hour per success rolled."
+      },
+      {
+        "id": "natures_vengeance",
+        "level": 5,
+        "name": "Nature's Vengeance",
+        "cost": "1 Essence",
+        "dice": "Intelligence + Survival + Glory",
+        "action": "Instant",
+        "description": "The werewolf animates roughly 25 square yards of vegetation per success, causing branches, vines, and grasses to smash, entangle, and attack those marked as enemies."
+      }
+    ]
+  },
+  "new_moon": {
+    "id": "new_moon",
+    "name": "New Moon",
+    "gifts": [
+      {
+        "id": "sense_weakness",
+        "level": 1,
+        "name": "Sense Weakness",
+        "cost": "None",
+        "dice": "Intelligence + Empathy + Wisdom",
+        "action": "Instant",
+        "description": "By observing a target for one turn, the werewolf learns one of three possible weaknesses: the target's Vice, any derangements the target suffers, or physical Flaws the character possesses."
+      },
+      {
+        "id": "slip_away",
+        "level": 2,
+        "name": "Slip Away",
+        "cost": "1 Willpower",
+        "dice": "No roll is required",
+        "action": "Reflexive",
+        "description": "The Irraka automatically escapes any mundane physical bond — handcuffs, rope, or straitjacket — and succeeds automatically on any escape attempt from a grapple."
+      },
+      {
+        "id": "distractions",
+        "level": 3,
+        "name": "Distractions",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Subterfuge + Glory versus subject's Resolve + Primal Urge",
+        "action": "Instant",
+        "description": "The werewolf spits whispered yips and hisses that cause half-perceived visions, imposing a –2 penalty to all rolls for one chosen target each turn the Irraka maintains the effect."
+      },
+      {
+        "id": "blend_in",
+        "level": 4,
+        "name": "Blend In",
+        "cost": "1 Essence",
+        "dice": "Wits + Subterfuge + Cunning versus the highest Wits among observers",
+        "action": "Instant and contested; resistance is reflexive",
+        "description": "The Irraka appears to belong in whatever environment he enters, becoming unnoticeable even to cameras and security systems for the duration of the scene."
+      },
+      {
+        "id": "ghost_step",
+        "level": 5,
+        "name": "Ghost Step",
+        "cost": "1 Essence",
+        "dice": "Wits + Survival + Purity",
+        "action": "Instant",
+        "description": "The Irraka becomes insubstantial and ghostly — immune to physical attacks, scentless, and nearly imperceptible by sight — for a number of turns equal to his Harmony score."
+      }
+    ]
+  },
+  "rage": {
+    "id": "rage",
+    "name": "Rage",
+    "gifts": [
+      {
+        "id": "mask_of_rage",
+        "level": 1,
+        "name": "Mask of Rage",
+        "cost": "1 Essence",
+        "dice": "No roll is required",
+        "action": "Instant",
+        "description": "The werewolf exposes onlookers to Lunacy as if in Gauru form regardless of his actual form; the effect lasts as long as he remains in the form in which he activated it."
+      },
+      {
+        "id": "home_rage",
+        "level": 2,
+        "name": "Home Rage",
+        "cost": "1 Essence",
+        "dice": "Stamina + Survival + Purity",
+        "action": "Reflexive",
+        "description": "Each success allows the werewolf to sacrifice one Gauru turn for a temporary dot of Strength or Dexterity, lasting while he remains in Gauru form."
+      },
+      {
+        "id": "leach_rage",
+        "level": 3,
+        "name": "Leach Rage",
+        "cost": "1 Essence",
+        "dice": "Presence + Empathy + Cunning – subject's Composure",
+        "action": "Instant",
+        "description": "The werewolf literally steals Gauru turns from a raging victim; for every success, the victim loses one turn in Gauru and the Gift user gains that turn."
+      },
+      {
+        "id": "rekindled_rage",
+        "level": 4,
+        "name": "Rekindled Rage",
+        "cost": "1 Willpower",
+        "dice": "Stamina + Expression + Glory",
+        "action": "Instant",
+        "description": "The werewolf rekindles his Rage to enter Gauru form a second time in a scene, remaining in war form for a number of turns equal to Stamina + Primal Urge – 2 on success."
+      },
+      {
+        "id": "soured_rage",
+        "level": 5,
+        "name": "Soured Rage",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Intimidation + Purity versus Composure + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "A First Tongue curse poisons the victim's controlled Rage into a self-preservation instinct, causing the victim to flee in a mindless Death Rage for the rest of the scene."
+      }
+    ]
+  },
+  "shaping": {
+    "id": "shaping",
+    "name": "Shaping",
+    "gifts": [
+      {
+        "id": "straighten",
+        "level": 1,
+        "name": "Straighten",
+        "cost": "1 Essence",
+        "dice": "No roll is required",
+        "action": "Instant",
+        "description": "The werewolf straightens kinks, warps, and imperfections in a physical object up to one square yard per turn, restoring it to original shape without repairing actual structural damage."
+      },
+      {
+        "id": "ruin",
+        "level": 2,
+        "name": "Ruin",
+        "cost": "1 Essence",
+        "dice": "Wits + Crafts + Cunning",
+        "action": "Instant",
+        "description": "With a harsh bark, the werewolf causes an object up to one square yard in area to warp, twist, and crumple into a useless, gnarled mass."
+      },
+      {
+        "id": "sculpt",
+        "level": 3,
+        "name": "Sculpt",
+        "cost": "1 Essence per half an hour of work",
+        "dice": "Intelligence + Crafts + Wisdom",
+        "action": "Instant",
+        "description": "The werewolf shapes up to one cubic yard of a non-living substance as if it were clay while maintaining physical contact, working and reshaping it for half an hour per Essence spent."
+      },
+      {
+        "id": "shatter",
+        "level": 4,
+        "name": "Shatter",
+        "cost": "1 Willpower",
+        "dice": "Presence + Expression + Glory",
+        "action": "Instant",
+        "description": "The werewolf breaks down an object by touching it; each success removes one point of Structure, potentially crumbling it to dust or fracturing it like desert hardpan."
+      },
+      {
+        "id": "condense_or_expand",
+        "level": 5,
+        "name": "Condense or Expand",
+        "cost": "1 Willpower",
+        "dice": "Intelligence + Crafts + Purity",
+        "action": "Instant",
+        "description": "The werewolf shrinks or enlarges an object while maintaining its mass, reducing Size by one while increasing Durability by two (or vice versa); the change is permanent."
+      }
+    ]
+  },
+  "stealth": {
+    "id": "stealth",
+    "name": "Stealth",
+    "gifts": [
+      {
+        "id": "feet_of_mist",
+        "level": 1,
+        "name": "Feet of Mist",
+        "cost": "1 Essence",
+        "dice": "This power requires no roll",
+        "action": "Reflexive",
+        "description": "All attempts to track the werewolf by scent automatically suffer a –1 penalty; spending a Willpower point intensifies this to –3, though the werewolf may suppress the effect voluntarily."
+      },
+      {
+        "id": "blending",
+        "level": 2,
+        "name": "Blending",
+        "cost": "None",
+        "dice": "Wits + Stealth + Cunning versus Wits + Composure",
+        "action": "Instant or contested",
+        "description": "The werewolf hides in plain sight by remaining perfectly still, becoming indistinguishable from a landscape feature; even the slightest movement ends the effect."
+      },
+      {
+        "id": "running_shadow",
+        "level": 3,
+        "name": "Running Shadow",
+        "cost": "1 Essence",
+        "dice": "This power requires no roll",
+        "action": "Reflexive",
+        "description": "For the scene, mundane Stealth becomes reflexive — the werewolf can move at full speed as silently as on tiptoe, and observers suffer a –3 penalty on contested rolls to notice her."
+      },
+      {
+        "id": "shadow_flesh",
+        "level": 4,
+        "name": "Shadow Flesh",
+        "cost": "1 Essence",
+        "dice": "Wits + Stealth + Cunning",
+        "action": "Instant",
+        "description": "The werewolf's body transforms into a living two-dimensional shadow, gaining +3 to Stealth and Defense and the ability to slip through small openings and under doors."
+      },
+      {
+        "id": "vanish",
+        "level": 5,
+        "name": "Vanish",
+        "cost": "2 Essence",
+        "dice": "Wits + Stealth + Purity",
+        "action": "Instant",
+        "description": "The werewolf fades from all visual detection — cameras, heat sensors, and normal sight — for the scene, though the Gift offers no protection against non-visual senses."
+      }
+    ]
+  },
+  "strength": {
+    "id": "strength",
+    "name": "Strength",
+    "gifts": [
+      {
+        "id": "crushing_blow",
+        "level": 1,
+        "name": "Crushing Blow",
+        "cost": "1 Willpower",
+        "dice": "No roll is necessary",
+        "action": "Reflexive",
+        "description": "For the duration of the scene, any bashing damage the werewolf inflicts with bare hands or a blunt instrument is converted to lethal damage."
+      },
+      {
+        "id": "mighty_bound",
+        "level": 2,
+        "name": "Mighty Bound",
+        "cost": "None",
+        "dice": "None",
+        "action": "None",
+        "description": "The werewolf permanently gains six extra dice on all jumping rolls; the Gift's effects are always active once learned and require no activation."
+      },
+      {
+        "id": "iron_rending",
+        "level": 3,
+        "name": "Iron-Rending",
+        "cost": "1 Essence",
+        "dice": "Strength + Crafts + Glory",
+        "action": "Reflexive",
+        "description": "The werewolf's claws can tear apart steel and stone; each success lets him ignore that many points of an object's Durability or a target's Armor for one turn per success rolled."
+      },
+      {
+        "id": "legendary_arm",
+        "level": 4,
+        "name": "Legendary Arm",
+        "cost": "1 Essence",
+        "dice": "This power requires no roll",
+        "action": "Reflexive",
+        "description": "The werewolf can hurl any object while disregarding its Size, greatly extending its throwing range to Strength + Dexterity + Athletics yards for non-aerodynamic objects."
+      },
+      {
+        "id": "savage_might",
+        "level": 5,
+        "name": "Savage Might",
+        "cost": "1 Essence per three Strength gained",
+        "dice": "This power requires no roll",
+        "action": "Reflexive",
+        "description": "Each Essence spent increases the werewolf's Strength by three dots for one turn, even beyond Primal Urge maximums, enabling feats of impossible physical power."
+      }
+    ]
+  },
+  "technology": {
+    "id": "technology",
+    "name": "Technology",
+    "gifts": [
+      {
+        "id": "left_handed_spanner",
+        "level": 1,
+        "name": "Left-Handed Spanner",
+        "cost": "1 Willpower",
+        "dice": "Wits + Crafts + Purity",
+        "action": "Instant",
+        "description": "The werewolf channels spirit energy into a touched technological object, causing it to malfunction for a number of turns equal to successes rolled."
+      },
+      {
+        "id": "nightfall",
+        "level": 2,
+        "name": "Nightfall",
+        "cost": "1 Willpower",
+        "dice": "Wits + Larceny + Cunning",
+        "action": "Instant",
+        "description": "The werewolf extinguishes all electric lighting in a targeted area of about 2,000 square feet per success, preventing those lights from functioning for the scene."
+      },
+      {
+        "id": "iron_treachery",
+        "level": 3,
+        "name": "Iron Treachery",
+        "cost": "1 Essence",
+        "dice": "Wits + Crafts + Glory – Resolve",
+        "action": "Instant",
+        "description": "With a gesture and snarl, the werewolf awakens the spirit of a machine and drives it into angry independence — a pistol jerks, a steering wheel twists, a computer rebels."
+      },
+      {
+        "id": "maschingeist",
+        "level": 4,
+        "name": "Maschingeist",
+        "cost": "1 Essence",
+        "dice": "Wits + Computer + Wisdom",
+        "action": "Instant or extended (10 to 20 successes required; each roll represents a minute's time)",
+        "description": "The werewolf merges his being with a machine's spirit, experiencing what it senses and accessing any knowledge or information it possesses for a number of turns equal to his Harmony."
+      },
+      {
+        "id": "create_technology",
+        "level": 5,
+        "name": "Create Technology",
+        "cost": "1 Essence + 1 Willpower",
+        "dice": "Intelligence + Crafts + Cunning",
+        "action": "Extended (5 to 50 successes required; one turn passes per roll)",
+        "description": "Given rough materials, the werewolf rapidly creates sophisticated technological devices from almost nothing, accumulating 5 to 50 successes depending on the item's complexity."
+      }
+    ]
+  },
+  "warding": {
+    "id": "warding",
+    "name": "Warding",
+    "gifts": [
+      {
+        "id": "ward_versus_predators",
+        "level": 1,
+        "name": "Ward Versus Predators",
+        "cost": "None",
+        "dice": "Presence + Intimidation + Honor",
+        "action": "Extended (5 successes per square mile required; one hour per roll)",
+        "description": "The werewolf marks territory up to one square mile per Primal Urge dot; all predatory animals instinctively recognize it as claimed land and avoid it for one lunar cycle."
+      },
+      {
+        "id": "ward_versus_humans",
+        "level": 2,
+        "name": "Ward Versus Humans",
+        "cost": "1 Willpower",
+        "dice": "Presence + Intimidation + Wisdom",
+        "action": "Extended (5 successes per square mile required; one hour per roll)",
+        "description": "The werewolf wards territory against humans, filling those who enter with unparalleled dread and a powerful compulsion to flee; the ward persists for one lunar cycle."
+      },
+      {
+        "id": "technology_ward",
+        "level": 3,
+        "name": "Technology Ward",
+        "cost": "1 Essence",
+        "dice": "Presence + Crafts + Cunning",
+        "action": "Instant",
+        "description": "The werewolf's howl creates a spiritual barrier rendering all electronic items and complex mechanical devices useless within five feet per success rolled for the scene."
+      },
+      {
+        "id": "shadow_ward",
+        "level": 4,
+        "name": "Shadow Ward",
+        "cost": "1 Essence",
+        "dice": "Presence + Occult + Glory",
+        "action": "Extended (30 successes; one hour per roll)",
+        "description": "The werewolf outlines territory with ritual designs, strengthening the Gauntlet in the warded area by one per success for one lunar cycle; the caster can reverse the effect by spending one Essence."
+      },
+      {
+        "id": "ward_of_spirit_slumber",
+        "level": 5,
+        "name": "Ward of Spirit Slumber",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Occult + Purity versus Resistance",
+        "action": "Instant, can be contested",
+        "description": "The werewolf sings Luna's lullaby through the Gauntlet, lulling spirits in the warded area into a deep enchanted slumber for one turn per success that can last for days."
+      }
+    ]
+  },
+  "weather": {
+    "id": "weather",
+    "name": "Weather",
+    "gifts": [
+      {
+        "id": "call_the_breeze",
+        "level": 1,
+        "name": "Call the Breeze",
+        "cost": "None",
+        "dice": "This power requires no roll",
+        "action": "Instant",
+        "description": "The werewolf summons a brisk wind of about 25 miles per hour and directs it at will, causing a –1 penalty to perception rolls in the area; the breeze lasts one turn per Primal Urge dot."
+      },
+      {
+        "id": "silent_fog",
+        "level": 2,
+        "name": "Silent Fog",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Survival + Cunning",
+        "action": "Instant",
+        "description": "The werewolf summons a dense fog bank covering Primal Urge × 20 square yards that can be directed at (Primal Urge × 10) yards per turn, imposing a –2 penalty to perception checks."
+      },
+      {
+        "id": "deluge",
+        "level": 3,
+        "name": "Deluge",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Survival + Honor",
+        "action": "Extended (20 successes; one turn passes per roll)",
+        "description": "The werewolf summons a torrential downpour across one square mile per success, capable of flooding low-lying areas, ruining crops, or erasing evidence of a pack's passage."
+      },
+      {
+        "id": "killing_frost",
+        "level": 4,
+        "name": "Killing Frost",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Survival + Purity",
+        "action": "Instant",
+        "description": "Temperature plunges below freezing within 10 yards per Primal Urge dot, inflicting 2 bashing damage on living creatures and imposing –2 to Strength and Dexterity for the cold's duration."
+      },
+      {
+        "id": "thunderbolt",
+        "level": 5,
+        "name": "Thunderbolt",
+        "cost": "1 Essence",
+        "dice": "Intelligence + Survival + Glory – Defense",
+        "action": "Instant",
+        "description": "The werewolf commands a thunderbird to strike a chosen foe with lightning, dealing a base of 5 lethal damage plus extra successes; the target must be outdoors or near a window."
+      }
+    ]
   }
 }
