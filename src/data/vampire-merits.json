@@ -1,0 +1,79 @@
+[
+  {
+    "id": "haven_location",
+    "name": "Haven: Location",
+    "category": "vampire",
+    "line": "vampire",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Each dot adds +1 die to hunting checks. More dots place the haven near prime feeding grounds — clubs, shelters, hospitals — anywhere prey is plentiful and distracted."
+  },
+  {
+    "id": "haven_size",
+    "name": "Haven: Size",
+    "category": "vampire",
+    "line": "vampire",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "●Small apartment or chamber (1-2 rooms). ●●Large apartment or small home (3-4 rooms). ●●●Warehouse, church or large home (5-8 rooms). ●●●●Abandoned mansion or subway tunnels (9-15 rooms). ●●●●●Sprawling estate or vast tunnel network."
+  },
+  {
+    "id": "haven_security",
+    "name": "Haven: Security",
+    "category": "vampire",
+    "line": "vampire",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Each dot subtracts one die from intruder dice pools and grants +1 Initiative to anyone defending from inside. Represents locks, surveillance, hidden entrances, or fortification."
+  },
+  {
+    "id": "herd",
+    "name": "Herd",
+    "category": "vampire",
+    "line": "vampire",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A group of mortals who supply blood with little difficulty. Each dot adds +1 die to feeding rolls. Herds are not perfectly reliable — they require occasional maintenance and are never fully under a vampire's control."
+  },
+  {
+    "id": "status_city",
+    "name": "Status: City",
+    "category": "vampire",
+    "line": "vampire",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Standing among the Kindred of the domain. ●Hound or rising star. ●●Sheriff or accomplished individual. ●●●Harpy, Seneschal or Master of Elysium. ●●●●Regent, Primogen or Herald. ●●●●●Prince or true paragon. Adds dots to social rolls within the domain."
+  },
+  {
+    "id": "status_clan",
+    "name": "Status: Clan",
+    "category": "vampire",
+    "line": "vampire",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Standing within your own clan only — a Nosferatu cannot hold Gangrel Clan Status. Adds dots to social rolls with clan members. Reflects deeds and reputation within the bloodline."
+  },
+  {
+    "id": "status_covenant",
+    "name": "Status: Covenant",
+    "category": "vampire",
+    "line": "vampire",
+    "min_dots": 1,
+    "max_dots": 3,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Standing within a covenant. Required to access covenant benefits (Crúac, Theban Sorcery, Invictus merit discounts, etc.). Maximum 3 dots total across all covenants. ●Known to a select few. ●●Recognized by most in the city. ●●●Known across neighboring domains."
+  }
+]

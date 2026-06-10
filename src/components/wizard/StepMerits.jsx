@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import DotRating from '../ui/DotRating'
-import CATALOG from '../../data/merits.json'
+import BASE_CATALOG from '../../data/merits.json'
+import VAMPIRE_MERITS from '../../data/vampire-merits.json'
 
 const BUDGET = 7
-const CATEGORIES = ['all', 'mental', 'physical', 'social']
+const BASE_CATEGORIES = ['all', 'mental', 'physical', 'social']
+const LINE_MERITS = { vampire: VAMPIRE_MERITS }
 
 function dotLabel(merit) {
   const fill = (n) => '●'.repeat(n)
@@ -11,15 +13,20 @@ function dotLabel(merit) {
   return `${fill(merit.min_dots)}–${fill(merit.max_dots)}`
 }
 
-export default function StepMerits({ merits, onAdd, onRemove }) {
+export default function StepMerits({ merits, onAdd, onRemove, lineId = null }) {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('all')
   const [pending, setPending] = useState(null) // { id, dots }
 
+  const catalog = [...BASE_CATALOG, ...(LINE_MERITS[lineId] || [])]
+  const categories = LINE_MERITS[lineId]
+    ? [...BASE_CATEGORIES, lineId]
+    : BASE_CATEGORIES
+
   const spent = merits.reduce((s, m) => s + m.dots, 0)
   const remaining = BUDGET - spent
 
-  const filtered = CATALOG.filter(m => {
+  const filtered = catalog.filter(m => {
     if (category !== 'all' && m.category !== category) return false
     if (search) {
       const q = search.toLowerCase()
@@ -62,7 +69,7 @@ export default function StepMerits({ merits, onAdd, onRemove }) {
             className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-1.5 text-sm text-gray-100 mb-2 focus:outline-none focus:border-amber-400"
           />
           <div className="flex gap-1 mb-3">
-            {CATEGORIES.map(cat => (
+            {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
@@ -96,6 +103,9 @@ export default function StepMerits({ merits, onAdd, onRemove }) {
                     )}
                     {merit.chargen_only && (
                       <p className="text-xs text-amber-800 mt-0.5">Character creation only</p>
+                    )}
+                    {merit.line && (
+                      <p className="text-xs text-red-900 mt-0.5">Kindred only</p>
                     )}
                   </button>
                   {isPending && (

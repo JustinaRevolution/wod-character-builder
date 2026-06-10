@@ -84,7 +84,7 @@ export default function App() {
       case 3: return <StepAttributes attributes={character.attributes} priority={character.attributePriority} onUpdate={updateAttribute} onSetPriority={setAttributePriority} />
       case 4: return <StepSkills skills={character.skills} priority={character.skillPriority} specialties={character.specialties} onUpdateSkill={updateSkill} onSetPriority={setSkillPriority} onAddSpecialty={addSpecialty} onRemoveSpecialty={removeSpecialty} />
       case 5: return lineData ? <StepPowers lineData={lineData} template={character.template} powers={character.powers} onSetPowers={setPowers} renown={character.renown} onSetRenown={setRenown} /> : null
-      case 6: return <StepMerits merits={character.merits} onAdd={addMerit} onRemove={removeMerit} />
+      case 6: return <StepMerits merits={character.merits} onAdd={addMerit} onRemove={removeMerit} lineId={lineData?.id} />
       case 7: return lineData ? <StepDerived character={character} lineData={lineData} setDerived={setDerived} /> : null
       case 8: return lineData ? <StepReview character={character} lineData={lineData} onUpdateNotes={updateNotes} /> : null
       default: return null
