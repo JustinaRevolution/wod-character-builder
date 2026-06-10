@@ -355,5 +355,311 @@
         "description": "The werewolf becomes a vessel for Luna's wrath: his Defense doubles against incoming attacks, he gains two extra dice on close-combat attacks, and all attacks can be staged normally."
       }
     ]
+  },
+  "gibbous_moon": {
+    "id": "gibbous_moon",
+    "name": "Gibbous Moon",
+    "gifts": [
+      {
+        "id": "pack_awareness",
+        "level": 1,
+        "name": "Pack Awareness",
+        "cost": "None",
+        "dice": "Wits + Empathy + Wisdom",
+        "action": "Reflexive",
+        "description": "The Cahalith immediately senses where her packmates are, what form each is in, their general activity, and their state of being — including wound penalties and unconsciousness. Lasts one scene."
+      },
+      {
+        "id": "resist_pain",
+        "level": 2,
+        "name": "Resist Pain",
+        "cost": "1 Willpower",
+        "dice": "Stamina + Survival + Honor",
+        "action": "Instant",
+        "description": "The Cahalith ignores wound penalties, acting with a full dice pool until her last Health points are healed or she falls unconscious; she is also not threatened by Death Rage from her last three Health boxes. Lasts the remainder of the scene."
+      },
+      {
+        "id": "rallying_cry",
+        "level": 3,
+        "name": "Rallying Cry",
+        "cost": "1 Willpower",
+        "dice": "Manipulation + Expression + Glory",
+        "action": "Instant",
+        "description": "The Cahalith channels the voices of the Cahalunim through her, inspiring packmates with tales of glory; each packmate regains one spent Willpower point on a success."
+      },
+      {
+        "id": "unspoken_communication",
+        "level": 4,
+        "name": "Unspoken Communication",
+        "cost": "1 Essence",
+        "dice": "Intelligence + Socialize + Purity",
+        "action": "Instant",
+        "description": "Packmates within line of sight are joined in instantaneous mental communication for the scene, able to speak mind to mind and gaining a +3 bonus to Initiative."
+      },
+      {
+        "id": "call_of_glory",
+        "level": 5,
+        "name": "Call of Glory",
+        "cost": "1 Willpower",
+        "dice": "Presence + Expression + Glory",
+        "action": "Instant",
+        "description": "The Cahalith sings a battle hymn invoking the Lunes of the gibbous moon; each success heals one point of damage — bashing, lethal, or aggravated — for each of her packmates."
+      }
+    ]
+  },
+  "half_moon": {
+    "id": "half_moon",
+    "name": "Half Moon",
+    "gifts": [
+      {
+        "id": "scent_beneath_the_surface",
+        "level": 1,
+        "name": "Scent Beneath the Surface",
+        "cost": "1 Willpower",
+        "dice": "Wits + Empathy + Purity versus deceiver's Composure + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "After paying close attention to someone for one turn, the Elodoth gains insight into whether the subject is lying outright, misleading by omission, being evasive, or concealing her emotional state."
+      },
+      {
+        "id": "snarl_of_command",
+        "level": 2,
+        "name": "Snarl of Command",
+        "cost": "1 Willpower",
+        "dice": "Presence + Intimidation + Cunning versus subject's Composure + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "With a snarl and harsh words, the Elodoth compels a subject to reveal the simple truth behind a topic of contention, forcing one true answer from a liar's mouth."
+      },
+      {
+        "id": "aura_of_truce",
+        "level": 3,
+        "name": "Aura of Truce",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Persuasion + Honor",
+        "action": "Instant",
+        "description": "A subtle half-moon halo appears behind the Elodoth, calming the area for the scene; committing any violent act — attack, damaging property, or using a Gift against an unwilling subject — requires spending a Willpower point reflexively."
+      },
+      {
+        "id": "fuel_rage",
+        "level": 4,
+        "name": "Fuel Rage",
+        "cost": "1 Essence",
+        "dice": "Stamina + Occult + Purity",
+        "action": "Instant",
+        "description": "Used before or upon assuming Gauru form, this Gift increases the number of turns the Elodoth can remain in Gauru by a number of turns equal to the successes rolled."
+      },
+      {
+        "id": "bind_or_sunder",
+        "level": 5,
+        "name": "Bind or Sunder",
+        "cost": "1 Essence",
+        "dice": "Stamina + Occult + Purity (to extend); Manipulation + Occult + Cunning – resisting subject's Resolve (to reduce)",
+        "action": "Instant",
+        "description": "The Elodoth can increase or decrease the number of turns a werewolf of his choice remains in Gauru form, with each success adding or subtracting one turn."
+      }
+    ]
+  },
+  "insight": {
+    "id": "insight",
+    "name": "Insight",
+    "gifts": [
+      {
+        "id": "sense_malice",
+        "level": 1,
+        "name": "Sense Malice",
+        "cost": "None",
+        "dice": "Intelligence + Empathy + Wisdom versus subject's Composure + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf can smell malice, hatred, anger, or envy lurking in other people's hearts, detecting powerful negative emotions in those close enough to scent."
+      },
+      {
+        "id": "scent_of_taint",
+        "level": 2,
+        "name": "Scent of Taint",
+        "cost": "None",
+        "dice": "Wits + Occult + Purity",
+        "action": "Instant",
+        "description": "The werewolf can detect the presence of supernatural beings in his vicinity by sensing powers that defy the natural order of the physical and spirit worlds."
+      },
+      {
+        "id": "echo_dream",
+        "level": 3,
+        "name": "Echo Dream",
+        "cost": "1 Essence",
+        "dice": "Wits + Investigation + Honor",
+        "action": "Instant",
+        "description": "By holding an object or resting her hand against a surface, the Forsaken senses spirit echoes of the object or area's recent past, couched in the symbolic language of the spirit world."
+      },
+      {
+        "id": "soul_read",
+        "level": 4,
+        "name": "Soul Read",
+        "cost": "1 Essence",
+        "dice": "Intelligence + Empathy + Purity versus subject's Resolve + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The character looks directly into the heart of a subject, reading the worst fears, secrets, and sins hidden there — gaining knowledge of one secret, fear, or weakness per success."
+      },
+      {
+        "id": "omen_gazing",
+        "level": 5,
+        "name": "Omen Gazing",
+        "cost": "1 Essence",
+        "dice": "Resolve + Occult + Glory",
+        "action": "Extended (15 successes required; each roll represents one minute spent in a trance)",
+        "description": "The character enters a meditative trance and catches glimpses of the future, such as warnings of an impending attack or a potential event within the next 24 hours to one week."
+      }
+    ]
+  },
+  "inspiration": {
+    "id": "inspiration",
+    "name": "Inspiration",
+    "gifts": [
+      {
+        "id": "the_right_words",
+        "level": 1,
+        "name": "The Right Words",
+        "cost": "None",
+        "dice": "No roll required",
+        "action": "Reflexive",
+        "description": "The character gains +2 to all Social rolls made to encourage or mollify; Social rolls to bully or threaten are not affected. The effects last for a scene."
+      },
+      {
+        "id": "camaraderie",
+        "level": 2,
+        "name": "Camaraderie",
+        "cost": "None",
+        "dice": "Manipulation + Persuasion + Wisdom",
+        "action": "Reflexive",
+        "description": "The werewolf speaks about setting aside differences; if successful, all listeners gain a +1 modifier to Resolve + Composure rolls to resist Death Rage for the scene."
+      },
+      {
+        "id": "true_leader",
+        "level": 3,
+        "name": "True Leader",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Expression + Glory",
+        "action": "Instant",
+        "description": "The werewolf leads allies into an obviously dangerous situation; for each success, a point of Willpower is awarded to all allies within 100 feet."
+      },
+      {
+        "id": "spirit_skin",
+        "level": 4,
+        "name": "Spirit Skin",
+        "cost": "None",
+        "dice": "No roll required",
+        "action": "Instant",
+        "description": "The werewolf exudes a perceptible cloak of authority; the character's dots in his highest Renown are gained as a modifier to Social rolls to impress, persuade, inspire, or intimidate for the scene."
+      },
+      {
+        "id": "victors_song",
+        "level": 5,
+        "name": "Victor's Song",
+        "cost": "1 Essence",
+        "dice": "Presence + Expression + Honor",
+        "action": "Instant",
+        "description": "The werewolf howls or sings to extoll his comrades to valor and courage; each success grants one Essence to all allied werewolves within earshot, and a one-die bonus is added to all allies' dice pools."
+      }
+    ]
+  },
+  "knowledge": {
+    "id": "knowledge",
+    "name": "Knowledge",
+    "gifts": [
+      {
+        "id": "know_name",
+        "level": 1,
+        "name": "Know Name",
+        "cost": "None",
+        "dice": "Intelligence + Investigation + Cunning versus subject's Resolve + Primal Urge",
+        "action": "Instant or contested; resistance is reflexive",
+        "description": "With a glance, the werewolf can learn the name of someone she sees in person — always the name that person would answer to and consider his own."
+      },
+      {
+        "id": "travelers_blessing",
+        "level": 2,
+        "name": "Traveler's Blessing",
+        "cost": "1 Willpower per scene",
+        "dice": "Wits + Streetwise + Wisdom",
+        "action": "Reflexive",
+        "description": "The local language settles into the werewolf's mouth and knowledge of local customs wraps around her mind, granting fluency and a +1 modifier to Social rolls to influence locals."
+      },
+      {
+        "id": "sagacity",
+        "level": 3,
+        "name": "Sagacity",
+        "cost": "1 Essence",
+        "dice": "Wits + Occult + Purity",
+        "action": "Instant",
+        "description": "The werewolf becomes an instant expert in a Skill of her choice, temporarily gaining dots in that Skill equal to successes rolled, lasting one minute per success."
+      },
+      {
+        "id": "know_the_path",
+        "level": 4,
+        "name": "Know the Path",
+        "cost": "1 Essence",
+        "dice": "Wits + Survival + Glory versus subject's Resolve + Primal Urge",
+        "action": "Instant or contested; resistance is reflexive",
+        "description": "The werewolf visualizes the closest and most efficient route to wherever she wants to go, stored as precise directions in her head for the duration of the scene."
+      },
+      {
+        "id": "communion_with_the_land",
+        "level": 5,
+        "name": "Communion with the Land",
+        "cost": "1 Essence",
+        "dice": "Intelligence + Streetwise + Cunning",
+        "action": "Instant",
+        "description": "The werewolf opens her mind to her environment, gaining full knowledge of surroundings including entrances, exits, number of creatures present, and terrain features, with a +2 bonus to Defense and Initiative for the scene."
+      }
+    ]
+  },
+  "mother_luna": {
+    "id": "mother_luna",
+    "name": "Mother Luna",
+    "gifts": [
+      {
+        "id": "partial_change",
+        "level": 1,
+        "name": "Partial Change",
+        "cost": "None (or 1 Essence)",
+        "dice": "Stamina + Survival + Primal Urge",
+        "action": "Instant or reflexive",
+        "description": "The werewolf transforms only the parts of himself he needs — such as his nose for tracking by scent or his eyes for sharper color vision — without undergoing a full shapechange."
+      },
+      {
+        "id": "anybeast",
+        "level": 2,
+        "name": "Anybeast",
+        "cost": "1 Essence",
+        "dice": "No roll required",
+        "action": "Instant",
+        "description": "The werewolf camouflages himself in the skin of another carnivorous beast, allowing his Dalu, Gauru, Urshul, and Urhan forms to resemble other carnivores of similar size and build."
+      },
+      {
+        "id": "silver_jaws",
+        "level": 3,
+        "name": "Silver Jaws",
+        "cost": "1 Essence",
+        "dice": "No roll required",
+        "action": "Instant",
+        "description": "The werewolf's teeth and claws transform into silver weaponry, inflicting aggravated damage rather than lethal against werewolves; using this Gift against other werewolves is a sin against Harmony."
+      },
+      {
+        "id": "skin_stealing",
+        "level": 4,
+        "name": "Skin-Stealing",
+        "cost": "1 Essence",
+        "dice": "No roll required to activate",
+        "action": "Instant",
+        "description": "The werewolf sheathes himself in the skin of almost any human whose blood he has tasted, creating a near-perfect disguise that grants four bonus successes to disguise rolls."
+      },
+      {
+        "id": "primal_form",
+        "level": 5,
+        "name": "Primal Form",
+        "cost": "1 Essence",
+        "dice": "Stamina + Survival + Primal Urge",
+        "action": "Instant",
+        "description": "The werewolf transforms into a terrifying prehistoric Primal Form standing six to eight feet tall at the shoulder, with greatly enhanced Attributes, lethal damage regeneration each turn, and Lunacy as if in Gauru."
+      }
+    ]
   }
 }
