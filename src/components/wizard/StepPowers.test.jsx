@@ -47,17 +47,70 @@ describe('StepPowers — pool type (Vampire)', () => {
   })
 })
 
-describe('StepPowers — picks type (Werewolf)', () => {
-  it('renders group headings and text inputs', () => {
-    render(<StepPowers lineData={werewolf} template={{ auspice:'rahu', tribe:'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={{}} onSetRenown={() => {}} />)
-    expect(screen.getByText(/Auspice Gifts/i)).toBeInTheDocument()
-    expect(screen.getByText(/Tribe Gifts/i)).toBeInTheDocument()
-    // picksFrom has 3 auspice + 3 tribe = 6 text inputs
-    expect(screen.getAllByRole('textbox')).toHaveLength(6)
+describe('StepPowers — gifts type (Werewolf)', () => {
+  const baseRenown = { Cunning: 0, Glory: 0, Honor: 0, Purity: 1, Wisdom: 0 }
+
+  it('renders Auspice Gifts section heading', () => {
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu', tribe: 'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
+    expect(screen.getByText('Auspice Gifts')).toBeInTheDocument()
+  })
+
+  it('renders Tribe Gifts section for non-Ghost-Wolves', () => {
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu', tribe: 'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
+    expect(screen.getByText('Tribe Gifts')).toBeInTheDocument()
+  })
+
+  it('hides Tribe Gifts section for Ghost Wolves', () => {
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu', tribe: 'ghost_wolves' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
+    expect(screen.queryByText('Tribe Gifts')).toBeNull()
+  })
+
+  it('shows gift list tabs for the selected auspice (Rahu = Dominance, Full Moon, Strength)', () => {
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu', tribe: 'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
+    expect(screen.getByRole('button', { name: 'Dominance' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Full Moon' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Strength' })).toBeInTheDocument()
+  })
+
+  it('shows "0 of 3" counter for each section initially', () => {
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu', tribe: 'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
+    expect(screen.getAllByText('0 of 3')).toHaveLength(2)
+  })
+
+  it('calls onSetPowers with auspice_gifts when a level-1 gift is clicked', () => {
+    const onSetPowers = vi.fn()
+    // Ithaeur: Crescent Moon is the first tab; first gift = Two-World Eyes (level 1)
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'ithaeur', tribe: 'bone_shadows' }} powers={{}} onSetPowers={onSetPowers} renown={{ Cunning: 0, Glory: 0, Honor: 0, Purity: 0, Wisdom: 1 }} onSetRenown={() => {}} />)
+    fireEvent.click(screen.getByText('Two-World Eyes'))
+    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ auspice_gifts: ['two_world_eyes'] }))
+  })
+
+  it('deselects a gift when clicked again', () => {
+    const onSetPowers = vi.fn()
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'ithaeur', tribe: 'bone_shadows' }} powers={{ auspice_gifts: ['two_world_eyes'] }} onSetPowers={onSetPowers} renown={{ Cunning: 0, Glory: 0, Honor: 0, Purity: 0, Wisdom: 1 }} onSetRenown={() => {}} />)
+    fireEvent.click(screen.getByText('Two-World Eyes'))
+    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ auspice_gifts: [] }))
+  })
+
+  it('does not add a 4th auspice gift when 3 are already selected', () => {
+    const onSetPowers = vi.fn()
+    // 3 already selected; Between the Weave is level 4 and unlocked (Wisdom 4); it should be disabled (maxed)
+    const threeSelected = { auspice_gifts: ['two_world_eyes', 'read_spirit', 'gauntlet_cloak'] }
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'ithaeur', tribe: 'bone_shadows' }} powers={threeSelected} onSetPowers={onSetPowers} renown={{ Cunning: 0, Glory: 0, Honor: 0, Purity: 0, Wisdom: 4 }} onSetRenown={() => {}} />)
+    fireEvent.click(screen.getByText('Between the Weave'))
+    expect(onSetPowers).not.toHaveBeenCalled()
+  })
+
+  it('does not activate gifts above the Renown cap', () => {
+    const onSetPowers = vi.fn()
+    // Read Spirit is level 2; with Wisdom 1 (maxLevel=1), it is locked
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'ithaeur', tribe: 'bone_shadows' }} powers={{}} onSetPowers={onSetPowers} renown={{ Cunning: 0, Glory: 0, Honor: 0, Purity: 0, Wisdom: 1 }} onSetRenown={() => {}} />)
+    fireEvent.click(screen.getByText('Read Spirit'))
+    expect(onSetPowers).not.toHaveBeenCalled()
   })
 
   it('renders Renown section with all 5 tracks', () => {
-    render(<StepPowers lineData={werewolf} template={{ auspice:'rahu', tribe:'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={{}} onSetRenown={() => {}} />)
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu', tribe: 'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
     expect(screen.getByText('Renown')).toBeInTheDocument()
     expect(screen.getByText('Cunning')).toBeInTheDocument()
     expect(screen.getByText('Glory')).toBeInTheDocument()
@@ -65,8 +118,7 @@ describe('StepPowers — picks type (Werewolf)', () => {
   })
 
   it('marks the Auspice renown track', () => {
-    render(<StepPowers lineData={werewolf} template={{ auspice:'rahu' }} powers={{}} onSetPowers={() => {}} renown={{}} onSetRenown={() => {}} />)
-    // Rahu = Purity
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
     expect(screen.getByText('Auspice')).toBeInTheDocument()
   })
 })
