@@ -41,8 +41,10 @@
       { "id": "nightmare",  "name": "Nightmare",  "description": "The power to evoke and weaponize primal terror.",        "affinityFor": ["nosferatu"] },
       { "id": "obfuscate",  "name": "Obfuscate",  "description": "The power to hide from sight and perception.",           "affinityFor": ["mekhet","nosferatu"] },
       { "id": "protean",    "name": "Protean",    "description": "Shapeshifting and communion with the earth.",             "affinityFor": ["gangrel"] },
-      { "id": "resilience", "name": "Resilience", "description": "Supernatural fortitude and resistance to damage.",       "affinityFor": ["gangrel","ventrue"] },
-      { "id": "vigor",      "name": "Vigor",      "description": "Monstrous physical strength beyond mortal limits.",      "affinityFor": ["daeva","nosferatu"] }
+      { "id": "resilience",     "name": "Resilience",     "description": "Supernatural fortitude and resistance to damage.",                        "affinityFor": ["gangrel","ventrue"] },
+      { "id": "vigor",          "name": "Vigor",          "description": "Monstrous physical strength beyond mortal limits.",                         "affinityFor": ["daeva","nosferatu"] },
+      { "id": "cruac",          "name": "Crúac",          "description": "Pagan blood sorcery of the Circle of the Crone. Requires covenant membership.", "affinityFor": [] },
+      { "id": "theban_sorcery", "name": "Theban Sorcery", "description": "Sacred miracles of the Lancea et Sanctum. Requires covenant membership.",    "affinityFor": [] }
     ]
   },
   "resource": {

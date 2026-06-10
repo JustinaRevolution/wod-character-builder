@@ -1,10 +1,46 @@
+import { useState } from 'react'
 import DotRating from '../ui/DotRating'
+import POWERS from '../../data/discipline-powers.json'
+
+function PowersPanel({ itemId, currentDots }) {
+  const powers = POWERS[itemId]
+  if (!powers) return null
+  return (
+    <div className="ml-1 mb-2 mt-1 border-l-2 border-gray-700 pl-3 space-y-2.5">
+      {powers.map((p, i) => {
+        const unlocked = p.dot === 'passive' ? currentDots > 0 : currentDots >= p.dot
+        return (
+          <div key={i} className={unlocked ? 'text-gray-200' : 'text-gray-600'}>
+            <div className="flex flex-wrap items-baseline gap-x-2 text-xs">
+              {p.dot !== 'passive' && (
+                <span className={`shrink-0 ${unlocked ? 'text-amber-500' : 'text-gray-700'}`}>
+                  {'●'.repeat(p.dot)}
+                </span>
+              )}
+              <span className="font-semibold">{p.name}</span>
+              <span className={`ml-auto text-right ${unlocked ? 'text-gray-500' : 'text-gray-700'}`}>
+                {p.cost} · {p.action}
+              </span>
+            </div>
+            <p className="text-xs leading-snug mt-0.5">{p.description}</p>
+            {p.dice !== 'No roll' && p.dice !== 'No roll (always on)' && (
+              <p className={`text-xs mt-0.5 ${unlocked ? 'text-gray-600' : 'text-gray-700'}`}>
+                Roll: {p.dice}
+              </p>
+            )}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
 
 function PoolPowers({ lineData, template, powers, onSetPowers }) {
   const { items, startingDots, affinityFrom, description, caps } = lineData.powers
   const selectedAffinity = affinityFrom ? template[lineData.template[affinityFrom]?.field] : null
   const spent = Object.entries(powers).reduce((s, [k, v]) => k === '_keys' ? s : s + (v || 0), 0)
   const remaining = startingDots - spent
+  const [expanded, setExpanded] = useState(null)
 
   const handleChange = (id, v) => {
     const next = { ...powers, [id]: v }
@@ -22,17 +58,30 @@ function PoolPowers({ lineData, template, powers, onSetPowers }) {
       <p className={`text-sm mb-4 font-medium ${remaining < 0 ? 'text-red-400' : 'text-amber-400'}`}>
         {remaining} dots remaining
       </p>
-      <div className="space-y-2 max-w-sm">
+      <div className="space-y-1 max-w-sm">
         {items.map(item => {
           const isAffinity = selectedAffinity && item.affinityFor?.includes(selectedAffinity)
           const itemMax = caps ? (isAffinity ? caps.affinity : caps.default) : 5
+          const hasPowers = Boolean(POWERS[item.id])
+          const isExpanded = expanded === item.id
           return (
-            <div key={item.id} className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-300 w-28">{item.name}</span>
-                {isAffinity && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">{affinityLabel}</span>}
+            <div key={item.id}>
+              <div className="flex items-center justify-between py-0.5">
+                <div
+                  className={`flex items-center gap-2 ${hasPowers ? 'cursor-pointer' : ''}`}
+                  onClick={() => hasPowers && setExpanded(isExpanded ? null : item.id)}
+                >
+                  <span className="text-sm text-gray-300 w-28">{item.name}</span>
+                  {isAffinity && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">{affinityLabel}</span>}
+                  {hasPowers && (
+                    <span className="text-xs text-gray-600 select-none">{isExpanded ? '▾' : '▸'}</span>
+                  )}
+                </div>
+                <DotRating value={powers[item.id] || 0} max={itemMax} onChange={v => handleChange(item.id, v)} />
               </div>
-              <DotRating value={powers[item.id] || 0} max={itemMax} onChange={v => handleChange(item.id, v)} />
+              {isExpanded && (
+                <PowersPanel itemId={item.id} currentDots={powers[item.id] || 0} />
+              )}
             </div>
           )
         })}

@@ -1,0 +1,410 @@
+{
+  "animalism": [
+    {
+      "dot": 1,
+      "name": "Feral Whispers",
+      "cost": "—",
+      "dice": "Manipulation + Animal Ken + Animalism",
+      "action": "Instant",
+      "description": "Communicate with an animal via sustained eye contact; create a two-way empathic link."
+    },
+    {
+      "dot": 2,
+      "name": "Obedience",
+      "cost": "—",
+      "dice": "Presence + Animal Ken + Animalism – animal's Composure",
+      "action": "Instant",
+      "description": "Command an animal to obey a single order to the best of its ability."
+    },
+    {
+      "dot": 3,
+      "name": "Call of the Wild",
+      "cost": "1 Vitae",
+      "dice": "Presence + Animal Ken + Animalism",
+      "action": "Instant",
+      "description": "Summon all animals of one type within 100 yards per success to your location."
+    },
+    {
+      "dot": 4,
+      "name": "Subsume the Lesser Spirit",
+      "cost": "1 Vitae",
+      "dice": "Manipulation + Animal Ken + Animalism vs Composure + Blood Potency",
+      "action": "Contested",
+      "description": "Possess an animal's body; your own body falls into a torpor-like state."
+    },
+    {
+      "dot": 5,
+      "name": "Leashing the Beast",
+      "cost": "1 Vitae",
+      "dice": "Manipulation + Empathy + Animalism vs Composure + Blood Potency",
+      "action": "Instant (self) / Contested (other)",
+      "description": "Trigger or suppress vampiric frenzy in yourself or another Kindred within line of sight."
+    }
+  ],
+  "auspex": [
+    {
+      "dot": 1,
+      "name": "Heightened Senses",
+      "cost": "—",
+      "dice": "No roll",
+      "action": "N/A",
+      "description": "All senses sharpen to supernatural acuity; see in complete darkness and detect minute details at range."
+    },
+    {
+      "dot": 2,
+      "name": "Aura Perception",
+      "cost": "—",
+      "dice": "Intelligence + Empathy + Auspex – Composure",
+      "action": "Instant",
+      "description": "Read the emotional aura of a target, revealing their mood, supernatural nature, and any deception."
+    },
+    {
+      "dot": 3,
+      "name": "The Spirit's Touch",
+      "cost": "—",
+      "dice": "Wits + Occult + Auspex",
+      "action": "Instant",
+      "description": "Gain psychic impressions from an object by touching it; sense its history and the emotions of those who handled it."
+    },
+    {
+      "dot": 4,
+      "name": "Telepathy",
+      "cost": "1 Willpower (vs supernatural)",
+      "dice": "Intelligence + Socialize + Auspex – Resolve",
+      "action": "Instant",
+      "description": "Read the surface thoughts of a target within sight."
+    },
+    {
+      "dot": 5,
+      "name": "Twilight Projection",
+      "cost": "1 Willpower",
+      "dice": "Intelligence + Occult + Auspex",
+      "action": "Instant",
+      "description": "Project an astral form that can move freely and perceive the world; physical body falls into a sleep-like state."
+    }
+  ],
+  "celerity": [
+    {
+      "dot": "passive",
+      "name": "Celerity (Passive)",
+      "cost": "1 Vitae/turn",
+      "dice": "No roll",
+      "action": "Reflexive",
+      "description": "Each dot subtracts from attackers' dice pools and adds to your Initiative and Speed while active."
+    }
+  ],
+  "dominate": [
+    {
+      "dot": 1,
+      "name": "Command",
+      "cost": "—",
+      "dice": "Intelligence + Intimidation + Dominate vs Resolve + Blood Potency",
+      "action": "Contested, reflexive",
+      "description": "Issue a single-word verbal command via eye contact; the subject must obey immediately and instinctively."
+    },
+    {
+      "dot": 2,
+      "name": "Mesmerize",
+      "cost": "—",
+      "dice": "Intelligence + Expression + Dominate vs Resolve + Blood Potency",
+      "action": "Contested",
+      "description": "Place the subject in a hypnotic state and implant a complex suggestion or command that activates later."
+    },
+    {
+      "dot": 3,
+      "name": "The Forgetful Mind",
+      "cost": "—",
+      "dice": "Wits + Persuasion + Dominate – Resolve",
+      "action": "Extended",
+      "description": "Alter or erase specific memories from a subject's mind and optionally replace them with fabrications."
+    },
+    {
+      "dot": 4,
+      "name": "Conditioning",
+      "cost": "1 Willpower/roll",
+      "dice": "Wits + Subterfuge + Dominate vs Resolve + Blood Potency",
+      "action": "Contested, extended (weeks)",
+      "description": "Slowly break down a subject's resistance over weeks of repeated sessions, making them highly suggestible."
+    },
+    {
+      "dot": 5,
+      "name": "Possession",
+      "cost": "1 Willpower",
+      "dice": "Intelligence + Intimidation + Dominate vs Resolve",
+      "action": "Contested, extended",
+      "description": "Possess a mortal's body entirely, controlling it while your own lies dormant."
+    }
+  ],
+  "majesty": [
+    {
+      "dot": 1,
+      "name": "Awe",
+      "cost": "—",
+      "dice": "Presence + Expression + Majesty",
+      "action": "Instant",
+      "description": "Radiate overwhelming charisma; successes add bonus dice to your subsequent social actions for the scene."
+    },
+    {
+      "dot": 2,
+      "name": "Revelation",
+      "cost": "1 Vitae",
+      "dice": "Manipulation + Persuasion + Majesty vs Composure + Blood Potency",
+      "action": "Contested",
+      "description": "Compel a target to confess their deepest secrets."
+    },
+    {
+      "dot": 3,
+      "name": "Entrancement",
+      "cost": "—",
+      "dice": "Manipulation + Empathy + Majesty vs Composure + Blood Potency",
+      "action": "Contested",
+      "description": "Make a target deeply devoted and enamored of you, willing to serve your interests."
+    },
+    {
+      "dot": 4,
+      "name": "Summoning",
+      "cost": "1 Vitae",
+      "dice": "Manipulation + Persuasion + Majesty vs Composure + Blood Potency",
+      "action": "Contested",
+      "description": "Compel a known individual to travel directly to your location, regardless of distance."
+    },
+    {
+      "dot": 5,
+      "name": "Sovereignty",
+      "cost": "1 Willpower/scene",
+      "dice": "Presence + Intimidation + Majesty vs Composure + Blood Potency",
+      "action": "Instant / Contested",
+      "description": "Project absolute authority; any attempt to attack, criticize, or oppose you requires a contested roll."
+    }
+  ],
+  "nightmare": [
+    {
+      "dot": 1,
+      "name": "Monstrous Countenance",
+      "cost": "—",
+      "dice": "Presence + Intimidation + Nightmare vs Composure + Blood Potency",
+      "action": "Contested",
+      "description": "Reveal the terrifying face of your Beast; subjects who fail flee in panic for the rest of the scene."
+    },
+    {
+      "dot": 2,
+      "name": "Dread",
+      "cost": "1 Vitae",
+      "dice": "Manipulation + Empathy + Nightmare vs Composure + Blood Potency",
+      "action": "Contested",
+      "description": "Emanate an aura of rising existential panic that affects all those near you."
+    },
+    {
+      "dot": 3,
+      "name": "Eye of the Beast",
+      "cost": "1 Vitae",
+      "dice": "Presence + Empathy + Nightmare vs Composure + Blood Potency",
+      "action": "Contested, reflexive",
+      "description": "Paralyze a mortal with primal animal terror via direct eye contact; the victim cannot move or act."
+    },
+    {
+      "dot": 4,
+      "name": "Shatter the Mind",
+      "cost": "1 Willpower",
+      "dice": "Manipulation + Empathy + Nightmare vs Composure + Blood Potency",
+      "action": "Contested",
+      "description": "Confront a victim with their deepest fear made manifest, inflicting a temporary derangement."
+    },
+    {
+      "dot": 5,
+      "name": "Mortal Fear",
+      "cost": "1 Willpower",
+      "dice": "Presence + Intimidation + Nightmare – Composure",
+      "action": "Instant",
+      "description": "Weaponize terror itself: each success inflicts 1 lethal damage. Can only be used once per scene per target."
+    }
+  ],
+  "obfuscate": [
+    {
+      "dot": 1,
+      "name": "Touch of Shadow",
+      "cost": "—",
+      "dice": "Wits + Larceny + Obfuscate",
+      "action": "Instant",
+      "description": "Conceal a single specific object; observers cannot perceive it unless they actively search for that exact item."
+    },
+    {
+      "dot": 2,
+      "name": "Mask of Tranquility",
+      "cost": "—",
+      "dice": "No roll (always on)",
+      "action": "N/A",
+      "description": "Suppress your Predator's Taint; other Kindred do not instinctively react to you as undead."
+    },
+    {
+      "dot": 3,
+      "name": "Cloak of Night",
+      "cost": "—",
+      "dice": "Intelligence + Stealth + Obfuscate",
+      "action": "Instant",
+      "description": "Vanish completely from sight; witnesses unconsciously reconstruct their memory to explain your disappearance."
+    },
+    {
+      "dot": 4,
+      "name": "The Familiar Stranger",
+      "cost": "—",
+      "dice": "Wits + Subterfuge + Obfuscate vs Resolve + Blood Potency",
+      "action": "Contested, reflexive",
+      "description": "Appear as whomever the subject most expects to see; you take on that person's aspect in their mind."
+    },
+    {
+      "dot": 5,
+      "name": "Cloak of the Gathering",
+      "cost": "—",
+      "dice": "Intelligence + Stealth + Obfuscate",
+      "action": "Instant",
+      "description": "Extend your Obfuscate to conceal others; hide one additional person per Obfuscate dot beyond yourself."
+    }
+  ],
+  "protean": [
+    {
+      "dot": 1,
+      "name": "Aspect of the Predator",
+      "cost": "—",
+      "dice": "No roll (always on)",
+      "action": "N/A",
+      "description": "Project a supernatural predatory mien; if your Blood Potency is lower than an unknown Kindred's, treat it as equal."
+    },
+    {
+      "dot": 2,
+      "name": "Haven of Soil",
+      "cost": "1 Vitae",
+      "dice": "No roll",
+      "action": "Instant",
+      "description": "Merge your body into natural earth; immune to sunlight and physical attack while interred."
+    },
+    {
+      "dot": 3,
+      "name": "Claws of the Wild",
+      "cost": "1 Vitae",
+      "dice": "No roll",
+      "action": "Reflexive",
+      "description": "Grow fearsome natural claws; +1 to unarmed attack pools, inflict aggravated damage, +2 to climbing rolls."
+    },
+    {
+      "dot": 4,
+      "name": "Shape of the Beast",
+      "cost": "1 Vitae",
+      "dice": "No roll",
+      "action": "Instant",
+      "description": "Transform into a bat or wolf; retain your mind and Disciplines while gaining animal physical traits."
+    },
+    {
+      "dot": 5,
+      "name": "Body of Spirit",
+      "cost": "1 Vitae",
+      "dice": "No roll",
+      "action": "Instant",
+      "description": "Transform into a fine mist; immune to physical attacks, float at normal Speed, pass through any gap."
+    }
+  ],
+  "resilience": [
+    {
+      "dot": "passive",
+      "name": "Resilience (Passive)",
+      "cost": "1 Vitae/scene",
+      "dice": "No roll",
+      "action": "Instant",
+      "description": "Each dot adds 1 Stamina and 1 Health for the scene, and downgrades a number of aggravated damage points equal to your Resilience rating."
+    }
+  ],
+  "vigor": [
+    {
+      "dot": "passive",
+      "name": "Vigor (Passive)",
+      "cost": "1 Vitae/scene",
+      "dice": "No roll",
+      "action": "Instant",
+      "description": "Each dot adds 1 Strength for the scene, increasing melee damage and derived traits such as Speed and carrying capacity."
+    }
+  ],
+  "cruac": [
+    {
+      "dot": 1,
+      "name": "Level One Rituals",
+      "cost": "1+ Vitae",
+      "dice": "Manipulation + Occult + Crúac",
+      "action": "Extended",
+      "description": "Pangs of Proserpina (inflict intense hunger on a target), Rigor Mortis (immobilize a Kindred). Your Crúac dots = max ritual level you may learn."
+    },
+    {
+      "dot": 2,
+      "name": "Level Two Rituals",
+      "cost": "1+ Vitae",
+      "dice": "Manipulation + Occult + Crúac",
+      "action": "Extended",
+      "description": "Cheval (ride another's senses remotely), The Hydra's Vitae (transform your blood into lethal poison)."
+    },
+    {
+      "dot": 3,
+      "name": "Level Three Rituals",
+      "cost": "1+ Vitae",
+      "dice": "Manipulation + Occult + Crúac",
+      "action": "Extended",
+      "description": "Deflection of Wooden Doom (protection from staking), Touch of the Morrigan (channel lethal force through touch)."
+    },
+    {
+      "dot": 4,
+      "name": "Level Four Rituals",
+      "cost": "1+ Vitae",
+      "dice": "Manipulation + Occult + Crúac",
+      "action": "Extended",
+      "description": "Blood Price (steal a share of a target's Vitae when they feed), Willful Vitae (immunity to Vinculum from one feeding)."
+    },
+    {
+      "dot": 5,
+      "name": "Level Five Rituals",
+      "cost": "1+ Vitae",
+      "dice": "Manipulation + Occult + Crúac",
+      "action": "Extended",
+      "description": "Blood Blight (taint blood to inflict lethal damage), Feeding the Crone (transform into a savage feeding maw)."
+    }
+  ],
+  "theban_sorcery": [
+    {
+      "dot": 1,
+      "name": "Level One Rituals",
+      "cost": "1 Willpower + offerings",
+      "dice": "Intelligence + Academics + Theban Sorcery",
+      "action": "Extended",
+      "description": "Blood Scourge (conjure a whip of vitae), Vitae Reliquary (store Vitae in an object for later use). Your Theban Sorcery dots = max ritual level you may learn."
+    },
+    {
+      "dot": 2,
+      "name": "Level Two Rituals",
+      "cost": "1 Willpower + offerings",
+      "dice": "Intelligence + Academics + Theban Sorcery",
+      "action": "Extended",
+      "description": "Curse of Babel (render a victim unable to communicate coherently), Liar's Plague (lies cause beetles to swarm from the liar's mouth)."
+    },
+    {
+      "dot": 3,
+      "name": "Level Three Rituals",
+      "cost": "1 Willpower + offerings",
+      "dice": "Intelligence + Academics + Theban Sorcery",
+      "action": "Extended",
+      "description": "Blandishment of Sin (upgrade severity of target's next injury), Malediction of Despair (curse a specific action to fail)."
+    },
+    {
+      "dot": 4,
+      "name": "Level Four Rituals",
+      "cost": "1 Willpower + offerings",
+      "dice": "Intelligence + Academics + Theban Sorcery",
+      "action": "Extended",
+      "description": "Gift of Lazarus (reanimate a corpse as a zombie servant), Stigmata (victim bleeds from the five wounds of Christ)."
+    },
+    {
+      "dot": 5,
+      "name": "Level Five Rituals",
+      "cost": "1 Willpower + offerings",
+      "dice": "Intelligence + Academics + Theban Sorcery",
+      "action": "Extended",
+      "description": "Transubstantiation (transform one substance into another), Wrathful Judgment (channel divine fire through the target's blood)."
+    }
+  ]
+}
