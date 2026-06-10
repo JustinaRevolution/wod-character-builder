@@ -2,10 +2,12 @@ import { useState } from 'react'
 import DotRating from '../ui/DotRating'
 import BASE_CATALOG from '../../data/merits.json'
 import VAMPIRE_MERITS from '../../data/vampire-merits.json'
+import WEREWOLF_MERITS from '../../data/werewolf-merits.json'
 
 const BUDGET = 7
 const BASE_CATEGORIES = ['all', 'mental', 'physical', 'social']
-const LINE_MERITS = { vampire: VAMPIRE_MERITS }
+const LINE_MERITS = { vampire: VAMPIRE_MERITS, werewolf: WEREWOLF_MERITS }
+const LINE_LABELS = { vampire: 'Kindred only', werewolf: 'Uratha only' }
 
 function dotLabel(merit) {
   const fill = (n) => '●'.repeat(n)
@@ -105,7 +107,7 @@ export default function StepMerits({ merits, onAdd, onRemove, lineId = null }) {
                       <p className="text-xs text-amber-800 mt-0.5">Character creation only</p>
                     )}
                     {merit.line && (
-                      <p className="text-xs text-red-900 mt-0.5">Kindred only</p>
+                      <p className="text-xs text-red-900 mt-0.5">{LINE_LABELS[merit.line] ?? `${merit.line} only`}</p>
                     )}
                   </button>
                   {isPending && (

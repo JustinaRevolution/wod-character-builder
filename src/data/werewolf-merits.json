@@ -1,0 +1,35 @@
+[
+  {
+    "id": "fetish",
+    "name": "Fetish",
+    "category": "werewolf",
+    "line": "werewolf",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": true,
+    "description": "A tool or weapon empowered by a spirit bound within; the Merit's dots equal the fetish's level (one dot equals three talens). Multiple fetishes may be purchased at chargen so long as total dots don't exceed five."
+  },
+  {
+    "id": "totem",
+    "name": "Totem",
+    "category": "werewolf",
+    "line": "werewolf",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A spirit bound in mutual service to the pack; dots are pooled across all pack members to increase the totem's power and capabilities. Full totem creation rules are in Chapter Three, pp. 186–195."
+  },
+  {
+    "id": "wolf_blooded",
+    "name": "Wolf-Blooded",
+    "category": "werewolf",
+    "line": "werewolf",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": null,
+    "chargen_only": true,
+    "description": "Your character carries strong werewolf ancestry; she gains the Unseen Sense Merit for free and her Willpower counts as two higher for resisting Lunacy. Drawback: she is exposed to creatures and phenomena she can't comprehend, suffering a –1 penalty to resist derangements from horrifying events."
+  }
+]
