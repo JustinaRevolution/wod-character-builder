@@ -8,23 +8,25 @@ const skills = {
   social:   { animal_ken:0, empathy:0, expression:0, intimidation:0, persuasion:0, socialize:0, streetwise:0, subterfuge:0 },
 }
 
+const priority = { mental: 'primary', physical: 'secondary', social: 'tertiary' }
+
 describe('StepSkills', () => {
   it('renders all 24 skill labels', () => {
-    render(<StepSkills skills={skills} specialties={[]} onUpdateSkill={() => {}} onAddSpecialty={() => {}} onRemoveSpecialty={() => {}} />)
-    expect(screen.getByText('Academics')).toBeInTheDocument()
-    expect(screen.getByText('Athletics')).toBeInTheDocument()
-    expect(screen.getByText('Animal Ken')).toBeInTheDocument()
+    render(<StepSkills skills={skills} priority={priority} specialties={[]} onUpdateSkill={() => {}} onSetPriority={() => {}} onAddSpecialty={() => {}} onRemoveSpecialty={() => {}} />)
+    expect(screen.getAllByText('Academics').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Athletics').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Animal Ken').length).toBeGreaterThan(0)
   })
 
   it('renders specialty add button', () => {
-    render(<StepSkills skills={skills} specialties={[]} onUpdateSkill={() => {}} onAddSpecialty={() => {}} onRemoveSpecialty={() => {}} />)
+    render(<StepSkills skills={skills} priority={priority} specialties={[]} onUpdateSkill={() => {}} onSetPriority={() => {}} onAddSpecialty={() => {}} onRemoveSpecialty={() => {}} />)
     expect(screen.getByText('Add Specialty')).toBeInTheDocument()
   })
 
   it('calls onAddSpecialty when add button clicked with inputs filled', () => {
     const onAdd = vi.fn()
-    render(<StepSkills skills={skills} specialties={[]} onUpdateSkill={() => {}} onAddSpecialty={onAdd} onRemoveSpecialty={() => {}} />)
-    fireEvent.change(screen.getByPlaceholderText('Skill'), { target: { value: 'Occult' } })
+    render(<StepSkills skills={skills} priority={priority} specialties={[]} onUpdateSkill={() => {}} onSetPriority={() => {}} onAddSpecialty={onAdd} onRemoveSpecialty={() => {}} />)
+    fireEvent.change(screen.getByRole('combobox', { name: /specialty skill/i }), { target: { value: 'Occult' } })
     fireEvent.change(screen.getByPlaceholderText('Specialty name'), { target: { value: 'Vampires' } })
     fireEvent.click(screen.getByText('Add Specialty'))
     expect(onAdd).toHaveBeenCalledWith({ skill: 'Occult', name: 'Vampires' })

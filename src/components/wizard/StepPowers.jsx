@@ -1,7 +1,7 @@
 import DotRating from '../ui/DotRating'
 
 function PoolPowers({ lineData, template, powers, onSetPowers }) {
-  const { items, startingDots, affinityFrom, description } = lineData.powers
+  const { items, startingDots, affinityFrom, description, caps } = lineData.powers
   const selectedAffinity = affinityFrom ? template[lineData.template[affinityFrom]?.field] : null
   const spent = Object.entries(powers).reduce((s, [k, v]) => k === '_keys' ? s : s + (v || 0), 0)
   const remaining = startingDots - spent
@@ -12,6 +12,10 @@ function PoolPowers({ lineData, template, powers, onSetPowers }) {
     if (newSpent <= startingDots || v < (powers[id] || 0)) onSetPowers(next)
   }
 
+  const affinityLabel = lineData.id === 'vampire' ? 'Clan'
+    : lineData.id === 'mage' ? 'Ruling'
+    : 'Affinity'
+
   return (
     <div>
       <p className="text-gray-400 mb-2">{description}</p>
@@ -21,13 +25,14 @@ function PoolPowers({ lineData, template, powers, onSetPowers }) {
       <div className="space-y-2 max-w-sm">
         {items.map(item => {
           const isAffinity = selectedAffinity && item.affinityFor?.includes(selectedAffinity)
+          const itemMax = caps ? (isAffinity ? caps.affinity : caps.default) : 5
           return (
             <div key={item.id} className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-sm text-gray-300 w-28">{item.name}</span>
-                {isAffinity && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">Clan</span>}
+                {isAffinity && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">{affinityLabel}</span>}
               </div>
-              <DotRating value={powers[item.id] || 0} max={5} onChange={v => handleChange(item.id, v)} />
+              <DotRating value={powers[item.id] || 0} max={itemMax} onChange={v => handleChange(item.id, v)} />
             </div>
           )
         })}
@@ -104,19 +109,64 @@ function KeysPicker({ keys, selectedKeys, onSetPowers, powers }) {
   )
 }
 
-export default function StepPowers({ lineData, template, powers, onSetPowers }) {
-  const { type, label, keys } = lineData.powers
+function RenownSection({ lineData, template, renown, onSetRenown }) {
+  const { tracks, fromAuspice } = lineData.renown
+  const auspiceId = fromAuspice ? template[lineData.template.group2.field] : null
+  const auspiceOption = auspiceId
+    ? lineData.template.group2.options.find(o => o.id === auspiceId)
+    : null
+  const auspiceTrack = auspiceOption?.renownTrack || null
+
+  const getValue = (track) =>
+    track === auspiceTrack ? Math.max(1, renown[track] || 0) : (renown[track] || 0)
+
+  const handleChange = (track, value) =>
+    onSetRenown({ ...renown, [track]: track === auspiceTrack ? Math.max(1, value) : value })
+
+  return (
+    <div className="mt-8">
+      <h3 className="font-semibold text-gray-200 mb-1">Renown</h3>
+      <p className="text-gray-400 text-sm mb-4">
+        Your Auspice Renown starts at 1. Additional Renown is earned through play.
+      </p>
+      <div className="space-y-2 max-w-sm">
+        {tracks.map(track => (
+          <div key={track} className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-300 w-28">{track}</span>
+              {track === auspiceTrack && (
+                <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">Auspice</span>
+              )}
+            </div>
+            <DotRating value={getValue(track)} max={5} onChange={v => handleChange(track, v)} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default function StepPowers({ lineData, template, powers, onSetPowers, renown = {}, onSetRenown = () => {} }) {
+  const { type, label, keys, compactNote } = lineData.powers
   const selectedKeys = powers._keys || []
+
+  const isCompact = compactNote &&
+    template[lineData.template.group1.field] === 'compact'
 
   return (
     <div>
       <h2 className="text-2xl font-bold mb-2">{label}</h2>
-      {type === 'pool'
-        ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
-        : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
+      {isCompact
+        ? <p className="text-gray-400 mb-4">{compactNote}</p>
+        : type === 'pool'
+          ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+          : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
       }
-      {keys && (
+      {!isCompact && keys && (
         <KeysPicker keys={keys} selectedKeys={selectedKeys} onSetPowers={onSetPowers} powers={powers} />
+      )}
+      {lineData.renown && (
+        <RenownSection lineData={lineData} template={template} renown={renown} onSetRenown={onSetRenown} />
       )}
     </div>
   )

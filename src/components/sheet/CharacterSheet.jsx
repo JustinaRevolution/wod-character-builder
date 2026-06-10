@@ -16,7 +16,7 @@ const label = s => s === 'animal_ken' ? 'Animal Ken' : s.charAt(0).toUpperCase()
 const boxes = n => '□'.repeat(n)
 
 export default function CharacterSheet({ character, lineData }) {
-  const { meta, template, attributes, skills, specialties, powers, merits, derived, notes } = character
+  const { meta, template, attributes, skills, specialties, powers, renown = {}, merits, derived, notes } = character
   const g1 = lineData.template.group1
   const g2 = lineData.template.group2
 
@@ -113,6 +113,27 @@ export default function CharacterSheet({ character, lineData }) {
           </div>
         </div>
       </div>
+
+      {/* Renown (Werewolf only) */}
+      {lineData.renown && (
+        <div style={{ borderTop: '1px solid #000', paddingTop: '8px', marginBottom: '12px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '9pt', letterSpacing: '1px', marginBottom: '6px' }}>RENOWN</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '8px', fontSize: '8pt' }}>
+            {lineData.renown.tracks.map(track => {
+              const auspiceId = template[lineData.template.group2.field]
+              const auspiceOpt = lineData.template.group2.options.find(o => o.id === auspiceId)
+              const isAuspice = auspiceOpt?.renownTrack === track
+              const val = isAuspice ? Math.max(1, renown[track] || 0) : (renown[track] || 0)
+              return (
+                <div key={track} style={{ textAlign: 'center', border: '1px solid #ccc', borderRadius: '4px', padding: '4px' }}>
+                  <div style={{ color: '#555', fontSize: '7pt' }}>{track}{isAuspice ? ' ★' : ''}</div>
+                  <DotRating value={val} max={5} />
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Derived */}
       <div style={{ borderTop: '1px solid #000', paddingTop: '8px', marginBottom: '12px' }}>

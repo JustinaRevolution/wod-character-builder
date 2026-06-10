@@ -4,6 +4,8 @@ import StepPowers from './StepPowers'
 import vampire  from '../../data/lines/vampire.json'
 import werewolf from '../../data/lines/werewolf.json'
 import geist    from '../../data/lines/geist.json'
+import mage     from '../../data/lines/mage.json'
+import hunter   from '../../data/lines/hunter.json'
 
 describe('StepPowers — pool type (Vampire)', () => {
   it('renders all discipline names', () => {
@@ -47,11 +49,54 @@ describe('StepPowers — pool type (Vampire)', () => {
 
 describe('StepPowers — picks type (Werewolf)', () => {
   it('renders group headings and text inputs', () => {
-    render(<StepPowers lineData={werewolf} template={{ auspice:'rahu', tribe:'blood_talons' }} powers={{}} onSetPowers={() => {}} />)
+    render(<StepPowers lineData={werewolf} template={{ auspice:'rahu', tribe:'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={{}} onSetRenown={() => {}} />)
     expect(screen.getByText(/Auspice Gifts/i)).toBeInTheDocument()
     expect(screen.getByText(/Tribe Gifts/i)).toBeInTheDocument()
     // picksFrom has 3 auspice + 3 tribe = 6 text inputs
     expect(screen.getAllByRole('textbox')).toHaveLength(6)
+  })
+
+  it('renders Renown section with all 5 tracks', () => {
+    render(<StepPowers lineData={werewolf} template={{ auspice:'rahu', tribe:'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={{}} onSetRenown={() => {}} />)
+    expect(screen.getByText('Renown')).toBeInTheDocument()
+    expect(screen.getByText('Cunning')).toBeInTheDocument()
+    expect(screen.getByText('Glory')).toBeInTheDocument()
+    expect(screen.getByText('Purity')).toBeInTheDocument()
+  })
+
+  it('marks the Auspice renown track', () => {
+    render(<StepPowers lineData={werewolf} template={{ auspice:'rahu' }} powers={{}} onSetPowers={() => {}} renown={{}} onSetRenown={() => {}} />)
+    // Rahu = Purity
+    expect(screen.getByText('Auspice')).toBeInTheDocument()
+  })
+})
+
+describe('StepPowers — pool type with caps (Mage)', () => {
+  it('renders all arcana names', () => {
+    render(<StepPowers lineData={mage} template={{}} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText('Death')).toBeInTheDocument()
+    expect(screen.getByText('Forces')).toBeInTheDocument()
+    expect(screen.getByText('Time')).toBeInTheDocument()
+  })
+
+  it('shows Ruling badge for path arcana', () => {
+    render(<StepPowers lineData={mage} template={{ path: 'acanthus' }} powers={{}} onSetPowers={() => {}} />)
+    // Acanthus ruling: Fate, Time
+    expect(screen.getAllByText('Ruling').length).toBe(2)
+  })
+})
+
+describe('StepPowers — Hunter (compact vs conspiracy)', () => {
+  it('shows compact note for compact hunters, not the picks UI', () => {
+    render(<StepPowers lineData={hunter} template={{ org_type: 'compact' }} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText(/compact hunters have no endowments/i)).toBeInTheDocument()
+    expect(screen.queryByRole('textbox')).toBeNull()
+  })
+
+  it('shows picks UI for conspiracy hunters', () => {
+    render(<StepPowers lineData={hunter} template={{ org_type: 'conspiracy' }} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText(/Organization Endowments/i)).toBeInTheDocument()
+    expect(screen.getAllByRole('textbox').length).toBeGreaterThan(0)
   })
 })
 

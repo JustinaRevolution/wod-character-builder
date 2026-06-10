@@ -94,4 +94,20 @@ describe('useCharacter', () => {
     expect(result.current.character.meta.name).toBe('')
     expect(localStorage.getItem('wod-draft')).toBeNull()
   })
+
+  it('setRenown replaces the renown object', () => {
+    const { result } = renderHook(() => useCharacter())
+    act(() => result.current.setRenown({ Glory: 2, Purity: 1 }))
+    expect(result.current.character.renown.Glory).toBe(2)
+    expect(result.current.character.renown.Purity).toBe(1)
+  })
+
+  it('importCharacter replaces state and merges with defaults', () => {
+    const { result } = renderHook(() => useCharacter())
+    act(() => result.current.importCharacter({ meta: { name: 'Imported', line: 'vampire', concept: '', virtue: '', vice: '', chronicle: '', player: '' } }))
+    expect(result.current.character.meta.name).toBe('Imported')
+    // Fields not in imported data should fall back to defaults
+    expect(result.current.character.attributes.mental.intelligence).toBe(1)
+    expect(result.current.character.renown).toEqual({})
+  })
 })

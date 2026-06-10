@@ -15,11 +15,11 @@
     "group2": {
       "label": "Auspice", "field": "auspice",
       "options": [
-        { "id": "cahalith", "name": "Cahalith", "description": "Gibbous Moon — visionaries and lorekeepers.", "hint": "Renown: Glory. Bonus Skills: Crafts, Expression, Persuasion" },
-        { "id": "elodoth",  "name": "Elodoth",  "description": "Half Moon — judges who walk between worlds.", "hint": "Renown: Honor. Bonus Skills: Empathy, Investigation, Politics" },
-        { "id": "irraka",   "name": "Irraka",   "description": "New Moon — scouts and tricksters of shadow.", "hint": "Renown: Cunning. Bonus Skills: Larceny, Stealth, Subterfuge" },
-        { "id": "ithaeur",  "name": "Ithaeur",  "description": "Crescent Moon — shamans who deal with spirits.", "hint": "Renown: Wisdom. Bonus Skills: Animal Ken, Occult, Survival" },
-        { "id": "rahu",     "name": "Rahu",     "description": "Full Moon — warriors born for battle.",        "hint": "Renown: Purity. Bonus Skills: Brawl, Intimidation, Weaponry" }
+        { "id": "cahalith", "name": "Cahalith", "description": "Gibbous Moon — visionaries and lorekeepers.", "hint": "Renown: Glory. Bonus Skills: Crafts, Expression, Persuasion",    "renownTrack": "Glory"   },
+        { "id": "elodoth",  "name": "Elodoth",  "description": "Half Moon — judges who walk between worlds.", "hint": "Renown: Honor. Bonus Skills: Empathy, Investigation, Politics",  "renownTrack": "Honor"   },
+        { "id": "irraka",   "name": "Irraka",   "description": "New Moon — scouts and tricksters of shadow.", "hint": "Renown: Cunning. Bonus Skills: Larceny, Stealth, Subterfuge",   "renownTrack": "Cunning" },
+        { "id": "ithaeur",  "name": "Ithaeur",  "description": "Crescent Moon — shamans who deal with spirits.", "hint": "Renown: Wisdom. Bonus Skills: Animal Ken, Occult, Survival", "renownTrack": "Wisdom"  },
+        { "id": "rahu",     "name": "Rahu",     "description": "Full Moon — warriors born for battle.",        "hint": "Renown: Purity. Bonus Skills: Brawl, Intimidation, Weaponry",  "renownTrack": "Purity"  }
       ]
     }
   },

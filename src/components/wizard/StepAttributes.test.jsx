@@ -8,22 +8,24 @@ const attrs = {
   social:   { presence: 1, manipulation: 1, composure: 1 },
 }
 
+const priority = { mental: 'primary', physical: 'secondary', social: 'tertiary' }
+
 describe('StepAttributes', () => {
   it('renders all 9 attribute labels', () => {
-    render(<StepAttributes attributes={attrs} onUpdate={() => {}} />)
+    render(<StepAttributes attributes={attrs} priority={priority} onUpdate={() => {}} onSetPriority={() => {}} />)
     expect(screen.getByText('Intelligence')).toBeInTheDocument()
     expect(screen.getByText('Strength')).toBeInTheDocument()
     expect(screen.getByText('Presence')).toBeInTheDocument()
   })
 
   it('shows priority selector for each category', () => {
-    render(<StepAttributes attributes={attrs} onUpdate={() => {}} />)
+    render(<StepAttributes attributes={attrs} priority={priority} onUpdate={() => {}} onSetPriority={() => {}} />)
     expect(screen.getAllByText('Primary (5 dots)').length).toBeGreaterThan(0)
   })
 
   it('calls onUpdate when a dot is clicked', () => {
     const onUpdate = vi.fn()
-    render(<StepAttributes attributes={attrs} onUpdate={onUpdate} />)
+    render(<StepAttributes attributes={attrs} priority={priority} onUpdate={onUpdate} onSetPriority={() => {}} />)
     // Click the 3rd dot of intelligence (currently 1, clicking 3 sets to 3)
     const dots = screen.getAllByRole('button')
     fireEvent.click(dots[2])

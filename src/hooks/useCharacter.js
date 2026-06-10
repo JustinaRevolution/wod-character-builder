@@ -10,13 +10,16 @@ const DEFAULT = {
     physical: { strength: 1, dexterity: 1, stamina: 1 },
     social:   { presence: 1, manipulation: 1, composure: 1 },
   },
+  attributePriority: { mental: 'primary', physical: 'secondary', social: 'tertiary' },
   skills: {
     mental:   { academics: 0, computer: 0, crafts: 0, investigation: 0, medicine: 0, occult: 0, politics: 0, science: 0 },
     physical: { athletics: 0, brawl: 0, drive: 0, firearms: 0, larceny: 0, stealth: 0, survival: 0, weaponry: 0 },
     social:   { animal_ken: 0, empathy: 0, expression: 0, intimidation: 0, persuasion: 0, socialize: 0, streetwise: 0, subterfuge: 0 },
   },
+  skillPriority: { mental: 'primary', physical: 'secondary', social: 'tertiary' },
   specialties: [],
   powers: {},
+  renown: {},
   merits: [],
   derived: {
     health: 0, willpower: 0, speed: 0, defense: 0, initiative: 0,
@@ -36,7 +39,8 @@ export default function useCharacter() {
   const [character, setCharacter] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
-      return saved ? JSON.parse(saved) : structuredClone(DEFAULT)
+      if (!saved) return structuredClone(DEFAULT)
+      return { ...structuredClone(DEFAULT), ...JSON.parse(saved) }
     } catch { return structuredClone(DEFAULT) }
   })
 
@@ -61,11 +65,25 @@ export default function useCharacter() {
   const setPowers = (powers) =>
     setCharacter(c => save({ ...c, powers }))
 
+  const setRenown = (renown) =>
+    setCharacter(c => save({ ...c, renown }))
+
+  const importCharacter = (data) => {
+    const merged = { ...structuredClone(DEFAULT), ...data }
+    setCharacter(save(merged))
+  }
+
   const addMerit = (merit) =>
     setCharacter(c => save({ ...c, merits: [...c.merits, merit] }))
 
   const removeMerit = (i) =>
     setCharacter(c => save({ ...c, merits: c.merits.filter((_, idx) => idx !== i) }))
+
+  const setAttributePriority = (priority) =>
+    setCharacter(c => save({ ...c, attributePriority: priority }))
+
+  const setSkillPriority = (priority) =>
+    setCharacter(c => save({ ...c, skillPriority: priority }))
 
   const setDerived = (derived) =>
     setCharacter(c => save({ ...c, derived }))
@@ -81,9 +99,10 @@ export default function useCharacter() {
   return {
     character,
     updateMeta, updateAttribute, updateSkill,
+    setAttributePriority, setSkillPriority,
     addSpecialty, removeSpecialty,
-    updateTemplate, setPowers,
+    updateTemplate, setPowers, setRenown,
     addMerit, removeMerit,
-    setDerived, updateNotes, resetCharacter,
+    setDerived, updateNotes, resetCharacter, importCharacter,
   }
 }

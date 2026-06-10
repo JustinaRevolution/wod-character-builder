@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import DotRating from '../ui/DotRating'
 
+const ALL_SKILLS = [
+  'Academics','Computer','Crafts','Investigation','Medicine','Occult','Politics','Science',
+  'Athletics','Brawl','Drive','Firearms','Larceny','Stealth','Survival','Weaponry',
+  'Animal Ken','Empathy','Expression','Intimidation','Persuasion','Socialize','Streetwise','Subterfuge',
+]
+
 const CATEGORIES = [
   { key: 'mental',   label: 'Mental',
     skills: ['academics','computer','crafts','investigation','medicine','occult','politics','science'] },
@@ -14,16 +20,15 @@ const BUDGETS = { primary: 11, secondary: 7, tertiary: 4 }
 
 const labelFor = s => s === 'animal_ken' ? 'Animal Ken' : s.charAt(0).toUpperCase() + s.slice(1)
 
-export default function StepSkills({ skills, specialties, onUpdateSkill, onAddSpecialty, onRemoveSpecialty }) {
+export default function StepSkills({ skills, priority, specialties, onUpdateSkill, onSetPriority, onAddSpecialty, onRemoveSpecialty }) {
   const [specSkill, setSpecSkill] = useState('')
   const [specName, setSpecName]   = useState('')
-  const [priority, setPriority] = useState({ mental: 'primary', physical: 'secondary', social: 'tertiary' })
 
   const assignPriority = (cat, level) => {
     const current = Object.entries(priority).find(([, v]) => v === level)?.[0]
     const next = { ...priority, [cat]: level }
     if (current && current !== cat) next[current] = priority[cat]
-    setPriority(next)
+    onSetPriority(next)
   }
 
   const handleAdd = () => {
@@ -83,8 +88,15 @@ export default function StepSkills({ skills, specialties, onUpdateSkill, onAddSp
         ))}
         {specialties.length < 3 && (
           <div className="flex gap-2 mt-2">
-            <input value={specSkill} onChange={e => setSpecSkill(e.target.value)} placeholder="Skill"
-              className="bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-gray-100 w-24 focus:outline-none focus:border-amber-400" />
+            <select
+              value={specSkill}
+              onChange={e => setSpecSkill(e.target.value)}
+              aria-label="Specialty skill"
+              className="bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-gray-100 w-36 focus:outline-none focus:border-amber-400"
+            >
+              <option value="">Skill…</option>
+              {ALL_SKILLS.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
             <input value={specName} onChange={e => setSpecName(e.target.value)} placeholder="Specialty name"
               className="bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-gray-100 flex-1 focus:outline-none focus:border-amber-400" />
             <button onClick={handleAdd} className="px-3 py-1 text-sm bg-amber-600 hover:bg-amber-500 rounded text-white">

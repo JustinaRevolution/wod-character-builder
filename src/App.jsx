@@ -19,16 +19,60 @@ export default function App() {
   const {
     character,
     updateMeta, updateAttribute, updateSkill,
+    setAttributePriority, setSkillPriority,
     addSpecialty, removeSpecialty,
-    updateTemplate, setPowers,
+    updateTemplate, setPowers, setRenown,
     addMerit, removeMerit,
-    setDerived, updateNotes, resetCharacter,
+    setDerived, updateNotes, resetCharacter, importCharacter,
   } = useCharacter()
+
+  const handleExport = () => {
+    const blob = new Blob([JSON.stringify(character, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${character.meta.name || 'character'}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const handleImport = (e) => {
+    const file = e.target.files[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (ev) => {
+      try { importCharacter(JSON.parse(ev.target.result)) } catch { /* ignore malformed files */ }
+    }
+    reader.readAsText(file)
+    e.target.value = ''
+  }
 
   const lineData = LINES.find(l => l.id === character.meta.line) || null
 
   const canAdvance = () => {
     if (step === 0) return !!character.meta.line
+    if (step === 3) {
+      const budgets = { primary: 5, secondary: 4, tertiary: 3 }
+      return [
+        { key: 'mental',   attrs: ['intelligence','wits','resolve'] },
+        { key: 'physical', attrs: ['strength','dexterity','stamina'] },
+        { key: 'social',   attrs: ['presence','manipulation','composure'] },
+      ].every(({ key, attrs }) => {
+        const spent = attrs.reduce((s, a) => s + (character.attributes[key][a] - 1), 0)
+        return spent <= budgets[character.attributePriority[key]]
+      })
+    }
+    if (step === 4) {
+      const budgets = { primary: 11, secondary: 7, tertiary: 4 }
+      return [
+        { key: 'mental',   skills: ['academics','computer','crafts','investigation','medicine','occult','politics','science'] },
+        { key: 'physical', skills: ['athletics','brawl','drive','firearms','larceny','stealth','survival','weaponry'] },
+        { key: 'social',   skills: ['animal_ken','empathy','expression','intimidation','persuasion','socialize','streetwise','subterfuge'] },
+      ].every(({ key, skills: sk }) => {
+        const spent = sk.reduce((s, skill) => s + character.skills[key][skill], 0)
+        return spent <= budgets[character.skillPriority[key]]
+      })
+    }
     return true
   }
 
@@ -37,9 +81,9 @@ export default function App() {
       case 0: return <StepGameLine selectedLine={character.meta.line} onSelect={id => updateMeta('line', id)} />
       case 1: return <StepConcept meta={character.meta} onChange={updateMeta} />
       case 2: return lineData ? <StepTemplate lineData={lineData} template={character.template} onUpdate={updateTemplate} /> : null
-      case 3: return <StepAttributes attributes={character.attributes} onUpdate={updateAttribute} />
-      case 4: return <StepSkills skills={character.skills} specialties={character.specialties} onUpdateSkill={updateSkill} onAddSpecialty={addSpecialty} onRemoveSpecialty={removeSpecialty} />
-      case 5: return lineData ? <StepPowers lineData={lineData} template={character.template} powers={character.powers} onSetPowers={setPowers} /> : null
+      case 3: return <StepAttributes attributes={character.attributes} priority={character.attributePriority} onUpdate={updateAttribute} onSetPriority={setAttributePriority} />
+      case 4: return <StepSkills skills={character.skills} priority={character.skillPriority} specialties={character.specialties} onUpdateSkill={updateSkill} onSetPriority={setSkillPriority} onAddSpecialty={addSpecialty} onRemoveSpecialty={removeSpecialty} />
+      case 5: return lineData ? <StepPowers lineData={lineData} template={character.template} powers={character.powers} onSetPowers={setPowers} renown={character.renown} onSetRenown={setRenown} /> : null
       case 6: return <StepMerits merits={character.merits} onAdd={addMerit} onRemove={removeMerit} />
       case 7: return lineData ? <StepDerived character={character} lineData={lineData} setDerived={setDerived} /> : null
       case 8: return lineData ? <StepReview character={character} lineData={lineData} onUpdateNotes={updateNotes} /> : null
@@ -54,9 +98,18 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold text-amber-400">Chronicles of Darkness</h1>
-            <button onClick={resetCharacter} className="text-xs text-gray-500 hover:text-gray-300 border border-gray-700 px-2 py-1 rounded">
-              Start Over
-            </button>
+            <div className="flex items-center gap-2">
+              <button onClick={handleExport} className="text-xs text-gray-500 hover:text-gray-300 border border-gray-700 px-2 py-1 rounded">
+                Export
+              </button>
+              <label className="text-xs text-gray-500 hover:text-gray-300 border border-gray-700 px-2 py-1 rounded cursor-pointer">
+                Import
+                <input type="file" accept=".json" onChange={handleImport} className="hidden" />
+              </label>
+              <button onClick={resetCharacter} className="text-xs text-gray-500 hover:text-gray-300 border border-gray-700 px-2 py-1 rounded">
+                Start Over
+              </button>
+            </div>
           </div>
 
           <StepIndicator steps={STEP_LABELS} currentStep={step} onGoTo={setStep} />

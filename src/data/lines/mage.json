@@ -27,8 +27,9 @@
   "powers": {
     "type": "pool",
     "label": "Arcana",
-    "description": "Distribute 5 dots. Ruling Arcana may reach 3; all others may reach 2. Your Inferior Arcanum cannot exceed 2. Path Ruling Arcana are shown in your template choice.",
+    "description": "Distribute 5 dots. Ruling Arcana may reach 3; all others may reach 2. Path Ruling Arcana are shown in your template choice.",
     "startingDots": 5,
+    "caps": { "affinity": 3, "default": 2 },
     "affinityFrom": "group1",
     "items": [
       { "id": "death",  "name": "Death",  "description": "Endings, ghosts, and entropy.",           "affinityFor": ["moros"] },

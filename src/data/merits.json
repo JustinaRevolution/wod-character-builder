@@ -1,0 +1,412 @@
+[
+  {
+    "id": "common_sense",
+    "name": "Common Sense",
+    "category": "mental",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": null,
+    "chargen_only": true,
+    "description": "Once per chapter, the Storyteller may warn you away from a disastrous course of action with a Wits + Composure roll."
+  },
+  {
+    "id": "danger_sense",
+    "name": "Danger Sense",
+    "category": "mental",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "+2 to reflexive Wits + Composure rolls to detect an impending ambush."
+  },
+  {
+    "id": "eidetic_memory",
+    "name": "Eidetic Memory",
+    "category": "mental",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": null,
+    "chargen_only": true,
+    "description": "Near-photographic memory; +2 to Intelligence + Composure rolls to recall details under stress."
+  },
+  {
+    "id": "encyclopedic_knowledge",
+    "name": "Encyclopedic Knowledge",
+    "category": "mental",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": null,
+    "chargen_only": true,
+    "description": "Roll Intelligence + Wits to recall factoids on nearly any topic. On a dramatic failure, you 'remember' something false."
+  },
+  {
+    "id": "holistic_awareness",
+    "name": "Holistic Awareness",
+    "category": "mental",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Treat illness and non-aggravated injuries with natural medicine (Intelligence + Medicine) once per day."
+  },
+  {
+    "id": "language",
+    "name": "Language",
+    "category": "mental",
+    "min_dots": 1,
+    "max_dots": 3,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "One additional language. 1 dot: basic; 2 dots: conversational; 3 dots: native speaker. Purchase separately per language."
+  },
+  {
+    "id": "meditative_mind",
+    "name": "Meditative Mind",
+    "category": "mental",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Enter meditation effortlessly; ignore all environmental penalties to Wits + Composure meditation rolls."
+  },
+  {
+    "id": "unseen_sense",
+    "name": "Unseen Sense",
+    "category": "mental",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Mortal (non-supernatural), Wits ●●",
+    "chargen_only": false,
+    "description": "A 'sixth sense' that reacts to a specific type of supernatural creature or phenomenon chosen at purchase."
+  },
+  {
+    "id": "ambidextrous",
+    "name": "Ambidextrous",
+    "category": "physical",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": null,
+    "chargen_only": true,
+    "description": "No –2 penalty for off-hand actions in combat or otherwise."
+  },
+  {
+    "id": "brawling_dodge",
+    "name": "Brawling Dodge",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": "Strength ●●, Brawl ●",
+    "chargen_only": false,
+    "description": "When dodging, add Brawl dots to Defense instead of doubling it. Works against Brawl and Weaponry attacks."
+  },
+  {
+    "id": "direction_sense",
+    "name": "Direction Sense",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Innate sense of direction; always know compass bearings and can perfectly retrace your steps."
+  },
+  {
+    "id": "disarm",
+    "name": "Disarm",
+    "category": "physical",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": "Dexterity ●●●, Weaponry ●●",
+    "chargen_only": false,
+    "description": "On a successful Weaponry attack exceeding the opponent's Dexterity, their weapon lands nearby rather than dealing damage."
+  },
+  {
+    "id": "fast_reflexes",
+    "name": "Fast Reflexes",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 2,
+    "prerequisites": "Dexterity ●●●",
+    "chargen_only": false,
+    "description": "+1 Initiative per dot."
+  },
+  {
+    "id": "fighting_finesse",
+    "name": "Fighting Finesse",
+    "category": "physical",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": "Dexterity ●●●, Weaponry ●●",
+    "chargen_only": false,
+    "description": "Use Dexterity instead of Strength on attack rolls with one chosen weapon. May be purchased multiple times for different weapons."
+  },
+  {
+    "id": "style_boxing",
+    "name": "Fighting Style: Boxing",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Strength ●●●, Stamina ●●, Brawl ●●",
+    "chargen_only": false,
+    "description": "Progressive boxing maneuvers. ●Body Blow ●●Duck and Weave ●●●Combination Blows ●●●●Haymaker ●●●●●Brutal Blow."
+  },
+  {
+    "id": "style_kung_fu",
+    "name": "Fighting Style: Kung Fu",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Strength ●●, Dexterity ●●, Stamina ●●, Brawl ●●",
+    "chargen_only": false,
+    "description": "Progressive Kung Fu maneuvers. ●Focused Attack ●●Iron Skin ●●●Defensive Attack ●●●●Whirlwind Strike ●●●●●Lethal Strike."
+  },
+  {
+    "id": "style_two_weapons",
+    "name": "Fighting Style: Two Weapons",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 4,
+    "prerequisites": "Dexterity ●●●, Weaponry ●●●",
+    "chargen_only": false,
+    "description": "Fight with a weapon in each hand. ●Whirling Blades ●●Deflect and Thrust ●●●Focused Attack ●●●●Fluid Attack."
+  },
+  {
+    "id": "fleet_of_foot",
+    "name": "Fleet of Foot",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 3,
+    "prerequisites": "Strength ●●",
+    "chargen_only": false,
+    "description": "+1 Speed per dot regardless of build."
+  },
+  {
+    "id": "fresh_start",
+    "name": "Fresh Start",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": "Fast Reflexes ●●",
+    "chargen_only": false,
+    "description": "Spend an action to change your Initiative ranking; insert yourself at a new point in the roster for all subsequent turns."
+  },
+  {
+    "id": "giant",
+    "name": "Giant",
+    "category": "physical",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": null,
+    "chargen_only": true,
+    "description": "Seven or more feet tall and over 250 lbs. +1 Size, +1 Health. Drawback: clothes and transport may cost more."
+  },
+  {
+    "id": "gunslinger",
+    "name": "Gunslinger",
+    "category": "physical",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Dexterity ●●●, Firearms ●●●",
+    "chargen_only": false,
+    "description": "Fire two pistols as a single action; off-hand still at –2, second target at –1. Pistols only."
+  },
+  {
+    "id": "iron_stamina",
+    "name": "Iron Stamina",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 3,
+    "prerequisites": "Stamina ●●● or Resolve ●●●",
+    "chargen_only": false,
+    "description": "Each dot eliminates one die penalty from fatigue or wounds on a one-for-one basis."
+  },
+  {
+    "id": "iron_stomach",
+    "name": "Iron Stomach",
+    "category": "physical",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": "Stamina ●●",
+    "chargen_only": false,
+    "description": "Eat almost anything without ill effect; +2 dice to Stamina rolls against deprivation."
+  },
+  {
+    "id": "natural_immunity",
+    "name": "Natural Immunity",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": "Stamina ●●",
+    "chargen_only": false,
+    "description": "+2 to Stamina rolls to resist infection, sickness, and disease."
+  },
+  {
+    "id": "quick_draw",
+    "name": "Quick Draw",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": "Dexterity ●●●",
+    "chargen_only": false,
+    "description": "Draw and fire a pistol or draw and attack with a melee weapon as a single action without losing Defense."
+  },
+  {
+    "id": "quick_healer",
+    "name": "Quick Healer",
+    "category": "physical",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": "Stamina ●●●●",
+    "chargen_only": false,
+    "description": "Heal at twice normal speed: bashing in 8 min, lethal in 1 day, aggravated in 4 days."
+  },
+  {
+    "id": "strong_back",
+    "name": "Strong Back",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": "Strength ●●",
+    "chargen_only": false,
+    "description": "+1 die to actions involving lifting or carrying heavy weights."
+  },
+  {
+    "id": "strong_lungs",
+    "name": "Strong Lungs",
+    "category": "physical",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Athletics ●●●",
+    "chargen_only": false,
+    "description": "Add 2 to Stamina when consulting the Holding Breath chart; can hold breath far longer than normal."
+  },
+  {
+    "id": "stunt_driver",
+    "name": "Stunt Driver",
+    "category": "physical",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Dexterity ●●●",
+    "chargen_only": false,
+    "description": "Perform an unrelated action (fire a weapon, punch a passenger) while driving without penalty."
+  },
+  {
+    "id": "toxin_resistance",
+    "name": "Toxin Resistance",
+    "category": "physical",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": "Stamina ●●●",
+    "chargen_only": false,
+    "description": "+2 to Stamina rolls against drugs, poisons, and toxins. Drawback: painkillers and anesthetics are only half effective."
+  },
+  {
+    "id": "weaponry_dodge",
+    "name": "Weaponry Dodge",
+    "category": "physical",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": "Strength ●●, Weaponry ●",
+    "chargen_only": false,
+    "description": "When dodging, add Weaponry dots to Defense instead of doubling it. Works against Brawl and Weaponry attacks."
+  },
+  {
+    "id": "allies",
+    "name": "Allies",
+    "category": "social",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A group willing to help with favors. Each purchase covers one type of organization (police, criminals, unions). May be purchased multiple times."
+  },
+  {
+    "id": "barfly",
+    "name": "Barfly",
+    "category": "social",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Always gain entry to any nightspot or bar with a few quick words and a modest bribe."
+  },
+  {
+    "id": "contacts",
+    "name": "Contacts",
+    "category": "social",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Information sources in one sphere per purchase (reporters, street criminals, hackers, etc.). May be purchased multiple times."
+  },
+  {
+    "id": "fame",
+    "name": "Fame",
+    "category": "social",
+    "min_dots": 1,
+    "max_dots": 3,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "+1 per dot to Socialize/Persuasion rolls with those who recognize you. Drawback: harder to remain unnoticed in public."
+  },
+  {
+    "id": "inspiring",
+    "name": "Inspiring",
+    "category": "social",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": "Presence ●●●●",
+    "chargen_only": false,
+    "description": "Once per session, a successful Presence + Persuasion roll lets all nearby allies regain all spent Willpower points."
+  },
+  {
+    "id": "mentor",
+    "name": "Mentor",
+    "category": "social",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A knowledgeable teacher who provides guidance and advice. More dots = broader experience, influence, and resources."
+  },
+  {
+    "id": "resources",
+    "name": "Resources",
+    "category": "social",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Disposable income and assets. ●=$500/mo ●●=$1k/mo ●●●=$2k/mo ●●●●=$10k/mo ●●●●●=$50k/mo."
+  },
+  {
+    "id": "retainer",
+    "name": "Retainer",
+    "category": "social",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A loyal servant or aide who performs tasks reliably. Dots indicate capability and skill level."
+  },
+  {
+    "id": "status",
+    "name": "Status",
+    "category": "social",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Varies by organization",
+    "chargen_only": false,
+    "description": "Authority and standing within a specific organization (police, church, syndicate). Each purchase covers one group."
+  },
+  {
+    "id": "striking_looks",
+    "name": "Striking Looks",
+    "category": "social",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Exceptionally attractive. ●●: +1 to Presence/Manipulation rolls using looks. ●●●●: +2. Note: comes in 2 or 4 dot versions only."
+  }
+]
