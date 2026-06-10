@@ -1,0 +1,359 @@
+{
+  "crescent_moon": {
+    "id": "crescent_moon",
+    "name": "Crescent Moon",
+    "gifts": [
+      {
+        "id": "two_world_eyes",
+        "level": 1,
+        "name": "Two-World Eyes",
+        "cost": "None",
+        "dice": "Wits + Occult + Wisdom",
+        "action": "Instant",
+        "description": "The Ithaeur can peer across the Gauntlet without sacrificing her perception of either world, seeing both simultaneously for the duration of the scene."
+      },
+      {
+        "id": "read_spirit",
+        "level": 2,
+        "name": "Read Spirit",
+        "cost": "1 Essence",
+        "dice": "Intelligence + Occult + Cunning",
+        "action": "Instant",
+        "description": "The werewolf hears an internal voice that reveals a spirit's name, type, Rank, and one pertinent fact per success rolled."
+      },
+      {
+        "id": "gauntlet_cloak",
+        "level": 3,
+        "name": "Gauntlet Cloak",
+        "cost": "1 Essence",
+        "dice": "Dexterity + Occult + Purity",
+        "action": "Instant",
+        "description": "The Ithaeur wraps the Gauntlet around herself, gaining a –2 concealment modifier against ranged attacks and imposing penalties on attempts to spot or recognize her."
+      },
+      {
+        "id": "between_the_weave",
+        "level": 4,
+        "name": "Between the Weave",
+        "cost": "1 Essence",
+        "dice": "No roll required",
+        "action": "Reflexive",
+        "description": "The Ithaeur can cross the Gauntlet as a reflexive action and still take a normal action in the same turn, leaping between worlds to attack or escape with ease."
+      },
+      {
+        "id": "crash_the_gates",
+        "level": 5,
+        "name": "Crash the Gates",
+        "cost": "1 Essence + 1 per packmate",
+        "dice": "No roll required",
+        "action": "Instant",
+        "description": "The Ithaeur extends Between the Weave to her packmates, allowing the entire pack to cross the Gauntlet simultaneously in a single action."
+      }
+    ]
+  },
+  "death": {
+    "id": "death",
+    "name": "Death",
+    "gifts": [
+      {
+        "id": "death_sight",
+        "level": 1,
+        "name": "Death Sight",
+        "cost": "None",
+        "dice": "No roll required",
+        "action": "Instant",
+        "description": "The werewolf's sight attunes to the dead: he perceives ghosts and phantom bloodstains marking where creatures died within the last lunar month."
+      },
+      {
+        "id": "ghost_knife",
+        "level": 2,
+        "name": "Ghost Knife",
+        "cost": "1 Essence",
+        "dice": "No roll required",
+        "action": "Instant",
+        "description": "The werewolf imbues a weapon with Essence, making it capable of striking immaterial ghosts as readily as physical targets, and adding a bonus die to attack rolls against spirits."
+      },
+      {
+        "id": "corpse_witness",
+        "level": 3,
+        "name": "Corpse Witness",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Occult + Purity",
+        "action": "Instant",
+        "description": "The werewolf breathes into a corpse's mouth; the corpse reports everything it perceived since its death, useful for uncovering what transpired at a crime scene."
+      },
+      {
+        "id": "word_of_quiet",
+        "level": 4,
+        "name": "Word of Quiet",
+        "cost": "1 Willpower",
+        "dice": "Presence + Occult + Honor – subject's Stamina",
+        "action": "Instant",
+        "description": "The werewolf speaks a word in the First Tongue that inflicts bashing damage on living creatures in range and lethal damage on undead within hearing."
+      },
+      {
+        "id": "vengeance_of_the_slain",
+        "level": 5,
+        "name": "Vengeance of the Slain",
+        "cost": "1 Essence",
+        "dice": "Stamina + Occult + Wisdom",
+        "action": "Instant",
+        "description": "The werewolf briefly returns a recently deceased Uratha to a semblance of life for roughly one hour per success, allowing her to act and use her supernatural powers."
+      }
+    ]
+  },
+  "dominance": {
+    "id": "dominance",
+    "name": "Dominance",
+    "gifts": [
+      {
+        "id": "warning_growl",
+        "level": 1,
+        "name": "Warning Growl",
+        "cost": "1 Willpower",
+        "dice": "Presence + Intimidation + Glory vs. Composure + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf's supernatural growl strikes sudden doubt into a target, giving the Gift user a +2 Defense bonus against that target's close-combat attacks for the duration of the scene."
+      },
+      {
+        "id": "lunas_dictum",
+        "level": 2,
+        "name": "Luna's Dictum",
+        "cost": "1 Willpower",
+        "dice": "Presence + Intimidation + Glory vs. Composure + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf voices a brief command that compels a single target to obey for up to five minutes per success rolled."
+      },
+      {
+        "id": "voice_of_command",
+        "level": 3,
+        "name": "Voice of Command",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Intimidation + Honor vs. Resolve + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf issues a decree affecting up to three targets, each of whom must obey a specific command given, suffering –1 to the roll per target after the first."
+      },
+      {
+        "id": "break_the_defiant",
+        "level": 4,
+        "name": "Break the Defiant",
+        "cost": "1 Essence",
+        "dice": "Presence + Intimidation + Purity – subject's Resolve",
+        "action": "Instant",
+        "description": "The werewolf projects crushing authority, causing the target to immediately lose Willpower equal to the number of successes rolled."
+      },
+      {
+        "id": "tug_the_souls_strings",
+        "level": 5,
+        "name": "Tug the Soul's Strings",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Persuasion + Cunning vs. Resolve + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf can force another person to perform deeds against her will, including deeds that defy her identity or cause harm to others."
+      }
+    ]
+  },
+  "elemental": {
+    "id": "elemental",
+    "name": "Elemental",
+    "gifts": [
+      {
+        "id": "call_water",
+        "level": 1,
+        "name": "Call Water",
+        "cost": "None",
+        "dice": "Stamina + Survival + Purity",
+        "action": "Instant",
+        "description": "The werewolf summons water from thin air, creating one cup per success — enough to stave off death from dehydration. Cannot be invoked more than once an hour."
+      },
+      {
+        "id": "manipulate_earth",
+        "level": 2,
+        "name": "Manipulate Earth",
+        "cost": "1 Essence",
+        "dice": "Dexterity + Crafts + Cunning",
+        "action": "Instant",
+        "description": "The werewolf shapes earth as if it were clay, sculpting a surface area of roughly 100 square feet or 40 cubic feet for cover or escape. Changes are permanent."
+      },
+      {
+        "id": "command_fire",
+        "level": 3,
+        "name": "Command Fire",
+        "cost": "1 Essence",
+        "dice": "Strength + Survival + Glory",
+        "action": "Instant",
+        "description": "The werewolf commands existing flames within line of sight, directing them at a target within 20 yards for one die of fire damage per success."
+      },
+      {
+        "id": "invoke_the_winds_wrath",
+        "level": 4,
+        "name": "Invoke the Wind's Wrath",
+        "cost": "2 Essence",
+        "dice": "Strength + Empathy + Honor",
+        "action": "Instant",
+        "description": "The werewolf calls a whirlwind of 10-foot radius that moves at his Speed, lifting those 150 lbs. or less and inflicting one die of lethal damage per success."
+      },
+      {
+        "id": "lament_of_the_river",
+        "level": 5,
+        "name": "Lament of the River",
+        "cost": "3 Essence",
+        "dice": "Stamina + Intimidation + Wisdom",
+        "action": "Extended (50 successes; each roll = one minute of concentration)",
+        "description": "The werewolf calls rivers and streams to burst their banks, causing devastating floods across one square mile when 50 successes are accumulated."
+      }
+    ]
+  },
+  "evasion": {
+    "id": "evasion",
+    "name": "Evasion",
+    "gifts": [
+      {
+        "id": "loose_tongue",
+        "level": 1,
+        "name": "Loose Tongue",
+        "cost": "None",
+        "dice": "Manipulation + Socialize + Wisdom vs. Composure + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf's presence makes targets oddly chatty and susceptible to 'friendly conversation,' lowering their guard and making them less able to keep secrets."
+      },
+      {
+        "id": "sand_in_the_eyes",
+        "level": 2,
+        "name": "Sand in the Eyes",
+        "cost": "None",
+        "dice": "Manipulation + Subterfuge + Honor vs. Composure + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf becomes imminently forgettable; subjects suffer a –5 penalty to Intelligence + Composure rolls to remember details about her for the rest of the scene."
+      },
+      {
+        "id": "playing_possum",
+        "level": 3,
+        "name": "Playing Possum",
+        "cost": "1 Willpower",
+        "dice": "Wits + Subterfuge + Cunning",
+        "action": "Reflexive",
+        "description": "The werewolf appears freshly dead — no pulse, breathing, or warmth — for up to one day, and can revive as an instant action at will."
+      },
+      {
+        "id": "double_back",
+        "level": 4,
+        "name": "Double Back",
+        "cost": "1 Willpower",
+        "dice": "Intelligence + Investigation + Glory",
+        "action": "Reflexive",
+        "description": "The werewolf becomes immediately aware of all physical deception in her environment — hidden trails, disguises, concealed evidence — and cannot be fooled by such for the rest of the scene."
+      },
+      {
+        "id": "fog_of_war",
+        "level": 5,
+        "name": "Fog of War",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Expression + Honor vs. Resolve + Primal Urge",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf's howl sows confusion; all targets within extreme hearing range suffer a –3 penalty to all actions for as long as the werewolf concentrates."
+      }
+    ]
+  },
+  "father_wolf": {
+    "id": "father_wolf",
+    "name": "Father Wolf's",
+    "gifts": [
+      {
+        "id": "wolf_bloods_lure",
+        "level": 1,
+        "name": "Wolf-Blood's Lure",
+        "cost": "None",
+        "dice": "No roll required",
+        "action": "Reflexive",
+        "description": "The werewolf projects his wolf soul more strongly, gaining a bonus die on all Social rolls involving wolves or canids and earning the trust of wolf packs with ease. Lasts from moonrise to moonrise."
+      },
+      {
+        "id": "father_wolfs_speed",
+        "level": 2,
+        "name": "Father Wolf's Speed",
+        "cost": "1 Essence",
+        "dice": "No roll required",
+        "action": "Reflexive",
+        "description": "The werewolf's Speed is doubled (after modifiers) and opponents suffer –2 to Firearms dice pools against him; the effects last for a scene."
+      },
+      {
+        "id": "primal_howl",
+        "level": 3,
+        "name": "Primal Howl",
+        "cost": "1 Essence",
+        "dice": "Presence + Expression + Purity vs. Composure",
+        "action": "Contested; resistance is reflexive",
+        "description": "The werewolf's howl overwhelms those who hear it with primal fear as if affected by Lunacy, affecting all targets within 10 yards per dot of Primal Urge."
+      },
+      {
+        "id": "savage_rending",
+        "level": 4,
+        "name": "Savage Rending",
+        "cost": "1 Essence",
+        "dice": "No roll required",
+        "action": "Reflexive",
+        "description": "The werewolf's claw and bite attacks inflict aggravated damage for the duration of the scene. Using this Gift against other werewolves is considered a sin against Harmony."
+      },
+      {
+        "id": "spirit_pack",
+        "level": 5,
+        "name": "Spirit Pack",
+        "cost": "1 Essence",
+        "dice": "Manipulation + Animal Ken + Glory",
+        "action": "Instant",
+        "description": "The werewolf howls a battle cry summoning one ghostly Wolf-Brother spirit per success to fight alongside him until there are no more enemies or the Gift user is slain."
+      }
+    ]
+  },
+  "full_moon": {
+    "id": "full_moon",
+    "name": "Full Moon",
+    "gifts": [
+      {
+        "id": "clarity",
+        "level": 1,
+        "name": "Clarity",
+        "cost": "1 Essence",
+        "dice": "No roll required",
+        "action": "Reflexive",
+        "description": "The werewolf increases his Initiative modifier by five for the remainder of the fight, greatly improving his odds of striking first in battle."
+      },
+      {
+        "id": "attunement",
+        "level": 2,
+        "name": "Attunement",
+        "cost": "1 Willpower",
+        "dice": "Wits + Brawl + Wisdom – opponent's Resolve",
+        "action": "Reflexive",
+        "description": "After one full turn observing a foe, the werewolf can ignore a portion of that opponent's Defense equal to half his Primal Urge (rounded up) for the rest of the scene."
+      },
+      {
+        "id": "death_grip",
+        "level": 3,
+        "name": "Death Grip",
+        "cost": "1 Essence per bite attack",
+        "dice": "Strength + Brawl + Glory",
+        "action": "Reflexive",
+        "description": "The werewolf's jaws lock with supernatural force: bite damage is doubled and the victim suffers a penalty to breaking free or performing overpower maneuvers."
+      },
+      {
+        "id": "rage_armor",
+        "level": 4,
+        "name": "Rage Armor",
+        "cost": "1 Essence",
+        "dice": "Stamina + Survival + Honor",
+        "action": "Instant",
+        "description": "The werewolf tempers his flesh with Rage, gaining one point of Armor per two successes rolled; the armor lasts for a number of turns equal to his Primal Urge dots."
+      },
+      {
+        "id": "lunas_fury",
+        "level": 5,
+        "name": "Luna's Fury",
+        "cost": "1 Essence per turn",
+        "dice": "Dexterity + Empathy + Cunning",
+        "action": "Instant",
+        "description": "The werewolf becomes a vessel for Luna's wrath: his Defense doubles against incoming attacks, he gains two extra dice on close-combat attacks, and all attacks can be staged normally."
+      }
+    ]
+  }
+}
