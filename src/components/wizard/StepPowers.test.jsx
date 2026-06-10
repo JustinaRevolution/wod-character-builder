@@ -66,7 +66,8 @@ describe('StepPowers — gifts type (Werewolf)', () => {
   })
 
   it('shows gift list tabs for the selected auspice (Rahu = Dominance, Full Moon, Strength)', () => {
-    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu', tribe: 'blood_talons' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
+    // Use bone_shadows tribe (death, insight, warding) to avoid overlap with rahu tabs
+    render(<StepPowers lineData={werewolf} template={{ auspice: 'rahu', tribe: 'bone_shadows' }} powers={{}} onSetPowers={() => {}} renown={baseRenown} onSetRenown={() => {}} />)
     expect(screen.getByRole('button', { name: 'Dominance' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Full Moon' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Strength' })).toBeInTheDocument()

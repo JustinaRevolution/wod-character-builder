@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import DotRating from '../ui/DotRating'
 import POWERS from '../../data/discipline-powers.json'
+import GIFTS from '../../data/gifts.json'
 
 function PowersPanel({ itemId, currentDots }) {
   const powers = POWERS[itemId]
@@ -158,6 +159,156 @@ function KeysPicker({ keys, selectedKeys, onSetPowers, powers }) {
   )
 }
 
+function GiftSection({ label, giftLists, maxPicks, maxLevel, selected, onToggle }) {
+  const [activeList, setActiveList] = useState(giftLists[0] || null)
+  const count = selected.length
+  const listData = activeList ? GIFTS[activeList] : null
+
+  return (
+    <div className="mb-8">
+      <h3 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
+        {label}
+        <span className={`text-xs px-2 py-0.5 rounded ${
+          count === maxPicks ? 'bg-green-900 text-green-300' : 'bg-gray-700 text-gray-400'
+        }`}>
+          {count} of {maxPicks}
+        </span>
+      </h3>
+
+      <div className="flex gap-1 flex-wrap mb-3">
+        {giftLists.map(listId => (
+          <button
+            key={listId}
+            onClick={() => setActiveList(listId)}
+            className={`px-3 py-1 text-xs rounded ${
+              activeList === listId
+                ? 'bg-amber-600 text-white'
+                : 'bg-gray-800 text-gray-400 hover:text-gray-200'
+            }`}
+          >
+            {GIFTS[listId]?.name ?? listId}
+          </button>
+        ))}
+      </div>
+
+      {listData && (
+        <div className="space-y-1 max-h-72 overflow-y-auto pr-1">
+          {listData.gifts.map(gift => {
+            const isSelected = selected.includes(gift.id)
+            const isLocked = gift.level > maxLevel
+            const isMaxed = !isSelected && count >= maxPicks
+            const isDisabled = isLocked || isMaxed
+
+            return (
+              <div
+                key={gift.id}
+                onClick={() => !isDisabled && onToggle(gift.id)}
+                className={`p-2 rounded border transition-colors ${
+                  isSelected
+                    ? 'border-amber-400 bg-gray-800 cursor-pointer'
+                    : isDisabled
+                    ? 'border-gray-800 opacity-40 cursor-not-allowed'
+                    : 'border-gray-700 text-gray-400 hover:border-gray-500 cursor-pointer'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className={`text-xs shrink-0 tracking-widest ${isDisabled ? 'text-gray-700' : 'text-amber-500'}`}>
+                      {'●'.repeat(gift.level)}
+                    </span>
+                    <span className={`text-sm font-medium ${isSelected ? 'text-gray-100' : isDisabled ? 'text-gray-600' : 'text-gray-300'}`}>
+                      {gift.name}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    {isSelected && <span className="text-amber-400 text-xs">✓</span>}
+                    {isLocked
+                      ? <span className="text-xs text-gray-700">{'●'.repeat(gift.level)} req.</span>
+                      : <span className="text-xs text-gray-600">{gift.cost} · {gift.action}</span>
+                    }
+                  </div>
+                </div>
+                {!isLocked && (
+                  <p className={`text-xs mt-1 leading-snug ${isSelected ? 'text-gray-400' : 'text-gray-600'}`}>
+                    {gift.description}
+                  </p>
+                )}
+                {!isLocked && gift.dice !== 'No roll required' && gift.dice !== 'This power requires no roll.' && (
+                  <p className={`text-xs mt-0.5 ${isSelected ? 'text-gray-500' : 'text-gray-700'}`}>
+                    Roll: {gift.dice}
+                  </p>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function GiftsPowers({ lineData, template, powers, onSetPowers, renown }) {
+  const { auspicePicks, tribePicks } = lineData.powers
+  const auspiceId = template[lineData.template.group2.field]
+  const tribeId = template[lineData.template.group1.field]
+
+  const auspiceOption = lineData.template.group2.options.find(o => o.id === auspiceId)
+  const tribeOption = lineData.template.group1.options.find(o => o.id === tribeId)
+
+  const auspiceGiftLists = auspiceOption?.giftLists ?? []
+  const tribeGiftLists = tribeOption?.giftLists ?? []
+  const isGhostWolf = tribeId === 'ghost_wolves'
+
+  const renownValues = Object.values(renown).filter(v => typeof v === 'number')
+  const maxLevel = renownValues.length > 0 ? Math.max(...renownValues, 1) : 1
+
+  const auspiceSelected = powers.auspice_gifts ?? []
+  const tribeSelected = powers.tribe_gifts ?? []
+
+  const toggleAuspice = giftId => {
+    const next = auspiceSelected.includes(giftId)
+      ? auspiceSelected.filter(id => id !== giftId)
+      : auspiceSelected.length < auspicePicks
+        ? [...auspiceSelected, giftId]
+        : auspiceSelected
+    onSetPowers({ ...powers, auspice_gifts: next })
+  }
+
+  const toggleTribe = giftId => {
+    const next = tribeSelected.includes(giftId)
+      ? tribeSelected.filter(id => id !== giftId)
+      : tribeSelected.length < tribePicks
+        ? [...tribeSelected, giftId]
+        : tribeSelected
+    onSetPowers({ ...powers, tribe_gifts: next })
+  }
+
+  return (
+    <div>
+      {auspiceGiftLists.length > 0 && (
+        <GiftSection
+          label="Auspice Gifts"
+          giftLists={auspiceGiftLists}
+          maxPicks={auspicePicks}
+          maxLevel={maxLevel}
+          selected={auspiceSelected}
+          onToggle={toggleAuspice}
+        />
+      )}
+      {!isGhostWolf && tribeGiftLists.length > 0 && (
+        <GiftSection
+          label="Tribe Gifts"
+          giftLists={tribeGiftLists}
+          maxPicks={tribePicks}
+          maxLevel={maxLevel}
+          selected={tribeSelected}
+          onToggle={toggleTribe}
+        />
+      )}
+    </div>
+  )
+}
+
 function RenownSection({ lineData, template, renown, onSetRenown }) {
   const { tracks, fromAuspice } = lineData.renown
   const auspiceId = fromAuspice ? template[lineData.template.group2.field] : null
@@ -207,9 +358,11 @@ export default function StepPowers({ lineData, template, powers, onSetPowers, re
       <h2 className="text-2xl font-bold mb-2">{label}</h2>
       {isCompact
         ? <p className="text-gray-400 mb-4">{compactNote}</p>
-        : type === 'pool'
-          ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
-          : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
+        : type === 'gifts'
+          ? <GiftsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} renown={renown} />
+          : type === 'pool'
+            ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+            : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
       }
       {!isCompact && keys && (
         <KeysPicker keys={keys} selectedKeys={selectedKeys} onSetPowers={onSetPowers} powers={powers} />
