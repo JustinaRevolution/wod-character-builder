@@ -154,7 +154,7 @@
         "cost": "None",
         "aspect": "Covert",
         "action": "Instant",
-        "dice": "Presence + Crafts + Death",
+        "dice": "Presence + Crafts + Death (or Spirit)",
         "description": "The mage enchants any sealable container to trap a soul within it, preventing the soul from escaping back into the cycle of birth and death."
       },
       {
@@ -219,7 +219,7 @@
         "practice": "Fraying",
         "cost": "1 Mana",
         "aspect": "Vulgar",
-        "action": "Instant",
+        "action": "Instant; subtract target's Stamina",
         "dice": "Manipulation + Persuasion + Death",
         "description": "The mage harvests Willpower or Mana from a dying or recently wounded person, drawing the energies that depart along with their fading vitality."
       },
@@ -282,7 +282,7 @@
         "id": "sculpt_ephemera",
         "level": 3,
         "name": "Sculpt Ephemera",
-        "practice": "Perfecting",
+        "practice": "Perfecting or Weaving",
         "cost": "None",
         "aspect": "Vulgar",
         "action": "Instant",
@@ -329,7 +329,7 @@
         "practice": "Unraveling",
         "cost": "None",
         "aspect": "Covert",
-        "action": "Instant",
+        "action": "Instant; subtract target's Stamina",
         "dice": "Presence + Occult + Death",
         "description": "The mage draws vigor from a target's body, reducing the victim's Strength Attribute by one dot per success down to a minimum of 1."
       },
@@ -362,7 +362,7 @@
         "practice": "Unraveling",
         "cost": "1 Mana",
         "aspect": "Vulgar",
-        "action": "Instant",
+        "action": "Instant; subtract target's Stamina",
         "dice": "Strength + Intimidation + Death – Stamina",
         "description": "The mage riddles a living target's body with corruption and putrefaction, inflicting lethal damage per success and imposing Social roll penalties from the grotesque wounds."
       },
@@ -417,7 +417,7 @@
         "practice": "Unraveling",
         "cost": "1 Mana",
         "aspect": "Vulgar",
-        "action": "Instant",
+        "action": "Instant; subtract target's Stamina (living being) or Resistance (ghost)",
         "dice": "Manipulation + Intimidation + Death – Stamina or Resistance",
         "description": "The mage harvests Mana or Willpower from a healthy living person or nearby ghost, consuming spiritual energies from targets not already touched by the grave."
       },
