@@ -84,8 +84,10 @@ Same shape as `vampire-merits.json` / `werewolf-merits.json`. Contents taken fro
 **New `rotes` section:**
 
 ```json
-{ "budget": 6, "source": "spells" }
+{ "budget": 6 }
 ```
+
+**Path options** in `template.group1` each gain `"inferiorArcanum"` (`acanthus: "forces"`, `mastigos: "matter"`, `moros: "spirit"`, `obrimos: "death"`, `thyrsus: "mind"`), used to enforce the Inferior Arcanum cap.
 
 **Resource fix** — `resource.pool.startValue` for Mana changes from 10 to 7 (= starting Wisdom).
 
@@ -97,6 +99,7 @@ The book's structural rule ("2/2/1, two of the three Ruling, +1 floating") is en
 
 - exactly 6 dots spent
 - max 3 dots in any Arcanum
+- the Path's Inferior Arcanum capped at 2 dots (self-taught limit, "The Laws of Higher Realities")
 - at least 3 distinct Arcana rated
 - both of the Path's Ruling Arcana have ≥ 1 dot
 - at least one Ruling Arcanum has ≥ 2 dots
@@ -109,16 +112,16 @@ Violations show inline messages naming the broken rule (same style as Werewolf's
 
 ## State
 
-The `powers` state object stores:
+The `powers` state object stores arcana dots flat (like pool lines) with rotes under an underscore meta-key, following the existing `_keys` convention:
 
 ```js
 {
-  arcana: { spirit: 2, life: 2, space: 2 },   // arcanum id → dots
-  rotes:  ["second_sight", "spirit_tongue"]   // spell ids, snake_case
+  spirit: 2, life: 2, space: 2,               // arcanum id → dots
+  _rotes: ["second_sight", "spirit_tongue"]   // spell ids, snake_case
 }
 ```
 
-The existing `onSetPowers` callback is unchanged — no parent wizard changes needed.
+This keeps the generic powers rendering in `StepReview` and `CharacterSheet` working for arcana dots; both components change their meta-key filter from `k !== '_keys'` to `!k.startsWith('_')` and add a rotes display line. The existing `onSetPowers` callback is unchanged — no parent wizard changes needed.
 
 ---
 
