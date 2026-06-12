@@ -2,6 +2,8 @@ import { useState } from 'react'
 import DotRating from '../ui/DotRating'
 import POWERS from '../../data/discipline-powers.json'
 import GIFTS from '../../data/gifts.json'
+import SPELLS from '../../data/spells.json'
+import { validateArcana, findInvalidRotes, SPELL_INDEX } from '../../utils/arcanaValidation'
 
 function PowersPanel({ itemId, currentDots }) {
   const powers = POWERS[itemId]
@@ -309,6 +311,184 @@ function GiftsPowers({ lineData, template, powers, onSetPowers, renown }) {
   )
 }
 
+function RoteSection({ arcanaDots, budget, selected, invalid, onToggle }) {
+  const ratedArcana = Object.keys(arcanaDots).filter(id => arcanaDots[id] > 0 && SPELLS[id])
+  const [activeTab, setActiveTab] = useState(null)
+  const [expanded, setExpanded] = useState(null)
+  const active = ratedArcana.includes(activeTab) ? activeTab : ratedArcana[0] ?? null
+  const listData = active ? SPELLS[active] : null
+  const spent = selected.reduce((s, id) => s + (SPELL_INDEX[id]?.level || 0), 0)
+
+  return (
+    <div className="mt-8">
+      <h3 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
+        Rotes
+        <span className={`text-xs px-2 py-0.5 rounded ${
+          spent === budget ? 'bg-green-900 text-green-300' : 'bg-gray-700 text-gray-400'
+        }`}>
+          {spent} of {budget} dots
+        </span>
+      </h3>
+      <p className="text-gray-400 text-sm mb-3">
+        Spend {budget} dots on rotes. A rote costs its spell's level and needs that many dots in its Arcanum.
+      </p>
+
+      {invalid.length > 0 && (
+        <div className="mb-3 p-2 rounded border border-red-700 bg-red-950/40">
+          <p className="text-xs text-red-300 mb-1">These rotes exceed your current Arcana — click to remove:</p>
+          <div className="flex gap-1 flex-wrap">
+            {invalid.map(id => (
+              <button key={id} onClick={() => onToggle(id)} className="px-2 py-0.5 text-xs rounded bg-red-900 text-red-200 hover:bg-red-800">
+                {SPELL_INDEX[id]?.name ?? id} ✕
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {ratedArcana.length === 0 && (
+        <p className="text-gray-600 text-sm">Allocate Arcana dots above to unlock rote choices.</p>
+      )}
+
+      <div className="flex gap-1 flex-wrap mb-3">
+        {ratedArcana.map(id => (
+          <button
+            key={id}
+            onClick={() => setActiveTab(id)}
+            className={`px-3 py-1 text-xs rounded ${
+              active === id ? 'bg-amber-600 text-white' : 'bg-gray-800 text-gray-400 hover:text-gray-200'
+            }`}
+          >
+            {SPELLS[id].name}
+          </button>
+        ))}
+      </div>
+
+      {listData && (
+        <div className="space-y-1 max-h-72 overflow-y-auto pr-1">
+          {[...listData.spells].sort((a, b) => a.level - b.level).map(spell => {
+            const isSelected = selected.includes(spell.id)
+            const isLocked = spell.level > arcanaDots[active]
+            const overBudget = !isSelected && spent + spell.level > budget
+            const isDisabled = isLocked || overBudget
+            const isExpanded = expanded === spell.id
+
+            return (
+              <div
+                key={spell.id}
+                className={`p-2 rounded border transition-colors ${
+                  isSelected
+                    ? 'border-amber-400 bg-gray-800'
+                    : isDisabled
+                    ? 'border-gray-800 opacity-40'
+                    : 'border-gray-700 text-gray-400 hover:border-gray-500'
+                }`}
+              >
+                <div
+                  className={`flex items-center justify-between gap-2 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                  onClick={() => !isDisabled && onToggle(spell.id)}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className={`text-xs shrink-0 tracking-widest ${isDisabled ? 'text-gray-700' : 'text-amber-500'}`}>
+                      {'●'.repeat(spell.level)}
+                    </span>
+                    <span className={`text-sm font-medium ${isSelected ? 'text-gray-100' : isDisabled ? 'text-gray-600' : 'text-gray-300'}`}>
+                      {spell.name}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    {isSelected && <span className="text-amber-400 text-xs">✓</span>}
+                    {isLocked
+                      ? <span className="text-xs text-gray-700">{'●'.repeat(spell.level)} req.</span>
+                      : <span className="text-xs text-gray-600">{spell.aspect} · {spell.cost}</span>
+                    }
+                    <button
+                      onClick={e => { e.stopPropagation(); setExpanded(isExpanded ? null : spell.id) }}
+                      className="text-xs text-gray-600 select-none px-1"
+                    >
+                      {isExpanded ? '▾' : '▸'}
+                    </button>
+                  </div>
+                </div>
+                {isExpanded && (
+                  <div className="mt-1 ml-1 border-l-2 border-gray-700 pl-3 text-xs space-y-0.5">
+                    <p className={isSelected ? 'text-gray-400' : 'text-gray-500'}>{spell.description}</p>
+                    <p className="text-gray-600">{spell.practice} · {spell.action} · {spell.aspect} · Cost: {spell.cost}</p>
+                    {spell.dice !== '—' && <p className="text-gray-600">Rote pool: {spell.dice}</p>}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ArcanaPowers({ lineData, template, powers, onSetPowers }) {
+  const { items, totalDots, maxPerArcanum, rulingFrom, description } = lineData.powers
+  const pathGroup = rulingFrom ? lineData.template[rulingFrom] : null
+  const pathId = pathGroup ? template[pathGroup.field] : null
+  const pathOption = pathId ? pathGroup.options.find(o => o.id === pathId) : null
+  const rulingIds = pathId ? items.filter(i => i.affinityFor?.includes(pathId)).map(i => i.id) : []
+  const inferiorId = pathOption?.inferiorArcanum ?? null
+
+  const arcanaDots = Object.fromEntries(items.map(i => [i.id, powers[i.id] || 0]))
+  const spent = Object.values(arcanaDots).reduce((s, v) => s + v, 0)
+  const remaining = totalDots - spent
+  const errors = validateArcana(powers, { rulingIds, inferiorId })
+  const selectedRotes = powers._rotes || []
+  const invalidRotes = findInvalidRotes(powers)
+
+  const handleChange = (id, v) => onSetPowers({ ...powers, [id]: v })
+
+  const toggleRote = spellId => {
+    const next = selectedRotes.includes(spellId)
+      ? selectedRotes.filter(id => id !== spellId)
+      : [...selectedRotes, spellId]
+    onSetPowers({ ...powers, _rotes: next })
+  }
+
+  return (
+    <div>
+      <p className="text-gray-400 mb-2">{description}</p>
+      <p className={`text-sm mb-2 font-medium ${remaining < 0 ? 'text-red-400' : 'text-amber-400'}`}>
+        {remaining} dots remaining
+      </p>
+      {errors.length > 0 && (
+        <ul className="text-xs text-red-400 mb-3 space-y-0.5">
+          {errors.map(e => <li key={e}>{e}</li>)}
+        </ul>
+      )}
+      <div className="space-y-1 max-w-sm">
+        {items.map(item => {
+          const isRuling = rulingIds.includes(item.id)
+          const isInferior = item.id === inferiorId
+          const itemMax = isInferior ? 2 : maxPerArcanum
+          return (
+            <div key={item.id} className="flex items-center justify-between py-0.5">
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-300 w-28">{item.name}</span>
+                {isRuling && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">Ruling</span>}
+                {isInferior && <span className="text-xs text-gray-500 bg-gray-800 px-1 rounded">Inferior</span>}
+              </div>
+              <DotRating value={arcanaDots[item.id]} max={itemMax} onChange={v => handleChange(item.id, v)} />
+            </div>
+          )
+        })}
+      </div>
+      <RoteSection
+        arcanaDots={arcanaDots}
+        budget={lineData.rotes?.budget ?? 6}
+        selected={selectedRotes}
+        invalid={invalidRotes}
+        onToggle={toggleRote}
+      />
+    </div>
+  )
+}
+
 function RenownSection({ lineData, template, renown, onSetRenown }) {
   const { tracks, fromAuspice } = lineData.renown
   const auspiceId = fromAuspice ? template[lineData.template.group2.field] : null
@@ -360,9 +540,11 @@ export default function StepPowers({ lineData, template, powers, onSetPowers, re
         ? <p className="text-gray-400 mb-4">{compactNote}</p>
         : type === 'gifts'
           ? <GiftsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} renown={renown} />
-          : type === 'pool'
-            ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
-            : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
+          : type === 'arcana'
+            ? <ArcanaPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+            : type === 'pool'
+              ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+              : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
       }
       {!isCompact && keys && (
         <KeysPicker keys={keys} selectedKeys={selectedKeys} onSetPowers={onSetPowers} powers={powers} />

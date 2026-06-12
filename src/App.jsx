@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { validateArcana, findInvalidRotes } from './utils/arcanaValidation'
 import useCharacter from './hooks/useCharacter'
 import StepIndicator from './components/ui/StepIndicator'
 import StepGameLine, { LINES } from './components/wizard/StepGameLine'
@@ -72,6 +73,18 @@ export default function App() {
         const spent = sk.reduce((s, skill) => s + character.skills[key][skill], 0)
         return spent <= budgets[character.skillPriority[key]]
       })
+    }
+    if (step === 5 && lineData?.powers?.type === 'arcana') {
+      const pathGroup = lineData.template[lineData.powers.rulingFrom]
+      const pathId = character.template[pathGroup.field]
+      const pathOption = pathGroup.options.find(o => o.id === pathId)
+      const rulingIds = lineData.powers.items
+        .filter(i => i.affinityFor?.includes(pathId))
+        .map(i => i.id)
+      return validateArcana(character.powers, {
+        rulingIds,
+        inferiorId: pathOption?.inferiorArcanum ?? null,
+      }).length === 0 && findInvalidRotes(character.powers).length === 0
     }
     return true
   }
