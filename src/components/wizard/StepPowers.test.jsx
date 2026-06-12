@@ -302,6 +302,14 @@ describe('StepPowers — pillars type (Mummy)', () => {
     expect(screen.getByText(guildAffinity.name)).toBeInTheDocument()
   })
 
+  it('writes _guild_affinity to powers state on mount', () => {
+    const onSetPowers = vi.fn()
+    const guildAffinityId = mummy.template.group2.options.find(o => o.id === 'maa_kep')?.guildAffinity
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={onSetPowers} />)
+    // The useEffect should fire and write _guild_affinity
+    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _guild_affinity: guildAffinityId }))
+  })
+
   it('calls onSetPowers with _free_affinity when a free affinity is picked', () => {
     const onSetPowers = vi.fn()
     render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={onSetPowers} />)

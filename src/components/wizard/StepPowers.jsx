@@ -598,10 +598,16 @@ function PillarsPowers({ lineData, template, powers, onSetPowers }) {
   const selectedUtterances = powers._utterances || []
 
   useEffect(() => {
-    if (!powers._soul_affinity && soulAffinities.length > 0) {
+    if (soulAffinities.length > 0 && (!powers._soul_affinity || !soulAffinities.some(a => a.id === powers._soul_affinity))) {
       onSetPowers({ ...powers, _soul_affinity: soulAffinities[0].id })
     }
   }, [definingPillarId])
+
+  useEffect(() => {
+    if (guildAffinityId && powers._guild_affinity !== guildAffinityId) {
+      onSetPowers({ ...powers, _guild_affinity: guildAffinityId })
+    }
+  }, [guildAffinityId])
 
   const allPillarsRated = items.every(i => (powers[i.id] || 0) >= 1)
   const utteranceSlots = allPillarsRated ? 2 : 1
