@@ -2316,5 +2316,462 @@
         "description": "The mage gives an object a self-repairing function, with each success enabling the object to automatically recover one Structure point of damage at a rate of one point per 15 minutes."
       }
     ]
+  },
+  "mind": {
+    "id": "mind",
+    "name": "Mind",
+    "spells": [
+      {
+        "id": "aura_perception",
+        "level": 1,
+        "name": "Aura Perception",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Empathy + Mind",
+        "description": "The mage reads a thinking being's aura to discern its mental and emotional state. The spell reveals the aura's color signature but requires the Prime 1 Supernal Vision spell to determine the target's supernatural nature."
+      },
+      {
+        "id": "one_mind_two_thoughts",
+        "level": 1,
+        "name": "One Mind, Two Thoughts",
+        "practice": "Compelling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Investigation + Mind",
+        "description": "The mage holds two distinct trains of thought simultaneously, performing two separate extended knowledge tasks at once so long as neither requires intense physical exertion or spellcasting."
+      },
+      {
+        "id": "sense_consciousness",
+        "level": 1,
+        "name": "Sense Consciousness",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Empathy + Mind",
+        "description": "The mage detects the presence of minds within sensory range, from the simplest animal to the most powerful spirit or willworker, and the spell creates a safety zone that no mind can enter without the mage's awareness."
+      },
+      {
+        "id": "third_eye",
+        "level": 1,
+        "name": "Third Eye",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Empathy + Mind",
+        "description": "The mage gains Mage Sight, sensing when nearby beings use exceptional mental powers such as telepathy or ESP, and reading the resonance of a target's will to discern the emotional and psychic qualities behind it."
+      },
+      {
+        "id": "alter_aura",
+        "level": 2,
+        "name": "Alter Aura",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Subterfuge + Mind",
+        "description": "The mage masks his own aura to display any mental or emotional state he chooses, though he cannot alter his nature or appear to be something he is not such as a Sleeper or vampire."
+      },
+      {
+        "id": "beast_control",
+        "level": 2,
+        "name": "Beast Control",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resolve reflexively",
+        "dice": "Presence + Animal Ken + Mind vs. Resolve",
+        "description": "The mage takes telepathic command of a simple-minded animal — a reptile, insect, fish, or invertebrate — compelling it to perform commands that are not completely inimical to its nature."
+      },
+      {
+        "id": "emotional_urging",
+        "level": 2,
+        "name": "Emotional Urging",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Manipulation + Empathy + Mind vs. Composure + Gnosis",
+        "description": "The mage projects a specific emotion into a target's mind as a powerful suggestion rather than a mandate; the feeling is most convincing when it fits the target's individual situation."
+      },
+      {
+        "id": "first_impressions",
+        "level": 2,
+        "name": "First Impressions",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Presence + Socialize + Mind",
+        "description": "The mage generates an instant sense of familiarity and trust in a chosen person, adding one die per success to the first Social Attribute-based roll made with that individual."
+      },
+      {
+        "id": "incognito_presence",
+        "level": 2,
+        "name": "Incognito Presence",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Subterfuge + Mind",
+        "description": "Witnesses perceive nothing special about the mage and are apt to forget her shortly after she passes; each success adds to the difficulty of noticing or remembering her."
+      },
+      {
+        "id": "memory_hole",
+        "level": 2,
+        "name": "Memory Hole",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Occult + Mind",
+        "description": "The mage partitions parts of his own consciousness so that he does not remember certain thoughts or events, subtracting one die per success from others' rolls to detect lies he tells about those hidden memories."
+      },
+      {
+        "id": "mental_shield",
+        "level": 2,
+        "name": "Mental Shield",
+        "practice": "Shielding",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Mind",
+        "description": "The mage erects a psychic barrier that subtracts one die per Mind dot from spells and powers attempting to mentally control, detect, or influence him, and also lets him see through mental illusions upon first encountering them."
+      },
+      {
+        "id": "misperception",
+        "level": 2,
+        "name": "Misperception",
+        "practice": "Shielding",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Stealth + Mind",
+        "description": "The mage convinces attackers and observers that she is slightly displaced from her actual position, causing blows to go astray and granting armor points equal to her Mind Arcanum dots."
+      },
+      {
+        "id": "opening_the_lidless_eye",
+        "level": 2,
+        "name": "Opening the Lidless Eye",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Persuasion + Mind",
+        "description": "The mage casts the Third Eye spell upon another mage or supernatural being to read the resonance of their mind and workings; if cast upon a Sleeper, it triggers Disbelief immediately regardless of Duration."
+      },
+      {
+        "id": "voice_from_afar",
+        "level": 2,
+        "name": "Voice from Afar",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant; subtract target's Resolve",
+        "dice": "Manipulation + Expression + Mind – Resolve",
+        "description": "The mage projects one word per success directly into another mind with no supernatural compulsion attached, though an unwilling recipient may reflexively contest to determine whether the voice is genuine."
+      },
+      {
+        "id": "augment_the_mind",
+        "level": 3,
+        "name": "Augment the Mind",
+        "practice": "Perfecting",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Academics + Mind",
+        "description": "The mage raises one of his own Mental or Social Attributes by one dot per success, up to a maximum equal to his Mind Arcanum dots; boosting Resolve or Composure also increases Willpower capacity but not supply."
+      },
+      {
+        "id": "aura_cloak",
+        "level": 3,
+        "name": "Aura Cloak",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Subterfuge + Mind",
+        "description": "The mage alters another person's aura as he does for himself with Alter Aura, changing only the aura's appearance without affecting the target's actual emotional state."
+      },
+      {
+        "id": "greater_beast_control",
+        "level": 3,
+        "name": "Greater Beast Control",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resolve reflexively",
+        "dice": "Presence + Animal Ken + Mind vs. Resolve",
+        "description": "The mage extends telepathic command to median-intelligence animals — anything up to but not including primates, cetaceans, and cephalopods — compelling them to perform actions not completely inimical to their nature."
+      },
+      {
+        "id": "imposter",
+        "level": 3,
+        "name": "Imposter",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Intelligence + Subterfuge + Mind vs. Composure + Gnosis",
+        "description": "The mage clouds a target's perceptions to make her believe the caster is someone else — either a real person or a fictional persona — with each success adding a convincing sensory detail to the false image."
+      },
+      {
+        "id": "mental_wall",
+        "level": 3,
+        "name": "Mental Wall",
+        "practice": "Shielding",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Occult + Mind",
+        "description": "The mage erects a Mental Shield on another person, protecting a companion's mind against detection and alien influences exactly as if that person had cast the spell themselves."
+      },
+      {
+        "id": "multi_tasking",
+        "level": 3,
+        "name": "Multi-Tasking",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Academics + Mind",
+        "description": "The mage can simultaneously perform three mental extended actions or two mental instant actions; none of the parallel tasks can be spellcasting, which demands more than mere mental division."
+      },
+      {
+        "id": "psychic_assault",
+        "level": 3,
+        "name": "Psychic Assault",
+        "practice": "Fraying",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant; subtract target's Resolve",
+        "dice": "Resolve + Intimidation + Mind – Resolve",
+        "description": "The mage delivers a crude psychic shock that translates into bashing damage as the target's neurons misfire and muscles spasm; the spell affects vampires despite their undead neurology."
+      },
+      {
+        "id": "sleep_of_the_just",
+        "level": 3,
+        "name": "Sleep of the Just",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Occult + Mind",
+        "description": "The mage takes control of her own sleep cycle and dreams, sleeping as much or as little as desired and performing mental extended actions while asleep with the same freedom as while awake."
+      },
+      {
+        "id": "telepathy",
+        "level": 3,
+        "name": "Telepathy",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Wits + Empathy + Mind vs. Resolve + Gnosis",
+        "description": "The mage opens direct mind-to-mind contact with another sentient being, sharing thoughts, images, and emotions without the constraints of speech; only conscious surface thoughts are accessible at this level."
+      },
+      {
+        "id": "universal_language",
+        "level": 3,
+        "name": "Universal Language",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Academics + Mind",
+        "description": "The mage translates any idea into or out of any language by reducing it to root concepts, working for spoken words, written words, and encoded signals that exist only as thought."
+      },
+      {
+        "id": "augment_other_mind",
+        "level": 4,
+        "name": "Augment Other Mind",
+        "practice": "Perfecting",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Persuasion + Mind",
+        "description": "As the Mind 3 Augment the Mind spell, this conjunctional spell (also requiring Life ••••) raises one of another human being's Mental or Social Attributes by one dot per success, up to the caster's Mind Arcanum dots."
+      },
+      {
+        "id": "befuddle",
+        "level": 4,
+        "name": "Befuddle",
+        "practice": "Unraveling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant; subtract target's Composure",
+        "dice": "Manipulation + Persuasion + Mind",
+        "description": "The mage degrades one of a target's Mental or Social Attributes by one dot per success, down to a minimum of one; the mage must touch the target."
+      },
+      {
+        "id": "breach_the_vault_of_memory",
+        "level": 4,
+        "name": "Breach the Vault of Memory",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Manipulation + Subterfuge + Mind vs. Resolve + Gnosis",
+        "description": "The mage can add, modify, or delete a target's memories in any way he sees fit, with deeper and more fundamental memories requiring greater penalty dice to alter."
+      },
+      {
+        "id": "dream_traveler",
+        "level": 4,
+        "name": "Dream Traveler",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Manipulation + Occult + Mind vs. Composure + Gnosis",
+        "description": "The mage psychically enters the dreams of a sleeping individual, casting Mind spells within those dreams to reshape the subject's psychic landscape with as much or as little precision as desired."
+      },
+      {
+        "id": "hallucination",
+        "level": 4,
+        "name": "Hallucination",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Intelligence + Subterfuge + Mind vs. Resolve + Gnosis",
+        "description": "The mage creates a convincing false sensory experience affecting all five senses plus one additional sense per extra success; the illusion may be given a simple programmed action or maintained with concentration each turn."
+      },
+      {
+        "id": "psychic_projection",
+        "level": 4,
+        "name": "Psychic Projection",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Mind",
+        "description": "The mage projects his mind into Twilight as an intangible, semi-transparent form affected only by mind-affecting powers; his body remains alive but comatose during the projection."
+      },
+      {
+        "id": "psychic_sword",
+        "level": 4,
+        "name": "Psychic Sword",
+        "practice": "Unraveling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant; subtract target's Resolve",
+        "dice": "Presence + Intimidation + Mind – Resolve",
+        "description": "The mage performs a greater psychic assault that inflicts lethal damage on a one-for-one basis."
+      },
+      {
+        "id": "read_the_depths",
+        "level": 4,
+        "name": "Read the Depths",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Manipulation + Empathy + Mind vs. Composure + Gnosis",
+        "description": "The mage telepathically enters a subject's subconscious to read individual memories rather than surface thoughts, and can also divine the target's Virtue and Vice."
+      },
+      {
+        "id": "supreme_augmentation",
+        "level": 4,
+        "name": "Supreme Augmentation",
+        "practice": "Perfecting",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Academics + Life",
+        "description": "The mage raises more than one of his Mental and Social Attributes simultaneously, allocating successes freely among them in any combination, with each Attribute's total limited by the mage's Mind dots."
+      },
+      {
+        "id": "telepathic_control",
+        "level": 4,
+        "name": "Telepathic Control",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Manipulation + Persuasion + Mind vs. Resolve + Gnosis",
+        "description": "The mage exerts telepathic control over a human or higher mind, compelling actions the target cannot refuse so long as they are not completely suicidal or utterly contrary to the target's deepest nature."
+      },
+      {
+        "id": "network",
+        "level": 5,
+        "name": "Network",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Empathy + Mind",
+        "description": "The mage connects multiple minds simultaneously into a telepathic network, with successes determining how many minds can be linked; targets can share thoughts and coordinate without needing visual or spoken contact."
+      },
+      {
+        "id": "possession",
+        "level": 5,
+        "name": "Possession",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Manipulation + Persuasion + Mind vs. Resolve + Gnosis",
+        "description": "The mage psychically possesses another being, using the host's Physical Attributes and Merits or Flaws tied to their physical or social identity while the host's body lies comatose or watches as an impotent spectator."
+      },
+      {
+        "id": "psychic_domination",
+        "level": 5,
+        "name": "Psychic Domination",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Presence + Intimidation + Mind vs. Resolve + Gnosis",
+        "description": "The mage utterly dominates the mind of another thinking being, subjugating even survival instincts and deep moral convictions; unlike Telepathic Control, there is no limit to the thoughts and behaviors that can be forced upon a subject."
+      },
+      {
+        "id": "psychic_genesis",
+        "level": 5,
+        "name": "Psychic Genesis",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Extended",
+        "dice": "Intelligence + Empathy + Mind",
+        "description": "The mage creates a fully self-aware artificial consciousness that can manifest as a Twilight presence or be invested into a physical vessel; the mind dissolves when the spell expires unless designed to accept its own inevitable end."
+      },
+      {
+        "id": "psychic_reprogramming",
+        "level": 5,
+        "name": "Psychic Reprogramming",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Extended and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Manipulation + Persuasion + Mind vs. Composure + Gnosis",
+        "description": "The mage performs a deep overhaul of a subject's fundamental psychic makeup, permanently altering or deleting Virtues, Vices, and core personality aspects, though the effect is only prolonged against mages and other supernaturals."
+      },
+      {
+        "id": "shadow_projection",
+        "level": 5,
+        "name": "Shadow Projection",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Mind",
+        "description": "The mage sends his consciousness past the Gauntlet into the Shadow Realm, manifesting as a psychic projection with an ephemeral silver cord to the body and armor equal to his Gnosis and Health."
+      },
+      {
+        "id": "twilight_temple",
+        "level": 5,
+        "name": "Twilight Temple",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Composure + Occult + Mind",
+        "description": "The mage sculpts Twilight into an immaterial abode accessible only to his psychic form, with Durability equal to his Mind Arcanum and Structure equal to his Gnosis; Spirit 2 wards spirits and Death 2 wards ghosts from the temple."
+      }
+    ]
   }
 }
