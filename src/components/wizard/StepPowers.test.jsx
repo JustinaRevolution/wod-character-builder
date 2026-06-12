@@ -6,6 +6,7 @@ import werewolf from '../../data/lines/werewolf.json'
 import geist    from '../../data/lines/geist.json'
 import mage     from '../../data/lines/mage.json'
 import hunter   from '../../data/lines/hunter.json'
+import SPELLS from '../../data/spells.json'
 
 describe('StepPowers — pool type (Vampire)', () => {
   it('renders all discipline names', () => {
@@ -124,7 +125,13 @@ describe('StepPowers — gifts type (Werewolf)', () => {
   })
 })
 
-describe('StepPowers — pool type with caps (Mage)', () => {
+describe('StepPowers — arcana type (Mage)', () => {
+  // Pull real spells from the data so tests don't depend on extraction wording
+  const death1 = SPELLS.death.spells.find(s => s.level === 1)
+  const death3 = SPELLS.death.spells.find(s => s.level === 3)
+  const death2s = SPELLS.death.spells.filter(s => s.level === 2).slice(0, 3)
+  const validBuild = { death: 3, matter: 2, fate: 1 } // Moros: ruling Death + Matter
+
   it('renders all arcana names', () => {
     render(<StepPowers lineData={mage} template={{}} powers={{}} onSetPowers={() => {}} />)
     expect(screen.getByText('Death')).toBeInTheDocument()
@@ -134,8 +141,64 @@ describe('StepPowers — pool type with caps (Mage)', () => {
 
   it('shows Ruling badge for path arcana', () => {
     render(<StepPowers lineData={mage} template={{ path: 'acanthus' }} powers={{}} onSetPowers={() => {}} />)
-    // Acanthus ruling: Fate, Time
     expect(screen.getAllByText('Ruling').length).toBe(2)
+  })
+
+  it('shows 6 dots remaining initially', () => {
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText('6 dots remaining')).toBeInTheDocument()
+  })
+
+  it('shows a validation error while the allocation is incomplete', () => {
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={{ death: 2 }} onSetPowers={() => {}} />)
+    expect(screen.getByText('Spend exactly 6 dots (2 spent).')).toBeInTheDocument()
+  })
+
+  it('shows no validation errors for a legal build', () => {
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={validBuild} onSetPowers={() => {}} />)
+    expect(screen.queryByText(/Spend exactly 6 dots/)).toBeNull()
+    expect(screen.queryByText('Both Ruling Arcana need at least 1 dot.')).toBeNull()
+    expect(screen.queryByText('Rate at least 3 different Arcana.')).toBeNull()
+    expect(screen.queryByText('Your Inferior Arcanum is capped at 2 dots.')).toBeNull()
+  })
+
+  it('shows rote tabs only for rated arcana', () => {
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={validBuild} onSetPowers={() => {}} />)
+    expect(screen.getByRole('button', { name: 'Matter' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Time' })).toBeNull()
+  })
+
+  it('selects a legal rote on click', () => {
+    const onSetPowers = vi.fn()
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={validBuild} onSetPowers={onSetPowers} />)
+    fireEvent.click(screen.getByText(death1.name))
+    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _rotes: [death1.id] }))
+  })
+
+  it('deselects a selected rote on click', () => {
+    const onSetPowers = vi.fn()
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={{ ...validBuild, _rotes: [death1.id] }} onSetPowers={onSetPowers} />)
+    fireEvent.click(screen.getByText(death1.name))
+    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _rotes: [] }))
+  })
+
+  it('does not select a rote above the arcanum rating', () => {
+    const onSetPowers = vi.fn()
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={{ death: 2, matter: 2, fate: 2 }} onSetPowers={onSetPowers} />)
+    fireEvent.click(screen.getByText(death3.name))
+    expect(onSetPowers).not.toHaveBeenCalled()
+  })
+
+  it('does not select a rote that would exceed the 6-dot budget', () => {
+    const onSetPowers = vi.fn()
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={{ ...validBuild, _rotes: death2s.map(s => s.id) }} onSetPowers={onSetPowers} />)
+    fireEvent.click(screen.getByText(death1.name))
+    expect(onSetPowers).not.toHaveBeenCalled()
+  })
+
+  it('flags rotes that exceed lowered arcana for removal', () => {
+    render(<StepPowers lineData={mage} template={{ path: 'moros' }} powers={{ death: 1, matter: 2, fate: 3, _rotes: [death3.id] }} onSetPowers={() => {}} />)
+    expect(screen.getByText(/exceed your current Arcana/i)).toBeInTheDocument()
   })
 })
 
