@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import StepMerits from './StepMerits'
+import mummy from '../../data/lines/mummy.json'
 
 describe('StepMerits', () => {
   it('shows the 7-dot budget', () => {
@@ -75,5 +76,14 @@ describe('StepMerits', () => {
     fireEvent.click(screen.getByRole('button', { name: /^mage$/i }))
     expect(screen.getByText('Hallow')).toBeInTheDocument()
     expect(screen.getByText('High Speech')).toBeInTheDocument()
+  })
+})
+
+describe('StepMerits — Mummy tab', () => {
+  it('shows Mummy-specific merits when mummy tab is active', () => {
+    render(<StepMerits merits={[]} onAdd={() => {}} onRemove={() => {}} lineId="mummy" />)
+    fireEvent.click(screen.getByRole('button', { name: /^mummy$/i }))
+    expect(screen.getByText('Cult')).toBeInTheDocument()
+    expect(screen.getByText('Enigma')).toBeInTheDocument()
   })
 })

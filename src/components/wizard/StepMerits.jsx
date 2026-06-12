@@ -4,10 +4,11 @@ import BASE_CATALOG from '../../data/merits.json'
 import VAMPIRE_MERITS from '../../data/vampire-merits.json'
 import WEREWOLF_MERITS from '../../data/werewolf-merits.json'
 import MAGE_MERITS from '../../data/mage-merits.json'
+import MUMMY_MERITS from '../../data/mummy-merits.json'
 
 const BUDGET = 7
 const BASE_CATEGORIES = ['all', 'mental', 'physical', 'social']
-const LINE_MERITS = { vampire: VAMPIRE_MERITS, werewolf: WEREWOLF_MERITS, mage: MAGE_MERITS }
+const LINE_MERITS = { vampire: VAMPIRE_MERITS, werewolf: WEREWOLF_MERITS, mage: MAGE_MERITS, mummy: MUMMY_MERITS }
 const LINE_LABELS = { vampire: 'Kindred only', werewolf: 'Uratha only' }
 
 function dotLabel(merit) {
@@ -139,15 +140,18 @@ export default function StepMerits({ merits, onAdd, onRemove, lineId = null }) {
         <div>
           <h3 className="font-semibold text-gray-300 mb-3 text-xs uppercase tracking-wider">Selected Merits</h3>
           <div className="space-y-2 mb-6">
-            {merits.map((m, i) => (
-              <div key={i} className="flex items-center justify-between bg-gray-900 rounded px-3 py-2 border border-gray-700">
-                <span className="text-gray-200 text-sm">{m.name}</span>
-                <div className="flex items-center gap-3">
-                  <DotRating value={m.dots} max={5} />
-                  <button onClick={() => onRemove(i)} className="text-gray-500 hover:text-red-400 text-sm">✕</button>
+            {merits.map((m, i) => {
+              const catalogEntry = catalog.find(c => c.name === m.name)
+              return (
+                <div key={i} className="flex items-center justify-between bg-gray-900 rounded px-3 py-2 border border-gray-700">
+                  <span className="text-gray-200 text-sm">{m.name}</span>
+                  <div className="flex items-center gap-3">
+                    <DotRating value={m.dots} max={catalogEntry?.max_dots ?? 5} />
+                    <button onClick={() => onRemove(i)} className="text-gray-500 hover:text-red-400 text-sm">✕</button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
             {merits.length === 0 && (
               <p className="text-gray-600 text-sm">No merits selected yet.</p>
             )}
