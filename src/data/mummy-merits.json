@@ -1,0 +1,68 @@
+[
+  {
+    "id": "cult",
+    "name": "Cult",
+    "category": "mummy",
+    "line": "mummy",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A mummy's cult varies in character and composition, but nearly every Arisen has one. The cult system is an entire sub-design represented by this Merit and its sub-Merits on the character sheet. Unlike most social Merits, Cult is specifically immune to Social Atrophy."
+  },
+  {
+    "id": "enigma",
+    "name": "Enigma",
+    "category": "mummy",
+    "line": "mummy",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "No Fame",
+    "chargen_only": false,
+    "description": "All Arisen exist as occult mysteries peripheral to the supernatural world — secrets shrouded from notice and attention. Any character taking action to track, locate, or learn about the mummy suffers a penalty equal to the Enigma rating. Cult members reverse this, applying the rating as a bonus to find their hidden patron."
+  },
+  {
+    "id": "guild_status",
+    "name": "Guild Status",
+    "category": "mummy",
+    "line": "mummy",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "All Arisen belong to one of the five guilds and begin with at least Guild Status ● in their guild. Dots add to social dice pools with guild members: apprentices (●), journeymen (●●–●●●●), and guildmasters (●●●●●). A mummy cannot hold more than one form of Guild Status simultaneously."
+  },
+  {
+    "id": "relic",
+    "name": "Relic",
+    "category": "mummy",
+    "line": "mummy",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "The mummy possesses a relic from lost Irem at the start of play; starting relics must be of the appropriate type for the mummy's guild. Each dot level represents a progressively more powerful relic or combination of relics, from a single one-dot relic (●) up to a four-dot relic paired with a one-dot relic (●●●●●)."
+  },
+  {
+    "id": "tomb",
+    "name": "Tomb",
+    "category": "mummy",
+    "line": "mummy",
+    "min_dots": 1,
+    "max_dots": 10,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A mummy's tomb is where she's interred and a source of profound power and protection. Up to 10 Merit dots can be spread across three aspects: Geometry (boosts Pillar recharging), Peril (deters intruders via material traps or a spiritual curse), and Endowments (one-time side bonuses). Taking Drawbacks can reduce the total cost by up to 5 dots."
+  },
+  {
+    "id": "vestige",
+    "name": "Vestige",
+    "category": "mummy",
+    "line": "mummy",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "The mummy begins play with one or more vestiges — objects imbued with unrefined Sekhem — aligned to her fetters. Vestiges can refresh Memory, amplify the tomb's Lifeweb, and in dire circumstances refuel Pillars, though cannibalized vestiges permanently remain at their reduced ratings."
+  }
+]
