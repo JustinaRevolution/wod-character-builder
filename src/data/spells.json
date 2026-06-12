@@ -3979,5 +3979,275 @@
         "description": "The mage creates a sanctum in the Shadow Realm, with its volume and features determined by the number of successes using the Area-Affecting chart. Ordinary features require no successes to create while exceptional features require one or more successes."
       }
     ]
+  },
+  "time": {
+    "id": "time",
+    "name": "Time",
+    "spells": [
+      {
+        "id": "momentary_flux",
+        "level": 1,
+        "name": "Momentary Flux",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Investigation + Time",
+        "description": "The mage judges a currently ongoing or immediately upcoming action, learning whether it will be beneficial or adverse for her without knowing the exact outcome — only whether the overall result will help or hinder."
+      },
+      {
+        "id": "perfect_timing",
+        "level": 1,
+        "name": "Perfect Timing",
+        "practice": "Knowing",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Reflexive",
+        "dice": "Intelligence + Composure + Time",
+        "description": "The mage accurately assesses all temporal components in her immediate presence, granting a single extra die on the very next roll she must make by acting at the perfect moment."
+      },
+      {
+        "id": "temporal_eddies",
+        "level": 1,
+        "name": "Temporal Eddies",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Investigation + Time",
+        "description": "The mage gains the Mage Sight through Time, perceiving resonance by how much temporal weight things, people, and events carry as they move through the timestream."
+      },
+      {
+        "id": "temporal_wrinkles",
+        "level": 1,
+        "name": "Temporal Wrinkles",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Time",
+        "description": "The mage senses temporal disturbances within her sensory range, detecting subtle distortions clinging to those suffering from \"lost time\" or those touched by advanced uses of the Time Arcanum."
+      },
+      {
+        "id": "augury",
+        "level": 2,
+        "name": "Augury",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Time",
+        "description": "The mage sees the future in terms of generalities, asking a simple question about a declared target's future and gaining one general answer per success."
+      },
+      {
+        "id": "flip_of_the_coin",
+        "level": 2,
+        "name": "Flip of the Coin",
+        "practice": "Knowing",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Investigation + Time",
+        "description": "The mage glances forward to check the outcome of a simple undertaking with only two major variables, automatically succeeding or failing at an uncontested action with only two possible outcomes."
+      },
+      {
+        "id": "glimpsing_the_future",
+        "level": 2,
+        "name": "Glimpsing the Future",
+        "practice": "Knowing",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Investigation + Time",
+        "description": "The mage studies her next instant action in the immediate future and can perform it better, rolling twice on the following turn and keeping the better of the two results."
+      },
+      {
+        "id": "postcognition",
+        "level": 2,
+        "name": "Postcognition",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Investigation + Time",
+        "description": "The mage reviews the past of her current location or any moment in her own past (or that of an object) with flawless clarity, viewing events as through a camera placed in the scene; focusing on a remote location also requires Space 2."
+      },
+      {
+        "id": "shield_of_chronos",
+        "level": 2,
+        "name": "Shield of Chronos",
+        "practice": "Veiling",
+        "cost": "1 Mana (optional)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Stealth + Time",
+        "description": "The mage becomes invisible to prophecy, divination, and other forms of temporal scrying, making it harder for others to perceive his past or future unless they overcome the spell's Potency."
+      },
+      {
+        "id": "temporal_dodge",
+        "level": 2,
+        "name": "Temporal Dodge",
+        "practice": "Shielding",
+        "cost": "1 Mana (optional)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Dexterity + Athletics + Time",
+        "description": "The mage creates a small bubble of \"warped\" time around herself, speeding or slowing things as they approach to grant one point of armor per dot she possesses in the Time Arcanum."
+      },
+      {
+        "id": "temporal_flow",
+        "level": 2,
+        "name": "Temporal Flow",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Persuasion + Time",
+        "description": "Like the Time 1 Temporal Eddies spell, this casts the Time Mage Sight upon another mage or supernatural being; if cast upon a Sleeper it invokes Disbelief immediately regardless of Duration."
+      },
+      {
+        "id": "acceleration",
+        "level": 3,
+        "name": "Acceleration",
+        "practice": "Perfecting",
+        "cost": "None during casting, 1 Mana per turn after casting",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Stamina + Athletics + Time",
+        "description": "The mage accelerates her personal temporal motion, subtracting one die per Time dot from all attackers' dice pools and adding to her Initiative."
+      },
+      {
+        "id": "divination",
+        "level": 3,
+        "name": "Divination",
+        "practice": "Unveiling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Investigation + Time",
+        "description": "Like the Augury spell but more precise, the mage reads the future of a declared target in specific detail, asking one follow-up question per success about events that have not yet occurred."
+      },
+      {
+        "id": "shifting_sands",
+        "level": 3,
+        "name": "Shifting Sands",
+        "practice": "Weaving",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Time",
+        "description": "The mage rewinds time by one turn and replays his action with a different choice, so that from all other participants' perspectives the original turn simply never happened."
+      },
+      {
+        "id": "temporal_shift",
+        "level": 3,
+        "name": "Temporal Shift",
+        "practice": "Shielding",
+        "cost": "1 Mana (optional)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Investigation + Time",
+        "description": "Like the Time 2 Temporal Dodge spell, this protects others rather than the caster, granting one point of temporal armor per Time Arcanum dot to a chosen target."
+      },
+      {
+        "id": "chronos_curse",
+        "level": 4,
+        "name": "Chronos' Curse",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant; subtract target's Composure",
+        "dice": "Manipulation + Occult + Time – Composure",
+        "description": "The mage causes an individual to \"lag\" within the flow of time as everything around her moves at an accelerated rate, reducing the target's Defense by one per success and halving her Speed per success to a minimum of 1."
+      },
+      {
+        "id": "present_as_past",
+        "level": 4,
+        "name": "Present as Past",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Intelligence + Occult + Time vs. Composure + Gnosis",
+        "description": "The mage predicts the immediate future with absolute clarity; on a successful casting every player with a character affected by the spell's Target factors must declare that character's action before anyone acts for that turn."
+      },
+      {
+        "id": "prophecy",
+        "level": 4,
+        "name": "Prophecy",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Time",
+        "description": "The mage gains prescriptive advice on how to alter the future, asking one question per success about what actions or events might be taken to avert something he fears or knows is coming."
+      },
+      {
+        "id": "temporal_pocket",
+        "level": 4,
+        "name": "Temporal Pocket",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Extended",
+        "dice": "Wits + Occult + Time",
+        "description": "The mage withdraws into a personal temporal pocket where her subjective time flows at a faster or slower rate than the outside world, unable to interact with others but free to take actions — including sleep or ritual work — within the pocket."
+      },
+      {
+        "id": "temporal_stutter",
+        "level": 4,
+        "name": "Temporal Stutter",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Wits + Occult + Time",
+        "description": "The mage causes a living creature and everything it wears or carries to stutter forward in time for one turn per success, vanishing from observers and then lurching back into the present after those turns have elapsed."
+      },
+      {
+        "id": "faerie_glade",
+        "level": 5,
+        "name": "Faerie Glade",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Extended and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Wits + Occult + Time",
+        "description": "The mage pushes a place outside the normal flow of time so that those within experience far more or far less subjective time relative to the outside world, mimicking legendary faerie enchantments that trap travellers for centuries or compress hours into moments."
+      },
+      {
+        "id": "future_legacy",
+        "level": 5,
+        "name": "Future Legacy",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Presence + Investigation + Time",
+        "description": "The mage shunts an object forward in time, with successes determining how far into the future the object is sent — from one year to decades — placing it beyond any reach until it reappears at the designated moment."
+      },
+      {
+        "id": "rewrite_history",
+        "level": 5,
+        "name": "Rewrite History",
+        "practice": "Making and Unmaking",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Extended",
+        "dice": "Manipulation + Investigation + Time",
+        "description": "The mage sculpts his personal history within the bounds of possibility, temporarily shifting trait dots from one mundane Attribute, Skill, or Merit category to another within the same category as though he had made different choices in his past."
+      },
+      {
+        "id": "stop_time",
+        "level": 5,
+        "name": "Stop Time",
+        "practice": "Unmaking",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Intelligence + Occult + Time vs. Composure + Gnosis",
+        "description": "The mage suspends time around the target so that the subject appears perfectly frozen in one moment, with each success allowing the target to remain frozen for one turn before being restored to normal time."
+      }
+    ]
   }
 }
