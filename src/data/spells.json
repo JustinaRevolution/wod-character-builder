@@ -477,5 +477,385 @@
         "description": "The mage calls a long-departed ghost from the Underworld, compelling the shade to appear in Twilight and answer one truthful question per success before departing."
       }
     ]
+  },
+  "fate": {
+    "id": "fate",
+    "name": "Fate",
+    "spells": [
+      {
+        "id": "interconnections",
+        "level": 1,
+        "name": "Interconnections",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Extended (one turn per roll)",
+        "dice": "Intelligence + Investigation + Fate",
+        "description": "The mage reads the hidden threads of destiny linking people, places, and things, discerning the strength of sympathetic connections and detecting supernatural manipulations of fate. With enough successes she can also expose indirect supernatural mind control, spiritual possession, or alterations of someone's destiny."
+      },
+      {
+        "id": "quantum_flux",
+        "level": 1,
+        "name": "Quantum Flux",
+        "practice": "Compelling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Fate",
+        "description": "The mage reads probability and compensates for small deleterious factors in the immediate environment, spending turns aiming to negate up to three dice worth of penalties from minor negative circumstances on a one-for-one basis. Successive uses toward the same goal are considered Vulgar."
+      },
+      {
+        "id": "reading_the_outmost_eddies",
+        "level": 1,
+        "name": "Reading the Outmost Eddies",
+        "practice": "Compelling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Investigation + Fate",
+        "description": "The mage knows the outcome of some small random action in her immediate vicinity — which scratch ticket to buy or which machine will drop a stuck item — though the spell cannot produce life-altering changes or alter events already in motion."
+      },
+      {
+        "id": "sharpshooters_eye",
+        "level": 1,
+        "name": "Sharpshooter's Eye",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Firearms + Fate",
+        "description": "The mage eliminates all minor random factors working against a ranged attack, granting a flawless lock on a target and reducing penalties from range, position, size, and environment by one die per success. Requires Space 1 and either Life 1 for living targets or Matter 1 for objects."
+      },
+      {
+        "id": "the_sybils_sight",
+        "level": 1,
+        "name": "The Sybil's Sight",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Fate",
+        "description": "The mage activates Fate Mage Sight, perceiving the weight of fortune on people and things and sensing the particular qualities a being's destiny gives it in Fate-related interactions. While this spell is in effect, a reflexive Wits + Investigation roll is made to sense when something of metaphysical weight has been spoken or done nearby."
+      },
+      {
+        "id": "winds_of_chance",
+        "level": 1,
+        "name": "Winds of Chance",
+        "practice": "Compelling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Subterfuge + Fate",
+        "description": "The mage evades or attracts small turns of good or ill fortune, nudging quantum probabilities so that minor lucky or unlucky coincidences befall the target — enough to make someone smile or to ruin their day, but incapable of producing life-altering changes."
+      },
+      {
+        "id": "exceptional_luck",
+        "level": 2,
+        "name": "Exceptional Luck",
+        "practice": "Ruling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Occult + Fate",
+        "description": "The mage's endeavors are blessed with exceptional luck that defies the odds; she gains the 9-again quality on one future dice roll per success, with the player declaring which rolls are affected before those dice fall. The effect lasts one scene unless additional Duration factors are added during casting."
+      },
+      {
+        "id": "the_evil_eye",
+        "level": 2,
+        "name": "The Evil Eye",
+        "practice": "Ruling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Resisted; subtract target's Composure",
+        "dice": "Manipulation + Persuasion + Fate – Composure",
+        "description": "The mage directs a hex of immediate ill-fortune at a target, subtracting one die per Fate dot she possesses from the victim's very next dice pool, with each extra success on the spellcasting roll extending the curse to one additional roll. The spell can be cast as a prepared conditional spell to delay the onset of the curse."
+      },
+      {
+        "id": "fortunes_protection",
+        "level": 2,
+        "name": "Fortune's Protection",
+        "practice": "Shielding",
+        "cost": "1 Mana (optional)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Athletics + Fate",
+        "description": "The mage weaves probability around herself so that attacks just happen to miss and knives slide off her jacket at the last moment, gaining one point of magical armor per dot she possesses in Fate. Spending one Mana extends the Duration to one day."
+      },
+      {
+        "id": "granting_the_sybils_sight",
+        "level": 2,
+        "name": "Granting the Sybil's Sight",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Occult + Fate",
+        "description": "The mage bestows Fate Mage Sight upon another being, allowing even a Sleeper or supernatural creature to perceive the interplay of destiny for the duration. If cast upon an unwilling target, he may contest the spell with a reflexive Resolve + Gnosis roll; if cast on a Sleeper, it invokes Disbelief immediately unless the Duration is less than one scene."
+      },
+      {
+        "id": "the_perfect_moment",
+        "level": 2,
+        "name": "The Perfect Moment",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Fate",
+        "description": "The mage acts in a social situation with perfect Fate-guided grace and timing, saying exactly the right thing at exactly the right moment without any foreknowledge of what he will encounter. Casting this spell repeatedly on the same subject tangles their fates and may lead to unfavorable complications."
+      },
+      {
+        "id": "platonic_mechanism",
+        "level": 2,
+        "name": "Platonic Mechanism",
+        "practice": "Perfecting",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult or Science + Fate",
+        "description": "The mage imbues a mechanical or electronic device with perfect precision, causing it to function exactly as designed for the duration free from jams, drift, or inexplicable quirks, as though it had achieved its Platonic ideal form. The device is no more resilient to damage than normal, but it performs at 100% physical efficiency."
+      },
+      {
+        "id": "shifting_the_odds",
+        "level": 2,
+        "name": "Shifting the Odds",
+        "practice": "Ruling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult or Science + Fate",
+        "description": "The mage nudges destiny to generate a run of good or bad luck through completely plausible circumstances, steering fortune in the desired direction via tiny cascading causes. Successive attempts toward the same goal are considered Vulgar."
+      },
+      {
+        "id": "swearing_an_oath",
+        "level": 2,
+        "name": "Swearing an Oath",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Persuasion + Fate",
+        "description": "The mage formally declares her intentions to Creation, placing the full metaphysical weight of destiny behind a vow so that honoring it allows a reflexive Resolve + Composure roll to act despite opposing compulsions. Breaking the oath knowingly afflicts the caster with the Evil Eye until the spell is dispelled."
+      },
+      {
+        "id": "alter_oath",
+        "level": 3,
+        "name": "Alter Oath",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant; subtract target's Resolve",
+        "dice": "Manipulation + Politics + Fate",
+        "description": "The mage rewrites the terms and conditions of an existing Fate-based oath, changing what the target must do to honor or violate it; altering another mage's oath without her knowledge can itself be treated as intending to violate that vow. A mage cannot alter her own oath unless she has Fate 4."
+      },
+      {
+        "id": "bestow_exceptional_luck",
+        "level": 3,
+        "name": "Bestow Exceptional Luck",
+        "practice": "Weaving",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Persuasion + Fate",
+        "description": "Like the Fate 2 Exceptional Luck spell, the mage grants the 9-again quality to another person for one or more future dice rolls, bestowing a gift of fortune that can prove lifesaving. All orders recognize the value of this rote for protecting allies."
+      },
+      {
+        "id": "fabricate_fortune",
+        "level": 3,
+        "name": "Fabricate Fortune",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Subterfuge + Fate",
+        "description": "The mage creates a false destiny upon a person or thing, making it seem favored or cursed by fate to all those sensitive to fortune and prophecy. Those attuned to destiny must overcome the spell's Potency to see through the deception; if cast upon an unwilling mage, a reflexive contested Composure + Gnosis roll may be made."
+      },
+      {
+        "id": "grant_fortunes_protection",
+        "level": 3,
+        "name": "Grant Fortune's Protection",
+        "practice": "Shielding",
+        "cost": "1 Mana (optional to extend Duration to 24 hours)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Persuasion + Fate",
+        "description": "Like the Fate 2 Fortune's Protection spell, the mage weaves a shield of probability around another person rather than herself, causing attacks to improbably miss through bad timing and poor luck. Spending one Mana can extend the Duration to 24 hours."
+      },
+      {
+        "id": "lucky_coin",
+        "level": 3,
+        "name": "Lucky Coin",
+        "practice": "Perfecting",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult or Science + Fate",
+        "description": "The mage brings good fortune to a lifeless object, imbuing it with destined luck so it receives an equipment dice bonus equal to the spell's successes (up to the caster's Fate dots) and may have its armor value increased by one per success. Lucky objects tend to benefit those who own them even without being actively used."
+      },
+      {
+        "id": "monkeys_paw",
+        "level": 3,
+        "name": "Monkey's Paw",
+        "practice": "Fraying",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult or Science + Fate",
+        "description": "The mage brings bad fortune to a lifeless object, cursing it so it imposes an equipment dice penalty equal to the spell's successes (up to the caster's Fate dots) and can reduce a suit of armor's protection by one per success, even down to zero. Unlucky objects tend to cause harm to their owners even without being actively employed."
+      },
+      {
+        "id": "occlude_destiny",
+        "level": 3,
+        "name": "Occlude Destiny",
+        "practice": "Veiling and Shielding",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Subterfuge + Fate",
+        "description": "The mage shields a destiny from outside perception or magical alteration, protecting a true child of prophecy from detection or guarding an oath from having its conditions perceived or changed by another willworker's magic. The spell's Potency contends against all other mages' attempts to perceive or alter the target's destiny."
+      },
+      {
+        "id": "superlative_luck",
+        "level": 3,
+        "name": "Superlative Luck",
+        "practice": "Weaving",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Fate",
+        "description": "The mage's endeavors are blessed with amazing, credibility-defying luck; she gains the 8-again quality on one future dice roll per success, with the player choosing which rolls are affected before those dice fall. Unused luck rolls expire at the scene's end."
+      },
+      {
+        "id": "destroy_bindings",
+        "level": 4,
+        "name": "Destroy Bindings",
+        "practice": "Unraveling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; successes are compared to the bond's Potency",
+        "dice": "Resolve + Occult + Fate vs. bond's Potency",
+        "description": "The mage severs a forced spiritual bond — a soul reattached by Death magic, a spirit imprisoned in a fetish, or a familiar bond — with successes needing to exceed the bond's Potency to take effect. The release is lasting for freed souls and ghosts, though the familiar bond returns to normal at the end of the scene."
+      },
+      {
+        "id": "gift_of_fortune",
+        "level": 4,
+        "name": "Gift of Fortune",
+        "practice": "Ruling",
+        "cost": "1 Mana (sympathetic casting cost)",
+        "aspect": "Covert",
+        "action": "Extended",
+        "dice": "Intelligence + Investigation + Fate",
+        "description": "The mage steers destiny so that a specific object finds its way into her possession through entirely plausible circumstances, with delivery time based on physical distance from the caster. The mage needs a Space sympathetic connection to reach objects beyond sensory range. Requires Space 2."
+      },
+      {
+        "id": "probable_cause",
+        "level": 4,
+        "name": "Probable Cause",
+        "practice": "Perfecting",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Composure + Occult + Fate",
+        "description": "The mage ensures near-certainty of success in nearly anything she puts her hand to, gaining the rote quality on one future dice roll per success achieved during casting. This spell cannot be stacked with Exceptional Luck or Superlative Luck — only the most potent takes effect."
+      },
+      {
+        "id": "sanctify_oaths",
+        "level": 4,
+        "name": "Sanctify Oaths",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Expression + Fate",
+        "description": "The mage brings the full metaphysical weight of destiny to bear on oaths sworn by others, binding even unwitting parties into mystical vows that carry the same supernatural consequences as the mage's own personally sworn oath. The participant need not be aware the mage has the means to place metaphysical momentum behind such vows."
+      },
+      {
+        "id": "sever_oaths",
+        "level": 4,
+        "name": "Sever Oaths",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; successes are compared to the oath's Potency",
+        "dice": "Manipulation + Occult + Fate vs. oath's Potency",
+        "description": "The mage completely severs a Fate-based oath, with successes needing to exceed the oath's Potency to free the target from its compulsion. He may also freely manipulate an oath he personally swore using Fate 2, in which case a single success is sufficient."
+      },
+      {
+        "id": "break_the_chains",
+        "level": 5,
+        "name": "Break the Chains",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; successes are compared to the geas' Potency",
+        "dice": "Wits + Occult + Fate vs. geas Potency",
+        "description": "The mage dispels or rearranges the conditions of another mage's geas, either altering its specifics or destroying the compulsion entirely; successes must exceed the geas's Potency to take effect. Free Council willworkers prize this rote to prove the limits of forced compliance."
+      },
+      {
+        "id": "forge_destiny",
+        "level": 5,
+        "name": "Forge Destiny",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Manipulation + Persuasion + Fate vs. Resolve + Gnosis",
+        "description": "The mage determines the destiny of a living being, adding one die per success to any action that fosters the declared fate and penalizing by one die per success any action that hinders it. Setting Fate's mark on someone can protect the secrecy of the Awakened by drawing people into or away from the occult world."
+      },
+      {
+        "id": "forge_doom",
+        "level": 5,
+        "name": "Forge Doom",
+        "practice": "Unmaking",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Resolve + Intimidation + Fate vs. Resolve + Gnosis",
+        "description": "The mage declares a living being, place, thing, condition, flaw, or behavior to be someone's doom, increasing all damage dice suffered by the target while acting under the doom's parameters by the spell's successes. Meeting one's doom does not guarantee harm — it only worsens any damage that might already happen."
+      },
+      {
+        "id": "forge_godsend",
+        "level": 5,
+        "name": "Forge Godsend",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Composure + Survival + Fate vs. Resolve + Gnosis",
+        "description": "The mage declares a living being, place, thing, condition, or physical strength to be a godsend for someone, subtracting the spell's successes from any damage suffered while the target is possessed of, acting within, or protected by that godsend. In the case of a place, the default area affected is one-yard radius or five cubic yards."
+      },
+      {
+        "id": "geas",
+        "level": 5,
+        "name": "Geas",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Resolve + Gnosis reflexively",
+        "dice": "Presence + Expression + Fate vs. Resolve + Gnosis",
+        "description": "The mage forcibly compels another person to heed her will as though they had sworn a binding oath, imposing a directive the target must actively work toward or suffer the effects of the Great Curse for the remainder of the geas's Duration. The objective must be possible, though it need not be reasonable."
+      },
+      {
+        "id": "great_curse",
+        "level": 5,
+        "name": "Great Curse",
+        "practice": "Unmaking",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant; subtract target's Composure",
+        "dice": "Manipulation + Intimidation + Fate – Composure",
+        "description": "A more powerful version of the Evil Eye, the Great Curse blights a target so that every task they undertake surely fails for the duration, affecting all rolls made while the magic is in effect. This spell cannot be combined with the Evil Eye — only the most potent takes effect."
+      },
+      {
+        "id": "swarm_of_locusts",
+        "level": 5,
+        "name": "Swarm of Locusts",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Wits + Occult or Science + Fate",
+        "description": "The mage creates chaotic Fortean conditions — rains of frogs, every animal in a city block going berserk simultaneously, and similarly improbable occurrences — by surrendering all control of the spell's effects to Fate's hands. Sleepers who witness the chaos are temporarily open to the possibilities of magic and do not act as Paradox witnesses for spells cast in the affected area."
+      }
+    ]
   }
 }
