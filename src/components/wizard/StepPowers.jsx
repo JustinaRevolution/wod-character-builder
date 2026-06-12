@@ -760,6 +760,74 @@ function PillarsPowers({ lineData, template, powers, onSetPowers }) {
   )
 }
 
+function EndowmentsPowers({ lineData, template, powers, onSetPowers }) {
+  const { items = [], startingDots = 3 } = lineData.powers
+  const orgId = template[lineData.template.group2.field]
+  const filtered = items.filter(item => item.orgId === orgId)
+  const selected = powers?.selected ?? []
+
+  const dotsSpent = selected.reduce((sum, id) => {
+    const item = items.find(i => i.id === id)
+    return sum + (item?.dots ?? 0)
+  }, 0)
+  const dotsRemaining = startingDots - dotsSpent
+
+  function toggle(item) {
+    if (selected.includes(item.id)) {
+      onSetPowers({ selected: selected.filter(id => id !== item.id) })
+    } else if (dotsRemaining >= item.dots) {
+      onSetPowers({ selected: [...selected, item.id] })
+    }
+  }
+
+  if (!orgId || filtered.length === 0) {
+    return <p className="text-gray-400 italic">Select a conspiracy to see its Endowments.</p>
+  }
+
+  return (
+    <div>
+      <p className="text-sm text-amber-400 mb-4 font-medium">
+        {dotsRemaining} of {startingDots} Endowment {dotsRemaining === 1 ? 'dot' : 'dots'} remaining
+      </p>
+      <div className="space-y-2">
+        {filtered.map(item => {
+          const isSelected = selected.includes(item.id)
+          const canAfford = dotsRemaining >= item.dots
+          return (
+            <button
+              key={item.id}
+              onClick={() => toggle(item)}
+              disabled={!isSelected && !canAfford}
+              className={`w-full text-left p-3 rounded border transition-colors ${
+                isSelected
+                  ? 'border-amber-500 bg-amber-900/20 text-amber-100'
+                  : canAfford
+                  ? 'border-gray-600 hover:border-gray-400 text-gray-300 hover:bg-gray-800/40'
+                  : 'border-gray-800 text-gray-600 cursor-not-allowed opacity-50'
+              }`}
+            >
+              <div className="flex justify-between items-center gap-2">
+                <span className="font-medium text-sm">{item.name}</span>
+                <span className="text-amber-500 shrink-0 text-xs tracking-widest">{'●'.repeat(item.dots)}</span>
+              </div>
+              <p className="text-xs mt-1 leading-snug opacity-80">{item.description}</p>
+              {(item.cost !== '—' || item.action !== '—' || item.dice !== '—') && (
+                <p className="text-xs mt-1 text-gray-500">
+                  {[
+                    item.cost !== '—' && `Cost: ${item.cost}`,
+                    item.action !== '—' && item.action !== 'None' && `Action: ${item.action}`,
+                    item.dice !== '—' && item.dice !== 'None' && `Dice: ${item.dice}`
+                  ].filter(Boolean).join(' · ')}
+                </p>
+              )}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 export default function StepPowers({ lineData, template, powers, onSetPowers, renown = {}, onSetRenown = () => {} }) {
   const { type, label, keys, compactNote } = lineData.powers
   const selectedKeys = powers._keys || []
@@ -780,7 +848,9 @@ export default function StepPowers({ lineData, template, powers, onSetPowers, re
               ? <PillarsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
               : type === 'pool'
                 ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
-                : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
+                : type === 'endowments'
+                  ? <EndowmentsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+                  : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
       }
       {!isCompact && keys && (
         <KeysPicker keys={keys} selectedKeys={selectedKeys} onSetPowers={onSetPowers} powers={powers} />

@@ -212,10 +212,10 @@ describe('StepPowers — Hunter (compact vs conspiracy)', () => {
     expect(screen.queryByRole('textbox')).toBeNull()
   })
 
-  it('shows picks UI for conspiracy hunters', () => {
-    render(<StepPowers lineData={hunter} template={{ org_type: 'conspiracy' }} powers={{}} onSetPowers={() => {}} />)
-    expect(screen.getByText(/Organization Endowments/i)).toBeInTheDocument()
-    expect(screen.getAllByRole('textbox').length).toBeGreaterThan(0)
+  it('shows endowments UI for conspiracy hunters', () => {
+    render(<StepPowers lineData={hunter} template={{ org_type: 'conspiracy', organization: 'malleus' }} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText(/endowment dots remaining/i)).toBeInTheDocument()
+    expect(screen.getAllByRole('button').length).toBeGreaterThan(0)
   })
 })
 
