@@ -4,41 +4,40 @@
     "group1": {
       "label": "Decree", "field": "decree",
       "options": [
-        { "id": "ab_henu",   "name": "Ab-Henu",   "description": "Decree of the Heart — warriors who bring the justice of Fate." },
-        { "id": "ames_ankh", "name": "Ames-Ankh", "description": "Decree of the Pillar — architects who build and preserve." },
-        { "id": "ba_neterw", "name": "Ba-Neterw",  "description": "Decree of the Soul — priests who commune with the divine." },
-        { "id": "kher_minu", "name": "Kher-Minu",  "description": "Decree of the Shadow — assassins who work in darkness." },
-        { "id": "su_menenu", "name": "Su-Menenu",  "description": "Decree of the Name — scholars who protect knowledge." }
+        { "id": "heart",   "name": "Decree of the Heart",   "description": "The Lion-Headed — passionate, emotional, instinctive.",    "hint": "Defining Pillar: Ab. Favored Attributes: Presence and Strength.",    "definingPillar": "ab" },
+        { "id": "spirit",  "name": "Decree of the Spirit",  "description": "The Falcon-Headed — impulsive, adventurous, proud.",       "hint": "Defining Pillar: Ba. Favored Attributes: Resolve and Wits.",        "definingPillar": "ba" },
+        { "id": "essence", "name": "Decree of the Essence", "description": "The Bull-Headed — reliable, obstinate, obsessive.",        "hint": "Defining Pillar: Ka. Favored Attributes: Resolve and Stamina.",     "definingPillar": "ka" },
+        { "id": "name",    "name": "Decree of the Name",    "description": "The Serpent-Headed — studious, prying, disciplined.",      "hint": "Defining Pillar: Ren. Favored Attributes: Intelligence and Manipulation.", "definingPillar": "ren" },
+        { "id": "shadow",  "name": "Decree of the Shadow",  "description": "The Jackal-Headed — contemplative, morbid, mystical.",    "hint": "Defining Pillar: Sheut. Favored Attributes: Composure and Stamina.", "definingPillar": "sheut" }
       ]
     },
     "group2": {
       "label": "Guild", "field": "guild",
       "options": [
-        { "id": "artisans",       "name": "Guild of Artisans",       "description": "Craftsmen who create sacred relics and objects." },
-        { "id": "avengers",       "name": "Guild of Avengers",       "description": "Warriors who punish those who violate divine law." },
-        { "id": "intermediaries", "name": "Guild of Intermediaries", "description": "Diplomats who deal with the mortal world." },
-        { "id": "judges",         "name": "Guild of Judges",         "description": "Magistrates who enforce the laws of Duat." },
-        { "id": "merchants",      "name": "Guild of Merchants",      "description": "Traders who gather resources and networks." }
+        { "id": "maa_kep",    "name": "Maa-Kep",    "description": "Engravers of Amulets. Managers and organizers. Favored vessels: amulets.",   "guildAffinity": "affable_aid" },
+        { "id": "mesen_nebu", "name": "Mesen-Nebu", "description": "First Alchemists. Power brokers and sensualists. Favored vessels: regia.",   "guildAffinity": "divine_flesh" },
+        { "id": "sesha_hebsu","name": "Sesha-Hebsu","description": "Inscribers of Texts. Scholars and scribes. Favored vessels: texts.",           "guildAffinity": "eyes_of_justice" },
+        { "id": "su_menent",  "name": "Su-Menent",  "description": "Shepherds of the Shell. Funerary priests and ritualists. Favored vessels: uter.", "guildAffinity": "fated_soul" },
+        { "id": "tef_aabhi",  "name": "Tef-Aabhi",  "description": "Builders of Effigies. Masons and engineers. Favored vessels: effigies.",       "guildAffinity": "model_lifeweb" }
       ]
     }
   },
   "powers": {
-    "type": "pool",
+    "type": "pillars",
     "label": "Pillars",
-    "description": "Distribute 5 dots among your 5 Pillars. Your Decree and Guild determine which Pillars start highest — consult Mummy: the Curse for your starting allocations.",
-    "startingDots": 5,
-    "affinityFrom": "group1",
+    "description": "Distribute 9 dot-points across your five Pillars. No Pillar may exceed your defining Pillar. Only one Pillar may be left at 0. The 5th dot in any Pillar costs 2 points and requires all others to have at least 1.",
+    "totalDots": 9,
+    "definingFrom": "group1",
     "items": [
-      { "id": "ab",     "name": "Ab (Heart)",  "description": "Will, emotion, and motivation." },
-      { "id": "ba",     "name": "Ba (Soul)",   "description": "Identity, memory, and divine connection." },
-      { "id": "ka",     "name": "Ka (Double)", "description": "Physical power and vital force." },
-      { "id": "ren",    "name": "Ren (Name)",  "description": "Reputation, destiny, and hidden name." },
-      { "id": "sekhem", "name": "Sekhem",      "description": "Raw divine power — the Mummy's core supernatural force." }
+      { "id": "ab",    "name": "Ab",    "description": "Heart — will, emotion, motivation." },
+      { "id": "ba",    "name": "Ba",    "description": "Spirit — identity, memory, divine connection." },
+      { "id": "ka",    "name": "Ka",    "description": "Essence — physical power, vital force." },
+      { "id": "ren",   "name": "Ren",   "description": "Name — reputation, destiny, true name." },
+      { "id": "sheut", "name": "Sheut", "description": "Shadow — the hidden self, death and time." }
     ]
   },
   "resource": {
-    "pool":  { "name": "Sekhem",        "startValue": 7 },
-    "trait": { "name": "Sekhem Rating", "startValue": 5 }
+    "pool": { "name": "Sekhem", "startValue": 10 }
   },
-  "integrity": { "name": "Memory", "startValue": 0 }
+  "integrity": { "name": "Memory", "startValue": 3 }
 }
