@@ -1,0 +1,419 @@
+[
+  {
+    "id": "affable_aid",
+    "name": "Affable Aid",
+    "type": "guild",
+    "pillar": null,
+    "prerequisite": 1,
+    "description": "Maa-Kep guild affinity. A string of Sekhem floats around the mummy whenever engaging others, adding +2 to Perception, Seduction, and Shadowing Stealthily rolls; once the mummy does something that might evoke gratitude, all subsequent Persuasion and Socialize rolls with that person benefit from the 9-again rule for the rest of the Descent."
+  },
+  {
+    "id": "ancient_horror_unveiling",
+    "name": "Ancient Horror Unveiling",
+    "type": "misc",
+    "pillar": "sheut",
+    "prerequisite": 3,
+    "description": "As an instant action, the mummy spends one Willpower and rolls Presence + Intimidation + Sekhem, forcing a target who can perceive her to see the monstrous truth of her nature. On success the target develops a phobia derangement toward the mummy, which upgrades to hysteria on repeated exposures."
+  },
+  {
+    "id": "anointed_prowess",
+    "name": "Anointed Prowess",
+    "type": "soul",
+    "pillar": "ka",
+    "prerequisite": 1,
+    "description": "The mummy's body is a temple, hallowing all athletic endeavors. This Affinity duplicates the Blessed Soul effect but applies to Physical Attributes and Skills rather than Social ones."
+  },
+  {
+    "id": "auspicious_mastery",
+    "name": "Auspicious Mastery",
+    "type": "soul",
+    "pillar": "ba",
+    "prerequisite": 1,
+    "description": "Fate grants the mummy uncanny wisdom, drawing the mind's eye to important thoughts. This Affinity duplicates the Blessed Soul effect but applies to Mental Attributes and Skills rather than Social ones."
+  },
+  {
+    "id": "beast_companion",
+    "name": "Beast Companion",
+    "type": "soul",
+    "pillar": "ba",
+    "prerequisite": 1,
+    "description": "The mummy's bond with a chosen animal becomes an indelible part of her story, recurring each incarnation as prior companions die. The companion animal gains enhanced combat abilities, immunity to Sybaris, and a telepathic link with the mummy across any distance."
+  },
+  {
+    "id": "beast_soul_fury",
+    "name": "Beast Soul Fury",
+    "type": "misc",
+    "pillar": "sheut",
+    "prerequisite": 1,
+    "description": "Spending one Willpower, the mummy reflexively enters a feral state for a scene, dropping Intelligence to 1 but nullifying all foreign influence, mind control, and illusions. In this primal form, she is considered to have Sekhem 10 for reinforcing Strength and Stamina with Pillars."
+  },
+  {
+    "id": "blessed_panoply",
+    "name": "Blessed Panoply",
+    "type": "misc",
+    "pillar": "ren",
+    "prerequisite": 2,
+    "description": "The Arisen's possessions do not rust, rot, or suffer wear and tear from time or normal use, and all damage rolls to harm owned objects add one to their target number. The mummy can also take an instant action to clean any touched owned object, and may claim ownership of unowned items through a contested Resolve + Sekhem roll."
+  },
+  {
+    "id": "blessed_soul",
+    "name": "Blessed Soul",
+    "type": "soul",
+    "pillar": "ab",
+    "prerequisite": 1,
+    "description": "Fate bows before the grandeur of the Arisen, granting a bonus to Social rolls when a Specialty applies and extending that Specialty benefit to all applicable rolls in the scene for the cost of one Willpower. The effect appears as natural charisma and good fortune rather than overt magic."
+  },
+  {
+    "id": "by_steps_unseen",
+    "name": "By Steps Unseen",
+    "type": "misc",
+    "pillar": "sheut",
+    "prerequisite": 3,
+    "description": "The mummy rolls Stealth with a bonus equal to her Sheut rating against all potential witnesses; on success she vanishes and reappears in a burst of shadows at a known or perceived destination within (Sheut x 10) yards. While she remains undetected, enemies cannot apply Defense against her attacks."
+  },
+  {
+    "id": "charmed_lives",
+    "name": "Charmed Lives",
+    "type": "soul",
+    "pillar": "ren",
+    "prerequisite": 2,
+    "description": "The mummy lives an extraordinarily blessed existence free of minor inconveniences and day-to-day irritations. She may spend one Willpower to dictate the result of any random event with fixed possibilities, or to reflexively shield all her actions against target number increases for one scene."
+  },
+  {
+    "id": "dauntless_explorer",
+    "name": "Dauntless Explorer",
+    "type": "soul",
+    "pillar": "ka",
+    "prerequisite": 2,
+    "description": "The mummy's fearless strength grants her the grit to endure any situation, rallying friends and allies. She adds her Ka rating to any dice pool rolled to resist fear, permanently gains the Strong Back and Inspiring Merits for free, and may spend Willpower on Survival rolls to convert success to exceptional success."
+  },
+  {
+    "id": "deathsight",
+    "name": "Deathsight",
+    "type": "soul",
+    "pillar": "sheut",
+    "prerequisite": 1,
+    "description": "The Arisen's intimate awareness of death grants the ability to perceive ghosts in Twilight with all senses and a limited soulsight capable of reading a target's Vice, Morality, and Sheut rating with a Wits + Investigation + Sheut roll. The mummy may also spend Willpower to shield himself from all undead attacks for one scene."
+  },
+  {
+    "id": "divine_countenance",
+    "name": "Divine Countenance",
+    "type": "soul",
+    "pillar": "ab",
+    "prerequisite": 1,
+    "description": "The mummy can reinforce her Social Attributes by spending Pillar points, boosting one Social Attribute by one dot per Pillar spent using the same rules as improving Dexterity. At Sekhem 1 she may spend a single Pillar point to boost a Social Attribute, temporarily exceeding what that Sekhem level normally permits."
+  },
+  {
+    "id": "divine_flesh",
+    "name": "Divine Flesh",
+    "type": "guild",
+    "pillar": null,
+    "prerequisite": 1,
+    "description": "Mesen-Nebu guild affinity. The Arisen's supernatural flesh transmutates its physical properties at her command, granting +2 to Carousing, Interrogation, and Oratory rolls and the 9-again rule on Composure + Medicine checks to imitate life. As a reflexive action she may gain +1 armor (or +2 armor at Willpower cost) for a number of turns equal to her defining Pillar rating."
+  },
+  {
+    "id": "dominating_might",
+    "name": "Dominating Might",
+    "type": "misc",
+    "pillar": "ka",
+    "prerequisite": 3,
+    "description": "The Arisen's uncanny strength can do truly terrible things: he adds +2 to Strength for lifting and moving objects, subtracts his Ka rating from the initiative count of all opponents who have seen him demonstrate great strength, and may knock prone any opponent damaged by a close combat attack."
+  },
+  {
+    "id": "enduring_flesh",
+    "name": "Enduring Flesh",
+    "type": "soul",
+    "pillar": "ka",
+    "prerequisite": 1,
+    "description": "The mummy's body resists natural harm better than her fellow Arisen. No environmental condition besides direct immolation can penalize her dice pools, damage her, or otherwise cause her harm, and the first points of aggravated damage per scene equal to her Ka rating are recorded as lethal instead."
+  },
+  {
+    "id": "enlightened_senses",
+    "name": "Enlightened Senses",
+    "type": "soul",
+    "pillar": "ren",
+    "prerequisite": 2,
+    "description": "The Arisen's perception expands with preternatural clarity, adding +2 to Perception, Craft, and Investigation rolls (increasing to the full Ren rating when Fate draws his attention to important details). He also gains the Common Sense and Meditative Mind Merits for free and may reduce range penalties to fire weapons."
+  },
+  {
+    "id": "entombed_glory",
+    "name": "Entombed Glory",
+    "type": "misc",
+    "pillar": null,
+    "prerequisite": null,
+    "description": "The Arisen's player may spend one Willpower per scene to add a bonus equal to the mummy's defining Pillar to her effective Sekhem rating while inside her tomb. These bonus dots cannot raise Sekhem above 10, cannot fuel a surge of will, and do not prevent death when actual Sekhem reaches 0."
+  },
+  {
+    "id": "epic_heart",
+    "name": "Epic Heart",
+    "type": "soul",
+    "pillar": "ab",
+    "prerequisite": 2,
+    "description": "The Arisen draws inner strength from her noblest aspects, recovering one Willpower per scene by acting in accordance with her Virtue in addition to the usual full Willpower recovery once per episode. Her Virtue cannot provide Willpower during scenes in which she already earned it from her Vice."
+  },
+  {
+    "id": "eternal_legend",
+    "name": "Eternal Legend",
+    "type": "misc",
+    "pillar": "ren",
+    "prerequisite": 5,
+    "description": "The Arisen's name has become a mystical secret inscribed upon the heavens, allowing any mortal who correctly pronounces it to channel the mummy's power into a rolled action. While the mummy's soul is in Duat, her name and worship slowly rebuild themselves in the mortal world, gaining one free dot of the Cult Merit each decade."
+  },
+  {
+    "id": "eyes_of_justice",
+    "name": "Eyes of Justice",
+    "type": "guild",
+    "pillar": null,
+    "prerequisite": 1,
+    "description": "Sesha-Hebsu guild affinity. The eternal scribe sees the world through the eyes of justice, adding +2 to cutting deals, seeing through forgery or disguise, and examining crime scenes. He can sense the relative power of relics on sight, and may spend Willpower to enter an enhanced awareness that lets him see the Lifeless as moving silver coronas and detect those who have taken a life by the glow around their hands."
+  },
+  {
+    "id": "falcon_soul_aloft",
+    "name": "Falcon Soul Aloft",
+    "type": "soul",
+    "pillar": "ba",
+    "prerequisite": 1,
+    "description": "Although the mummy cannot fly, his prodigious leaps and astounding grace hint otherwise. He adds his Ba rating to his jumping dice pool, lowers the target number by one for all jump and balance rolls, and takes drastically reduced falling damage."
+  },
+  {
+    "id": "familiar_face",
+    "name": "Familiar Face",
+    "type": "soul",
+    "pillar": "ren",
+    "prerequisite": 1,
+    "description": "The mummy exploits the social embarrassment of encountering a familiar but unknown face, causing targets to construct false memories that make the mummy feel like an old friend or colleague. On success the Arisen adds her Ren rating as a bonus to all social actions targeting that character for the rest of the scene."
+  },
+  {
+    "id": "fated_soul",
+    "name": "Fated Soul",
+    "type": "guild",
+    "pillar": null,
+    "prerequisite": 1,
+    "description": "Su-Menent guild affinity. The Arisen has a strong affinity for the soul itself and the path it winds through Fate, adding +2 to healing, meditation, and memory actions, and granting near-immunity to fear effects. She may also add +1 to her effective Sekhem when resisting others' magic, and may spend Willpower to substitute her defining Pillar for Sekhem when resisting mental or emotional compulsion."
+  },
+  {
+    "id": "fearsome_soul",
+    "name": "Fearsome Soul",
+    "type": "misc",
+    "pillar": "sheut",
+    "prerequisite": 3,
+    "description": "The mummy prevents evil from owning him by owning his darkest aspects. Once per episode he may take an action that substantially advances his Vice to reflexively restore all spent Willpower, and he requires only five minutes rather than one hour to successfully interrogate subjects, with each successful roll draining one Willpower from the target."
+  },
+  {
+    "id": "gift_of_truth",
+    "name": "Gift of Truth",
+    "type": "misc",
+    "pillar": "ren",
+    "prerequisite": 1,
+    "description": "The Arisen spends one Willpower to bestow the Witness Merit upon a target mortal she can perceive as an instant action, granting a temporary glimpse of supernatural truth. At Ren 3 or higher the mummy may also bestow language and Common Sense Merits, all renewable by the mortal daily or purchasable permanently with experience."
+  },
+  {
+    "id": "glorious_mien",
+    "name": "Glorious Mien",
+    "type": "misc",
+    "pillar": "ab",
+    "prerequisite": 2,
+    "description": "The Arisen wears her great heart upon her flesh, gaining the four-dot Striking Looks Merit for free. She may spend one Willpower to emanate a mantle of regal authority for a scene, causing even wicked monsters to feel shame for attacking or intimidating her and draining them one Willpower per attempt."
+  },
+  {
+    "id": "god_kings_scepter",
+    "name": "God-King's Scepter",
+    "type": "misc",
+    "pillar": null,
+    "prerequisite": null,
+    "cultPrerequisite": 3,
+    "description": "The metaphysical bonds between the mummy and her worshippers establish a special relationship through Fate. The target number for any Attribute and/or Skill-based action that solely targets members of her cult is lowered by one, whether the action is an attack, persuasion, interrogation, or medical treatment."
+  },
+  {
+    "id": "godsight",
+    "name": "Godsight",
+    "type": "misc",
+    "pillar": "ren",
+    "prerequisite": 3,
+    "description": "The mummy can attune her senses to the cosmic mysteries of the World of Darkness, passively sensing the Sekhem rating of nearby Arisen. She may spend Willpower to enter synesthetic awareness for the rest of the scene, perceiving the mechanics and patterns of supernatural powers as they are used around her."
+  },
+  {
+    "id": "grip_of_death",
+    "name": "Grip of Death",
+    "type": "misc",
+    "pillar": "sheut",
+    "prerequisite": 2,
+    "description": "The mummy's grasp is pitiless and inescapable, adding +2 to all grapple rolls (increasing to his full Sheut rating in darkness or near death). Victims he seizes are mystically silenced, and onlookers suffer a penalty equal to his Sheut rating on rolls to notice the mummy or his victim."
+  },
+  {
+    "id": "guardian_wrath",
+    "name": "Guardian Wrath",
+    "type": "soul",
+    "pillar": "ka",
+    "prerequisite": 2,
+    "description": "The mummy can tear her foes apart with her bare hands, adding +2 to unarmed close combat attacks. When inside her tomb or directly protecting cult members from immediate deadly harm the bonus equals her Ka rating, and at Strength 5 or greater she inflicts lethal damage with any unarmed strikes that normally deal bashing."
+  },
+  {
+    "id": "healing_counsel",
+    "name": "Healing Counsel",
+    "type": "misc",
+    "pillar": "ab",
+    "prerequisite": 3,
+    "description": "The Arisen's words plant the seeds of health and balance in others. By spending one Willpower and rolling Presence + Memory, she temporarily grants the target dots of Morality, first converting severe derangements to mild ones and then healing madness unrelated to Morality loss, with supernatural targets gaining equivalent dots in their own Morality trait."
+  },
+  {
+    "id": "living_in_now",
+    "name": "Living in Now",
+    "type": "misc",
+    "pillar": "ba",
+    "prerequisite": 2,
+    "description": "The mummy focuses her eternal mind on the present, removing unskilled penalties for Mental Skills and allowing her thoughts to literally pierce darkness so she can see as though holding a flashlight. She may spend Willpower to cancel all penalties on a Social or Mental Skill roll from internal states, or all penalties on a Physical Skill roll from internal or environmental conditions."
+  },
+  {
+    "id": "living_monolith",
+    "name": "Living Monolith",
+    "type": "misc",
+    "pillar": "ka",
+    "prerequisite": 2,
+    "description": "The mummy's immortal body transcends mortal endurance, granting immunity to wound penalties, removing unskilled penalties for Physical Skills, and adding health levels equal to his Ka rating. He may spend one Willpower to boost his lifting capacity to its maximum value without strain or penalty for the rest of the scene."
+  },
+  {
+    "id": "miraculous_benefactor",
+    "name": "Miraculous Benefactor",
+    "type": "soul",
+    "pillar": "ab",
+    "prerequisite": 2,
+    "description": "The Arisen twists Fate to ease the travails of her most trusted servants. By spending one Willpower, she reduces the target number of one roll for a single ally or retainer she knows by one, and the power cannot reduce any target number below 6."
+  },
+  {
+    "id": "model_lifeweb",
+    "name": "Model Lifeweb",
+    "type": "guild",
+    "pillar": null,
+    "prerequisite": 1,
+    "description": "Tef-Aabhi guild affinity. The Arisen is especially sensitive to the sacred interplay of Sekhem, adding +2 to Create Art, Repair Item, and Solving Enigmas rolls. As an instant action he can study an object by touching it to discern its true purpose, and may reflexively expand his awareness to detect concealed or misrepresented purposes of objects in his immediate environment."
+  },
+  {
+    "id": "night_creature",
+    "name": "Night Creature",
+    "type": "misc",
+    "pillar": "sheut",
+    "prerequisite": 2,
+    "description": "The mummy draws strength from his darkest qualities, reducing the target number of Stealth rolls by one to remain unnoticed (two in actual darkness or his tomb). He may spend Willpower to see perfectly in the dark and identify the unclean by their flickering aura of shadows, and can spend Willpower to mark himself as a terrifying enemy to all unclean characters for the scene."
+  },
+  {
+    "id": "nihilist_awakening",
+    "name": "Nihilist Awakening",
+    "type": "misc",
+    "pillar": "ba",
+    "prerequisite": 3,
+    "description": "As an instant action the mummy silently basks in her immortal superiority, spending one Willpower and rolling Presence + Expression. Living witnesses present who lack the Virtue of Faith or Hope feel existential despair weighing on their hearts, potentially developing derangements."
+  },
+  {
+    "id": "paragon_shames_the_weak",
+    "name": "Paragon Shames the Weak",
+    "type": "misc",
+    "pillar": "ka",
+    "prerequisite": 3,
+    "description": "The mummy's invincible supernatural potency breaks the spirits of competitors. Whenever she rolls an exceptional success on a witnessed action, she may spend Willpower and roll Presence + Expression + Sekhem to cause all hostile witnesses with fewer successes to develop the Inferiority Complex derangement for a month."
+  },
+  {
+    "id": "pharaoh_reigns_anew",
+    "name": "Pharaoh Reigns Anew",
+    "type": "soul",
+    "pillar": "ab",
+    "prerequisite": 3,
+    "description": "The epic sagas of the Arisen may change cast, but the plot stays the same. Fate assists the mummy whenever she wishes to gain a new Social Merit or restore an existing rating, providing unlikely opportunities and serendipitous encounters, and she never loses experience when Social Merits are reduced since Fate will restore them."
+  },
+  {
+    "id": "radiant_lifeforce",
+    "name": "Radiant Lifeforce",
+    "type": "soul",
+    "pillar": "ren",
+    "prerequisite": 1,
+    "description": "The Arisen's name is a secret beacon of lifeforce that shares a measure of immortality with those around him. He may voluntarily suffer one point of aggravated damage to remove one temporary derangement, and all living beings within (Ren x 100) yards temporarily gain the Quick Healer Merit, which they may purchase permanently by spending experience."
+  },
+  {
+    "id": "retributive_curse",
+    "name": "Retributive Curse",
+    "type": "misc",
+    "pillar": "ka",
+    "prerequisite": 2,
+    "description": "Ill fortune punishes those who dare strike down the Arisen. Whenever the mummy dies, the responsible characters suffer a Fate-ordained curse of bad luck at some future moment determined by the Storyteller, and all attempts to steal or desecrate the mummy's remains are interrupted by unlikely coincidences."
+  },
+  {
+    "id": "rouse_the_khaibit",
+    "name": "Rouse the Khaibit",
+    "type": "misc",
+    "pillar": "sheut",
+    "prerequisite": 2,
+    "description": "In a true crisis, the mummy may reflexively surrender full control of his mind and body to his basest nature. His Memory temporarily drops to 1, all Bane Affinities he knows manifest, and his Vice becomes irresistible and more rewarding when indulged; the player may attempt to break the transformation by spending Willpower and rolling permanent Memory."
+  },
+  {
+    "id": "running_like_flight",
+    "name": "Running Like Flight",
+    "type": "soul",
+    "pillar": "ba",
+    "prerequisite": 2,
+    "description": "The Arisen's pace quickens to preternatural levels, permanently granting dots of the Fleet of Foot Merit (scaling up with Ba rating). While unobserved by any sentient being, the mummy can double her Speed without it counting as an action."
+  },
+  {
+    "id": "shrouding_aura",
+    "name": "Shrouding Aura",
+    "type": "soul",
+    "pillar": "ka",
+    "prerequisite": 3,
+    "description": "Subtle and mysterious forces intervene to save the Arisen from harm and discovery. All rolls to discover the mummy's location add one to their target number, and once per scene she may spend one Willpower to have Fate turn aside any single rolled action intended to cause her physical harm, raising its target number by one."
+  },
+  {
+    "id": "sight_beyond_eyes",
+    "name": "Sight Beyond Eyes",
+    "type": "misc",
+    "pillar": "ba",
+    "prerequisite": 3,
+    "description": "The mummy's perceptions are no longer confined to her body, allowing her to displace her senses to another location in space or time as though present by spending one Willpower. She may perceive the past or future, or project her senses to any known or nearby location within (Ba x 20) yards, making Perception or Investigation rolls as normal while in this trance."
+  },
+  {
+    "id": "soul_infusion",
+    "name": "Soul Infusion",
+    "type": "misc",
+    "pillar": "ba",
+    "prerequisite": 3,
+    "description": "The Arisen can briefly entwine his Ba with another's soul through touch or grapple, reflexively draining one Willpower per turn from a willing or unwilling target. As an alternate use, mummies may learn languages by kissing a grappled target, with each Willpower drained counting as an hour of listening to that language."
+  },
+  {
+    "id": "soulsight",
+    "name": "Soulsight",
+    "type": "soul",
+    "pillar": "ab",
+    "prerequisite": 3,
+    "description": "The mummy can secretly weigh the hearts of others as surely as Thoth's scales. Once per turn she may reflexively roll Wits + Empathy + Ab against a target's Composure + Subterfuge to learn one piece of information from their emotional state, Virtue, Vice, Pillar ratings, Morality type and rating, or whether the target is possessed."
+  },
+  {
+    "id": "voice_of_conscience",
+    "name": "Voice of Conscience",
+    "type": "misc",
+    "pillar": "ab",
+    "prerequisite": 2,
+    "description": "The mummy uses false platitudes and saccharine appeals to compel the target to follow her cardinal Virtue at whatever cost to her relationships and standing. On success the compulsion takes root as a lingering urge: whenever the target next encounters a clear opportunity to act on that Virtue, she must do so unless the Storyteller determines the situation allows otherwise."
+  },
+  {
+    "id": "voice_of_temptation",
+    "name": "Voice of Temptation",
+    "type": "misc",
+    "pillar": "sheut",
+    "prerequisite": 2,
+    "description": "The Arisen knows how to bring out the worst in others, rolling Manipulation + Intimidation or Persuasion (with a bonus for matching the target's Vice) to compel a target to act on her Vice in shameful or even harmful ways. Targets cannot be forced to take knowingly suicidal risks."
+  },
+  {
+    "id": "wisdom_of_the_ancients",
+    "name": "Wisdom of the Ancients",
+    "type": "soul",
+    "pillar": "ba",
+    "prerequisite": 1,
+    "description": "The mummy's inspired consciousness achieves inhuman profundity, duplicating the Divine Countenance effect but applied to Mental Attributes rather than Social ones. The Willpower bonus from this Affinity derives from Resolve rather than Composure."
+  },
+  {
+    "id": "words_summoned_forth",
+    "name": "Words Summoned Forth",
+    "type": "misc",
+    "pillar": "ren",
+    "prerequisite": 3,
+    "description": "The mummy's name reaches out as a silent murmur to any character within (Ren x 10) yards she can perceive; rolling Manipulation + Occult against Resolve + Composure + Sekhem, success instills the Vocalization derangement, which escalates to Narcissism and then Megalomania on repeat activations."
+  }
+]
