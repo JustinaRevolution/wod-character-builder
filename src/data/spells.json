@@ -1958,5 +1958,363 @@
         "description": "The mage creates chaotic Fortean conditions — rains of frogs, every animal in a city block going berserk simultaneously, and similarly improbable occurrences — by surrendering all control of the spell's effects to Fate's hands. Sleepers who witness the chaos are temporarily open to the possibilities of magic and do not act as Paradox witnesses for spells cast in the affected area."
       }
     ]
+  },
+  "matter": {
+    "id": "matter",
+    "name": "Matter",
+    "spells": [
+      {
+        "id": "alter_conductivity",
+        "level": 1,
+        "name": "Alter Conductivity",
+        "practice": "Compelling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Science + Matter",
+        "description": "The mage alters the conductivity of a simple object, rendering an electrical cord completely non-conductive or making concrete conduct electricity like copper; the number of objects affected increases with each success."
+      },
+      {
+        "id": "craftsmans_eye",
+        "level": 1,
+        "name": "Craftsman's Eye",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Investigation or Science + Matter",
+        "description": "The mage discovers the proper function of an object with moving parts, potentially aiding Craft Skill rolls at the Storyteller's discretion."
+      },
+      {
+        "id": "dark_matter",
+        "level": 1,
+        "name": "Dark Matter",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult or Science + Matter",
+        "description": "The mage gains Mage Sight through the Matter Arcanum, perceiving the resonance of materials and gaining a +1 bonus when studying dense or very dense matter while suffering a −1 penalty for refined or very refined resonance."
+      },
+      {
+        "id": "detect_substance",
+        "level": 1,
+        "name": "Detect Substance",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Crafts or Science + Matter",
+        "description": "The mage detects substances in the area around her, capable of detecting concealed weapons by their gunpowder or hidden transmitters by their copper wiring."
+      },
+      {
+        "id": "discern_composition",
+        "level": 1,
+        "name": "Discern Composition",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "—",
+        "description": "The mage perceives the fundamental makeup of material structures, determining their composition, weight, and density, and can discern an object's Durability, Size, and Structure."
+      },
+      {
+        "id": "find_the_hidden_hoard",
+        "level": 1,
+        "name": "Find the Hidden Hoard",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Crafts + Matter",
+        "description": "The mage finds secret compartments within inanimate material, discovering hidden doors, safes, and vaults; extremely well-designed or precisely engineered compartments may impose a −1 or −2 dice penalty."
+      },
+      {
+        "id": "alter_accuracy",
+        "level": 2,
+        "name": "Alter Accuracy",
+        "practice": "Ruling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Crafts or Occult + Matter",
+        "description": "The mage improves the balance and heft of a simple item, granting it the 9-again quality on the next dice roll made using it; each extra success extends this benefit to one additional roll."
+      },
+      {
+        "id": "eyes_of_the_earth",
+        "level": 2,
+        "name": "Eyes of the Earth",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult or Science + Matter",
+        "description": "As the Matter 1 Dark Matter spell, this grants Matter Mage Sight to another mage or supernatural being; if cast upon a Sleeper, it invokes Disbelief immediately even if its Duration is less than one scene."
+      },
+      {
+        "id": "shape_liquid",
+        "level": 2,
+        "name": "Shape Liquid",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Dexterity + Occult + Matter",
+        "description": "The mage imparts cohesion to liquid or vapor, forming it into shapes of his choosing or moving it freely; liquid vapor or mist can be affected but purely gaseous substances such as helium or mustard gas cannot."
+      },
+      {
+        "id": "steel_windows",
+        "level": 2,
+        "name": "Steel Windows",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Crafts or Occult + Matter",
+        "description": "The mage makes an opaque object transparent or vice versa, and can choose to affect only one surface, such as making the outer face of a bank vault door transparent while keeping the inner mechanisms visible."
+      },
+      {
+        "id": "transmute_water",
+        "level": 2,
+        "name": "Transmute Water",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Occult or Science + Matter",
+        "description": "The mage transmutes one common liquid substance into another common liquid substance, such as turning water into milk or orange juice into gasoline; the mage must touch the targeted liquid."
+      },
+      {
+        "id": "unseen_aegis",
+        "level": 2,
+        "name": "Unseen Aegis",
+        "practice": "Shielding",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult or Science + Matter",
+        "description": "The mage subtly acts upon inert material in his immediate vicinity to defend himself from harm, as air cushions incoming fists and moisture douses flames; he gains one point of armor per dot he possesses in the Matter Arcanum."
+      },
+      {
+        "id": "alter_integrity",
+        "level": 3,
+        "name": "Alter Integrity",
+        "practice": "Perfecting or Fraying",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Crafts + Matter",
+        "description": "The mage reinforces or degrades an object's Durability by one point per success, with the change also altering the object's Structure accordingly; at this level the mage must touch the targeted object."
+      },
+      {
+        "id": "armor_piercing",
+        "level": 3,
+        "name": "Armor Piercing",
+        "practice": "Ruling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Crafts + Matter",
+        "description": "The mage bestows the armor-piercing quality upon an object, allowing it to ignore one armor or Durability point on the next roll made using it; each extra success extends this benefit to one additional roll."
+      },
+      {
+        "id": "jury_rig",
+        "level": 3,
+        "name": "Jury Rig",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Crafts + Matter",
+        "description": "The mage superimposes pieces of various machines into one another, transposing one quality per success from one mechanical object into another to produce a desired functional combination."
+      },
+      {
+        "id": "plasticity",
+        "level": 3,
+        "name": "Plasticity",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Dexterity + Crafts + Matter",
+        "description": "The mage renders any reasonably homogeneous material malleable for a single turn, making normally inflexible substances such as ice, coal, or lead crystal pliable as very stiff clay and as easy to sculpt by hand."
+      },
+      {
+        "id": "repair_object",
+        "level": 3,
+        "name": "Repair Object",
+        "practice": "Perfecting",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Dexterity + Crafts + Matter",
+        "description": "The mage repairs an object without leaving seams, restoring one Structure point per success as though the object had never been damaged."
+      },
+      {
+        "id": "transmute_earth",
+        "level": 3,
+        "name": "Transmute Earth",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Occult or Science + Matter",
+        "description": "The mage transmutes one common solid substance into another common solid substance, such as turning granite into glass or a car fender into balsa wood; transformations involving precious metals or rare materials are not possible at this level."
+      },
+      {
+        "id": "verminous_metamorphosis",
+        "level": 3,
+        "name": "Verminous Metamorphosis",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Wits + Animal Ken + Life",
+        "description": "Requiring Matter ••• and Life •••, the mage transforms pieces of lifeless material such as coins or staves into simple vermin — spiders, scorpions, or biting flies — with successes determining the number and size of the resulting swarm."
+      },
+      {
+        "id": "alter_efficiency",
+        "level": 4,
+        "name": "Alter Efficiency",
+        "practice": "Weaving",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Crafts or Science + Matter",
+        "description": "The mage improves or degrades a mechanical object's workings, adjusting equipment modifier dice by one per success up to a maximum of plus or minus five, or altering a vehicle's maximum speed or acceleration."
+      },
+      {
+        "id": "annihilate_matter",
+        "level": 4,
+        "name": "Annihilate Matter",
+        "practice": "Unraveling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Occult or Science + Matter",
+        "description": "The mage destroys inert matter by dissolving its atomic lattice, inflicting one point of damage per success without needing to overcome the object's Durability; magical, enhanced, and Artifact items are immune to this spell."
+      },
+      {
+        "id": "lesser_transmogrification",
+        "level": 4,
+        "name": "Lesser Transmogrification",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Occult or Science + Matter",
+        "description": "The mage turns a single liquid substance into a single solid substance and vice versa, turning water into stone or wood into ink; this spell cannot transmute objects into impossible combinations such as wood into liquid wood."
+      },
+      {
+        "id": "reconfigure_object",
+        "level": 4,
+        "name": "Reconfigure Object",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Dexterity + Crafts + Matter",
+        "description": "The mage turns an object into a different type of object of comparable complexity, altering its form entirely while its material substance, Durability, Structure, and Size remain unchanged."
+      },
+      {
+        "id": "shape_air",
+        "level": 4,
+        "name": "Shape Air",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Stamina + Occult + Matter",
+        "description": "The mage controls the flow and density of air or any gaseous substance within a defined volume, shaping and moving it at up to one yard per Gnosis dot per turn; shaped air has Durability equal to its Strength and can knock down those in its path."
+      },
+      {
+        "id": "transmute_air",
+        "level": 4,
+        "name": "Transmute Air",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Occult or Science + Matter",
+        "description": "The mage transforms one gaseous substance into another gaseous substance, such as turning nerve gas into laughing gas or oxygen into a harmless gas; the spell does not alter the substance's state, only its composition."
+      },
+      {
+        "id": "transmute_gold",
+        "level": 4,
+        "name": "Transmute Gold",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Wits + Occult or Science + Matter",
+        "description": "The mage transmutes a precious or rare substance such as gold or diamond into a common substance such as wood or mud; unlike Transmute Earth, this spell works on materials of rare or metaphysical significance."
+      },
+      {
+        "id": "alter_size",
+        "level": 5,
+        "name": "Alter Size",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Occult or Science + Matter",
+        "description": "The mage alters an object's Size, making it larger or smaller by one point of Size per success, within the limits of the caster's Matter Arcanum dots."
+      },
+      {
+        "id": "annihilate_extraordinary_matter",
+        "level": 5,
+        "name": "Annihilate Extraordinary Matter",
+        "practice": "Unmaking",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Occult or Science + Matter",
+        "description": "As the Matter 4 Annihilate Matter spell, this destroys enchanted substances normally immune to such attacks, including enhanced or imbued items, Artifacts, and thaumium."
+      },
+      {
+        "id": "forge_thaumium",
+        "level": 5,
+        "name": "Forge Thaumium",
+        "practice": "Making",
+        "cost": "1 Mana (minimum)",
+        "aspect": "Vulgar",
+        "action": "Extended",
+        "dice": "Dexterity + Occult + Matter",
+        "description": "Requiring Matter ••••• and Prime •••, the mage forges thaumium — a mirrored alloy of perfected gold, silver, and mercury — that when charged with Mana provides a reflexive counterspell against any Arcanum; one success creates a Size 1, Durability 1 piece with capacity for one Mana point."
+      },
+      {
+        "id": "greater_transmogrification",
+        "level": 5,
+        "name": "Greater Transmogrification",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Science + Matter",
+        "description": "The mage freely interchanges liquid, solid, and gaseous states in any combination, including precious or rare substances such as gold; this expands on Lesser Transmogrification to include all three states and rare materials."
+      },
+      {
+        "id": "raw_creation",
+        "level": 5,
+        "name": "Raw Creation",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Science + Matter",
+        "description": "The mage creates an object out of nothing up to Size 3, with additional successes allocated to Size or Durability; complex objects such as automobiles may require a reflexive Intelligence + Crafts or Science roll."
+      },
+      {
+        "id": "self_repairing_machine",
+        "level": 5,
+        "name": "Self-Repairing Machine",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Composure + Crafts + Matter",
+        "description": "The mage gives an object a self-repairing function, with each success enabling the object to automatically recover one Structure point of damage at a rate of one point per 15 minutes."
+      }
+    ]
   }
 }
