@@ -1,5 +1,7 @@
 import DotRating from '../ui/DotRating'
 import { SPELL_INDEX } from '../../utils/arcanaValidation'
+import AFFINITIES from '../../data/affinities.json'
+import UTTERANCES from '../../data/utterances.json'
 
 const ATTR_CATS = [
   { key: 'mental',   attrs: ['intelligence','wits','resolve'] },
@@ -111,6 +113,20 @@ export default function CharacterSheet({ character, lineData }) {
                   const s = SPELL_INDEX[id]
                   return s ? `${s.name} (${s.arcanumName} ${'●'.repeat(s.level)})` : id
                 }).join(', ')}
+              </div>
+            )}
+            {(powers._soul_affinity || powers._guild_affinity || powers._free_affinity) && (
+              <div style={{ marginTop: '4px' }}>
+                <strong>Affinities: </strong>{[
+                  AFFINITIES.find(a => a.id === powers._soul_affinity)?.name,
+                  AFFINITIES.find(a => a.id === powers._guild_affinity)?.name,
+                  AFFINITIES.find(a => a.id === powers._free_affinity)?.name,
+                ].filter(Boolean).join(', ')}
+              </div>
+            )}
+            {(powers._utterances || []).length > 0 && (
+              <div style={{ marginTop: '4px' }}>
+                <strong>Utterances: </strong>{(powers._utterances || []).map(id => UTTERANCES.find(u => u.id === id)?.name ?? id).join(', ')}
               </div>
             )}
           </div>
