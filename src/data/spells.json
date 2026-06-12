@@ -2773,5 +2773,440 @@
         "description": "The mage sculpts Twilight into an immaterial abode accessible only to his psychic form, with Durability equal to his Mind Arcanum and Structure equal to his Gnosis; Spirit 2 wards spirits and Death 2 wards ghosts from the temple."
       }
     ]
+  },
+  "prime": {
+    "id": "prime",
+    "name": "Prime",
+    "spells": [
+      {
+        "id": "analyze_enchanted_item",
+        "level": 1,
+        "name": "Analyze Enchanted Item",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Prime",
+        "description": "The mage scrutinizes an enchanted item to learn its magical properties, resonance, and any attached conditions or curses. With an exceptional success, the mage can determine whether the item is cursed or has other harmful or beneficial circumstances connected to its ownership."
+      },
+      {
+        "id": "discern_phantasm",
+        "level": 1,
+        "name": "Discern Phantasm",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Prime",
+        "description": "The mage can see through Prime-based illusions created with manifested Mana, perceiving them for what they truly are; they do not vanish from her sight but are known for what they are. The phantasm's Potency levies dice penalties on the roll."
+      },
+      {
+        "id": "dispel_magic",
+        "level": 1,
+        "name": "Dispel Magic",
+        "practice": "Compelling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant and contested; successes are compared to the target spell's Potency",
+        "dice": "Intelligence + Occult + Prime vs. target spell's Potency",
+        "description": "The mage dismantles or dispels an existing spell, pitting her successes against the target spell's Potency to unweave it. She must have at least one dot in each Arcanum used in the spell being dispelled."
+      },
+      {
+        "id": "inscribe_grimoire",
+        "level": 1,
+        "name": "Inscribe Grimoire",
+        "practice": "Compelling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Extended",
+        "dice": "Intelligence + Expression + Prime",
+        "description": "The mage encodes a rote into a magical book readable by other Awakened minds, placing part of her magical knowledge outside herself so others can learn and cast from it. Recording the rote causes the mage to forget how to cast it on her own until she re-learns it."
+      },
+      {
+        "id": "supernal_vision",
+        "level": 1,
+        "name": "Supernal Vision",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Prime",
+        "description": "The mage gains the Mage Sight, activating potent resonance-detecting senses that allow her to perceive magical phenomena, enchanted items, Mana, Hallows, and unseen spells. This sense is best used conjunctionally with other Arcana to analyze their specific magical signatures."
+      },
+      {
+        "id": "activate_enchanted_item",
+        "level": 2,
+        "name": "Activate Enchanted Item",
+        "practice": "Compelling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Investigation + Prime",
+        "description": "The mage artificially satisfies the trigger condition of a contingent Artifact or imbued item, allowing it to activate on demand within the spell's Duration. This is usually performed after carefully studying the item with Analyze Enchanted Item."
+      },
+      {
+        "id": "counterspell_prime",
+        "level": 2,
+        "name": "Counterspell Prime",
+        "practice": "Shielding",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant; successes subtract from the target spell's Potency",
+        "dice": "Composure + Occult + Prime",
+        "description": "The mage can counter spells from any Arcanum without needing to identify their components first, and can counter covert spells without first identifying them. This is a broader version of the basic Counterspell effect, covering all Arcana rather than one."
+      },
+      {
+        "id": "magic_shield",
+        "level": 2,
+        "name": "Magic Shield",
+        "practice": "Shielding",
+        "cost": "Special",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Prime",
+        "description": "The mage creates a shield of Prime energy visible to Mage Sight as ghostly white flames, granting one point of armor per Prime dot against spells that directly target the mage. The shield requires one Mana each time an incoming spell strikes it, and spending one Mana at casting can extend its Duration to one day."
+      },
+      {
+        "id": "primal_flow",
+        "level": 2,
+        "name": "Primal Flow",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Occult + Prime",
+        "description": "The mage casts the Supernal Vision effect upon another mage or supernatural being such as a ghost or werewolf, allowing the target to perceive resonance and magical phenomena for the scene. If cast upon a Sleeper, the spell immediately invokes Disbelief."
+      },
+      {
+        "id": "squaring_the_circle",
+        "level": 2,
+        "name": "Squaring the Circle",
+        "practice": "Ruling",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Prime",
+        "description": "The mage creates a mystical dueling space where two mages can engage in the Duel Arcane, a wizard's war governed by strict rules. The enclosed space enforces the rules of the Duel for its duration."
+      },
+      {
+        "id": "transform_aura",
+        "level": 2,
+        "name": "Transform Aura",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Prime",
+        "description": "The mage alters the nature of his own aura, changing its apparent quality or hiding it so he appears to be a Sleeper or even an inhuman creature. Only a Supernal Vision spell of higher Potency can detect the true aura beneath the disguise."
+      },
+      {
+        "id": "unseen_spy",
+        "level": 2,
+        "name": "Unseen Spy",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Subterfuge + Prime",
+        "description": "The mage hides himself from other willworkers' magical scrutiny, preventing them from sensing when he attempts to scrutinize or dispel their spells. If a spy tries to scrutinize a vigilant caster's spells, the caster makes a reflexive contested roll to detect the intrusion."
+      },
+      {
+        "id": "armor_of_the_soul",
+        "level": 3,
+        "name": "Armor of the Soul",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Occult + Prime",
+        "description": "The mage weaves a barrier of Prime energy around his soul, protecting it from being stolen by a spirit or severed by a Death adept. The protection grants one point of armor per Prime dot against magic or powers that specifically affect the soul."
+      },
+      {
+        "id": "celestial_fire",
+        "level": 3,
+        "name": "Celestial Fire",
+        "practice": "Fraying",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant and aimed",
+        "dice": "Dexterity + Occult + Prime",
+        "description": "The mage manifests a ball of glowing, celestial fire energy that can be thrown at a target, inflicting one point of bashing damage per success. This celestial fire is not mundane flame — vampires are not especially susceptible to it and it does not induce Rotschreck."
+      },
+      {
+        "id": "channel_mana",
+        "level": 3,
+        "name": "Channel Mana",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Prime",
+        "description": "The mage channels Mana from a Hallow, tass, or enchanted item into her own Mana pool, drawing one point per success up to her Prime dot maximum. The mage must touch the source."
+      },
+      {
+        "id": "controlled_dispellation",
+        "level": 3,
+        "name": "Controlled Dispellation",
+        "practice": "Fraying",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; successes are compared to the target spell's Potency",
+        "dice": "Resolve + Occult + Prime",
+        "description": "The mage selectively unravels a spell so it only affects those targets he chooses, leaving the spell intact for others. He can effectively make his own Pattern — or the Patterns of those he selects — invisible to the dispelled spell without ending the effect for everyone else."
+      },
+      {
+        "id": "create_tass",
+        "level": 3,
+        "name": "Create Tass",
+        "practice": "Weaving",
+        "cost": "1 Mana (minimum)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Craft or Occult + Prime",
+        "description": "The mage solidifies Mana into tass, a physical object of raw crystallized magical energy that can look like anything from a rock to a table. Successes are allocated to the tass's Size and Durability, and at least one Mana must be channeled into it."
+      },
+      {
+        "id": "disguise_resonance",
+        "level": 3,
+        "name": "Disguise Resonance",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Subterfuge + Prime",
+        "description": "The mage changes the apparent resonance of an area or Hallow, making a powerful site appear to be a dead zone or giving it a false magical signature. This spell cannot be detected except by a Mage Sight spell of higher Potency."
+      },
+      {
+        "id": "dissolve_tass",
+        "level": 3,
+        "name": "Dissolve Tass",
+        "practice": "Fraying",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Prime",
+        "description": "The mage dissolves tass back into the Tapestry, releasing its bound Mana and Structure back into the environment. Each success dissolves one point of the tass's Mana and one point of its Structure."
+      },
+      {
+        "id": "ephemeral_enchantment",
+        "level": 3,
+        "name": "Ephemeral Enchantment",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Prime",
+        "description": "The mage enchants a weapon to strike against Twilight and Shadow realm entities, or an armor to protect against them, for the scene. If the object is a firearm, all ammunition in its magazine, cylinder, and chamber is also enchanted."
+      },
+      {
+        "id": "imbue_item",
+        "level": 3,
+        "name": "Imbue Item",
+        "practice": "Weaving",
+        "cost": "1 Mana per spell",
+        "aspect": "Special",
+        "action": "Extended",
+        "dice": "Composure + Crafts + Prime",
+        "description": "The mage weaves one or more spells into a physical item so that anyone who wields it gains their benefits, even if they did not cast them. The mage must be capable of casting each spell to be imbued, and each spell costs one Mana per spell in addition to any normal casting cost."
+      },
+      {
+        "id": "imbue_mana",
+        "level": 3,
+        "name": "Imbue Mana",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Persuasion + Prime",
+        "description": "The mage gives a living creature one of his Mana points per success, touching the target during casting. Overloading a Sleeper with more Mana than her Pattern can hold inflicts one Health of bashing damage per excess point as the celestial energy tears her Pattern apart."
+      },
+      {
+        "id": "ley_lines",
+        "level": 3,
+        "name": "Ley Lines",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Extended",
+        "dice": "Intelligence + Occult or Science + Prime",
+        "description": "The mage harnesses a ley line node and taps it as a perpetual source of free energy, determining the form the node takes — such as a pure spring, a tranquil valley, or a mountain peak. The effect lasts as long as nothing disrupts the ley lines by altering the node's architecture or geography."
+      },
+      {
+        "id": "magic_wall",
+        "level": 3,
+        "name": "Magic Wall",
+        "practice": "Shielding",
+        "cost": "Special",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Occult + Prime",
+        "description": "The mage casts a Magic Shield on another person, granting them Prime armor against directly targeted spells. If the target does not have her own Mana pool, the caster must incorporate Mana during casting to allow the shield to hold a number of charges."
+      },
+      {
+        "id": "phantasm",
+        "level": 3,
+        "name": "Phantasm",
+        "practice": "Weaving",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Craft + Prime",
+        "description": "The mage creates an inanimate phantasm woven of Mana threads that appears to Sleepers as a normal object of its type — books, chairs, knives, or stones. The phantasm has one point of Durability, lacks conductivity and magnetism, and cannot fuel a sustained fire."
+      },
+      {
+        "id": "transform_other_aura",
+        "level": 3,
+        "name": "Transform Other Aura",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Prime",
+        "description": "The mage alters another person's aura, changing its apparent nature just as Transform Aura does for his own. Cast conjunctionally with Mind 2, the mage can also alter the target's apparent mental and emotional state as seen in the aura."
+      },
+      {
+        "id": "awaken_hallow",
+        "level": 4,
+        "name": "Awaken Hallow",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Extended",
+        "dice": "Composure + Survival + Prime",
+        "description": "The mage awakens a dormant Hallow, restoring it to the level of activity it held before it fell dormant. The target number equals the original level of the Hallow before it became dormant."
+      },
+      {
+        "id": "eyes_of_the_awakened",
+        "level": 4,
+        "name": "Eyes of the Awakened",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Empathy + Prime",
+        "description": "The mage bestows temporary Mage Sight upon a Sleeper, allowing her to perceive the Mysteries for the duration without invoking Disbelief. The Sleeper still adversely influences Paradox as a normal witness despite her expanded perception."
+      },
+      {
+        "id": "marionette",
+        "level": 4,
+        "name": "Marionette",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Subterfuge + Prime",
+        "description": "The mage creates a potentially animate phantasm of an animal or non-human creature that moves under her direct mental concentration. The phantasm moves as its creature type normally would but collapses into a lifeless heap the moment the mage stops concentrating."
+      },
+      {
+        "id": "phantasmal_weapon",
+        "level": 4,
+        "name": "Phantasmal Weapon",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Craft + Prime",
+        "description": "The mage creates a sturdy phantasm capable of functioning as a weapon or armor, with Durability equal to the caster's Prime dots. Each success grants two dots of Physical Attributes allocated to the phantasm as the caster wishes, up to the mage's Prime dot limit in any one trait."
+      },
+      {
+        "id": "siphon_essence",
+        "level": 4,
+        "name": "Siphon Essence",
+        "practice": "Unraveling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant; subtract target's Resistance",
+        "dice": "Resolve + Occult + Prime – Resistance",
+        "description": "The mage pulls the Essence from a spirit, ghost, or locus and converts it to personal Mana, either adding it to his pool or dispersing it into the Tapestry. Each success siphons one Essence from the targeted entity."
+      },
+      {
+        "id": "siphon_integrity",
+        "level": 4,
+        "name": "Siphon Integrity",
+        "practice": "Unraveling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Prime",
+        "description": "The mage pulls the Mana out of a mundane lifeless object, inflicting one point of Structure damage per success; this damage is brittle and circumvents the object's Durability. The mage may add the siphoned Mana to his own pool or disperse it into the Tapestry."
+      },
+      {
+        "id": "supernal_dispellation",
+        "level": 4,
+        "name": "Supernal Dispellation",
+        "practice": "Unraveling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; successes are compared to the target spell's Potency",
+        "dice": "Resolve + Occult + Prime vs. target spell's Potency",
+        "description": "The mage can dispel any spell regardless of which Arcana compose it, with no need to possess dots in those Arcana. His Prime mastery is sufficient alone to unweave any enchantment by attacking its Pattern directly."
+      },
+      {
+        "id": "suppress_hallow",
+        "level": 4,
+        "name": "Suppress Hallow",
+        "practice": "Unraveling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Survival + Prime",
+        "description": "The mage temporarily suppresses an active Hallow, reducing its rating by one dot per success for the duration of one scene. Guardians of the Veil use this to neutralize conspicuous paranormal sources of power before they attract unwanted attention."
+      },
+      {
+        "id": "create_complex_phantasm",
+        "level": 5,
+        "name": "Create Complex Phantasm",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Crafts (for objects) or Medicine (for people) + Prime",
+        "description": "The mage creates a complex phantasm that can mimic living beings or complex objects such as computers, standing up to mundane scrutiny. The phantasm has the same Mental and Social Attributes as the caster, can speak when compelled, but collapses into a lifeless heap if the mage stops concentrating."
+      },
+      {
+        "id": "create_hallow",
+        "level": 5,
+        "name": "Create Hallow",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Extended",
+        "dice": "Composure + Occult + Prime",
+        "description": "The mage creates a temporary Hallow at a location of his choosing, which immediately begins yielding Mana equal to its rating. The Hallow lasts for up to one month depending on successes, but cannot be made indefinitely permanent."
+      },
+      {
+        "id": "dead_zone",
+        "level": 5,
+        "name": "Dead Zone",
+        "practice": "Unmaking",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Composure + Occult + Prime",
+        "description": "The mage expels all ambient Mana from an area, creating a magic dead zone where spellcasting is penalized and small animals and children may sicken and die. Successes determine the radius or volume of the Dead Zone, and a mage within it cannot use Channel Mana to draw from another source."
+      },
+      {
+        "id": "forge_tulpa",
+        "level": 5,
+        "name": "Forge Tulpa",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Extended",
+        "dice": "Wits + Occult + Prime",
+        "description": "The mage creates a sentient being of pure Mana, investing it with Physical, Mental, and Social Attributes allocated to the mage's Prime dots; requires Mind 5 as a conjunctional Arcanum. The tulpa may be free-willed or bound to the mage's will, but cannot be given an indefinite Duration and dissolves when the spell expires."
+      },
+      {
+        "id": "siphon_mana",
+        "level": 5,
+        "name": "Siphon Mana",
+        "practice": "Unraveling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant; subtract target's Stamina",
+        "dice": "Resolve + Intimidation + Prime – Stamina",
+        "description": "The mage siphons Mana at sensory range from an unwilling mage's pool and adds it to his own, channeling one point per success. Sleepers and mundane creatures cannot be siphoned as they lack spendable Mana; each successive casting against the same target in a scene suffers a cumulative –2 dice penalty."
+      }
+    ]
   }
 }
