@@ -1,0 +1,650 @@
+[
+  {
+    "id": "awaken_the_dead",
+    "name": "Awaken the Dead",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ba",
+        "level": 1,
+        "tags": [],
+        "description": "By touching a corpse, the mummy animates it as a simple Lifeless servant that can answer yes/no questions about things it knew in life."
+      },
+      {
+        "tier": 2,
+        "pillar": "sheut",
+        "level": 3,
+        "tags": [],
+        "description": "By touch and force of will, the mummy raises a human corpse as an Awakened Corpse Thrall — a mindless killing machine that hunts all living things unless given orders."
+      },
+      {
+        "tier": 3,
+        "pillar": "ren",
+        "level": 5,
+        "tags": [],
+        "description": "The mummy briefly resurrects a recently deceased person to full life, restoring body and memories, though the miracle eventually fades and the dead crumble to permanent dust."
+      }
+    ]
+  },
+  {
+    "id": "blessed_is_the_god_king",
+    "name": "Blessed is the God-King",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ren",
+        "level": 1,
+        "tags": ["Subtle"],
+        "description": "The mummy invokes Fate's blessing upon himself, gaining a hanging bonus that lets him reflexively reroll failed dice on Attribute and Skill rolls by spending Willpower."
+      },
+      {
+        "tier": 2,
+        "pillar": "ab",
+        "level": 3,
+        "tags": ["Subtle"],
+        "description": "The mummy extends this blessing of good fortune to himself or any person he has directly touched, granting them the same reroll benefit for the next hour."
+      },
+      {
+        "tier": 3,
+        "pillar": "defining",
+        "level": 5,
+        "tags": ["Epic"],
+        "description": "The mummy transforms into a divine avatar of his decree — gaining animal features of his decree, growing in size, becoming an unmistakable supernatural presence with heightened senses and cosmic authority."
+      }
+    ]
+  },
+  {
+    "id": "chthonic_dominion",
+    "name": "Chthonic Dominion",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ba",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy conjures a small orb of blue-tinted light that follows his commands, illuminates nearby ghosts as if visible, and enables the dead to communicate freely."
+      },
+      {
+        "tier": 2,
+        "pillar": "sheut",
+        "level": 2,
+        "tags": [],
+        "description": "The mummy issues a single binding command to any ghost or revenant he can perceive, compelling it to obey in good faith within the limits of its nature."
+      },
+      {
+        "tier": 3,
+        "pillar": "ren",
+        "level": 4,
+        "tags": [],
+        "description": "The mummy reshapes a ghost's very soul — each success allows him to alter its Vice, Virtue, Morality, memories, anchors, or fundamental spiritual nature."
+      }
+    ]
+  },
+  {
+    "id": "command_the_beasts",
+    "name": "Command the Beasts",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "sheut",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy walks unmolested by the natural world — all non-sapient animals become blind to his presence for one full day, granting perfect stealth against the animal kingdom."
+      },
+      {
+        "tier": 2,
+        "pillar": "ren",
+        "level": 2,
+        "tags": [],
+        "description": "The mummy crowns himself a god of beasts for a day; Animal Ken rolls are easier, and he can automatically command non-magical animals to carry out complex instructions."
+      },
+      {
+        "tier": 3,
+        "pillar": "sheut",
+        "level": 4,
+        "tags": ["Curse", "Epic"],
+        "description": "The mummy curses a target or area, turning all non-magical animals in the vicinity into savage attackers hell-bent on destroying the target utterly and without mercy."
+      }
+    ]
+  },
+  {
+    "id": "doom_affliction",
+    "name": "Doom Affliction",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ab",
+        "level": 1,
+        "tags": ["Curse", "Subtle"],
+        "description": "The mummy curses a target's Skills, causing any dice pool using cursed Skills to suffer an increased target number for one day."
+      },
+      {
+        "tier": 2,
+        "pillar": "ka",
+        "level": 2,
+        "tags": ["Curse", "Subtle"],
+        "description": "The curse intensifies, penalizing all of the target's attacks rather than specific Skills, reducing the target number of all hostile actions against the mummy's enemies for one hour."
+      },
+      {
+        "tier": 3,
+        "pillar": "ba",
+        "level": 4,
+        "tags": ["Curse", "Subtle"],
+        "description": "Unleashed reflexively to mar another's actions, this curse adds +1 to the target number of any single roll and causes any failure to be treated as a dramatic failure."
+      }
+    ]
+  },
+  {
+    "id": "dreams_of_dead_gods",
+    "name": "Dreams of Dead Gods",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ba",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy scatters prophetic dream-visions across the cosmos, guided by Fate to allies and enemies — sending warnings, instructions, or inspiration through sleep."
+      },
+      {
+        "tier": 2,
+        "pillar": "ka",
+        "level": 2,
+        "tags": ["Curse"],
+        "description": "The mummy sends targeted dream-visions to a specific person when they sleep — either seductive allure that creates vulnerability or terrifying nightmares that inflict a flux derangement."
+      },
+      {
+        "tier": 3,
+        "pillar": "ab",
+        "level": 4,
+        "tags": ["Curse"],
+        "description": "The mummy curses a perceivable target's aura with ruin, love, or grandeur — imposing a lasting social effect that shapes how others perceive and interact with the accursed."
+      }
+    ]
+  },
+  {
+    "id": "dust_beneath_feet",
+    "name": "Dust Beneath Feet",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ba",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy attunes to the earth itself, gaining immunity to fall damage from earthen surfaces and resistance to environmental harm, and can telekinetically command loose earthen material within range."
+      },
+      {
+        "tier": 2,
+        "pillar": "ka",
+        "level": 2,
+        "tags": ["Curse"],
+        "description": "Earthen material from the environment assembles around the mummy into a massive stone exoskeleton, greatly increasing her Size, armor, Strength, and physical capabilities."
+      },
+      {
+        "tier": 3,
+        "pillar": "sheut",
+        "level": 4,
+        "tags": ["Curse", "Epic"],
+        "description": "The mummy unleashes a catastrophic earthquake centered on herself — roughly magnitude 6.0, devastating within ten miles — and disturbs all local ghosts, granting them free rein to haunt the quake zone."
+      }
+    ]
+  },
+  {
+    "id": "gift_of_the_golden_ankh",
+    "name": "Gift of the Golden Ankh",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ka",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy summons a blazing ankh glyph and focuses its healing light on a mortal within range, temporarily reinforcing the beneficiary's Strength or Stamina as if supported by a Sekhem 1 mummy."
+      },
+      {
+        "tier": 2,
+        "pillar": "ba",
+        "level": 2,
+        "tags": [],
+        "description": "The ankh's empowering nimbus grants a single selection of temporary Merits from a set list to a beneficiary, lasting twelve hours or one day for mortals with the Vice of Envy."
+      },
+      {
+        "tier": 3,
+        "pillar": "ab",
+        "level": 4,
+        "tags": [],
+        "description": "The summoned ankh grants life itself to any animate being in its golden light, healing lethal to bashing and potentially attempting the impossible — resurrection of a recently deceased mortal."
+      }
+    ]
+  },
+  {
+    "id": "kiss_of_apep",
+    "name": "Kiss of Apep",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ren",
+        "level": 1,
+        "tags": ["Curse"],
+        "description": "The mummy's touch inflicts a supernatural wasting disease on any animate being — living, dead, or ghostly — that prevents healing and deals ongoing damage until resisted or death follows."
+      },
+      {
+        "tier": 2,
+        "pillar": "ka",
+        "level": 3,
+        "tags": [],
+        "description": "The mummy ritually curses an object held by her cult, embedding a death trap within it that triggers fatal consequences against anyone who steals or damages it without authorization."
+      },
+      {
+        "tier": 3,
+        "pillar": "sheut",
+        "level": 5,
+        "tags": ["Curse"],
+        "description": "Black clouds of supernatural darkness spread from the mummy in a wide radius, attacking enemies each turn, blinding all within, and dragging hostile characters into Twilight."
+      }
+    ]
+  },
+  {
+    "id": "obedient_clay",
+    "name": "Obedient Clay",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ba",
+        "level": 1,
+        "tags": ["Subtle"],
+        "description": "The mummy's senses warp to perceive an object or material's full physical and metaphysical composition, revealing all reactive properties including supernatural traits and vulnerabilities."
+      },
+      {
+        "tier": 2,
+        "pillar": "ren",
+        "level": 2,
+        "tags": [],
+        "description": "The mummy transmutes matter to shift its phase — solid to liquid, liquid to gas, or the reverse — temporarily reshaping any non-relic inanimate object within perception range."
+      },
+      {
+        "tier": 3,
+        "pillar": "ab",
+        "level": 4,
+        "tags": [],
+        "description": "The mummy masters matter itself by touch, permanently transmuting any inanimate non-relic object into another substance of equal or lesser size, potentially refining base matter into precious alloys or gems."
+      }
+    ]
+  },
+  {
+    "id": "palace_knows_its_pharaoh",
+    "name": "Palace Knows Its Pharaoh",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ba",
+        "level": 1,
+        "tags": ["Subtle"],
+        "description": "The mummy attunes her consciousness to an artificial structure she occupies, perceiving its full layout and all barriers within through a displaced tactile sense that travels at twice her Speed."
+      },
+      {
+        "tier": 2,
+        "pillar": "ka",
+        "level": 3,
+        "tags": [],
+        "description": "The mummy exerts telekinetic force throughout the structure, controlling doors, furniture, utilities, and security systems as extensions of her own will."
+      },
+      {
+        "tier": 3,
+        "pillar": "ba",
+        "level": 5,
+        "tags": [],
+        "description": "The mummy connects two doorways within the same structure, creating a magical shortcut portal that allows anyone who fits through the entrance to instantly travel between the two locations."
+      }
+    ]
+  },
+  {
+    "id": "power_of_re",
+    "name": "Power of Re",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ab",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy conjures a pale golden mystical fire upon a chosen target within range — a flame that doesn't consume what it burns and through which the mummy can speak as if present."
+      },
+      {
+        "tier": 2,
+        "pillar": "sheut",
+        "level": 2,
+        "tags": [],
+        "description": "The mummy suppresses supernatural fire in a large area, swallowing it into an implosion of mutual annihilation that extinguishes magical flames and disrupts fire-based powers."
+      },
+      {
+        "tier": 3,
+        "pillar": "ab",
+        "level": 4,
+        "tags": ["Curse", "Epic"],
+        "description": "The mummy screams with divine solar voice, igniting in a blinding flash brighter than the noon sun that inflicts aggravated damage on all ghosts, Lifeless, and vampires in the radius."
+      }
+    ]
+  },
+  {
+    "id": "rebuke_the_vizier",
+    "name": "Rebuke the Vizier",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ka",
+        "level": 1,
+        "tags": ["Subtle"],
+        "description": "The mummy wraps herself in an invisible shell of exuded Sekhem for one hour — hostile magic targeting her must overcome the higher of her Sekhem or Ka rating to function."
+      },
+      {
+        "tier": 2,
+        "pillar": "ba",
+        "level": 3,
+        "tags": ["Curse"],
+        "description": "The mummy reflexively deploys her Sekhem ward against any incoming supernatural power, automatically suppressing it without a roll, though the defense collapses instantly upon activation."
+      },
+      {
+        "tier": 3,
+        "pillar": "ren",
+        "level": 5,
+        "tags": [],
+        "description": "The mummy reveals all temporary enchantments affecting a target within range, then scours away magic that isn't native to the target's existence — stripping active spells and temporary Disciplines."
+      }
+    ]
+  },
+  {
+    "id": "revelations_of_smoke_and_flame",
+    "name": "Revelations of Smoke and Flame",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "sheut",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy conjures a swirling cloud of incense smoke or sandstorm grit that follows him, concealing all within it and dealing automatic bashing damage to those who breathe it."
+      },
+      {
+        "tier": 2,
+        "pillar": "ab",
+        "level": 3,
+        "tags": ["Epic"],
+        "description": "The mummy sprouts wings of smoke and fire, transforming into a towering alien presence with flight, a commanding voice audible 500 yards away, expanded sight measured in miles, and supernatural beauty."
+      },
+      {
+        "tier": 3,
+        "pillar": "ba",
+        "level": 5,
+        "tags": ["Epic"],
+        "description": "The mummy becomes a pillar of divine fire reaching into the distant sky — visible for 50 miles — granting Stamina bonuses to all who deliberately follow him and marking him as a holy beacon."
+      }
+    ]
+  },
+  {
+    "id": "rite_of_the_sacred_scarab",
+    "name": "Rite of the Sacred Scarab",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ka",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy vomits forth a living Lifeless scarab — a supernatural talisman-creature that protects whoever wears it, subtracting dice from rolls that would cause physical harm."
+      },
+      {
+        "tier": 2,
+        "pillar": "ren",
+        "level": 3,
+        "tags": [],
+        "description": "This scarab bites a tiny piece of the mummy's flesh to gain lasting existence, becoming an independent resurrection insurance vessel that carries the mummy's Sekhem back to his cult."
+      },
+      {
+        "tier": 3,
+        "pillar": "ka",
+        "level": 5,
+        "tags": [],
+        "description": "The mummy disgorges a swarm of thousands of enchanted scarabs that act as a weapon or, when paired with the first tier, affix to allies as protective talismans valid for one hour."
+      }
+    ]
+  },
+  {
+    "id": "secrets_ripped_from_skies",
+    "name": "Secrets Ripped from Skies",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ba",
+        "level": 1,
+        "tags": ["Subtle"],
+        "description": "The mummy gazes at the sky and intuitively knows his exact geographical location relative to any reference point with satellite-like precision, and can always retrace his steps through a maze."
+      },
+      {
+        "tier": 2,
+        "pillar": "sheut",
+        "level": 3,
+        "tags": ["Curse"],
+        "description": "The mummy speaks a word of power reshaping cosmic genesis and calls down a blazing meteorite on a chosen target within one mile who is exposed to the open sky."
+      },
+      {
+        "tier": 3,
+        "pillar": "ren",
+        "level": 5,
+        "tags": [],
+        "description": "The mummy reads the constellations and receives one important cryptic clue from Fate about his most pressing current dilemma, shrouded in metaphor but not wholly useless."
+      }
+    ]
+  },
+  {
+    "id": "seeds_of_life",
+    "name": "Seeds of Life",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ka",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy becomes highly resistant to harm from plants and environmental factors, ignores injury from plant-based projectiles, and can draw poison from a living person through skin-to-skin touch."
+      },
+      {
+        "tier": 2,
+        "pillar": "ren",
+        "level": 2,
+        "tags": [],
+        "description": "The mummy causes edible plants suited to the local terrain to spontaneously grow within range, creating a productive garden from bare earth that yields enough food to sustain many people."
+      },
+      {
+        "tier": 3,
+        "pillar": "ab",
+        "level": 4,
+        "tags": ["Curse"],
+        "description": "The mummy curses a target with unnatural fertility — their next mating with an opposite-sex partner results in automatic conception, and both parents gain lasting healing and restored youth."
+      }
+    ]
+  },
+  {
+    "id": "torn_veil_of_forgetting",
+    "name": "Torn Veil of Forgetting",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "sheut",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy cloaks himself in an aura of anonymity lasting for hours — mortals who encounter him forget or misremember the experience entirely once he departs their perception."
+      },
+      {
+        "tier": 2,
+        "pillar": "ab",
+        "level": 3,
+        "tags": ["Curse", "Subtle"],
+        "description": "The mummy makes a touch attack that sends the target a compressed vision of chosen memories, or interrogates the target's own mind by posing any question and extracting relevant recollections in the dreamscape."
+      },
+      {
+        "tier": 3,
+        "pillar": "ba",
+        "level": 5,
+        "tags": ["Curse"],
+        "description": "The mummy touches a target and permanently steals specific memories — posing any question and absorbing the relevant recollections into his own mind, erasing them from the victim forever."
+      }
+    ]
+  },
+  {
+    "id": "water_of_life_and_death",
+    "name": "Water of Life and Death",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ren",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy strikes the ground, cracking open a fissure through which a spring of pure fresh water erupts, flowing for months and supporting a moderate oasis before finally drying up."
+      },
+      {
+        "tier": 2,
+        "pillar": "sheut",
+        "level": 2,
+        "tags": ["Curse"],
+        "description": "The mummy curses all water within two miles, transmuting standing and flowing water into human blood for hours — a persistent transformation that kills aquatic life and harms vampires who drink it."
+      },
+      {
+        "tier": 3,
+        "pillar": "ba",
+        "level": 4,
+        "tags": [],
+        "description": "The mummy parts a large body of water, creating a corridor of dry land through the depths that follows her as she walks and closes like a crushing wall behind any who fail to keep pace."
+      }
+    ]
+  },
+  {
+    "id": "word_of_the_amanuensis",
+    "name": "Word of the Amanuensis",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ren",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy invokes the language beneath all languages, causing any written text within touch to physically rearrange into the reader's native tongue, though ciphers and metaphors may resist."
+      },
+      {
+        "tier": 2,
+        "pillar": "ab",
+        "level": 3,
+        "tags": [],
+        "description": "The mummy fills his mind with the tongue of Irem; for the rest of the scene all who hear him understand his meaning perfectly regardless of language barriers, and Intimidation rolls against mortals become easier."
+      },
+      {
+        "tier": 3,
+        "pillar": "ren",
+        "level": 5,
+        "tags": ["Curse"],
+        "description": "The mummy unleashes a terrible anti-language, cursing all nearby characters whose Resolve + Sekhem fails to match his roll with the loss of all ability to comprehend or produce speech and writing."
+      }
+    ]
+  },
+  {
+    "id": "words_of_dead_fury",
+    "name": "Words of Dead Fury",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "sheut",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy summons a ghost by creating a new anchor for it, drawing any spirit meeting chosen filters — rough age, temperament, potential danger — to materialize at the current location."
+      },
+      {
+        "tier": 2,
+        "pillar": "ka",
+        "level": 3,
+        "tags": [],
+        "description": "The mummy consecrates a large area as his domain, enriching it with ghostly energy that grants resident ghosts additional Numina, Maddening, and enhanced capabilities."
+      },
+      {
+        "tier": 3,
+        "pillar": "ba",
+        "level": 5,
+        "tags": ["Epic"],
+        "description": "The mummy summons an ancient chthonic entity from beyond reality — an enormous Lifeless predator that devours ghosts to grow and only marginally obeys its summoner."
+      }
+    ]
+  },
+  {
+    "id": "words_of_dead_glory",
+    "name": "Words of Dead Glory",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "sheut",
+        "level": 1,
+        "tags": [],
+        "description": "The mummy calls the nearest intact corpse within range to animate as a nenitu — a shambling Lifeless creature whose infectious bite creates more of its kind until a self-sustaining pack forms."
+      },
+      {
+        "tier": 2,
+        "pillar": "ba",
+        "level": 2,
+        "tags": [],
+        "description": "The mummy prepares a corpse through a midnight-to-sunset ritual, allowing its ghost to voluntarily touch the flesh at dawn and transition from spirit into a revenant with Passions the mummy helps shape."
+      },
+      {
+        "tier": 3,
+        "pillar": "ka",
+        "level": 4,
+        "tags": [],
+        "description": "The mummy targets a manifesting ghost and fuses it into a human corpse as an intruder — a possessing spirit with a destructive agenda and the power to return to flesh multiple times."
+      }
+    ]
+  },
+  {
+    "id": "words_of_dead_hunger",
+    "name": "Words of Dead Hunger",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ren",
+        "level": 1,
+        "tags": ["Subtle"],
+        "description": "The mummy gains second sight for one hour — she can see, physically strike, and drain Essence from ghosts and revenants as though they were fully corporeal."
+      },
+      {
+        "tier": 2,
+        "pillar": "ba",
+        "level": 2,
+        "tags": [],
+        "description": "The mummy bestows a chosen supernatural Numen upon any ghost or revenant within range, empowering the dead with borrowed ability to serve her current story needs."
+      },
+      {
+        "tier": 3,
+        "pillar": "sheut",
+        "level": 4,
+        "tags": [],
+        "description": "The mummy opens her mouth impossibly wide to reveal a vortex that pulls all visible ghosts toward her, devouring them into an inner lake of fire where they burn but cannot cease to exist."
+      }
+    ]
+  },
+  {
+    "id": "wrathful_desert_power",
+    "name": "Wrathful Desert Power",
+    "tiers": [
+      {
+        "tier": 1,
+        "pillar": "ab",
+        "level": 1,
+        "tags": ["Curse"],
+        "description": "The mummy launches blasts of scouring sand from her hands or mouth, dealing lethal ranged damage with autofire capability — and as a death curse, may fire a single blast at her killer ignoring wound penalties."
+      },
+      {
+        "tier": 2,
+        "pillar": "ba",
+        "level": 3,
+        "tags": [],
+        "description": "The desert sands swallow a target standing on sand, engulfing them in a grapple that can entomb them underground, or the mummy may disperse into sand and reform at another sandy location nearby."
+      },
+      {
+        "tier": 3,
+        "pillar": "ka",
+        "level": 5,
+        "tags": [],
+        "description": "The mummy calls a massive sandstorm covering 100 yards in every direction that persists for an hour — obscuring vision, penalizing all actions within, and burying those who stay prone."
+      }
+    ]
+  }
+]
