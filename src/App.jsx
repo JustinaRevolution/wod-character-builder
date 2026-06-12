@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { validateArcana, findInvalidRotes } from './utils/arcanaValidation'
+import { validatePillars } from './utils/pillarValidation'
 import useCharacter from './hooks/useCharacter'
 import StepIndicator from './components/ui/StepIndicator'
 import StepGameLine, { LINES } from './components/wizard/StepGameLine'
@@ -85,6 +86,18 @@ export default function App() {
         rulingIds,
         inferiorId: pathOption?.inferiorArcanum ?? null,
       }).length === 0 && findInvalidRotes(character.powers).length === 0
+    }
+    if (step === 5 && lineData?.powers?.type === 'pillars') {
+      const decreeGroup = lineData.template[lineData.powers.definingFrom]
+      const decreeId = character.template[decreeGroup.field]
+      const decreeOption = decreeGroup.options.find(o => o.id === decreeId)
+      const definingPillarId = decreeOption?.definingPillar ?? null
+      if (!definingPillarId) return false
+      return (
+        validatePillars(character.powers, { definingPillarId }).length === 0 &&
+        !!character.powers._free_affinity &&
+        (character.powers._utterances || []).length >= 1
+      )
     }
     return true
   }
