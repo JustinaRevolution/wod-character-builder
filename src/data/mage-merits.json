@@ -1,0 +1,145 @@
+[
+  {
+    "id": "artifact",
+    "name": "Artifact",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 3,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Your mage has an item that originated in a Supernal Realm or has been directly touched by Supernal power. An Artifact's powers mimic those of magical spells and its base Merit cost is 2 plus the dot-rating of the Arcanum power it mimics."
+  },
+  {
+    "id": "destiny",
+    "name": "Destiny",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Awakened",
+    "chargen_only": false,
+    "description": "Your character's thread stands out in the skein of fate. For each chapter you have a pool of destiny dice equal to twice the Merit's dots to add to any roll, but the character also carries a fatal flaw others can use to tear her pattern apart."
+  },
+  {
+    "id": "dream",
+    "name": "Dream",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Your character has a connection to primordial forces comprehended only in dreams. Once per game session he can gain a supernatural insight concerning a question or topic after at least one hour in sleep, trance, or focused altered consciousness."
+  },
+  {
+    "id": "enhanced_item",
+    "name": "Enhanced Item",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Your mage has an object supernaturally altered for increased Durability, Structure, Size, or an equipment bonus via the Matter Arcanum. Enhanced items do not invoke Paradoxes and their powers are persistent — always active as long as the user holds or wears the item."
+  },
+  {
+    "id": "familiar",
+    "name": "Familiar",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 3,
+    "max_dots": 4,
+    "prerequisites": "Awakened",
+    "chargen_only": false,
+    "description": "Your character has a magical bond with a spirit, either a Twilight fetch (3 dots) or an embodied creature in the physical world (4 dots). The master and familiar share an empathic connection and the familiar can serve as a Sensory sympathetic scrying window."
+  },
+  {
+    "id": "hallow",
+    "name": "Hallow",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Sanctum",
+    "chargen_only": false,
+    "description": "A Hallow is a nexus of magical energy within the mage's sanctum that generates Mana each day equal to its dot rating. The mage can harvest this Mana by performing an oblation or using a Prime 3 spell."
+  },
+  {
+    "id": "high_speech",
+    "name": "High Speech",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": "Awakened",
+    "chargen_only": false,
+    "description": "Your character knows the rudiments of Atlantean High Speech, enabling a burst of power in spellcasting and the ability to extend a spell's Duration using runes. Order members learn this Merit at no cost during character creation."
+  },
+  {
+    "id": "imbued_item",
+    "name": "Imbued Item",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 2,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Your mage has a magical item with one or more powers imbued into it via the Prime Arcanum, placing a spell into the object so its wielder has that power at his disposal. Unlike Artifacts, an imbued item's Mana pool can only be used to activate its own powers."
+  },
+  {
+    "id": "library",
+    "name": "Library",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Sanctum",
+    "chargen_only": false,
+    "description": "Your character maintains within his sanctum a personal collection of tomes, scrolls, or files for both natural and supernatural research. Each dot represents one field of study from which the mage may draw information, including occult lore that mortals cannot comprehend."
+  },
+  {
+    "id": "occultation",
+    "name": "Occultation",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 3,
+    "prerequisites": "Awakened, no Fame Merit dots",
+    "chargen_only": false,
+    "description": "Mages with this Merit hide their magical aura under a bushel — their resonance is so subtle only expert scrutiny can root it out. When anyone attempts to read the aura of your character's spells, subtract a number of dice equal to your Occultation dots."
+  },
+  {
+    "id": "sanctum",
+    "name": "Sanctum",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A sanctum is a mage's stronghold where he can practice his Art away from Sleepers and spies. Dots are allocated between Sanctum Size and Sanctum Security, with each aspect capped at 5, and the Merit can be shared among cabal members."
+  },
+  {
+    "id": "status",
+    "name": "Status",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Status represents recognition among the Awakened, divided between Consilium Status and Order Status. Each dot spent must be assigned to one of these two areas, adding to Social dice pools for interactions within the relevant group."
+  },
+  {
+    "id": "thrall",
+    "name": "Thrall",
+    "category": "mage",
+    "line": "mage",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "Your mage physically controls another's soul stone, making that willworker his thrall who must provide up to three favors before the stone is returned. Possession of the soul stone grants an Intimate sympathetic connection and allows tapping the owner's Mana."
+  }
+]

@@ -3,10 +3,11 @@ import DotRating from '../ui/DotRating'
 import BASE_CATALOG from '../../data/merits.json'
 import VAMPIRE_MERITS from '../../data/vampire-merits.json'
 import WEREWOLF_MERITS from '../../data/werewolf-merits.json'
+import MAGE_MERITS from '../../data/mage-merits.json'
 
 const BUDGET = 7
 const BASE_CATEGORIES = ['all', 'mental', 'physical', 'social']
-const LINE_MERITS = { vampire: VAMPIRE_MERITS, werewolf: WEREWOLF_MERITS }
+const LINE_MERITS = { vampire: VAMPIRE_MERITS, werewolf: WEREWOLF_MERITS, mage: MAGE_MERITS }
 const LINE_LABELS = { vampire: 'Kindred only', werewolf: 'Uratha only' }
 
 function dotLabel(merit) {

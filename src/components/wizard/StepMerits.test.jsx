@@ -69,4 +69,11 @@ describe('StepMerits', () => {
     // Danger Sense doesn't mention Initiative
     expect(screen.queryByText('Danger Sense')).not.toBeInTheDocument()
   })
+
+  it('shows mage merits in the catalog when lineId is mage', () => {
+    render(<StepMerits merits={[]} onAdd={() => {}} onRemove={() => {}} lineId="mage" />)
+    fireEvent.click(screen.getByRole('button', { name: /^mage$/i }))
+    expect(screen.getByText('Hallow')).toBeInTheDocument()
+    expect(screen.getByText('High Speech')).toBeInTheDocument()
+  })
 })
