@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import DotRating from '../ui/DotRating'
 import POWERS from '../../data/discipline-powers.json'
 import GIFTS from '../../data/gifts.json'
@@ -597,13 +597,20 @@ function PillarsPowers({ lineData, template, powers, onSetPowers }) {
   const selectedFree = powers._free_affinity || null
   const selectedUtterances = powers._utterances || []
 
-  const allFiveRated = items.every(i => (powers[i.id] || 0) >= 1)
-  const utteranceSlots = allFiveRated ? 2 : 1
+  useEffect(() => {
+    if (!powers._soul_affinity && soulAffinities.length > 0) {
+      onSetPowers({ ...powers, _soul_affinity: soulAffinities[0].id })
+    }
+  }, [definingPillarId])
+
+  const allPillarsRated = items.every(i => (powers[i.id] || 0) >= 1)
+  const utteranceSlots = allPillarsRated ? 2 : 1
   const eligibleUtterances = isValid ? UTTERANCES.filter(u => utteranceQualifies(u, powers)) : []
 
   const excludeIds = new Set([selectedSoul, guildAffinityId].filter(Boolean))
   const freeAffinityList = isValid
     ? AFFINITIES.filter(a => {
+        if (a.type === 'guild') return false
         if (excludeIds.has(a.id)) return false
         if (a.pillar && a.prerequisite != null) return (powers[a.pillar] || 0) >= a.prerequisite
         return true
@@ -718,7 +725,7 @@ function PillarsPowers({ lineData, template, powers, onSetPowers }) {
                 {selectedUtterances.length} of {utteranceSlots}
               </span>
             </h3>
-            {allFiveRated && (
+            {allPillarsRated && (
               <p className="text-xs text-amber-500 mb-2">All Pillars rated — bonus Utterance unlocked!</p>
             )}
             <div className="space-y-1 max-h-72 overflow-y-auto pr-1 mt-3">

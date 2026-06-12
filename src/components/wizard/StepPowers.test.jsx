@@ -252,6 +252,8 @@ describe('StepPowers — pillars type (Mummy)', () => {
     render(<StepPowers lineData={mummy} template={heartTemplate} powers={{}} onSetPowers={() => {}} />)
     expect(screen.getByText('Ab')).toBeInTheDocument()
     expect(screen.getByText('Ba')).toBeInTheDocument()
+    expect(screen.getByText('Ka')).toBeInTheDocument()
+    expect(screen.getByText('Ren')).toBeInTheDocument()
     expect(screen.getByText('Sheut')).toBeInTheDocument()
   })
 
@@ -339,5 +341,28 @@ describe('StepPowers — pillars type (Mummy)', () => {
     expect(utteranceWithBa1).toBeDefined()
     fireEvent.click(screen.getByText(utteranceWithBa1.name))
     expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _utterances: [utteranceWithBa1.id] }))
+  })
+
+  it('does not add a third utterance when 2 slots are already filled', () => {
+    const utterance1 = UTTERANCES.find(u => u.tiers.find(t => t.tier === 1 && t.pillar === 'ba' && t.level === 1))
+    const utterance2 = UTTERANCES.find(u => u.id !== utterance1?.id && u.tiers.find(t => t.tier === 1))
+    const utterance3 = UTTERANCES.find(u => u.id !== utterance1?.id && u.id !== utterance2?.id && u.tiers.find(t => t.tier === 1))
+    if (!utterance1 || !utterance2 || !utterance3) return // skip if not enough utterances
+
+    const powersWithTwo = {
+      ...validBuild,
+      _utterances: [utterance1.id, utterance2.id]
+    }
+    const onSetPowers = vi.fn()
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={powersWithTwo} onSetPowers={onSetPowers} />)
+
+    // The third utterance should be shown but disabled (isMaxed=true)
+    if (screen.queryByText(utterance3.name)) {
+      fireEvent.click(screen.getByText(utterance3.name))
+      // onSetPowers should not be called with a 3-utterance array
+      const calls = onSetPowers.mock.calls
+      const badCall = calls.find(c => c[0]?._utterances?.length > 2)
+      expect(badCall).toBeUndefined()
+    }
   })
 })
