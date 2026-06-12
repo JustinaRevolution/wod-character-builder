@@ -123,7 +123,7 @@
         "pillar": "ka",
         "level": 2,
         "tags": ["Curse", "Subtle"],
-        "description": "The curse intensifies, penalizing all of the target's attacks rather than specific Skills, reducing the target number of all hostile actions against the mummy's enemies for one hour."
+        "description": "The curse targets the enemy himself rather than specific Skills, reducing the target number by -1 for all attacks and hostile actions directed against the cursed foe for one hour. Repeated application resets the duration."
       },
       {
         "tier": 3,
