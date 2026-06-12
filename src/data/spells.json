@@ -3566,5 +3566,418 @@
         "description": "The mage superimposes the spatial axes of multiple people or objects, forcing them to coexist in the same location and inflicting one point of aggravated damage per success as their molecular lattices collide and drive each other apart."
       }
     ]
+  },
+  "spirit": {
+    "id": "spirit",
+    "name": "Spirit",
+    "spells": [
+      {
+        "id": "coaxing_the_spirit",
+        "level": 1,
+        "name": "Coaxing the Spirit",
+        "practice": "Compelling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Socialize + Spirit",
+        "description": "The mage whispers to a spirit sleeping within a material object and coaxes it to aid him, making the object easier to use for the scene. Each success provides a +1 dice bonus on a single roll made within the spell's Duration."
+      },
+      {
+        "id": "exorcists_eye",
+        "level": 1,
+        "name": "Exorcist's Eye",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Spirit",
+        "description": "The mage detects the presence of a possessing entity within a terrestrial being, sensing whether a spirit, ghost, or other entity rides a host. Knowledgeable mages may identify the type of spirit inhabiting the individual, though that information is not necessarily conveyed by this spell."
+      },
+      {
+        "id": "second_sight",
+        "level": 1,
+        "name": "Second Sight",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Spirit",
+        "description": "The mage gains the Mage Sight and the ability to perceive spiritual phenomena including spirit Numina, werewolf Gifts, and loci. He can also determine the Strength of the local Gauntlet."
+      },
+      {
+        "id": "spirit_tongue",
+        "level": 1,
+        "name": "Spirit Tongue",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Socialize + Spirit",
+        "description": "The mage can see, hear, and speak with spirits and detect their unseen presence even if they are hiding or have chosen not to reveal themselves. Without a means of crossing the Gauntlet, he can converse only with Twilight spirits."
+      },
+      {
+        "id": "ephemeral_shield",
+        "level": 2,
+        "name": "Ephemeral Shield",
+        "practice": "Shielding",
+        "cost": "1 Mana (optional)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Stamina + Occult + Spirit",
+        "description": "The mage wraps himself in ephemeral armor that defends against physical attacks and attacks made by ephemeral entities, gaining one point of armor per dot in the Spirit Arcanum. By spending one Mana the Duration can last for one day."
+      },
+      {
+        "id": "gossamer_touch",
+        "level": 2,
+        "name": "Gossamer Touch",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Dexterity + Athletics + Spirit",
+        "description": "The mage gains the power to physically interact with spirits and spiritual things in the Twilight state, touching spirits and being touched in return. She cannot affect ghosts or mental projections without additional Arcana."
+      },
+      {
+        "id": "granting_second_sight",
+        "level": 2,
+        "name": "Granting Second Sight",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Manipulation + Persuasion + Spirit",
+        "description": "The mage casts the Spirit 1 \"Second Sight\" spell upon another mage or supernatural being such as a ghost or werewolf, granting them Spirit Arcanum perceptions. If cast on a Sleeper, it invokes Disbelief immediately even if its Duration is less than one scene."
+      },
+      {
+        "id": "lesser_spirit_summons",
+        "level": 2,
+        "name": "Lesser Spirit Summons",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resistance reflexively",
+        "dice": "Presence + Persuasion + Spirit vs. Resistance",
+        "description": "The mage calls out to summon a specific spirit or sends a general summons to the nearest one within sensory range, compelling it to come to him. The summoned spirit must remain near the caster for the spell's Duration unless the caster allows it to leave."
+      },
+      {
+        "id": "peer_across_the_gauntlet",
+        "level": 2,
+        "name": "Peer Across the Gauntlet",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Spirit",
+        "description": "The mage can peer across the Gauntlet into the Shadow Realm, glimpsing the spiritual reflection of the material world and taking an instant action to concentrate and glimpse past the Gauntlet. If in the Shadow Realm, he can use this spell to peer into the material realm instead."
+      },
+      {
+        "id": "place_of_power",
+        "level": 2,
+        "name": "Place of Power",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Survival + Spirit",
+        "description": "The mage can fortify or weaken the Gauntlet at a Hallow, modifying its Strength by one point per success in either direction up to a limit equal to the Hallow's rating. The Gauntlet's Strength cannot be reduced to zero at this level."
+      },
+      {
+        "id": "spirit_soul_jar",
+        "level": 2,
+        "name": "Soul Jar",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "—",
+        "dice": "—",
+        "description": "As the Death 2 \"Soul Jar\" spell, this enchants a sealable container to trap a spirit within it, preventing the spirit from departing on its own until released."
+      },
+      {
+        "id": "control_spirit",
+        "level": 3,
+        "name": "Control Spirit",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant and contested; target rolls Resistance reflexively",
+        "dice": "Presence + Intimidation + Death vs. Resistance",
+        "description": "The mage can force a spirit to perform an action, issuing a single simple command per success. Complex commands require multiple successes."
+      },
+      {
+        "id": "exorcism",
+        "level": 3,
+        "name": "Exorcism",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Extended (target number = spirit's Willpower) and contested; target rolls Power + Resistance reflexively",
+        "dice": "—",
+        "description": "The mage forcibly expels a possessing spirit or haunting ghost from the body it inhabits or frees it from its physical fetter. The ghost or spirit contests the exorcism by rolling Power + Resistance."
+      },
+      {
+        "id": "familiar_pact",
+        "level": 3,
+        "name": "Familiar Pact",
+        "practice": "Weaving",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Extended (target number = Merit dots)",
+        "dice": "Manipulation + Socialize + Spirit",
+        "description": "The mage forges a personal pact with a spirit familiar, creating a lasting bond between willworker and spirit. Only one familiar may be pacted to the same person at a time and the bond cannot be dispelled."
+      },
+      {
+        "id": "greater_spirit_summons",
+        "level": 3,
+        "name": "Greater Spirit Summons",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Resistance reflexively",
+        "dice": "Presence + Persuasion + Spirit vs. Resistance",
+        "description": "The mage can issue a summons to a Shadow Realm spirit of whatever power, known or unknown, compelling it to come to him. Spirits forcibly summoned are almost always resentful and may be enraged."
+      },
+      {
+        "id": "harm_spirit",
+        "level": 3,
+        "name": "Harm Spirit",
+        "practice": "Fraying",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant; subtract target's Resistance",
+        "dice": "Strength + Athletics + Spirit – Resistance",
+        "description": "The mage can damage a spirit's Corpus, inflicting one point of lethal damage per success on a manifested or Twilight spirit."
+      },
+      {
+        "id": "numinous_shield",
+        "level": 3,
+        "name": "Numinous Shield",
+        "practice": "Shielding",
+        "cost": "1 Mana (optional)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Stamina + Occult + Spirit",
+        "description": "The mage creates a personal ward against spirit powers and Numina, gaining one point of armor per dot in the Spirit Arcanum that works only against spirit powers such as Numina and werewolf Gifts. By spending one Mana, the Duration can last for one day."
+      },
+      {
+        "id": "reaching",
+        "level": 3,
+        "name": "Reaching",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Dexterity + Athletics + Spirit",
+        "description": "The mage can physically reach through the Gauntlet in a limited fashion, touching and being touched by beings and objects in the Shadow Realm. This also allows the mage to interact with the spirit realm when he cannot or will not cross the Gauntlet."
+      },
+      {
+        "id": "spirit_restore_corpus",
+        "level": 3,
+        "name": "Restore Corpus",
+        "practice": "Perfecting",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Composure + Empathy + Spirit",
+        "description": "The mage can heal a spirit's Corpus, restoring one point of damage per success."
+      },
+      {
+        "id": "restore_lost_soul",
+        "level": 3,
+        "name": "Restore Lost Soul",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Extended (target number = weeks the soul has been lost)",
+        "dice": "Presence + Empathy + Spirit",
+        "description": "The mage can restore a severed or stolen soul to its original owner, with the target number equal to one success per week the soul has been gone. If the soul has been attached to a new body, the mage must first use Fate 4 \"Destroy Bindings\" to detach it."
+      },
+      {
+        "id": "rouse_spirit",
+        "level": 3,
+        "name": "Rouse Spirit",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Manipulation + Persuasion + Spirit",
+        "description": "The willworker awakens the dormant spirit slumbering within a material object, giving the roused spirit a measure of sentience that increases with time, use, and care. An awakened object begins as a Rank 1 spirit and can grow more powerful over time."
+      },
+      {
+        "id": "spirit_road",
+        "level": 3,
+        "name": "Spirit Road",
+        "practice": "Weaving",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Extended (target number = Gauntlet Strength)",
+        "dice": "Resolve + Survival + Spirit",
+        "description": "The mage opens a road across the Gauntlet, a lane where he and others can cross over to the Shadow Realm and where spirits from the Shadow Realm can cross into the material world. The road remains for one hour and the mage cannot stop others from using it."
+      },
+      {
+        "id": "bind_spirit",
+        "level": 4,
+        "name": "Bind Spirit",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Extended (target number = spirit's Rank) and contested; target rolls Resistance reflexively",
+        "dice": "Presence + Intimidation + Spirit vs. Resistance",
+        "description": "The mage can bind a spirit into the material world, tying the creature to a given location which may be a form of imprisonment or even torture. When undertaken with indefinite Duration, this spell can confine a being to a place forever."
+      },
+      {
+        "id": "create_fetish",
+        "level": 4,
+        "name": "Create Fetish",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Extended (target number = spirit's Rank) and contested; target rolls Resistance reflexively",
+        "dice": "Resolve + Persuasion + Spirit vs. Resistance",
+        "description": "The mage invites or compels a spirit to inhabit an object and lend its powers to that object in the form of a fetish, with the spirit's target number equal to its Rank. The spirit releases its Numina only upon the fetish's activation."
+      },
+      {
+        "id": "essence_gift",
+        "level": 4,
+        "name": "Essence Gift",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Presence + Socialize + Spirit",
+        "description": "The mage converts Mana into Essence and channels it into a spirit, with each success allowing him to convert one Mana into one Essence. This conjunctional spell requires Spirit 4 and Prime 4."
+      },
+      {
+        "id": "grant_familiar",
+        "level": 4,
+        "name": "Grant Familiar",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Extended (target number = Merit dots)",
+        "dice": "Presence + Persuasion + Spirit",
+        "description": "The mage can forge a familiar pact for another mage as the Spirit 3 \"Familiar Pact\" spell, using the advanced prolonged Duration factors. Both the mage and the spirit must be willing participants."
+      },
+      {
+        "id": "medicine_bag",
+        "level": 4,
+        "name": "Medicine Bag",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Extended (target number = Essence capacity)",
+        "dice": "Intelligence + Crafts + Spirit",
+        "description": "The mage creates an object that can store Essence, with the target number equal to one success per point of Essence the bag can hold up to Gnosis + Spirit. Any mage can use the Medicine Bag by casting \"Sacramental Chain\" to store Essence or take it out."
+      },
+      {
+        "id": "road_master",
+        "level": 4,
+        "name": "Road Master",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Spirit",
+        "description": "The mage can control access to the Spirit Roads he creates, deciding who may use them and approving who can walk his roads. He can also step sideways across the Gauntlet without creating a Spirit Road by spending one Mana."
+      },
+      {
+        "id": "sacramental_chain",
+        "level": 4,
+        "name": "Sacramental Chain",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant; subtract target's Resistance",
+        "dice": "Manipulation + Occult + Spirit – Resistance",
+        "description": "The mage can channel Essence from a spirit or locus and give it to another spirit or place it into something that can hold it, with one Essence point channeled per success. With Prime 4, the caster can also convert the Essence into Mana."
+      },
+      {
+        "id": "spirit_guardian",
+        "level": 4,
+        "name": "Spirit Guardian",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Extended (target number = spirit's Rank) and contested; target rolls Resistance reflexively",
+        "dice": "Presence + Persuasion + Spirit vs. Resistance",
+        "description": "The mage binds a spirit guardian to a person, object, or place to watch over its charge to the best of its ability. While weak spirits are easy to bind, strong spirits are difficult to fetter but have many capabilities to bring to bear."
+      },
+      {
+        "id": "spirit_possession",
+        "level": 4,
+        "name": "Spirit Possession",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Resistance reflexively",
+        "dice": "Presence + Persuasion + Spirit vs. Resistance",
+        "description": "The mage can cause a spirit to possess a living creature's body, with the targeted spirit gaining the Possession Numina if it does not normally possess that power. A possessing spirit retains all its own powers but none of the host's paranormal capabilities."
+      },
+      {
+        "id": "control_gauntlet",
+        "level": 5,
+        "name": "Control Gauntlet",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Resolve + Survival + Spirit",
+        "description": "The mage can increase or decrease the Gauntlet's Strength as the Spirit 2 \"Place of Power\" spell but without requiring a Hallow, potentially making the local Gauntlet nonexistent or nigh impermeable."
+      },
+      {
+        "id": "materialize_spirit",
+        "level": 5,
+        "name": "Materialize Spirit",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Resistance reflexively",
+        "dice": "Presence + Intimidation + Spirit",
+        "description": "The mage can cause a spirit (including a ghost) to materialize and take on a manifest form in the material world; a spirit that cannot normally incarnate may be given physical substance this way. The manifestation takes whatever form the spirit naturally has, though it appears slightly transparent."
+      },
+      {
+        "id": "shadow_slave",
+        "level": 5,
+        "name": "Shadow Slave",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Presence + Intimidation + Spirit",
+        "description": "The mage infuses conjured shadows (using the Death Arcanum) with an animating spirit, creating a bound creation fettered to the caster's will. This conjunctional spell requires Spirit 5 and Death 3."
+      },
+      {
+        "id": "shape_spirit",
+        "level": 5,
+        "name": "Shape Spirit",
+        "practice": "Making or Unmaking",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Extended and contested; target rolls Resistance reflexively",
+        "dice": "Intelligence + Occult + Spirit vs. Resistance",
+        "description": "The mage can create a spirit from free-floating ephemera or alter an existing spirit so fundamentally that it becomes a new entity with different appearance, mindset, traits, and powers. When creating a spirit, successes buy dots of Rank, Attributes, Influence, and Numina on a one-for-one basis."
+      },
+      {
+        "id": "spirit_court",
+        "level": 5,
+        "name": "Spirit Court",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Extended (target number = spirit Rank desired)",
+        "dice": "Intelligence + Occult + Spirit",
+        "description": "The mage establishes a spirit court of her own in which she is the ranking \"spirit noble,\" attracting courtiers, enforcers, spies, and other spirit hangers-on of no higher Rank than the lesser of her Spirit Arcanum or Gnosis. Any spiritual alliances the mage makes are rendered null when the spell expires."
+      },
+      {
+        "id": "spirit_manse",
+        "level": 5,
+        "name": "Spirit Manse",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Extended",
+        "dice": "Composure + Occult + Spirit",
+        "description": "The mage creates a sanctum in the Shadow Realm, with its volume and features determined by the number of successes using the Area-Affecting chart. Ordinary features require no successes to create while exceptional features require one or more successes."
+      }
+    ]
   }
 }
