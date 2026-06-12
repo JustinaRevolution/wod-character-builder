@@ -3208,5 +3208,363 @@
         "description": "The mage siphons Mana at sensory range from an unwilling mage's pool and adds it to his own, channeling one point per success. Sleepers and mundane creatures cannot be siphoned as they lack spendable Mana; each successive casting against the same target in a scene suffers a cumulative –2 dice penalty."
       }
     ]
+  },
+  "space": {
+    "id": "space",
+    "name": "Space",
+    "spells": [
+      {
+        "id": "correspondence",
+        "level": 1,
+        "name": "Correspondence",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Space",
+        "description": "The mage analyzes the sympathetic connections between things, people, and places, determining the degree of their bond and whether any connections have been concealed or tampered with."
+      },
+      {
+        "id": "finder",
+        "level": 1,
+        "name": "Finder",
+        "practice": "Knowing",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Investigation + Space",
+        "description": "The mage tracks a specific chosen object—such as a weapon, idol, or ballpoint pen—knowing its location at all times within sensory range."
+      },
+      {
+        "id": "omnivision",
+        "level": 1,
+        "name": "Omnivision",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Composure + Space",
+        "description": "The mage perceives 360 degrees around himself simultaneously, seeing in all directions at once and making it nearly impossible to be surprised from behind or ambushed by anything he can see."
+      },
+      {
+        "id": "spatial_awareness",
+        "level": 1,
+        "name": "Spatial Awareness",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Space",
+        "description": "The mage gains Mage Sight attuned to Space, allowing him to perceive spatial distortions, teleportation origin points, Wards, and other manipulations of the spatial fabric in the local area."
+      },
+      {
+        "id": "spatial_map",
+        "level": 1,
+        "name": "Spatial Map",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Space",
+        "description": "The mage creates a constant mental spatial map of her surroundings, with each success eliminating one penalty die from ranged attack rolls and negating penalties from opponents’ concealment or spatially based conditions."
+      },
+      {
+        "id": "apportation",
+        "level": 2,
+        "name": "Apportation",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Composure reflexively",
+        "dice": "Dexterity + Investigation + Space vs. Composure",
+        "description": "With the aid of another Arcanum such as Forces or Matter, the mage draws an item through a scrying window to her current location or sends something to a remotely viewed location, contested if the object is held or attended."
+      },
+      {
+        "id": "bestow_spatial_awareness",
+        "level": 2,
+        "name": "Bestow Spatial Awareness",
+        "practice": "Unveiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "—",
+        "description": "As the Space 1 Spatial Awareness spell, except the mage casts it upon another mage or supernatural being such as a ghost or werewolf; if cast upon a Sleeper it immediately invokes Disbelief."
+      },
+      {
+        "id": "conceal_sympathy",
+        "level": 2,
+        "name": "Conceal Sympathy",
+        "practice": "Veiling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Composure + Subterfuge + Space",
+        "description": "The mage decreases the apparent sympathetic connection between himself and any person, place, or thing, with three successes reducing an Intimate connection to appear merely Encountered to outside observers using sympathetic magic."
+      },
+      {
+        "id": "follow_through",
+        "level": 2,
+        "name": "Follow Through",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Wits + Investigation + Space",
+        "description": "The mage can step through a nearby spatial doorway such as a Portal and arrive at its original terminus destination, forced to go exactly where the previous spatial door led with no ability to redirect."
+      },
+      {
+        "id": "scrying",
+        "level": 2,
+        "name": "Scrying",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Investigation + Space",
+        "description": "The mage remotely views a location and can employ all her senses through this perceptual window to see, hear, smell, and even touch things on the far side, modified by the strength of her sympathetic connection to the location."
+      },
+      {
+        "id": "untouchable",
+        "level": 2,
+        "name": "Untouchable",
+        "practice": "Shielding",
+        "cost": "1 Mana (optional)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Space",
+        "description": "The mage performs subtle intuitive tweaks to the local fabric of space, slipping from hostile attention and gaining one point of armor per Space dot; spending one Mana extends the duration to one day."
+      },
+      {
+        "id": "ward",
+        "level": 2,
+        "name": "Ward",
+        "practice": "Ruling",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Space",
+        "description": "The mage creates a spatial barrier that locks a locale’s Space template in place, barring the passage of other Space spells including remote sensing, teleportation, and spatial tampering; the Ward can be reinforced with successive castings."
+      },
+      {
+        "id": "avoidance_tactics",
+        "level": 3,
+        "name": "Avoidance Tactics",
+        "practice": "Shielding",
+        "cost": "1 Mana (optional)",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Wits + Occult + Space",
+        "description": "The mage casts the Untouchable spell on others, granting the target one point of armor per Space dot; an optional Mana expenditure extends the duration to one day."
+      },
+      {
+        "id": "ban",
+        "level": 3,
+        "name": "Ban",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Space",
+        "description": "The mage adds a Ban to an existing Ward, specifying a phenomenon governed by another Arcanum—such as insects, metal objects, or spirits—that cannot enter the Warded area by any means whatsoever."
+      },
+      {
+        "id": "destroy_the_threads",
+        "level": 3,
+        "name": "Destroy the Threads",
+        "practice": "Fraying",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant; subtract target's Composure",
+        "dice": "Strength + Investigation + Space",
+        "description": "The mage destroys a sympathetic connection, reducing the target’s link to a specific person, place, or thing by one degree per success on the standard connection chart."
+      },
+      {
+        "id": "multispatial_perception",
+        "level": 3,
+        "name": "Multispatial Perception",
+        "practice": "Fraying",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Intelligence + Investigation + Space",
+        "description": "The mage scrys multiple locations simultaneously at one location per success, catching only a glimpse at each but able to notice obvious strange occurrences or anything blatantly out of place."
+      },
+      {
+        "id": "new_threads",
+        "level": 3,
+        "name": "New Threads",
+        "practice": "Weaving",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant; subtract target's Composure",
+        "dice": "Manipulation + Occult + Space – Composure",
+        "description": "The mage creates a sympathetic connection by fortifying the elusive bond between things, adding one degree of sympathetic connection per success between a target and any person, place, or thing of his choosing."
+      },
+      {
+        "id": "portal",
+        "level": 3,
+        "name": "Portal",
+        "practice": "Weaving",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Extended (target number = degree of sympathetic connection)",
+        "dice": "Manipulation + Investigation + Space",
+        "description": "The mage creates a spatial warp through which the caster and anyone else can step from one point in Creation to another without traversing the intervening space; size and destination depend on successes and the mage’s sympathetic connection."
+      },
+      {
+        "id": "ranged_blow",
+        "level": 3,
+        "name": "Ranged Blow",
+        "practice": "Weaving",
+        "cost": "1 Mana (per attack)",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Strength + Investigation + Space",
+        "description": "The mage can punch, kick, or stab a target from afar by transferring force through empty space, making Brawl or Weaponry attacks against targets within sensory range for one Mana per attack."
+      },
+      {
+        "id": "co_location",
+        "level": 4,
+        "name": "Co-Location",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Investigation + Space",
+        "description": "The mage exists simultaneously in one location plus one additional location per success, reflexively choosing each turn which location he physically inhabits through instantaneous spatial transference."
+      },
+      {
+        "id": "pocket_realm",
+        "level": 4,
+        "name": "Pocket Realm",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Dexterity + Investigation + Space",
+        "description": "The mage creates a private pocket universe of Size 20 into which he can escape with his familiar and possessions; the space is featureless and gray without other Arcana to furnish it."
+      },
+      {
+        "id": "portal_key",
+        "level": 4,
+        "name": "Portal Key",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Instant",
+        "dice": "Resolve + Occult + Space",
+        "description": "The mage attunes a portal he has created to a specific activation trigger—a word, gesture, or inherent quality such as a family member’s presence—controlling exactly who can and cannot open or pass through it."
+      },
+      {
+        "id": "safe_keeping",
+        "level": 4,
+        "name": "Safe Keeping",
+        "practice": "Patterning",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Dexterity + Investigation + Space",
+        "description": "The mage places an item into his Pocket Realm for safekeeping, where it remains until retrieved; if the Pocket Realm spell expires, items reappear exactly where they were placed into the realm."
+      },
+      {
+        "id": "suspension",
+        "level": 4,
+        "name": "Suspension",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Wits + Investigation + Space",
+        "description": "The mage entangles a being or object in invisible spatial strands that loop space back on itself, boxing the subject in and rendering it incapable of leaving a defined volume of roughly five cubic yards."
+      },
+      {
+        "id": "teleportation",
+        "level": 4,
+        "name": "Teleportation",
+        "practice": "Patterning",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Space",
+        "description": "The mage traverses space without physical movement, instantly arriving at any destination to which he has a sympathetic connection, with spellcasting penalties based on the weakness of that connection."
+      },
+      {
+        "id": "dimensional_axis",
+        "level": 5,
+        "name": "Dimensional Axis",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Extended (target number = one success per location)",
+        "dice": "Intelligence + Investigation + Space",
+        "description": "The mage causes multiple distinct locations to exist simultaneously in the same space, stacking them so that objects from each location coexist; navigating or interacting with such layered space requires a reflexive Intelligence + Investigation roll."
+      },
+      {
+        "id": "hide_space",
+        "level": 5,
+        "name": "Hide Space",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Covert",
+        "action": "Extended",
+        "dice": "Intelligence + Investigation + Space",
+        "description": "The mage creates a hidden sanctum that exists only partway inside the conventional concept of a place, accessible only through convoluted and very specific spatial paths unknown to anyone not shown the way."
+      },
+      {
+        "id": "labyrinth",
+        "level": 5,
+        "name": "Labyrinth",
+        "practice": "Making",
+        "cost": "None",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Space",
+        "description": "The mage mutates the dimensional axes of an area so that every path of egress leads somewhere unexpected, trapping intruders in a spatially folded maze from which escape requires navigating back to square one or finding the mage’s hidden exit."
+      },
+      {
+        "id": "manifold_presence",
+        "level": 5,
+        "name": "Manifold Presence",
+        "practice": "Making",
+        "cost": "Varies",
+        "aspect": "Vulgar",
+        "action": "Instant",
+        "dice": "Intelligence + Occult + Space",
+        "description": "Requiring Space ••••• and Life •••• with optional Matter ••••• and Mind •• or •••, the mage exists simultaneously in multiple physical locations at once with each copy being a genuine extension of his body capable of independent action, sensation, and suffering harm."
+      },
+      {
+        "id": "oubliette",
+        "level": 5,
+        "name": "Oubliette",
+        "practice": "Making and Unmaking",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Composure + Gnosis reflexively",
+        "dice": "Intelligence + Occult + Space",
+        "description": "Requiring Space ••••• plus Forces •••, Mind ••••, and Time •••••, this conjunctional spell banishes a victim into a pocket of looped space where she sees herself reflected across gulfs of space and time, losing Willpower from relentless visions until she returns broken."
+      },
+      {
+        "id": "shrink_expand",
+        "level": 5,
+        "name": "Shrink/Expand",
+        "practice": "Making",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Stamina + Gnosis reflexively",
+        "dice": "Intelligence + Medicine (for living creatures) or Crafts or Science (for objects) + Space",
+        "description": "Requiring Space ••••• and Life •• (base life forms), Life ••• (median life forms), Life •••• (human beings), or Matter ••, the mage warps the spatial axes of a target to shrink or grow its Size by one point per success, from a minimum of Size 1 to a maximum equal to the mage’s Gnosis."
+      },
+      {
+        "id": "worlds_collide",
+        "level": 5,
+        "name": "Worlds Collide",
+        "practice": "Unmaking",
+        "cost": "1 Mana",
+        "aspect": "Vulgar",
+        "action": "Instant and contested; target rolls Stamina + Gnosis reflexively",
+        "dice": "Resolve + Investigation + Space vs. Stamina + Gnosis",
+        "description": "The mage superimposes the spatial axes of multiple people or objects, forcing them to coexist in the same location and inflicting one point of aggravated damage per success as their molecular lattices collide and drive each other apart."
+      }
+    ]
   }
 }
