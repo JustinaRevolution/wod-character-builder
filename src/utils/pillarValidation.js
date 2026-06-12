@@ -12,6 +12,7 @@ export function validatePillars(powers, { definingPillarId }) {
   const hasFive = entries.some(([, v]) => (v || 0) === 5)
   const errors = []
 
+  if (entries.some(([, v]) => (v || 0) > 5)) errors.push('No Pillar may exceed 5 dots.')
   if (spent !== 9) errors.push(`Spend exactly 9 dot-points (${spent} spent).`)
   if (entries.some(([id, v]) => id !== definingPillarId && (v || 0) > definingDots)) {
     errors.push('No Pillar may exceed your defining Pillar.')

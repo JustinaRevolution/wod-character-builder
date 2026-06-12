@@ -85,4 +85,8 @@ describe('utteranceQualifies', () => {
     expect(utteranceQualifies(utterance, { ba: 0 })).toBe(false)
     expect(utteranceQualifies(utterance, {})).toBe(false)
   })
+
+  it('returns false when the utterance has no tier-1 entry', () => {
+    expect(utteranceQualifies({ tiers: [] }, { ba: 5 })).toBe(false)
+  })
 })
