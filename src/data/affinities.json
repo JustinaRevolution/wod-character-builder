@@ -331,7 +331,7 @@
   {
     "id": "retributive_curse",
     "name": "Retributive Curse",
-    "type": "misc",
+    "type": "soul",
     "pillar": "ka",
     "prerequisite": 2,
     "description": "Ill fortune punishes those who dare strike down the Arisen. Whenever the mummy dies, the responsible characters suffer a Fate-ordained curse of bad luck at some future moment determined by the Storyteller, and all attempts to steal or desecrate the mummy's remains are interrupted by unlikely coincidences."
