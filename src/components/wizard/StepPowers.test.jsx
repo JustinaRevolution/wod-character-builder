@@ -7,6 +7,9 @@ import geist    from '../../data/lines/geist.json'
 import mage     from '../../data/lines/mage.json'
 import hunter   from '../../data/lines/hunter.json'
 import SPELLS from '../../data/spells.json'
+import AFFINITIES from '../../data/affinities.json'
+import UTTERANCES from '../../data/utterances.json'
+import mummy from '../../data/lines/mummy.json'
 
 describe('StepPowers — pool type (Vampire)', () => {
   it('renders all discipline names', () => {
@@ -234,5 +237,107 @@ describe('StepPowers — Geist (pool + keys)', () => {
     render(<StepPowers lineData={geist} template={{}} powers={{ boneyard: 2, _keys: ['beasts'] }} onSetPowers={() => {}} />)
     // startingDots=3, spent=2, remaining=1
     expect(screen.getByText(/1 dot/i)).toBeInTheDocument()
+  })
+})
+
+describe('StepPowers — pillars type (Mummy)', () => {
+  const validBuild = { ab: 3, ba: 2, ka: 2, ren: 1, sheut: 1 }
+  const heartTemplate = { decree: 'heart', guild: 'maa_kep' }
+
+  const soulAb = AFFINITIES.find(a => a.type === 'soul' && a.pillar === 'ab')
+  const miscNoReq = AFFINITIES.find(a => a.type === 'misc' && !a.pillar)
+  const utteranceWithBa1 = UTTERANCES.find(u => u.tiers.find(t => t.tier === 1 && t.pillar === 'ba' && t.level === 1))
+
+  it('renders all 5 Pillar names', () => {
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText('Ab')).toBeInTheDocument()
+    expect(screen.getByText('Ba')).toBeInTheDocument()
+    expect(screen.getByText('Sheut')).toBeInTheDocument()
+  })
+
+  it('shows Defining badge for the decree defining pillar', () => {
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText('Defining')).toBeInTheDocument()
+  })
+
+  it('shows dot-point counter', () => {
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText(/0 of 9 dot-points spent/i)).toBeInTheDocument()
+  })
+
+  it('shows a validation error when points are not fully spent', () => {
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={{ ab: 2 }} onSetPowers={() => {}} />)
+    expect(screen.getByText('Spend exactly 9 dot-points (2 spent).')).toBeInTheDocument()
+  })
+
+  it('shows no validation errors for a fully legal build', () => {
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={() => {}} />)
+    expect(screen.queryByText(/Spend exactly 9 dot-points/)).toBeNull()
+    expect(screen.queryByText(/No Pillar may exceed/)).toBeNull()
+    expect(screen.queryByText(/At most one Pillar/)).toBeNull()
+  })
+
+  it('shows Affinity section only after Pillars are valid', () => {
+    const { rerender } = render(<StepPowers lineData={mummy} template={heartTemplate} powers={{ ab: 2 }} onSetPowers={() => {}} />)
+    expect(screen.queryByText('Affinities')).toBeNull()
+
+    rerender(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={() => {}} />)
+    expect(screen.getByText('Affinities')).toBeInTheDocument()
+  })
+
+  it('shows Soul Affinity dropdown with soul affinities for the decree pillar', () => {
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={() => {}} />)
+    expect(screen.getByText(/Soul Affinity/i)).toBeInTheDocument()
+    expect(soulAb).toBeDefined()
+    expect(screen.getAllByText(soulAb.name).length).toBeGreaterThan(0)
+  })
+
+  it('shows guild affinity name in the Guild Affinity slot', () => {
+    const guildAffinityId = mummy.template.group2.options.find(o => o.id === 'maa_kep')?.guildAffinity
+    const guildAffinity = AFFINITIES.find(a => a.id === guildAffinityId)
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={() => {}} />)
+    expect(guildAffinity).toBeDefined()
+    expect(screen.getByText(guildAffinity.name)).toBeInTheDocument()
+  })
+
+  it('calls onSetPowers with _free_affinity when a free affinity is picked', () => {
+    const onSetPowers = vi.fn()
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={onSetPowers} />)
+    expect(miscNoReq).toBeDefined()
+    fireEvent.click(screen.getByText(miscNoReq.name))
+    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _free_affinity: miscNoReq.id }))
+  })
+
+  it('shows Utterance section only after Pillars are valid', () => {
+    const { rerender } = render(<StepPowers lineData={mummy} template={heartTemplate} powers={{ ab: 2 }} onSetPowers={() => {}} />)
+    expect(screen.queryByText('Utterances')).toBeNull()
+
+    rerender(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={() => {}} />)
+    expect(screen.getByText('Utterances')).toBeInTheDocument()
+  })
+
+  it('shows an utterance that the character qualifies for', () => {
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={() => {}} />)
+    expect(utteranceWithBa1).toBeDefined()
+    expect(screen.getByText(utteranceWithBa1.name)).toBeInTheDocument()
+  })
+
+  it('unlocks a second utterance slot when all 5 pillars have at least 1 dot', () => {
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={() => {}} />)
+    expect(screen.getByText(/1 of 2|0 of 2/)).toBeInTheDocument()
+  })
+
+  it('keeps utterance slot at 1 when a pillar is at 0', () => {
+    const buildWithZero = { ab: 3, ba: 2, ka: 2, ren: 2, sheut: 0 }
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={buildWithZero} onSetPowers={() => {}} />)
+    expect(screen.getByText(/of 1/)).toBeInTheDocument()
+  })
+
+  it('calls onSetPowers with _utterances when an utterance is selected', () => {
+    const onSetPowers = vi.fn()
+    render(<StepPowers lineData={mummy} template={heartTemplate} powers={validBuild} onSetPowers={onSetPowers} />)
+    expect(utteranceWithBa1).toBeDefined()
+    fireEvent.click(screen.getByText(utteranceWithBa1.name))
+    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _utterances: [utteranceWithBa1.id] }))
   })
 })

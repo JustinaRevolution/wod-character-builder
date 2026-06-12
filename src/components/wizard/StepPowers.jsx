@@ -4,6 +4,9 @@ import POWERS from '../../data/discipline-powers.json'
 import GIFTS from '../../data/gifts.json'
 import SPELLS from '../../data/spells.json'
 import { validateArcana, findInvalidRotes, SPELL_INDEX } from '../../utils/arcanaValidation'
+import AFFINITIES from '../../data/affinities.json'
+import UTTERANCES from '../../data/utterances.json'
+import { validatePillars, pillarPointsSpent, utteranceQualifies } from '../../utils/pillarValidation'
 
 function PowersPanel({ itemId, currentDots }) {
   const powers = POWERS[itemId]
@@ -526,6 +529,224 @@ function RenownSection({ lineData, template, renown, onSetRenown }) {
   )
 }
 
+function UtteranceEntry({ utterance, isSelected, isDisabled, definingPillarName, onToggle }) {
+  const [expanded, setExpanded] = useState(false)
+  return (
+    <div className={`p-2 rounded border transition-colors ${
+      isSelected ? 'border-amber-400 bg-gray-800' : isDisabled ? 'border-gray-800 opacity-40' : 'border-gray-700 text-gray-400 hover:border-gray-500'
+    }`}>
+      <div
+        className={`flex items-center justify-between gap-2 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+        onClick={isDisabled ? undefined : onToggle}
+      >
+        <span className={`text-sm font-medium ${isSelected ? 'text-gray-100' : isDisabled ? 'text-gray-600' : 'text-gray-300'}`}>
+          {utterance.name}
+        </span>
+        <div className="flex items-center gap-2">
+          {isSelected && <span className="text-amber-400 text-xs">✓</span>}
+          <button
+            onClick={e => { e.stopPropagation(); setExpanded(x => !x) }}
+            className="text-xs text-gray-600 select-none px-1"
+          >
+            {expanded ? '▾' : '▸'}
+          </button>
+        </div>
+      </div>
+      {expanded && (
+        <div className="mt-1 ml-1 border-l-2 border-gray-700 pl-3 text-xs space-y-1">
+          {utterance.tiers.map(tier => {
+            const pillarLabel = tier.pillar === 'defining'
+              ? `${definingPillarName ?? 'Defining'} [Defining]`
+              : tier.pillar.charAt(0).toUpperCase() + tier.pillar.slice(1)
+            return (
+              <div key={tier.tier} className="text-gray-500">
+                <span className="text-amber-600">Tier {tier.tier}:</span>{' '}
+                {pillarLabel} {'●'.repeat(tier.level)}
+                {tier.tags.length > 0 ? ` [${tier.tags.join(', ')}]` : ''} — {tier.description}
+              </div>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function PillarsPowers({ lineData, template, powers, onSetPowers }) {
+  const { items, totalDots, definingFrom, description } = lineData.powers
+  const decreeGroup = definingFrom ? lineData.template[definingFrom] : null
+  const decreeId = decreeGroup ? template[decreeGroup.field] : null
+  const decreeOption = decreeId ? decreeGroup.options.find(o => o.id === decreeId) : null
+  const definingPillarId = decreeOption?.definingPillar ?? null
+
+  const guildGroup = lineData.template.group2
+  const guildId = template[guildGroup.field]
+  const guildOption = guildId ? guildGroup.options.find(o => o.id === guildId) : null
+  const guildAffinityId = guildOption?.guildAffinity ?? null
+
+  const spent = pillarPointsSpent(powers)
+  const errors = definingPillarId ? validatePillars(powers, { definingPillarId }) : ['Choose a Decree first.']
+  const isValid = errors.length === 0
+
+  const soulAffinities = definingPillarId
+    ? AFFINITIES.filter(a => a.type === 'soul' && a.pillar === definingPillarId)
+    : []
+  const guildAffinity = guildAffinityId ? AFFINITIES.find(a => a.id === guildAffinityId) : null
+
+  const selectedSoul = powers._soul_affinity || soulAffinities[0]?.id || null
+  const selectedFree = powers._free_affinity || null
+  const selectedUtterances = powers._utterances || []
+
+  const allFiveRated = items.every(i => (powers[i.id] || 0) >= 1)
+  const utteranceSlots = allFiveRated ? 2 : 1
+  const eligibleUtterances = isValid ? UTTERANCES.filter(u => utteranceQualifies(u, powers)) : []
+
+  const excludeIds = new Set([selectedSoul, guildAffinityId].filter(Boolean))
+  const freeAffinityList = isValid
+    ? AFFINITIES.filter(a => {
+        if (excludeIds.has(a.id)) return false
+        if (a.pillar && a.prerequisite != null) return (powers[a.pillar] || 0) >= a.prerequisite
+        return true
+      })
+    : []
+
+  const handlePillarChange = (id, v) => {
+    const next = { ...powers, [id]: v }
+    if (pillarPointsSpent(next) <= totalDots || v < (powers[id] || 0)) onSetPowers(next)
+  }
+
+  const setSoulAffinity = id => onSetPowers({ ...powers, _soul_affinity: id })
+  const toggleFreeAffinity = id =>
+    onSetPowers({ ...powers, _free_affinity: selectedFree === id ? null : id })
+  const toggleUtterance = id => {
+    const next = selectedUtterances.includes(id)
+      ? selectedUtterances.filter(u => u !== id)
+      : selectedUtterances.length < utteranceSlots ? [...selectedUtterances, id] : selectedUtterances
+    onSetPowers({ ...powers, _utterances: next })
+  }
+
+  const definingPillarName = items.find(i => i.id === definingPillarId)?.name ?? null
+
+  return (
+    <div>
+      <p className="text-gray-400 mb-2">{description}</p>
+      <p className={`text-sm mb-2 font-medium ${spent > totalDots ? 'text-red-400' : 'text-amber-400'}`}>
+        {spent} of {totalDots} dot-points spent (5th dot costs 2)
+      </p>
+      {errors.length > 0 && (
+        <ul className="text-xs text-red-400 mb-3 space-y-0.5">
+          {errors.map(e => <li key={e}>{e}</li>)}
+        </ul>
+      )}
+      <div className="space-y-1 max-w-sm mb-8">
+        {items.map(item => {
+          const isDefining = item.id === definingPillarId
+          const maxDots = isDefining ? 5 : Math.min(5, powers[definingPillarId] || 0)
+          return (
+            <div key={item.id} className="flex items-center justify-between py-0.5">
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-300 w-28">{item.name}</span>
+                {isDefining && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">Defining</span>}
+              </div>
+              <DotRating value={powers[item.id] || 0} max={maxDots} onChange={v => handlePillarChange(item.id, v)} />
+            </div>
+          )
+        })}
+      </div>
+
+      {!isValid && (
+        <p className="text-gray-600 text-sm">Complete your Pillar allocation above to unlock Affinities and Utterances.</p>
+      )}
+
+      {isValid && (
+        <>
+          <div className="mb-8">
+            <h3 className="font-semibold text-gray-200 mb-4">Affinities</h3>
+
+            <div className="mb-4">
+              <p className="text-xs text-gray-500 mb-1">Soul Affinity (from Decree)</p>
+              <select
+                value={selectedSoul || ''}
+                onChange={e => setSoulAffinity(e.target.value)}
+                className="bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-gray-100 w-full max-w-sm"
+              >
+                {soulAffinities.map(a => (
+                  <option key={a.id} value={a.id}>{a.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="mb-4">
+              <p className="text-xs text-gray-500 mb-1">Guild Affinity (from Guild)</p>
+              <p className="text-sm text-gray-300">{guildAffinity?.name ?? '—'}</p>
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500 mb-2">Free Affinity — pick one you qualify for</p>
+              <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
+                {freeAffinityList.map(a => {
+                  const isSelected = selectedFree === a.id
+                  const prereqLabel = a.pillar && a.prerequisite != null
+                    ? `${a.pillar} ${'●'.repeat(a.prerequisite)}`
+                    : a.cultPrerequisite ? `Cult ${a.cultPrerequisite} (check)` : '—'
+                  return (
+                    <div
+                      key={a.id}
+                      onClick={() => toggleFreeAffinity(a.id)}
+                      className={`p-2 rounded border cursor-pointer transition-colors ${
+                        isSelected ? 'border-amber-400 bg-gray-800' : 'border-gray-700 text-gray-400 hover:border-gray-500'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className={`text-sm font-medium ${isSelected ? 'text-gray-100' : 'text-gray-300'}`}>{a.name}</span>
+                        <span className="text-xs text-amber-500 shrink-0 ml-2">{prereqLabel}</span>
+                      </div>
+                      <p className={`text-xs mt-1 ${isSelected ? 'text-gray-400' : 'text-gray-600'}`}>{a.description}</p>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-gray-200 mb-1 flex items-center gap-2">
+              Utterances
+              <span className={`text-xs px-2 py-0.5 rounded ${
+                selectedUtterances.length === utteranceSlots ? 'bg-green-900 text-green-300' : 'bg-gray-700 text-gray-400'
+              }`}>
+                {selectedUtterances.length} of {utteranceSlots}
+              </span>
+            </h3>
+            {allFiveRated && (
+              <p className="text-xs text-amber-500 mb-2">All Pillars rated — bonus Utterance unlocked!</p>
+            )}
+            <div className="space-y-1 max-h-72 overflow-y-auto pr-1 mt-3">
+              {eligibleUtterances.map(u => {
+                const isSelected = selectedUtterances.includes(u.id)
+                const isMaxed = !isSelected && selectedUtterances.length >= utteranceSlots
+                return (
+                  <UtteranceEntry
+                    key={u.id}
+                    utterance={u}
+                    isSelected={isSelected}
+                    isDisabled={isMaxed}
+                    definingPillarName={definingPillarName}
+                    onToggle={() => toggleUtterance(u.id)}
+                  />
+                )
+              })}
+              {eligibleUtterances.length === 0 && (
+                <p className="text-gray-600 text-sm">No Utterances available for your current Pillar allocation.</p>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
 export default function StepPowers({ lineData, template, powers, onSetPowers, renown = {}, onSetRenown = () => {} }) {
   const { type, label, keys, compactNote } = lineData.powers
   const selectedKeys = powers._keys || []
@@ -542,9 +763,11 @@ export default function StepPowers({ lineData, template, powers, onSetPowers, re
           ? <GiftsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} renown={renown} />
           : type === 'arcana'
             ? <ArcanaPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
-            : type === 'pool'
-              ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
-              : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
+            : type === 'pillars'
+              ? <PillarsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+              : type === 'pool'
+                ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+                : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
       }
       {!isCompact && keys && (
         <KeysPicker keys={keys} selectedKeys={selectedKeys} onSetPowers={onSetPowers} powers={powers} />

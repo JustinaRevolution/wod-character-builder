@@ -25,7 +25,7 @@
   "powers": {
     "type": "pillars",
     "label": "Pillars",
-    "description": "Distribute 9 dot-points across your five Pillars. No Pillar may exceed your defining Pillar. Only one Pillar may be left at 0. The 5th dot in any Pillar costs 2 points and requires all others to have at least 1.",
+    "description": "Distribute 9 dot-points across your five Pillars. Your defining Pillar sets the cap for all others. You may leave only one Pillar unrated. The 5th dot costs 2 points and requires the other four to be rated.",
     "totalDots": 9,
     "definingFrom": "group1",
     "items": [
