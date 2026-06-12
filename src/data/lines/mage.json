@@ -36,7 +36,7 @@
       { "id": "fate",   "name": "Fate",   "description": "Destiny, luck, and oaths.",               "affinityFor": ["acanthus"] },
       { "id": "forces", "name": "Forces", "description": "Fire, electricity, and physical force.",  "affinityFor": ["obrimos"] },
       { "id": "life",   "name": "Life",   "description": "Living things — healing and transformation.", "affinityFor": ["thyrsus"] },
-      { "id": "matter", "name": "Matter", "description": "Physical objects and substances.",         "affinityFor": ["mastigos", "moros"] },
+      { "id": "matter", "name": "Matter", "description": "Physical objects and substances.",         "affinityFor": ["moros"] },
       { "id": "mind",   "name": "Mind",   "description": "Thoughts, emotions, and consciousness.",  "affinityFor": ["mastigos"] },
       { "id": "prime",  "name": "Prime",  "description": "Raw magical power and Mana.",             "affinityFor": ["obrimos"] },
       { "id": "space",  "name": "Space",  "description": "Connections, wards, and sympathy.",       "affinityFor": ["mastigos"] },
