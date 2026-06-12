@@ -2,6 +2,8 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import StepReview from './StepReview'
 import vampire from '../../data/lines/vampire.json'
+import SPELLS from '../../data/spells.json'
+import mage from '../../data/lines/mage.json'
 
 const character = {
   meta: { line: 'vampire', name: 'Selene', concept: 'Spy', virtue: 'Prudence', vice: 'Envy', chronicle: 'Blood City', player: 'J' },
@@ -39,5 +41,19 @@ describe('StepReview', () => {
     render(<StepReview character={character} lineData={vampire} onUpdateNotes={onUpdateNotes} />)
     fireEvent.change(screen.getByPlaceholderText(/background/i), { target: { value: 'A spy.' } })
     expect(onUpdateNotes).toHaveBeenCalledWith('A spy.')
+  })
+
+  it('does not render _rotes as a raw powers entry', () => {
+    const death1 = SPELLS.death.spells.find(s => s.level === 1)
+    const mageChar = { ...character, powers: { death: 3, matter: 2, fate: 1, _rotes: [death1.id] } }
+    render(<StepReview character={mageChar} lineData={mage} onUpdateNotes={() => {}} />)
+    expect(screen.queryByText('_rotes')).toBeNull()
+  })
+
+  it('lists chosen rotes by name in the review', () => {
+    const death1 = SPELLS.death.spells.find(s => s.level === 1)
+    const mageChar = { ...character, powers: { death: 3, matter: 2, fate: 1, _rotes: [death1.id] } }
+    render(<StepReview character={mageChar} lineData={mage} onUpdateNotes={() => {}} />)
+    expect(screen.getByText(new RegExp(death1.name))).toBeInTheDocument()
   })
 })

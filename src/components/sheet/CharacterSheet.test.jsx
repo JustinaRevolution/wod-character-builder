@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import CharacterSheet from './CharacterSheet'
 import vampire from '../../data/lines/vampire.json'
+import SPELLS from '../../data/spells.json'
+import mage from '../../data/lines/mage.json'
 
 const character = {
   meta: { line: 'vampire', name: 'Selene', concept: 'Spy', virtue: 'Prudence', vice: 'Envy', chronicle: 'Blood City', player: 'Justina' },
@@ -37,5 +39,19 @@ describe('CharacterSheet', () => {
   it('renders a derived stat', () => {
     render(<CharacterSheet character={character} lineData={vampire} />)
     expect(screen.getByText('Health')).toBeInTheDocument()
+  })
+
+  it('does not render _rotes as a raw powers entry', () => {
+    const death1 = SPELLS.death.spells.find(s => s.level === 1)
+    const mageChar = { ...character, powers: { death: 3, matter: 2, fate: 1, _rotes: [death1.id] } }
+    render(<CharacterSheet character={mageChar} lineData={mage} />)
+    expect(screen.queryByText('_rotes')).toBeNull()
+  })
+
+  it('lists chosen rotes by name on the sheet', () => {
+    const death1 = SPELLS.death.spells.find(s => s.level === 1)
+    const mageChar = { ...character, powers: { death: 3, matter: 2, fate: 1, _rotes: [death1.id] } }
+    render(<CharacterSheet character={mageChar} lineData={mage} />)
+    expect(screen.getByText(new RegExp(death1.name))).toBeInTheDocument()
   })
 })

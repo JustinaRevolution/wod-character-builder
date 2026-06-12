@@ -1,11 +1,12 @@
 import DotRating from '../ui/DotRating'
+import { SPELL_INDEX } from '../../utils/arcanaValidation'
 
 export default function StepReview({ character, lineData, onUpdateNotes }) {
   const { meta, template, attributes, skills, specialties, powers, merits, derived } = character
   const g1 = lineData.template.group1
   const g2 = lineData.template.group2
   const powerItems = lineData.powers.items || []
-  const powerEntries = Object.entries(powers).filter(([k]) => k !== '_keys')
+  const powerEntries = Object.entries(powers).filter(([k]) => !k.startsWith('_'))
   const selectedKeys = powers._keys || []
 
   return (
@@ -51,6 +52,14 @@ export default function StepReview({ character, lineData, onUpdateNotes }) {
                 : <div key={id}>{item?.name || id}: {val}</div>
             })}
             {selectedKeys.length > 0 && <div className="text-gray-500">Keys: {selectedKeys.join(', ')}</div>}
+            {(powers._rotes || []).length > 0 && (
+              <div className="text-gray-500">
+                Rotes: {(powers._rotes || []).map(id => {
+                  const s = SPELL_INDEX[id]
+                  return s ? `${s.name} (${s.arcanumName} ${'●'.repeat(s.level)})` : id
+                }).join(', ')}
+              </div>
+            )}
           </div>
         </div>
 

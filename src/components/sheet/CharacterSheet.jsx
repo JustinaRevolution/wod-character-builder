@@ -1,4 +1,5 @@
 import DotRating from '../ui/DotRating'
+import { SPELL_INDEX } from '../../utils/arcanaValidation'
 
 const ATTR_CATS = [
   { key: 'mental',   attrs: ['intelligence','wits','resolve'] },
@@ -26,7 +27,7 @@ export default function CharacterSheet({ character, lineData }) {
     g2?.freeform && template[g2.field] && `${g2.label}: ${template[g2.field]}`,
   ].filter(Boolean).join('  |  ')
 
-  const powerEntries = Object.entries(powers).filter(([k]) => k !== '_keys')
+  const powerEntries = Object.entries(powers).filter(([k]) => !k.startsWith('_'))
   const selectedKeys = powers._keys || []
 
   return (
@@ -102,6 +103,14 @@ export default function CharacterSheet({ character, lineData }) {
             {selectedKeys.length > 0 && (
               <div style={{ marginTop: '4px' }}>
                 <strong>Keys: </strong>{selectedKeys.join(', ')}
+              </div>
+            )}
+            {(powers._rotes || []).length > 0 && (
+              <div style={{ marginTop: '4px' }}>
+                <strong>Rotes: </strong>{(powers._rotes || []).map(id => {
+                  const s = SPELL_INDEX[id]
+                  return s ? `${s.name} (${s.arcanumName} ${'●'.repeat(s.level)})` : id
+                }).join(', ')}
               </div>
             )}
           </div>
