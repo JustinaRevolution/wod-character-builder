@@ -54,31 +54,39 @@ export default function CharacterSheet({ character, lineData }) {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '12px' }}>
         <div>
           <div style={{ fontWeight: 'bold', fontSize: '9pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '6px' }}>ATTRIBUTES</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2px', fontSize: '8pt' }}>
-            {['Mental','Physical','Social'].map(c => <div key={c} style={{ textAlign:'center', color:'#555', fontSize:'7pt' }}>{c}</div>)}
-            {ATTR_CATS.map(({ key, attrs }) =>
-              attrs.map(a => (
-                <div key={`${key}-${a}`} style={{ marginBottom: '3px' }}>
-                  {label(a)}<br />
-                  <DotRating value={attributes[key][a]} max={5} />
+          <div style={{ display: 'flex', gap: '4px', fontSize: '8pt' }}>
+            {ATTR_CATS.map(({ key, attrs }) => (
+              <div key={key} style={{ flex: 1 }}>
+                <div style={{ textAlign: 'center', color: '#555', fontSize: '7pt', marginBottom: '4px' }}>
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
                 </div>
-              ))
-            )}
+                {attrs.map(a => (
+                  <div key={a} style={{ marginBottom: '3px' }}>
+                    {label(a)}<br />
+                    <DotRating value={attributes[key][a]} max={5} />
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
 
         <div>
           <div style={{ fontWeight: 'bold', fontSize: '9pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '6px' }}>SKILLS</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2px', fontSize: '8pt' }}>
-            {['Mental','Physical','Social'].map(c => <div key={c} style={{ textAlign:'center', color:'#555', fontSize:'7pt' }}>{c}</div>)}
-            {SKILL_CATS.map(({ key, skills: sk }) =>
-              sk.map(s => (
-                <div key={`${key}-${s}`} style={{ marginBottom: '3px' }}>
-                  {label(s)}<br />
-                  <DotRating value={skills[key][s]} max={5} />
+          <div style={{ display: 'flex', gap: '4px', fontSize: '8pt' }}>
+            {SKILL_CATS.map(({ key, skills: sk }) => (
+              <div key={key} style={{ flex: 1 }}>
+                <div style={{ textAlign: 'center', color: '#555', fontSize: '7pt', marginBottom: '4px' }}>
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
                 </div>
-              ))
-            )}
+                {sk.map(s => (
+                  <div key={s} style={{ marginBottom: '3px' }}>
+                    {label(s)}<br />
+                    <DotRating value={skills[key][s]} max={5} />
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
           {specialties.length > 0 && (
             <div style={{ marginTop: '6px', fontSize: '8pt' }}>
