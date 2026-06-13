@@ -49,8 +49,16 @@ export default function StepReview({ character, lineData, onUpdateNotes }) {
           <div className="text-sm text-gray-300 space-y-1">
             {powerEntries.map(([id, val]) => {
               const item = powerItems.find(i => i.id === id)
+              const activePowerNames = item?.powers && typeof val === 'number' && val > 0
+                ? item.powers.slice(0, val).map(p => p.name).join(', ')
+                : null
               return typeof val === 'number'
-                ? <div key={id} className="flex justify-between"><span>{item?.name || id}</span><DotRating value={val} max={5} /></div>
+                ? (
+                  <div key={id}>
+                    <div className="flex justify-between"><span>{item?.name || id}</span><DotRating value={val} max={5} /></div>
+                    {activePowerNames && <div className="text-xs text-gray-500 ml-2">{activePowerNames}</div>}
+                  </div>
+                )
                 : <div key={id}>{item?.name || id}: {val}</div>
             })}
             {selectedKeys.length > 0 && <div className="text-gray-500">Keys: {selectedKeys.join(', ')}</div>}

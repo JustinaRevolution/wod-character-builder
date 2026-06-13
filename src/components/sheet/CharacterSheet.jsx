@@ -98,8 +98,16 @@ export default function CharacterSheet({ character, lineData }) {
             {powerEntries.map(([id, val]) => {
               const item = lineData.powers.items?.find(i => i.id === id)
               const name = item?.name || id
+              const activePowerNames = item?.powers && typeof val === 'number' && val > 0
+                ? item.powers.slice(0, val).map(p => p.name).join(', ')
+                : null
               return typeof val === 'number'
-                ? <div key={id}>{name} <DotRating value={val} max={5} /></div>
+                ? (
+                  <div key={id}>
+                    <div>{name} <DotRating value={val} max={5} /></div>
+                    {activePowerNames && <div style={{ fontSize: '7pt', color: '#777', marginLeft: '4px' }}>{activePowerNames}</div>}
+                  </div>
+                )
                 : <div key={id}>{name}: {val}</div>
             })}
             {selectedKeys.length > 0 && (

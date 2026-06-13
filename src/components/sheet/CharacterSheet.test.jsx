@@ -7,6 +7,7 @@ import mage from '../../data/lines/mage.json'
 import AFFINITIES from '../../data/affinities.json'
 import UTTERANCES from '../../data/utterances.json'
 import mummy from '../../data/lines/mummy.json'
+import promethean from '../../data/lines/promethean.json'
 
 const character = {
   meta: { line: 'vampire', name: 'Selene', concept: 'Spy', virtue: 'Prudence', vice: 'Envy', chronicle: 'Blood City', player: 'Justina' },
@@ -112,5 +113,41 @@ describe('CharacterSheet — Mummy Affinities + Utterances display', () => {
     expect(utterance).toBeDefined()
     expect(screen.getByText(guildAffinity.name, { exact: false })).toBeInTheDocument()
     expect(screen.getByText(utterance.name, { exact: false })).toBeInTheDocument()
+  })
+})
+
+describe('CharacterSheet — Promethean power names', () => {
+  const corporeum = promethean.powers.items.find(i => i.id === 'corporeum')
+  const lvl1Name = corporeum.powers[0].name
+
+  const baseCharacter = {
+    meta: { name: 'Test', concept: '', virtue: '', vice: '', player: '', chronicle: '' },
+    template: { lineage: 'wretched', refinement: 'aurum' },
+    attributes: {
+      mental: { intelligence:1,wits:1,resolve:1 },
+      physical: { strength:1,dexterity:1,stamina:1 },
+      social: { presence:1,manipulation:1,composure:1 }
+    },
+    skills: {
+      mental: { academics:0,computer:0,crafts:0,investigation:0,medicine:0,occult:0,politics:0,science:0 },
+      physical: { athletics:0,brawl:0,drive:0,firearms:0,larceny:0,stealth:0,survival:0,weaponry:0 },
+      social: { animal_ken:0,empathy:0,expression:0,intimidation:0,persuasion:0,socialize:0,streetwise:0,subterfuge:0 }
+    },
+    specialties: [],
+    powers: { corporeum: 1 },
+    renown: {},
+    merits: [],
+    derived: {
+      health: 5, willpower: 3, speed: 5, defense: 1, initiative: 2,
+      resource_pool: { name: 'Pyros', max: 10 },
+      integrity: { name: 'Humanity', value: 5 },
+      supernatural_trait: { name: '', value: 0 }
+    },
+    notes: ''
+  }
+
+  it('shows active power name on character sheet', () => {
+    render(<CharacterSheet character={baseCharacter} lineData={promethean} />)
+    expect(screen.getByText(lvl1Name)).toBeInTheDocument()
   })
 })
