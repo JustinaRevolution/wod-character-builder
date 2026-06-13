@@ -10,6 +10,7 @@ import SPELLS from '../../data/spells.json'
 import AFFINITIES from '../../data/affinities.json'
 import UTTERANCES from '../../data/utterances.json'
 import mummy from '../../data/lines/mummy.json'
+import promethean from '../../data/lines/promethean.json'
 
 describe('StepPowers — pool type (Vampire)', () => {
   it('renders all discipline names', () => {
@@ -404,5 +405,70 @@ describe('StepPowers — pillars type (Mummy)', () => {
       const badCall = calls.find(c => c[0]?._utterances?.length > 2)
       expect(badCall).toBeUndefined()
     }
+  })
+})
+
+describe('StepPowers — pool type (Promethean)', () => {
+  const wretched = { lineage: 'wretched' }
+  const corporeum = promethean.powers.items.find(i => i.id === 'corporeum')
+  const lvl1Power = corporeum.powers[0]
+  const lvl2Power = corporeum.powers[1]
+  const lvl3Power = corporeum.powers[2]
+
+  it('renders all Transmutation path names', () => {
+    render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText('Corporeum')).toBeInTheDocument()
+    expect(screen.getByText('Alchemicus')).toBeInTheDocument()
+    expect(screen.getByText('Vitality')).toBeInTheDocument()
+  })
+
+  it('shows 4 dots remaining initially', () => {
+    render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText(/4 dots remaining/i)).toBeInTheDocument()
+  })
+
+  it('shows Affinity badge for lineage paths when lineage selected', () => {
+    render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
+    // Wretched = Corporeum + Sanguinem affinity
+    const badges = screen.getAllByText('Affinity')
+    expect(badges.length).toBe(2)
+  })
+
+  it('shows expand toggle for Corporeum which has item.powers', () => {
+    render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
+    const toggles = screen.getAllByText('▸')
+    expect(toggles.length).toBeGreaterThan(0)
+  })
+
+  it('expands to show power panel when Corporeum name is clicked', () => {
+    render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
+    fireEvent.click(screen.getByText('Corporeum'))
+    expect(screen.getByText(lvl1Power.name)).toBeInTheDocument()
+  })
+
+  it('shows all 5 power levels in panel when expanded', () => {
+    render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
+    fireEvent.click(screen.getByText('Corporeum'))
+    expect(screen.getByText(lvl1Power.name)).toBeInTheDocument()
+    expect(screen.getByText(lvl3Power.name)).toBeInTheDocument()
+  })
+
+  it('collapses panel when name is clicked again', () => {
+    render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
+    fireEvent.click(screen.getByText('Corporeum'))
+    expect(screen.getByText(lvl1Power.name)).toBeInTheDocument()
+    fireEvent.click(screen.getByText('Corporeum'))
+    expect(screen.queryByText(lvl1Power.name)).toBeNull()
+  })
+
+  it('shows level-2 power name when 2 dots allocated', () => {
+    render(<StepPowers lineData={promethean} template={wretched} powers={{ corporeum: 2 }} onSetPowers={() => {}} />)
+    fireEvent.click(screen.getByText('Corporeum'))
+    expect(screen.getByText(lvl2Power.name)).toBeInTheDocument()
+  })
+
+  it('does not crash Vampire render (backward compat)', () => {
+    render(<StepPowers lineData={vampire} template={{}} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText('Animalism')).toBeInTheDocument()
   })
 })

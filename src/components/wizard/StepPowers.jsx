@@ -41,6 +41,27 @@ function PowersPanel({ itemId, currentDots }) {
   )
 }
 
+function InlinePowersPanel({ powers, currentDots }) {
+  return (
+    <div className="ml-1 mb-2 mt-1 border-l-2 border-gray-700 pl-3 space-y-2.5">
+      {powers.map((p) => {
+        const unlocked = currentDots >= p.level
+        return (
+          <div key={p.level} className={unlocked ? 'text-gray-200' : 'text-gray-600'}>
+            <div className="flex items-baseline gap-x-2 text-xs">
+              <span className={`shrink-0 ${unlocked ? 'text-amber-500' : 'text-gray-700'}`}>
+                {'●'.repeat(p.level)}
+              </span>
+              <span className="font-semibold">{p.name}</span>
+            </div>
+            <p className="text-xs leading-snug mt-0.5">{p.description}</p>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 function PoolPowers({ lineData, template, powers, onSetPowers }) {
   const { items, startingDots, affinityFrom, description, caps } = lineData.powers
   const selectedAffinity = affinityFrom ? template[lineData.template[affinityFrom]?.field] : null
@@ -68,7 +89,7 @@ function PoolPowers({ lineData, template, powers, onSetPowers }) {
         {items.map(item => {
           const isAffinity = selectedAffinity && item.affinityFor?.includes(selectedAffinity)
           const itemMax = caps ? (isAffinity ? caps.affinity : caps.default) : 5
-          const hasPowers = Boolean(POWERS[item.id])
+          const hasPowers = Boolean(POWERS[item.id]) || Boolean(item.powers?.length)
           const isExpanded = expanded === item.id
           return (
             <div key={item.id}>
@@ -85,8 +106,11 @@ function PoolPowers({ lineData, template, powers, onSetPowers }) {
                 </div>
                 <DotRating value={powers[item.id] || 0} max={itemMax} onChange={v => handleChange(item.id, v)} />
               </div>
-              {isExpanded && (
+              {isExpanded && POWERS[item.id] && (
                 <PowersPanel itemId={item.id} currentDots={powers[item.id] || 0} />
+              )}
+              {isExpanded && item.powers && (
+                <InlinePowersPanel powers={item.powers} currentDots={powers[item.id] || 0} />
               )}
             </div>
           )

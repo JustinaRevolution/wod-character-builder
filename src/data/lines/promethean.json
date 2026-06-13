@@ -26,20 +26,130 @@
   "powers": {
     "type": "pool",
     "label": "Transmutations",
-    "description": "Distribute 4 dots among Transmutations. Your Lineage Transmutations are your primary access. Refer to Promethean: the Created for the full list.",
+    "description": "Distribute 4 dots among Transmutations. Your Lineage Transmutations are your primary access.",
     "startingDots": 4,
     "affinityFrom": "group1",
     "items": [
-      { "id": "alchemicus", "name": "Alchemicus",  "description": "Manipulation of base elements and chemical processes.", "affinityFor": ["galatea"] },
-      { "id": "corporeum",  "name": "Corporeum",   "description": "Mastery and reshaping of the physical body.",          "affinityFor": ["wretched"] },
-      { "id": "deception",  "name": "Deception",   "description": "Illusion and concealment of the Created's true nature.","affinityFor": ["osiran"] },
-      { "id": "electrum",   "name": "Electrum",    "description": "Command of electrical forces and lightning.",           "affinityFor": ["galatea"] },
-      { "id": "ferrum_t",   "name": "Ferrum",      "description": "The strength and endurance of iron.",                  "affinityFor": ["tammuz"] },
-      { "id": "sanguinem",  "name": "Sanguinem",   "description": "Power over blood and the vital humors.",               "affinityFor": ["wretched"] },
-      { "id": "saturninus", "name": "Saturninus",  "description": "Communion with spirits of blight and decay.",          "affinityFor": ["ulgan"] },
-      { "id": "spiritus",   "name": "Spiritus",    "description": "Walking between the physical and spirit worlds.",       "affinityFor": ["ulgan"] },
-      { "id": "stannum_t",  "name": "Stannum",     "description": "Endurance through suffering and humility.",            "affinityFor": ["tammuz"] },
-      { "id": "vitality",   "name": "Vitality",    "description": "The generative force of life and restoration.",        "affinityFor": ["osiran"] }
+      {
+        "id": "alchemicus", "name": "Alchemicus",
+        "description": "Manipulation of base elements and chemical processes.",
+        "affinityFor": ["galatea"],
+        "powers": [
+          { "level": 1, "name": "Alchemicus 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Alchemicus 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Alchemicus 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Alchemicus 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Alchemicus 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "corporeum", "name": "Corporeum",
+        "description": "Mastery and reshaping of the physical body.",
+        "affinityFor": ["wretched"],
+        "powers": [
+          { "level": 1, "name": "Corporeum 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Corporeum 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Corporeum 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Corporeum 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Corporeum 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "deception", "name": "Deception",
+        "description": "Illusion and concealment of the Created's true nature.",
+        "affinityFor": ["osiran"],
+        "powers": [
+          { "level": 1, "name": "Deception 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Deception 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Deception 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Deception 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Deception 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "electrum", "name": "Electrum",
+        "description": "Command of electrical forces and lightning.",
+        "affinityFor": ["galatea"],
+        "powers": [
+          { "level": 1, "name": "Electrum 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Electrum 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Electrum 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Electrum 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Electrum 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "ferrum_t", "name": "Ferrum",
+        "description": "The strength and endurance of iron.",
+        "affinityFor": ["tammuz"],
+        "powers": [
+          { "level": 1, "name": "Ferrum 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Ferrum 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Ferrum 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Ferrum 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Ferrum 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "sanguinem", "name": "Sanguinem",
+        "description": "Power over blood and the vital humors.",
+        "affinityFor": ["wretched"],
+        "powers": [
+          { "level": 1, "name": "Sanguinem 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Sanguinem 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Sanguinem 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Sanguinem 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Sanguinem 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "saturninus", "name": "Saturninus",
+        "description": "Communion with spirits of blight and decay.",
+        "affinityFor": ["ulgan"],
+        "powers": [
+          { "level": 1, "name": "Saturninus 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Saturninus 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Saturninus 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Saturninus 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Saturninus 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "spiritus", "name": "Spiritus",
+        "description": "Walking between the physical and spirit worlds.",
+        "affinityFor": ["ulgan"],
+        "powers": [
+          { "level": 1, "name": "Spiritus 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Spiritus 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Spiritus 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Spiritus 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Spiritus 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "stannum_t", "name": "Stannum",
+        "description": "Endurance through suffering and humility.",
+        "affinityFor": ["tammuz"],
+        "powers": [
+          { "level": 1, "name": "Stannum 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Stannum 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Stannum 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Stannum 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Stannum 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      },
+      {
+        "id": "vitality", "name": "Vitality",
+        "description": "The generative force of life and restoration.",
+        "affinityFor": ["osiran"],
+        "powers": [
+          { "level": 1, "name": "Vitality 1", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 2, "name": "Vitality 2", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 3, "name": "Vitality 3", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 4, "name": "Vitality 4", "description": "Placeholder — to be replaced with extracted data." },
+          { "level": 5, "name": "Vitality 5", "description": "Placeholder — to be replaced with extracted data." }
+        ]
+      }
     ]
   },
   "resource": {
