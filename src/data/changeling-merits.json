@@ -1,0 +1,35 @@
+[
+  {
+    "id": "harvest",
+    "name": "Harvest",
+    "category": "changeling",
+    "line": "changeling",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A relatively stable source of Glamour. Each dot adds one die to certain rolls related to gathering Glamour."
+  },
+  {
+    "id": "hollow",
+    "name": "Hollow",
+    "category": "changeling",
+    "line": "changeling",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "A private pocket of reality shaped into a stable dwelling in the Hedge — size, amenities, wards, and access points all built from dots."
+  },
+  {
+    "id": "court_goodwill",
+    "name": "Court Goodwill",
+    "category": "changeling",
+    "line": "changeling",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "chargen_only": false,
+    "description": "How well-liked and respected you are within a Court other than your own. Adds dice to social rolls with that Court's members."
+  }
+]

@@ -828,6 +828,104 @@ function EndowmentsPowers({ lineData, template, powers, onSetPowers }) {
   )
 }
 
+function ClausesPanel({ clauses, currentDots }) {
+  return (
+    <div className="ml-1 mb-2 mt-1 border-l-2 border-gray-700 pl-3 space-y-2.5">
+      {clauses.map((c, i) => {
+        const unlocked = currentDots >= c.dot
+        return (
+          <div key={i} className={unlocked ? 'text-gray-200' : 'text-gray-600'}>
+            <div className="flex flex-wrap items-baseline gap-x-2 text-xs">
+              <span className={`shrink-0 ${unlocked ? 'text-amber-500' : 'text-gray-700'}`}>
+                {'●'.repeat(c.dot)}
+              </span>
+              <span className="font-semibold">{c.name}</span>
+              <span className={`ml-auto text-right ${unlocked ? 'text-gray-500' : 'text-gray-700'}`}>
+                {c.cost} · {c.action}
+              </span>
+            </div>
+            <p className="text-xs leading-snug mt-0.5">{c.description}</p>
+            {c.dice !== 'No roll' && c.dice !== '—' && (
+              <p className={`text-xs mt-0.5 ${unlocked ? 'text-gray-600' : 'text-gray-700'}`}>
+                Roll: {c.dice}
+              </p>
+            )}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+function ContractsPowers({ lineData, template, powers, onSetPowers }) {
+  const { items, startingDots, description } = lineData.powers
+  const seemingId = template[lineData.template.group1.field]
+  const courtId = template[lineData.template.group2.field]
+
+  const spent = Object.entries(powers).reduce((s, [, v]) => s + (v || 0), 0)
+  const remaining = startingDots - spent
+  const [expanded, setExpanded] = useState(null)
+
+  const handleChange = (id, v) => {
+    const next = { ...powers, [id]: v }
+    const newSpent = Object.entries(next).reduce((s, [, val]) => s + (val || 0), 0)
+    if (newSpent <= startingDots || v < (powers[id] || 0)) onSetPowers(next)
+  }
+
+  const categories = [
+    { key: 'universal', label: 'Universal Contracts' },
+    { key: 'seeming',   label: 'Seeming Contracts'   },
+    { key: 'court',     label: 'Court Contracts'     },
+  ]
+
+  return (
+    <div>
+      <p className="text-gray-400 mb-2">{description}</p>
+      <p className={`text-sm mb-4 font-medium ${remaining < 0 ? 'text-red-400' : 'text-amber-400'}`}>
+        {remaining} dots remaining
+      </p>
+      {categories.map(({ key, label }) => {
+        const catItems = items.filter(i => i.category === key)
+        if (catItems.length === 0) return null
+        return (
+          <div key={key} className="mb-6">
+            <h4 className="text-xs text-gray-500 uppercase tracking-wider mb-2">{label}</h4>
+            <div className="space-y-1 max-w-sm">
+              {catItems.map(item => {
+                const isSeeming = item.affinityFor?.includes(seemingId)
+                const isCourt = item.affinityFor?.includes(courtId)
+                const affinityLabel = isSeeming ? 'Seeming' : isCourt ? 'Court' : null
+                const currentDots = powers[item.id] || 0
+                const isExpanded = expanded === item.id
+                return (
+                  <div key={item.id}>
+                    <div className="flex items-center justify-between py-0.5">
+                      <div
+                        className="flex items-center gap-2 cursor-pointer"
+                        onClick={() => setExpanded(isExpanded ? null : item.id)}
+                      >
+                        <span className="text-sm text-gray-300 w-36">{item.name}</span>
+                        {affinityLabel && (
+                          <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">{affinityLabel}</span>
+                        )}
+                        <span className="text-xs text-gray-600 select-none">{isExpanded ? '▾' : '▸'}</span>
+                      </div>
+                      <DotRating value={currentDots} max={5} onChange={v => handleChange(item.id, v)} />
+                    </div>
+                    {isExpanded && item.clauses && (
+                      <ClausesPanel clauses={item.clauses} currentDots={currentDots} />
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export default function StepPowers({ lineData, template, powers, onSetPowers, renown = {}, onSetRenown = () => {} }) {
   const { type, label, keys, compactNote } = lineData.powers
   const selectedKeys = powers._keys || []
@@ -850,7 +948,9 @@ export default function StepPowers({ lineData, template, powers, onSetPowers, re
                 ? <PoolPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
                 : type === 'endowments'
                   ? <EndowmentsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
-                  : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
+                  : type === 'contracts'
+                    ? <ContractsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} />
+                    : <PicksPowers lineData={lineData} powers={powers} onSetPowers={onSetPowers} />
       }
       {!isCompact && keys && (
         <KeysPicker keys={keys} selectedKeys={selectedKeys} onSetPowers={onSetPowers} powers={powers} />

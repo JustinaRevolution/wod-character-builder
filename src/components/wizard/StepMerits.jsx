@@ -5,10 +5,11 @@ import VAMPIRE_MERITS from '../../data/vampire-merits.json'
 import WEREWOLF_MERITS from '../../data/werewolf-merits.json'
 import MAGE_MERITS from '../../data/mage-merits.json'
 import MUMMY_MERITS from '../../data/mummy-merits.json'
+import CHANGELING_MERITS from '../../data/changeling-merits.json'
 
 const BUDGET = 7
 const BASE_CATEGORIES = ['all', 'mental', 'physical', 'social']
-const LINE_MERITS = { vampire: VAMPIRE_MERITS, werewolf: WEREWOLF_MERITS, mage: MAGE_MERITS, mummy: MUMMY_MERITS }
+const LINE_MERITS = { vampire: VAMPIRE_MERITS, werewolf: WEREWOLF_MERITS, mage: MAGE_MERITS, mummy: MUMMY_MERITS, changeling: CHANGELING_MERITS }
 const LINE_LABELS = { vampire: 'Kindred only', werewolf: 'Uratha only' }
 
 function dotLabel(merit) {

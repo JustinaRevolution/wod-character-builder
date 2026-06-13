@@ -205,6 +205,38 @@ describe('StepPowers — arcana type (Mage)', () => {
   })
 })
 
+describe('StepPowers — contracts type (Changeling)', () => {
+  it('shows contracts UI for changeling', () => {
+    const lineData = {
+      id: 'changeling',
+      template: {
+        group1: { field: 'seeming', options: [{ id: 'beast', name: 'Beast' }] },
+        group2: { field: 'court',   options: [{ id: 'spring', name: 'Spring Court' }] }
+      },
+      powers: {
+        type: 'contracts',
+        label: 'Contracts',
+        description: 'Spend 5 dots.',
+        startingDots: 5,
+        items: [
+          { id: 'dream', name: 'Dream', category: 'universal', clauses: [{ dot: 1, name: 'Pathfinder', cost: '1 Glamour', dice: 'Intelligence + Wyrd', action: 'Instant', description: 'Find paths in the Hedge.' }] },
+          { id: 'fang_and_talon', name: 'Fang and Talon', category: 'seeming', affinityFor: ['beast'], clauses: [{ dot: 1, name: 'Tongues of Birds', cost: '1 Glamour', dice: 'Wyrd + Animal Ken', action: 'Instant', description: 'Speak with animals.' }] },
+          { id: 'fleeting_spring', name: 'Fleeting Spring', category: 'court', affinityFor: ['spring'], clauses: [{ dot: 1, name: "Cupid's Eye", cost: '1 Glamour', dice: 'Wits + Wyrd', action: 'Contested', description: "Sense desires." }] }
+        ]
+      }
+    }
+    const template = { seeming: 'beast', court: 'spring' }
+    render(<StepPowers lineData={lineData} template={template} powers={{}} onSetPowers={() => {}} />)
+    expect(screen.getByText('Universal Contracts')).toBeInTheDocument()
+    expect(screen.getByText('Seeming Contracts')).toBeInTheDocument()
+    expect(screen.getByText('Court Contracts')).toBeInTheDocument()
+    expect(screen.getByText('Fang and Talon')).toBeInTheDocument()
+    expect(screen.getByText('Seeming')).toBeInTheDocument()
+    expect(screen.getByText('Court')).toBeInTheDocument()
+    expect(screen.getByText('5 dots remaining')).toBeInTheDocument()
+  })
+})
+
 describe('StepPowers — Hunter (compact vs conspiracy)', () => {
   it('shows compact note for compact hunters, not the picks UI', () => {
     render(<StepPowers lineData={hunter} template={{ org_type: 'compact' }} powers={{}} onSetPowers={() => {}} />)

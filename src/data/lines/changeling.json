@@ -4,12 +4,12 @@
     "group1": {
       "label": "Seeming", "field": "seeming",
       "options": [
-        { "id": "beast",     "name": "Beast",     "description": "Shaped into animals — feral, instinctive, in touch with nature.", "hint": "Contracts: Fang and Talon" },
-        { "id": "darkling",  "name": "Darkling",  "description": "Creatures of shadow taken as spies and messengers.",             "hint": "Contracts: Darkness, Mirror" },
-        { "id": "elemental", "name": "Elemental", "description": "Bound to the forces of earth, air, fire, or water.",            "hint": "Contracts: Elements, Stone" },
-        { "id": "fairest",   "name": "Fairest",   "description": "The beautiful ones — taken as trophies and entertainers.",       "hint": "Contracts: Vainglory, Dream" },
-        { "id": "ogre",      "name": "Ogre",      "description": "Brutes taken as warriors, guards, and enforcers.",              "hint": "Contracts: Stone, Oath and Punishment" },
-        { "id": "wizened",   "name": "Wizened",   "description": "Craftsmen and functionaries — small, clever, precise.",         "hint": "Contracts: Artifice, Hearth" }
+        { "id": "beast",     "name": "Beast",     "description": "Shaped into animals — feral, instinctive, in touch with nature.",          "hint": "Seeming Contract: Fang and Talon", "blessing": "9-again on Animal Ken; free Specialty in one animal type.", "curse": "–4 untrained penalty on Mental Skills with no dots." },
+        { "id": "darkling",  "name": "Darkling",  "description": "Creatures of shadow taken as spies and messengers.",                        "hint": "Seeming Contract: Darkness",       "blessing": "Spend Glamour to add 9-again on Wits, Subterfuge, or Stealth pools.", "curse": "–1 to Contract rolls in daylight; –2 if sun is directly visible." },
+        { "id": "elemental", "name": "Elemental", "description": "Bound to the forces of earth, air, fire, or water.",                       "hint": "Seeming Contracts: Elements, Stone", "blessing": "Once per day, spend 1 Glamour to add Wyrd rating to Health dots.", "curse": "No 10-again on Manipulation + Empathy, Expression, Persuasion, or Socialize." },
+        { "id": "fairest",   "name": "Fairest",   "description": "The beautiful ones — taken as trophies and entertainers.",                  "hint": "Seeming Contract: Vainglory",     "blessing": "Spend Glamour to gain 9-again on Presence, Manipulation, and Persuasion pools.", "curse": "–1 die on Clarity degeneration rolls." },
+        { "id": "ogre",      "name": "Ogre",      "description": "Brutes taken as warriors, guards, and enforcers.",                         "hint": "Seeming Contract: Stone",         "blessing": "Spend Glamour to add dice to Strength, Brawl, and Intimidate pools.", "curse": "No 10-again on Composure pools (except Perception); –1 Composure using Fists defensively." },
+        { "id": "wizened",   "name": "Wizened",   "description": "Craftsmen and functionaries — small, clever, precise.",                    "hint": "Seeming Contract: Artifice",      "blessing": "Spend 1 Glamour to gain 9-again on all Dexterity pools for the scene.", "curse": "No 10-again on Presence pools; –2 untrained penalty on Social Skills with no dots." }
       ]
     },
     "group2": {
@@ -24,12 +24,192 @@
     }
   },
   "powers": {
-    "type": "picks",
+    "type": "contracts",
     "label": "Contracts",
-    "description": "Choose 5 dots in Contracts. You have free access to your Seeming Contracts. Each dot is one clause (level) of a Contract. Refer to Changeling: the Lost for the full Contract list.",
+    "description": "Spend 5 dots across Contracts. Universal Contracts are open to all changelings. Seeming Contracts are tied to your Seeming; Court Contracts to your Court — but any Contract can be learned.",
     "startingDots": 5,
-    "picksFrom": [{ "source": "group1", "count": 5, "label": "Contracts" }],
-    "items": []
+    "items": [
+      {
+        "id": "dream", "name": "Dream", "category": "universal",
+        "clauses": [
+          {"dot":1,"name":"Pathfinder","cost":"1 Glamour","dice":"Intelligence + Wyrd","action":"Instant","description":"The changeling divines the nature of the Hedge in a certain area, finding Hollows, trods, paths to and from Faerie, and details of the local Hedge."},
+          {"dot":2,"name":"Forcing the Dream","cost":"1 Glamour","dice":"Wits + Wyrd","action":"Instant","description":"The changeling becomes director of a subject's dreams, controlling and directing a sleeper's dreams without means of a pledge."},
+          {"dot":3,"name":"Cobble-Hought","cost":"1 Glamour","dice":"Intelligence + Wyrd","action":"Instant","description":"The changeling reaches into a subject's dreams and extracts an item or image from them that then exists or plays out in the real world."},
+          {"dot":4,"name":"Phantasmal Bastion","cost":"1 Glamour","dice":"Wits + Wyrd","action":"Instant","description":"This clause bolsters the changeling's ability to withstand conflicts with other changelings in the dreamscape by conjuring an elaborate suit of armor."},
+          {"dot":5,"name":"Dreamsteps","cost":"1 Glamour","dice":"Intelligence + Wyrd","action":"Instant","description":"The changeling climbs into a nearby sleeper's dreams and emerges near another sleeper, using the landscape of dreams as a proxy for physical travel."}
+        ]
+      },
+      {
+        "id": "hearth", "name": "Hearth", "category": "universal",
+        "clauses": [
+          {"dot":1,"name":"Fickle Fate","cost":"1 Glamour","dice":"No roll","action":"Instant","description":"The subject makes the roll for his next actively attempted instant action at a –2 dice penalty."},
+          {"dot":2,"name":"Favored Fate","cost":"1 Glamour","dice":"No roll","action":"Instant","description":"The beneficiary makes the roll for his next actively attempted instant action at a +4 dice bonus."},
+          {"dot":3,"name":"Beneficent Fate","cost":"1 Glamour","dice":"No roll","action":"Instant","description":"The subject makes no roll for his next actively attempted instant action and automatically achieves a single success."},
+          {"dot":4,"name":"Fortuna's Cornucopia","cost":"1 Glamour","dice":"No roll","action":"Instant","description":"The beneficiary makes the roll for his next actively attempted instant action under the benefit of the 8-again rule."},
+          {"dot":5,"name":"Triumphal Fate","cost":"1 Glamour + 1 Willpower","dice":"No roll","action":"Instant","description":"The recipient achieves an exceptional success on an action designated by the changeling, and only one unit of time is required."}
+        ]
+      },
+      {
+        "id": "mirror", "name": "Mirror", "category": "universal",
+        "clauses": [
+          {"dot":1,"name":"Riddle-Kith","cost":"1 Glamour","dice":"Manipulation + Wyrd","action":"Instant","description":"The changeling appears as if she hails from another kith or seeming, creating the general impression of a certain seeming."},
+          {"dot":2,"name":"Skinmask","cost":"1 Glamour","dice":"Stamina + Wyrd","action":"Instant","description":"The changeling alters her flesh to appear as another individual, affecting only a single limb or aspect such as hands, face, or back."},
+          {"dot":3,"name":"Transfigure the Flesh","cost":"1 Glamour","dice":"Stamina + Wyrd","action":"Instant","description":"The changeling adjusts the size of her body, either shrinking or growing; Size increases or decreases by successes rolled."},
+          {"dot":4,"name":"Oddbody","cost":"1 Glamour","dice":"Strength + Wyrd","action":"Instant","description":"The changeling re-aligns her body so that one feature becomes something other than human, such as forming bestial claws or elongating legs."},
+          {"dot":5,"name":"Chrysalis","cost":"1 Glamour","dice":"Strength + Wyrd","action":"Instant","description":"The changeling becomes something wholly other than herself, taking the shape of any inanimate object roughly her size and becoming that object."}
+        ]
+      },
+      {
+        "id": "smoke", "name": "Smoke", "category": "universal",
+        "clauses": [
+          {"dot":1,"name":"The Wrong Foot","cost":"1 Glamour","dice":"No roll","action":"Instant","description":"The changeling changes the nature of the marks he leaves when passing through a locale, leaving evidence resembling something other than human visitation."},
+          {"dot":2,"name":"Nevertread","cost":"1 Glamour","dice":"Intelligence + Wyrd","action":"Instant","description":"All traces of the changeling's passing vanish — no footprints in mud, sand, snow, or water."},
+          {"dot":3,"name":"Shadow Pact","cost":"1 Glamour","dice":"Wits + Wyrd","action":"Instant","description":"Light seems to avoid the changeling and darkness congeals around him, granting a +3 dice bonus to Stealth-based dice pools."},
+          {"dot":4,"name":"Murkblur","cost":"1 Glamour","dice":"Intelligence + Wyrd vs. Resolve + Wyrd","action":"Instant","description":"The changeling creates a smoky caul over the eyes of a subject, effectively blinding her to all but very bright sources of light."},
+          {"dot":5,"name":"Light-Shy","cost":"1 Glamour + 1 Willpower","dice":"Intelligence + Wyrd","action":"Instant","description":"This clause grants the ultimate power of the Smoke purview, making the changeling truly invisible even to mechanical observers such as security cameras."}
+        ]
+      },
+      {
+        "id": "artifice", "name": "Artifice", "category": "seeming", "affinityFor": ["wizened"],
+        "clauses": [
+          {"dot":1,"name":"Brief Glamour of Repair","cost":"1 Glamour","dice":"Wyrd + Craft","action":"Instant or Extended","description":"Without tools or spare parts, the changeling can repair an object where more than half of the device remains intact."},
+          {"dot":2,"name":"Touch of the Workman's Wrath","cost":"2 Glamour","dice":"Larceny + Wyrd","action":"Instant","description":"The character can disable or seriously damage a device or vehicle with a single touch."},
+          {"dot":3,"name":"Blessing of Perfection","cost":"3 Glamour or 3 Glamour + 1 Willpower","dice":"Wits + Wyrd","action":"Extended","description":"By briefly handling and adjusting a weapon or device, the changeling blesses an object, making it significantly easier to use."},
+          {"dot":4,"name":"Unmaker's Destructive Gaze","cost":"2 Glamour","dice":"Presence + Wyrd","action":"Instant","description":"The character stares hard at a vehicle, weapon, or device, causing the object to cease working until repaired or restarted."},
+          {"dot":5,"name":"Tatterdemalion's Workshop","cost":"4 Glamour or 4 Glamour + 2 Willpower","dice":"Wyrd + Crafts","action":"Extended","description":"The character creates a complex and useful device out of unlikely parts — a hovercraft from a motorcycle engine and an inflatable air mattress."}
+        ]
+      },
+      {
+        "id": "darkness", "name": "Darkness", "category": "seeming", "affinityFor": ["darkling"],
+        "clauses": [
+          {"dot":1,"name":"Creeping Dread","cost":"1 Glamour or 2 Glamour + 1 Willpower","dice":"Manipulation + Wyrd – Resolve","action":"Instant","description":"This clause causes affected targets to become considerably more susceptible to anything that could trigger phobia derangement."},
+          {"dot":2,"name":"Night's Subtle Distractions","cost":"1 Glamour","dice":"Wyrd + Stealth","action":"Instant","description":"The Lost avoids notice by enhancing physical conditions that limit perception — making darkness darker and background noises more obscuring."},
+          {"dot":3,"name":"Balm of Unwakeable Slumber","cost":"1 Glamour","dice":"Manipulation + Wyrd vs. Resolve + Wyrd","action":"Resisted","description":"All sleeping targets the changeling can see or hear become nearly impossible to wake, remaining asleep through loud noises and physical disturbance unless harmed."},
+          {"dot":4,"name":"Boon of the Scuttling Spider","cost":"3 Glamour","dice":"Wyrd + Athletics","action":"Instant","description":"The changeling can run along any solid surface — wall or ceiling — like a scuttling spider, gaining full Defense while moving."},
+          {"dot":5,"name":"Touch of Paralyzing Shudder","cost":"2 Glamour + 1 Willpower","dice":"Presence + Wyrd vs. Resolve + Wyrd","action":"Reflexive","description":"The character fills the target with involuntary shudders of fear and revulsion, halving Speed, Defense, Initiative, and all Strength and Dexterity pools."}
+        ]
+      },
+      {
+        "id": "elements", "name": "Elements", "category": "seeming", "affinityFor": ["elemental"],
+        "clauses": [
+          {"dot":1,"name":"Cloak of the Elements","cost":"2 Glamour","dice":"No roll","action":"Instant","description":"The changeling becomes comfortable in weather associated with one element and is protected against damage from its more extreme manifestations."},
+          {"dot":2,"name":"Armor of the Elements' Fury","cost":"2 Glamour","dice":"Dexterity + Wyrd","action":"Instant","description":"The character clothes himself in a frenzied manifestation of his chosen element, providing armor and damaging anyone who touches him."},
+          {"dot":3,"name":"Control Elements","cost":"3 Glamour","dice":"Manipulation + Wyrd","action":"Instant","description":"The changeling takes control of the element attuned to the Contract, causing it to move and act in a directed fashion within range."},
+          {"dot":4,"name":"Calling the Element","cost":"4 Glamour","dice":"Wits + Wyrd","action":"Extended","description":"The changeling calls the associated element from a distant location, with the element physically moving toward the character."},
+          {"dot":5,"name":"Become the Primal Foundation","cost":"4 Glamour","dice":"Manipulation + Wyrd","action":"Instant","description":"The changeling literally becomes a living manifestation of the Contract's associated element, taking only one turn to transform."}
+        ]
+      },
+      {
+        "id": "fang_and_talon", "name": "Fang and Talon", "category": "seeming", "affinityFor": ["beast"],
+        "clauses": [
+          {"dot":1,"name":"Tongues of Birds and Words of Wolves","cost":"1 Glamour","dice":"Wyrd + Animal Ken","action":"Instant","description":"The changeling can communicate with the general type of animal represented in the Contract, partially empathic but requiring whispers or animal sounds."},
+          {"dot":2,"name":"Beast's Keen Senses","cost":"2 Glamour","dice":"Wits + Wyrd","action":"Instant","description":"The changeling gains the senses of a specific type of animal — enhanced natural senses, and may gain entirely new senses such as infrared pits or echolocation."},
+          {"dot":3,"name":"Aspect of the Beast","cost":"1 Glamour","dice":"Wyrd + Animal Ken","action":"Instant","description":"The changeling takes on a specific aspect of his animal type — a cat's flexibility, a bear's strength — for the rest of the scene."},
+          {"dot":4,"name":"Tread of the Swift Hooves","cost":"2 Glamour","dice":"Dexterity + Wyrd","action":"Instant","description":"The character gains the Contracted animal's mode of locomotion — doubling Speed for runners, effortless swimming, quadrupled jumping for flyers, or five-times climbing speed."},
+          {"dot":5,"name":"Cloak of the Bear's Massive Form","cost":"4 Glamour","dice":"Manipulation + Wyrd","action":"Instant","description":"The changeling can physically transform into the animal bound to the Contract, retaining all Mental and Social Attributes and Skills while gaining the animal's Physical traits."}
+        ]
+      },
+      {
+        "id": "stone", "name": "Stone", "category": "seeming", "affinityFor": ["elemental","ogre"],
+        "clauses": [
+          {"dot":1,"name":"Might of the Terrible Brute","cost":"1 Glamour","dice":"Strength + Wyrd","action":"Instant","description":"The character's muscles ripple with added power, enhancing Strength through brute determination."},
+          {"dot":2,"name":"Ogre's Rending Grasp","cost":"2 Glamour","dice":"Strength + Wyrd","action":"Instant","description":"The character can focus his inhuman prowess against inanimate objects, ripping down walls or bashing in doors with ease."},
+          {"dot":3,"name":"Display Grandiose Might","cost":"2 Glamour","dice":"Athletics + Wyrd","action":"Instant","description":"The character can boost his Strength significantly for non-combat tasks — running, climbing, jumping, and lifting far more effectively."},
+          {"dot":4,"name":"Gluttonous Feast of Health","cost":"3 Glamour","dice":"Stamina + Wyrd","action":"Instant","description":"The character can heal damage through consumption of prodigious amounts of food and drink, regardless of quality."},
+          {"dot":5,"name":"Red Race of Terrible Revenge","cost":"3 Glamour + 1 Willpower","dice":"Resolve + Wyrd","action":"Instant","description":"The changeling is filled with fury, gaining unparalleled Strength and resistance to harm through transformed rage."}
+        ]
+      },
+      {
+        "id": "vainglory", "name": "Vainglory", "category": "seeming", "affinityFor": ["fairest"],
+        "clauses": [
+          {"dot":1,"name":"Mask of Superiority","cost":"2 Glamour","dice":"Wyrd + Intimidation – Resolve","action":"Instant","description":"The changeling convinces a single subject that she is his professional superior or someone of superior social status."},
+          {"dot":2,"name":"Songs of Distant Arcadia","cost":"2 Glamour","dice":"Presence + Expression","action":"Instant","description":"The changeling becomes a consummate performer, acting as a skilled storyteller or inhumanly eloquent speaker."},
+          {"dot":3,"name":"Splendor of the Envoy's Protection","cost":"3 Glamour","dice":"Presence + Wyrd","action":"Instant","description":"The changeling uses this clause at formal gatherings to appear simultaneously impressive and difficult to harm, revealing her true mien to all present."},
+          {"dot":4,"name":"Mantle of Terrible Beauty","cost":"2 Glamour + 1 Willpower","dice":"Intimidation + Wyrd vs. Composure + Wyrd","action":"Contested","description":"The changeling appears terrifying and wonderful; attackers are filled with awe but cannot later remember her exact appearance."},
+          {"dot":5,"name":"Words of Memories Never Lived","cost":"3 Glamour + 1 Willpower","dice":"Wyrd + Expression vs. Composure + Wyrd","action":"Extended and Contested","description":"The changeling gives a profoundly affecting speech or performance that warps listeners' memories and understanding of events within 50 yards."}
+        ]
+      },
+      {
+        "id": "fleeting_spring", "name": "Fleeting Spring", "category": "court", "affinityFor": ["spring"],
+        "clauses": [
+          {"dot":1,"name":"Cupid's Eye","cost":"1 Glamour","dice":"Wits + Wyrd vs. Composure + Wyrd","action":"Contested","description":"The clause reveals what a person truly desires — the first step in fulfilling their deepest wants."},
+          {"dot":2,"name":"Spend the Idle Hours","cost":"1 Glamour","dice":"Manipulation + Empathy + Mantle (Spring)","action":"Instant","description":"The character creates a sense of ease and contentment in a subject, lowering their defenses and making them more open to suggestion."},
+          {"dot":3,"name":"Wyrd-Faced Stranger","cost":"2 Glamour","dice":"Presence + Subterfuge + Mantle (Spring) vs. Composure + Wyrd","action":"Instant","description":"The changeling appears as whoever the subject most desires to see at that moment."},
+          {"dot":4,"name":"Pandora's Gift","cost":"2 Glamour","dice":"Wits + Craft + Mantle (Spring)","action":"Extended","description":"The changeling creates an object that another person truly desires out of emotion, dreamstuff, and random materials."},
+          {"dot":5,"name":"Waking the Inner Faerie","cost":"3 Glamour + 1 Willpower","dice":"Intelligence + Expression + Mantle (Spring) vs. Composure + Wyrd","action":"Contested and Extended","description":"The changeling makes a target pursue his greatest desires, regardless of other considerations."}
+        ]
+      },
+      {
+        "id": "eternal_spring", "name": "Eternal Spring", "category": "court", "affinityFor": ["spring"],
+        "clauses": [
+          {"dot":1,"name":"Gift of Warm Breath","cost":"1 Glamour","dice":"Resolve + Survival + Mantle (Spring)","action":"Instant","description":"The character's power rejuvenates a single living target, filling them with energy and vigorous life."},
+          {"dot":2,"name":"New Lover's Kiss","cost":"1 Glamour","dice":"Intelligence + Survival + Mantle (Spring)","action":"Extended","description":"The character calls rain down from even a cloudless sky through five minutes of imploring."},
+          {"dot":3,"name":"Warmth of the Blood","cost":"1 Glamour + 1 Willpower","dice":"Wits + Medicine + Mantle (Spring)","action":"Instant","description":"The power of Spring channels into a person's body, mending wounds — each success downgrades one lethal to bashing, or removes one bashing wound entirely."},
+          {"dot":4,"name":"Yesterday's Birth","cost":"1 Glamour or 3 Glamour + 1 Willpower","dice":"Wyrd + Medicine","action":"Instant","description":"The changeling endows a living object or creature with a season's worth of growth and maturing instantly."},
+          {"dot":5,"name":"Mother of All Deaths","cost":"3 Glamour + 1 Willpower","dice":"Presence + Empathy + Mantle (Spring)","action":"Instant","description":"The character makes the region extraordinarily verdant and rouses it to fight on her behalf."}
+        ]
+      },
+      {
+        "id": "fleeting_summer", "name": "Fleeting Summer", "category": "court", "affinityFor": ["summer"],
+        "clauses": [
+          {"dot":1,"name":"Baleful Sense","cost":"1 Glamour","dice":"Wits + Wyrd","action":"Instant","description":"The character senses the greatest source of wrath nearby."},
+          {"dot":2,"name":"Goblin's Malignance","cost":"1 Glamour","dice":"Manipulation + Persuasion + Mantle (Summer) vs. Composure + Wyrd","action":"Contested","description":"The character redirects the subject's wrath onto a new target, most likely himself."},
+          {"dot":3,"name":"Friendless Tongue","cost":"2 Glamour","dice":"Manipulation + Subterfuge + Mantle (Summer) vs. Composure + Wyrd","action":"Extended","description":"The character incites a person to uncontrollable wrath through innocent-seeming conversation."},
+          {"dot":4,"name":"Sundown Eyes","cost":"3 Glamour","dice":"Presence + Socialize + Mantle (Summer) – highest Composure","action":"Instant","description":"The character appears in terrible fae mien, causing observers to lose memory of her exact appearance but remember the terror."},
+          {"dot":5,"name":"The Flames of Summer","cost":"2 Glamour + 1 Willpower","dice":"Resolve + Animal Ken + Mantle (Summer)","action":"Instant","description":"The character drives his anger into the realm of rage, becoming impossible to disturb and gaining extra strength."}
+        ]
+      },
+      {
+        "id": "eternal_summer", "name": "Eternal Summer", "category": "court", "affinityFor": ["summer"],
+        "clauses": [
+          {"dot":1,"name":"Son of the Hearth","cost":"1 Glamour or 1 Glamour + 1 Willpower","dice":"Wyrd + Survival","action":"Instant","description":"The character is comfortable in all temperatures and may even heat a chamber with his power."},
+          {"dot":2,"name":"Ulf's Heart","cost":"1 or 2 Glamour","dice":"Strength + Occult + Mantle (Summer)","action":"Instant","description":"The character shines the light of high Summer on his surroundings."},
+          {"dot":3,"name":"Noonday Grasp","cost":"2 Glamour","dice":"Stamina + Brawl + Mantle (Summer)","action":"Instant","description":"The character borrows some of Summer's immense strength to increase his own."},
+          {"dot":4,"name":"Solstice Revelation","cost":"3 Glamour","dice":"Presence + Occult + Mantle (Summer)","action":"Instant","description":"The changeling reveals all that is hidden around him by channeling the light of the sun at its most intense."},
+          {"dot":5,"name":"The Lord's Dread Gaze","cost":"3 Glamour (+ 1 Willpower optional)","dice":"Dexterity + Athletics + Mantle (Summer) – Defense","action":"Instant","description":"The changeling serves his enemies with destructive sunlight channeled from the relentless Summer sun."}
+        ]
+      },
+      {
+        "id": "fleeting_autumn", "name": "Fleeting Autumn", "category": "court", "affinityFor": ["autumn"],
+        "clauses": [
+          {"dot":1,"name":"Witch's Intuition","cost":"1 Glamour","dice":"Wits + Wyrd – Composure","action":"Instant","description":"The character dredges knowledge of one fear from the subject's mind or subconscious."},
+          {"dot":2,"name":"Tale of the Baba Yaga","cost":"1 Glamour","dice":"Manipulation + Intimidation + Mantle (Autumn) – highest Composure","action":"Extended","description":"Through conversation or oratory, the character instills a concept as supernaturally frightening."},
+          {"dot":3,"name":"Heart of the Antlion","cost":"1 Glamour","dice":"Resolve + Investigation + Mantle (Autumn)","action":"Instant","description":"The character uses her Contract with Autumn to steel herself against all manner of fear, natural or supernatural."},
+          {"dot":4,"name":"Scent of the Harvest","cost":"2 Glamour","dice":"Presence + Empathy + Mantle (Autumn)","action":"Extended","description":"The character reassures friends and allies, protecting them against fear just as she protects herself."},
+          {"dot":5,"name":"Mien of the Baba Yaga","cost":"3 Glamour + 1 Willpower","dice":"Wits + Empathy + Mantle (Autumn)","action":"Instant","description":"The character takes on the aspect of one of her subject's greatest fears."}
+        ]
+      },
+      {
+        "id": "eternal_autumn", "name": "Eternal Autumn", "category": "court", "affinityFor": ["autumn"],
+        "clauses": [
+          {"dot":1,"name":"Last Breath Bliss","cost":"1 Glamour","dice":"Manipulation + Wyrd","action":"Instant","description":"The character brings a plant to its ripest point ready for harvest, allowing collection of beneficial fruits."},
+          {"dot":2,"name":"Withering Glare","cost":"1 Glamour","dice":"Presence + Science + Mantle (Autumn)","action":"Instant","description":"The character can wither any plant to any degree with a glance and sicken animals that cross her gaze."},
+          {"dot":3,"name":"Brother to the Ague","cost":"2 Glamour","dice":"Dexterity + Medicine + Mantle (Autumn) – Stamina","action":"Instant","description":"The changeling inflicts diseases and decay upon an enemy as the life of the world wanes with Autumn."},
+          {"dot":4,"name":"Riding the Falling Leaves","cost":"2 Glamour","dice":"Dexterity + Survival + Mantle (Autumn)","action":"Instant","description":"The changeling becomes a temporary avatar of Autumn, transforming into a colorful spray of dry leaves."},
+          {"dot":5,"name":"Tears of Autumn","cost":"3 Glamour","dice":"Manipulation + Occult + Mantle (Autumn)","action":"Extended","description":"The character calls a hailstorm from the sky, ranging from light harassment to heavy damage."}
+        ]
+      },
+      {
+        "id": "fleeting_winter", "name": "Fleeting Winter", "category": "court", "affinityFor": ["winter"],
+        "clauses": [
+          {"dot":1,"name":"The Dragon Knows","cost":"1 Glamour","dice":"Wyrd + Empathy – Composure","action":"Instant","description":"The character can tell why a person is sorrowful, guessing her regrets with just a glance."},
+          {"dot":2,"name":"Slipknot Dreams","cost":"1 Glamour","dice":"Manipulation + Subterfuge + Mantle (Winter) – Resolve","action":"Instant","description":"The changeling forces a person to forget about her sorrows just long enough to deal with the moment at hand."},
+          {"dot":3,"name":"Faces in the Water","cost":"1 Glamour","dice":"Intelligence + Investigation + Mantle (Winter) – Composure","action":"Instant","description":"The subject remembers a sad memory from her past and dwells on it, filling herself with sorrow."},
+          {"dot":4,"name":"Fallow Fields, Empty Harvest","cost":"2 Glamour","dice":"Manipulation + Intimidation + Mantle (Winter) vs. Composure + Wyrd","action":"Contested","description":"The character eliminates a person's ability to experience positive emotions for a period of time."},
+          {"dot":5,"name":"Every Sorrow a Jewel","cost":"3 Glamour + 1 Willpower","dice":"Manipulation + Persuasion + Mantle (Winter) vs. Composure + Wyrd","action":"Contested","description":"The character magnifies the emotions of a sorrowful person to such extremes that they become incapable of any action."}
+        ]
+      },
+      {
+        "id": "eternal_winter", "name": "Eternal Winter", "category": "court", "affinityFor": ["winter"],
+        "clauses": [
+          {"dot":1,"name":"Jack's Breath","cost":"1 Glamour","dice":"Wyrd + Survival","action":"Instant","description":"The character cools a room considerably or an area roughly the size of a room."},
+          {"dot":2,"name":"Touch of Winter","cost":"1 Glamour","dice":"Intelligence + Science + Mantle (Winter)","action":"Instant","description":"Liquid freezes with just a caress of the changeling's fingertips."},
+          {"dot":3,"name":"Riding the Devil's Jawbone","cost":"2 Glamour","dice":"Dexterity + Stealth + Mantle (Winter)","action":"Instant","description":"The character surrounds himself with a freezing aura that penalizes all within 20 feet by –1 die per action, increasing with time spent inside it."},
+          {"dot":4,"name":"Fallen from the Timbers","cost":"3 Glamour","dice":"Dexterity + Athletics + Mantle (Winter) – Defense","action":"Instant","description":"The character calls a great shaft of cold air and frozen particles down upon an enemy, inflicting lethal damage equal to successes and imposing a –1 die penalty for the scene."},
+          {"dot":5,"name":"Witch's Paradise","cost":"3 Glamour + 1 Willpower","dice":"Presence + Occult + Mantle (Winter)","action":"Extended","description":"The changeling summons a lasting snowstorm — five successes creates light flurries over a one-mile radius for one hour; additional successes add severity, radius, or duration."}
+        ]
+      }
+    ]
   },
   "resource": {
     "pool":  { "name": "Glamour", "startValue": 10 },
