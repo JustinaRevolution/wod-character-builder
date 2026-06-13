@@ -87,3 +87,12 @@ describe('StepMerits — Mummy tab', () => {
     expect(screen.getByText('Enigma')).toBeInTheDocument()
   })
 })
+
+describe('StepMerits — Promethean tab', () => {
+  it('shows Promethean-specific merits when promethean tab is active', () => {
+    render(<StepMerits merits={[]} onAdd={() => {}} onRemove={() => {}} lineId="promethean" />)
+    fireEvent.click(screen.getByRole('button', { name: /^promethean$/i }))
+    expect(screen.getByText('Elpis')).toBeInTheDocument()
+    expect(screen.getByText('Repute')).toBeInTheDocument()
+  })
+})

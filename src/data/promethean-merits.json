@@ -1,0 +1,47 @@
+[
+  {
+    "id": "elpis",
+    "name": "Elpis",
+    "category": "promethean",
+    "min_dots": 1,
+    "max_dots": 5,
+    "description": "The Promethean relies on Hope, tapping into a guiding force that provides clues through dreams and visions to aid his Pilgrimage.",
+    "prerequisites": ""
+  },
+  {
+    "id": "lair",
+    "name": "Lair",
+    "category": "promethean",
+    "min_dots": 1,
+    "max_dots": 3,
+    "description": "A sanctuary the Promethean can retreat to for hiding or defense, providing protection from unwanted visitors.",
+    "prerequisites": ""
+  },
+  {
+    "id": "repute",
+    "name": "Repute",
+    "category": "promethean",
+    "min_dots": 1,
+    "max_dots": 3,
+    "description": "The character has earned a reputation among Prometheans on the road, with stories of their deeds told and recalled by others of their kind.",
+    "prerequisites": ""
+  },
+  {
+    "id": "residual_memory",
+    "name": "Residual Memory",
+    "category": "promethean",
+    "min_dots": 1,
+    "max_dots": 5,
+    "description": "The Azoth did not wash away all remnants of the body's former inhabitant; the character retains some memories from before the spark of life.",
+    "prerequisites": ""
+  },
+  {
+    "id": "unpalatable_aura",
+    "name": "Unpalatable Aura",
+    "category": "promethean",
+    "min_dots": 2,
+    "max_dots": 2,
+    "description": "Pandorans instinctively recoil from this Promethean's Azothic radiance, weakening their willingness to attack and reducing their Initiative in encounters.",
+    "prerequisites": ""
+  }
+]
