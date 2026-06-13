@@ -4,11 +4,11 @@
     "group1": {
       "label": "Lineage", "field": "lineage",
       "options": [
-        { "id": "wretched",    "name": "Wretched (Choleric)",  "description": "Made from brutal flesh — aggressive, rageful, given to violence.",      "hint": "Transmutations: Corporeum, Sanguinem" },
-        { "id": "osiran",      "name": "Osiran (Melancholic)", "description": "Made from preserved death — contemplative, patient, scholarly.",          "hint": "Transmutations: Deception, Vitality" },
-        { "id": "ulgan",       "name": "Ulgan (Phlegmatic)",   "description": "Made from spirit-touched flesh — shamanic, liminal, between worlds.",    "hint": "Transmutations: Saturninus, Spiritus" },
-        { "id": "galatea",     "name": "Galatea (Sanguine)",   "description": "Made from beauty — graceful, charming, tragically human.",               "hint": "Transmutations: Alchemicus, Electrum" },
-        { "id": "tammuz",      "name": "Tammuz (Supernal)",    "description": "Made from clay and divine breath — solid, enduring, purposeful.",        "hint": "Transmutations: Ferrum, Stannum" }
+        { "id": "wretched",    "name": "Wretched (Choleric)",  "description": "Made from brutal flesh — aggressive, rageful, given to violence.",      "hint": "Affinity Transmutations: Disquietism, Electrification, Metamorphosis" },
+        { "id": "osiran",      "name": "Osiran (Melancholic)", "description": "Made from preserved death — contemplative, patient, scholarly.",          "hint": "Affinity Transmutations: Metamorphosis, Sensorium" },
+        { "id": "ulgan",       "name": "Ulgan (Phlegmatic)",   "description": "Made from spirit-touched flesh — shamanic, liminal, between worlds.",    "hint": "Affinity Transmutations: Deception, Mesmerism" },
+        { "id": "galatea",     "name": "Galatea (Sanguine)",   "description": "Made from beauty — graceful, charming, tragically human.",               "hint": "Affinity Transmutations: Alchemicus, Deception, Mesmerism, Vulcanus" },
+        { "id": "tammuz",      "name": "Tammuz (Supernal)",    "description": "Made from clay and divine breath — solid, enduring, purposeful.",        "hint": "Affinity Transmutations: Corporeum, Disquietism, Electrification, Vitality" }
       ]
     },
     "group2": {
@@ -26,128 +26,128 @@
   "powers": {
     "type": "pool",
     "label": "Transmutations",
-    "description": "Distribute 4 dots among Transmutations. Your Lineage Transmutations are your primary access.",
-    "startingDots": 4,
+    "description": "Distribute 3 dots among Transmutations. One dot must go to an affinity Transmutation (based on your Lineage).",
+    "startingDots": 3,
     "affinityFrom": "group1",
     "items": [
       {
         "id": "alchemicus", "name": "Alchemicus",
-        "description": "Manipulation of base elements and chemical processes.",
+        "description": "Manipulation of base elements, chemical processes, and the essence of matter.",
         "affinityFor": ["galatea"],
         "powers": [
-          { "level": 1, "name": "Alchemicus 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Alchemicus 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Alchemicus 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Alchemicus 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Alchemicus 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Identification", "description": "By scrutinizing an object, the Promethean discerns all its material components through extended roll." },
+          { "level": 2, "name": "Fortification", "description": "Infuse Pyros into a touched object, increasing its Durability by 1 per Pyros spent (maximum 3, ceiling 6)." },
+          { "level": 3, "name": "Transformation", "description": "Touching an object allows the Promethean to change it from one substance to another for the scene." },
+          { "level": 4, "name": "Alteration", "description": "Channel Pyros into a touched object to make it malleable, reshaping it into a new form through extended roll." },
+          { "level": 5, "name": "Spark of Life", "description": "Infuse a corpse dead less than 24 hours with Pyros, animating it as a pseudo-Promethean that obeys commands for the scene." }
         ]
       },
       {
         "id": "corporeum", "name": "Corporeum",
-        "description": "Mastery and reshaping of the physical body.",
-        "affinityFor": ["wretched"],
+        "description": "Mastery and reshaping of the physical body, from basic control to extraordinary transformation.",
+        "affinityFor": ["tammuz"],
         "powers": [
-          { "level": 1, "name": "Corporeum 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Corporeum 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Corporeum 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Corporeum 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Corporeum 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Autonomic Control", "description": "Gain conscious control of the autonomic nervous system; automatically ignore pain, fatigue, hunger, and extreme temperatures." },
+          { "level": 2, "name": "Regeneration", "description": "Spend 1 Pyros (reflexive) to heal one bashing or lethal wound; spend 2 Pyros to heal one aggravated wound." },
+          { "level": 3, "name": "Human Flesh", "description": "Spend 1 Pyros to appear fully human for the scene, hiding all disfigurements even from close medical scrutiny." },
+          { "level": 4, "name": "Perfected Reflexes", "description": "Reflexively spend 1 Pyros to increase Defense by 4 for the turn, including against ranged attacks." },
+          { "level": 5, "name": "Hard Body", "description": "Roll Azoth + Medicine; each success grants 1 point of armor not capped by Stamina for the scene." }
         ]
       },
       {
         "id": "deception", "name": "Deception",
-        "description": "Illusion and concealment of the Created's true nature.",
-        "affinityFor": ["osiran"],
+        "description": "Illusion, concealment, and alteration of the Promethean's apparent nature and physical form.",
+        "affinityFor": ["galatea", "ulgan"],
         "powers": [
-          { "level": 1, "name": "Deception 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Deception 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Deception 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Deception 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Deception 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Color of Man", "description": "Roll Manipulation + Subterfuge to alter skin, hair, and eye color to any human shade; lasts up to 24 hours on exceptional success." },
+          { "level": 2, "name": "Leave No Trace", "description": "Spend 1 Pyros; for the scene the Promethean leaves no footprints, fingerprints, hair, or body oils — physical tracking automatically fails." },
+          { "level": 3, "name": "Body Double", "description": "Spend 1 Pyros to alter general physique, Size (±1), or one Physical Attribute by one dot for the scene." },
+          { "level": 4, "name": "Mask", "description": "Spend 1 Pyros; roll Wits + Subterfuge to physically alter facial structure and hair, disguising as a specific other person for the scene." },
+          { "level": 5, "name": "Vitreous Humour", "description": "Spend 1 Pyros; the Promethean's body becomes completely transparent for the scene, allowing Stealth actions in plain sight." }
         ]
       },
       {
-        "id": "electrum", "name": "Electrum",
-        "description": "Command of electrical forces and lightning.",
-        "affinityFor": ["galatea"],
+        "id": "disquietism", "name": "Disquietism",
+        "description": "Mastery over the Promethean's disquieting aura — weaponizing, redirecting, or suppressing its effects.",
+        "affinityFor": ["wretched", "tammuz"],
         "powers": [
-          { "level": 1, "name": "Electrum 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Electrum 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Electrum 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Electrum 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Electrum 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Scapegoat", "description": "Contested roll Manipulation + Subterfuge vs. Composure + Azoth; on success, transfer the Promethean's Disquiet onto a touched target for the scene." },
+          { "level": 2, "name": "Tension in the Air", "description": "Roll Presence + Persuasion vs. targets' Composure; affected targets become anxious and paranoid, granting Intimidation bonuses." },
+          { "level": 3, "name": "Iago's Whisper", "description": "Spend 1 Pyros; contested roll Manipulation + Intimidation vs. Resolve + Azoth; a touched target is compelled to hunt and kill a named individual." },
+          { "level": 4, "name": "Nameless Dread", "description": "Spend 1 Pyros; the Disquiet aura flares to full intensity on one target, paralyzing them with terror and imposing –1 per success to all their rolls." },
+          { "level": 5, "name": "Quell Disquiet", "description": "Spend 1–2 Pyros; reflexively suppress all Disquiet effects for the scene; can be around a number of mortals equal to Presence or Manipulation." }
         ]
       },
       {
-        "id": "ferrum_t", "name": "Ferrum",
-        "description": "The strength and endurance of iron.",
-        "affinityFor": ["tammuz"],
+        "id": "electrification", "name": "Electrification",
+        "description": "Command of electrical forces — from sensing and powering devices to hurling lightning.",
+        "affinityFor": ["wretched", "tammuz"],
         "powers": [
-          { "level": 1, "name": "Ferrum 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Ferrum 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Ferrum 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Ferrum 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Ferrum 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Jolt", "description": "Power any electrical device by touch for the scene; spend 2 Pyros to power a remotely connected device." },
+          { "level": 2, "name": "Shock", "description": "Spend 1 Pyros; roll Azoth + Stamina; inflict 1 bashing damage per success via electrocution through touch." },
+          { "level": 3, "name": "Arc", "description": "Spend 1 Pyros; roll Azoth + Stamina; fire an electrical bolt at range (20 yards per Dexterity dot) inflicting bashing damage, bypassing most armor." },
+          { "level": 4, "name": "Blackout", "description": "Spend 1 Pyros; create an EMP that destroys all electrical devices within a radius of 1 yard doubled per Azoth dot beyond the first." },
+          { "level": 5, "name": "Divine Lightning", "description": "Spend 1 Pyros; Shock or Arc now inflicts lethal damage; Arc range extends to 20 yards per (Dexterity + Azoth) dot." }
         ]
       },
       {
-        "id": "sanguinem", "name": "Sanguinem",
-        "description": "Power over blood and the vital humors.",
-        "affinityFor": ["wretched"],
+        "id": "mesmerism", "name": "Mesmerism",
+        "description": "Supernatural influence over minds, memories, and the perceptions of others.",
+        "affinityFor": ["galatea", "ulgan"],
         "powers": [
-          { "level": 1, "name": "Sanguinem 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Sanguinem 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Sanguinem 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Sanguinem 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Sanguinem 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Fixed Stare", "description": "Contested roll Presence + Intimidation vs. Resolve + Azoth; eye contact paralyzes the target's will indefinitely as long as the Promethean maintains the gaze." },
+          { "level": 2, "name": "Suggestion", "description": "Contested roll Manipulation + Persuasion vs. Composure + Azoth; whisper a one-sentence command the target obeys within one day per Azoth dot, then forgets receiving." },
+          { "level": 3, "name": "In Vino Veritas", "description": "Extended contested roll Manipulation + Subterfuge vs. Composure + Azoth; target becomes compelled to answer questions truthfully — one question per success." },
+          { "level": 4, "name": "Waters of Lethe", "description": "Spend 1 Pyros; contested extended roll to erase or rewrite a specific memory in the target; effects erode naturally over time." },
+          { "level": 5, "name": "Pygmalion's Caress", "description": "Spend 2 Pyros; contested extended roll; cause a target to assume a false identity of the Promethean's invention, genuinely believing they are that person." }
         ]
       },
       {
-        "id": "saturninus", "name": "Saturninus",
-        "description": "Communion with spirits of blight and decay.",
-        "affinityFor": ["ulgan"],
+        "id": "metamorphosis", "name": "Metamorphosis",
+        "description": "Radical reshaping of the Promethean's body into other forms — animal, object, or monstrous.",
+        "affinityFor": ["wretched", "osiran"],
         "powers": [
-          { "level": 1, "name": "Saturninus 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Saturninus 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Saturninus 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Saturninus 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Saturninus 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Natural Weaponry", "description": "Spend 1 Pyros to grow claws or fangs dealing lethal damage with a +1 die modifier; lasts one scene." },
+          { "level": 2, "name": "Redundant Organ", "description": "Spend 1 Pyros; shapeshift a body part into an additional organ, conferring that organ's mechanical advantages for the scene." },
+          { "level": 3, "name": "Shape of the Barghest", "description": "Spend 1 Pyros to assume a large mastiff-like form with +1 Strength, +3 Speed, lethal claws, and free activation of any one-dot Sensorium powers." },
+          { "level": 4, "name": "Guise of Proteus", "description": "Spend 1 Pyros; extended roll (5+ successes); transform into any solid inanimate object within Size ±2 of yourself for the scene." },
+          { "level": 5, "name": "Chimera", "description": "Spend 1 Pyros; extended roll (5+ successes); perfectly assume the form of any animal or creature you have previously touched, retaining Mental Attributes." }
         ]
       },
       {
-        "id": "spiritus", "name": "Spiritus",
-        "description": "Walking between the physical and spirit worlds.",
-        "affinityFor": ["ulgan"],
+        "id": "sensorium", "name": "Sensorium",
+        "description": "Heightening and expanding the senses far beyond human limits, including perception of the supernatural.",
+        "affinityFor": ["osiran", "wretched"],
         "powers": [
-          { "level": 1, "name": "Spiritus 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Spiritus 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Spiritus 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Spiritus 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Spiritus 5", "description": "Placeholder — to be replaced with extracted data." }
-        ]
-      },
-      {
-        "id": "stannum_t", "name": "Stannum",
-        "description": "Endurance through suffering and humility.",
-        "affinityFor": ["tammuz"],
-        "powers": [
-          { "level": 1, "name": "Stannum 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Stannum 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Stannum 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Stannum 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Stannum 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Bloodhound's Nose", "description": "Roll Wits + Survival to gain superior olfactory sense; track by scent alone and add two bonus dice to smell-based perception rolls for 24 hours." },
+          { "level": 2, "name": "Aura Sight", "description": "Roll Intelligence + Empathy vs. subject's Composure; perceive psychic auras revealing emotional states and supernatural nature." },
+          { "level": 3, "name": "Ephemeral Gaze", "description": "Spend 1 Pyros; for the scene, perceive spiritual objects and creatures existing in Twilight alongside the physical world." },
+          { "level": 4, "name": "Rarefied Senses", "description": "All of the Promethean's perception rolls become rote actions (re-roll any failed die once) for the scene." },
+          { "level": 5, "name": "Clairvoyant Senses", "description": "Spend 1 Pyros; using a physical link, see, hear, smell, and feel the target's surroundings from thousands of miles away for the scene." }
         ]
       },
       {
         "id": "vitality", "name": "Vitality",
-        "description": "The generative force of life and restoration.",
-        "affinityFor": ["osiran"],
+        "description": "The generative force of raw strength and physical might, mastered to devastating effect.",
+        "affinityFor": ["tammuz"],
         "powers": [
-          { "level": 1, "name": "Vitality 1", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 2, "name": "Vitality 2", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 3, "name": "Vitality 3", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 4, "name": "Vitality 4", "description": "Placeholder — to be replaced with extracted data." },
-          { "level": 5, "name": "Vitality 5", "description": "Placeholder — to be replaced with extracted data." }
+          { "level": 1, "name": "Might", "description": "Spend 1 Pyros; adds +1 to Strength for the scene. Each additional dot of Might purchased adds another +1 (up to +5 at five dots)." },
+          { "level": 2, "name": "Bludgeon", "description": "Spend 1 Pyros; on any Brawl or Weaponry attack against a living target, the victim loses their next action if even one point of damage is inflicted." },
+          { "level": 3, "name": "Striking the Gates of Tartarus", "description": "Spend 1 Pyros; roll Strength + Athletics to strike the ground and knock down everyone within Azoth yards who fails Dexterity + Athletics." },
+          { "level": 4, "name": "Stupefying Blow", "description": "Spend 1 Pyros; reflexive; if a Brawl attack inflicts any damage, target must roll Stamina + Athletics or be knocked unconscious for one turn." },
+          { "level": 5, "name": "Pulverizing Blow", "description": "Permanent; whenever any Might Transmutation is active and the Promethean enters hand-to-hand combat, all unarmed blows inflict lethal damage." }
+        ]
+      },
+      {
+        "id": "vulcanus", "name": "Vulcanus",
+        "description": "Direct mastery of Pyros — sensing, sharing, stealing, and unleashing the divine fire.",
+        "affinityFor": ["galatea"],
+        "powers": [
+          { "level": 1, "name": "Sense Pyros", "description": "Roll Wits + Azoth to sense the presence and location of Pyros or Azoth within 200 yards; detects active Transmutations and Bestowments." },
+          { "level": 2, "name": "Share Pyros", "description": "Spend 1 Pyros per point transferred; by touch, transfer Pyros to another Promethean or Pandoran up to the Azoth limit per turn." },
+          { "level": 3, "name": "Fire Grasp", "description": "Spend 1 Pyros; surround one hand with Pyros-fire; a successful touch inflicts 2 lethal damage (aggravated to Prometheans) and can ignite flammable materials." },
+          { "level": 4, "name": "Steal Pyros", "description": "Spend 1 Pyros; contested roll Strength + Brawl vs. Resolve + Azoth; on a successful touch, steal 1 Pyros per success from another Promethean or Pandoran." },
+          { "level": 5, "name": "Drain Pyros", "description": "Spend 1 Pyros; contested roll at range 20 yards (no touch required); functions as Steal Pyros but at distance." }
         ]
       }
     ]

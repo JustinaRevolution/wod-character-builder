@@ -422,16 +422,16 @@ describe('StepPowers — pool type (Promethean)', () => {
     expect(screen.getByText('Vitality')).toBeInTheDocument()
   })
 
-  it('shows 4 dots remaining initially', () => {
+  it('shows 3 dots remaining initially', () => {
     render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
-    expect(screen.getByText(/4 dots remaining/i)).toBeInTheDocument()
+    expect(screen.getByText(/3 dots remaining/i)).toBeInTheDocument()
   })
 
   it('shows Affinity badge for lineage paths when lineage selected', () => {
     render(<StepPowers lineData={promethean} template={wretched} powers={{}} onSetPowers={() => {}} />)
-    // Wretched = Corporeum + Sanguinem affinity
+    // Wretched = Disquietism, Electrification, Metamorphosis, Sensorium affinity
     const badges = screen.getAllByText('Affinity')
-    expect(badges.length).toBe(2)
+    expect(badges.length).toBe(4)
   })
 
   it('shows expand toggle for Corporeum which has item.powers', () => {
