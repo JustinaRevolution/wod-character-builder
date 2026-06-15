@@ -8,7 +8,7 @@ describe('StepGameLine', () => {
     expect(screen.getByText('Vampire: the Requiem')).toBeInTheDocument()
     expect(screen.getByText('Werewolf: the Forsaken')).toBeInTheDocument()
     expect(screen.getByText('Second Sight')).toBeInTheDocument()
-    expect(screen.getByText('Mortals')).toBeInTheDocument()
+    expect(screen.getByText('World of Darkness')).toBeInTheDocument()
     expect(screen.getAllByRole('button')).toHaveLength(10)
   })
 

@@ -123,7 +123,7 @@ export default function App() {
       <div className="no-print min-h-screen">
         <div className="max-w-5xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-3xl font-bold text-amber-400">Chronicles of Darkness</h1>
+            <h1 className="text-3xl font-bold text-amber-400">New World of Darkness Character Generator</h1>
             <div className="flex items-center gap-2">
               <button onClick={handleExport} className="text-xs text-gray-500 hover:text-gray-300 border border-gray-700 px-2 py-1 rounded">
                 Export

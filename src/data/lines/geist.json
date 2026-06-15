@@ -4,11 +4,11 @@
     "group1": {
       "label": "Threshold", "field": "threshold",
       "options": [
-        { "id": "forgotten", "name": "The Forgotten", "description": "Died from exposure or abandonment — the slow cold death.", "hint": "Affinity Manifestations: Boneyard, Shroud" },
-        { "id": "torn",      "name": "The Torn",      "description": "Died from violence — murder, war, or brutal accident.",   "hint": "Affinity Manifestations: Caul, Torn" },
-        { "id": "silent",    "name": "The Silent",    "description": "Died from disease or quiet surrender.",                   "hint": "Affinity Manifestations: Curse, Marionette" },
-        { "id": "prey",      "name": "The Prey",      "description": "Died from terrible accident — hunted by fate.",           "hint": "Affinity Manifestations: Dirge, Oracle" },
-        { "id": "stricken",  "name": "The Stricken",  "description": "Died by their own hand — suicide or sacrifice.",         "hint": "Affinity Manifestations: Fetter, Key" }
+        { "id": "torn",      "name": "The Torn",      "description": "Died by violence — murder, war, or brutal accident.",        "hint": "Favored Keys: Passion and Stigmata" },
+        { "id": "silent",    "name": "The Silent",    "description": "Died by deprivation — starvation, suffocation, heartbreak.", "hint": "Favored Keys: Stillness and Cold Wind" },
+        { "id": "prey",      "name": "The Prey",      "description": "Died by nature — exposure, wild animals, freak accident.",   "hint": "Favored Keys: Primeval and Grave-Dirt" },
+        { "id": "stricken",  "name": "The Stricken",  "description": "Died by sickness — disease, plague, slow illness.",         "hint": "Favored Keys: Phantasmal and Tear-Stained" },
+        { "id": "forgotten", "name": "The Forgotten", "description": "Died by chance — freak accident, wrong place, wrong time.",  "hint": "Favored Keys: Industrial and Pyre-Flame" }
       ]
     },
     "group2": {
@@ -21,39 +21,37 @@
   "powers": {
     "type": "pool",
     "label": "Manifestations",
-    "description": "Distribute 3 dots among Manifestations. Your Threshold grants affinity with two Manifestations. After assigning Manifestations, choose 3 Keys from the list below.",
+    "description": "Distribute 3 dots among Manifestations. Manifestations are the ghostly powers your geist enables — their exact expression is shaped by the Keys you choose.",
     "startingDots": 3,
-    "affinityFrom": "group1",
     "items": [
-      { "id": "boneyard",   "name": "Boneyard",   "description": "Dominion over a territory of death.",                  "affinityFor": ["forgotten"] },
-      { "id": "caul",       "name": "Caul",       "description": "A shroud of death-energy enhancing physical form.",    "affinityFor": ["torn"] },
-      { "id": "curse",      "name": "Curse",      "description": "Laying misfortune and ill luck upon the living.",      "affinityFor": ["silent"] },
-      { "id": "dirge",      "name": "Dirge",      "description": "Affecting emotions through ghostly resonance.",        "affinityFor": ["prey"] },
-      { "id": "fetter",     "name": "Fetter",     "description": "Binding and anchoring — ghosts, memories, the living.","affinityFor": ["stricken"] },
-      { "id": "marionette", "name": "Marionette", "description": "Possessing and controlling animals, objects, the dead.","affinityFor": ["silent"] },
-      { "id": "oracle",     "name": "Oracle",     "description": "Visions of the dead — reading echoes of death.",       "affinityFor": ["prey"] },
-      { "id": "shroud",     "name": "Shroud",     "description": "Hiding from sight — invisible to the living and dead.", "affinityFor": ["forgotten"] },
-      { "id": "torn_mani",  "name": "Torn",       "description": "Tearing the barrier between life and death.",          "affinityFor": ["torn"] }
+      { "id": "boneyard",   "name": "Boneyard",   "description": "Assert dominion over a territory — a plasm-infused area your geist haunts and controls." },
+      { "id": "caul",       "name": "Caul",        "description": "Reshape your own body with deathly energies, granting transformation and protection." },
+      { "id": "curse",      "name": "Curse",       "description": "Lay hexes and misfortune upon enemies at range — afflicting mind, body, and luck." },
+      { "id": "marionette", "name": "Marionette",  "description": "Control objects, animals, and people through ghostly sympathetic links." },
+      { "id": "oracle",     "name": "Oracle",      "description": "Heightened senses, clairvoyance, and perception of the dead and unseen world." },
+      { "id": "rage",       "name": "Rage",        "description": "Direct your geist to strike at enemies with pure, unadulterated supernatural force." },
+      { "id": "shroud",     "name": "Shroud",      "description": "Cloak and protect yourself with deathly energies — armor and concealment from your geist." }
     ],
     "keys": {
-      "startingPicks": 3,
+      "startingPicks": 2,
       "label": "Keys",
-      "description": "Choose 3 Keys. Keys modify how your Manifestations work.",
+      "description": "Choose 2 Keys. One must be from your Threshold's favored pair. Keys determine how each Manifestation expresses itself when you use it.",
       "items": [
-        { "id": "beasts",     "name": "Beasts Key",      "description": "Manifestations channeled through animals." },
-        { "id": "cold_wind",  "name": "Cold Wind Key",   "description": "Manifestations wreathed in freezing air." },
-        { "id": "grave_dirt", "name": "Grave-Dirt Key",  "description": "Manifestations channeled through earth and burial." },
-        { "id": "industrial", "name": "Industrial Key",  "description": "Manifestations through machinery and technology." },
-        { "id": "passion",    "name": "Passion Key",     "description": "Manifestations fueled by strong emotion." },
-        { "id": "phantasmal", "name": "Phantasmal Key",  "description": "Manifestations through illusion and the unreal." },
-        { "id": "pyre_flame", "name": "Pyre-Flame Key",  "description": "Manifestations wreathed in fire and light." },
-        { "id": "stigmata",   "name": "Stigmata Key",    "description": "Manifestations channeled through blood and wounds." },
-        { "id": "stillness",  "name": "Stillness Key",   "description": "Manifestations of cold silence and cessation." }
+        { "id": "cold_wind",    "name": "Cold Wind Key",    "description": "Frigid air and icy cold — Manifestations wrapped in winter's deathly chill." },
+        { "id": "grave_dirt",   "name": "Grave-Dirt Key",   "description": "Earth and burial grounds — Manifestations channeled through soil and tombs." },
+        { "id": "industrial",   "name": "Industrial Key",   "description": "Machinery and technology — Manifestations expressed through man-made devices." },
+        { "id": "passion",      "name": "Passion Key",      "description": "Emotion and desire — Manifestations fueled by the passions of the living and dead." },
+        { "id": "phantasmal",   "name": "Phantasmal Key",   "description": "Illusion and madness — Manifestations that deceive perception and warp reality." },
+        { "id": "primeval",     "name": "Primeval Key",     "description": "Wild nature and animals — Manifestations channeled through primal, living forces." },
+        { "id": "pyre_flame",   "name": "Pyre-Flame Key",   "description": "Fire and ash — Manifestations wreathed in the flames that consume the dead." },
+        { "id": "stigmata",     "name": "Stigmata Key",     "description": "Blood and sacrifice — Manifestations that pierce the spirit world and can harm ghosts." },
+        { "id": "stillness",    "name": "Stillness Key",    "description": "Silence and concealment — Manifestations of invisibility and quiet cessation." },
+        { "id": "tear_stained", "name": "Tear-Stained Key", "description": "Water and drowning — Manifestations born from death by sea, tears, and flood." }
       ]
     }
   },
   "resource": {
-    "pool":  { "name": "Plasm", "startValue": 10 },
+    "pool":  { "name": "Plasm", "startValue": 7 },
     "trait": null
   },
   "integrity": { "name": "Synergy", "startValue": 7 }

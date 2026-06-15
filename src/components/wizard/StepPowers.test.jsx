@@ -262,12 +262,12 @@ describe('StepPowers — Geist (pool + keys)', () => {
   it('calls onSetPowers with _keys when a key is toggled', () => {
     const onSetPowers = vi.fn()
     render(<StepPowers lineData={geist} template={{}} powers={{}} onSetPowers={onSetPowers} />)
-    fireEvent.click(screen.getByText('Beasts Key').closest('button'))
-    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _keys: ['beasts'] }))
+    fireEvent.click(screen.getByText('Primeval Key').closest('button'))
+    expect(onSetPowers).toHaveBeenCalledWith(expect.objectContaining({ _keys: ['primeval'] }))
   })
 
   it('counts dots correctly when _keys is populated', () => {
-    render(<StepPowers lineData={geist} template={{}} powers={{ boneyard: 2, _keys: ['beasts'] }} onSetPowers={() => {}} />)
+    render(<StepPowers lineData={geist} template={{}} powers={{ boneyard: 2, _keys: ['primeval'] }} onSetPowers={() => {}} />)
     // startingDots=3, spent=2, remaining=1
     expect(screen.getByText(/1 dot/i)).toBeInTheDocument()
   })

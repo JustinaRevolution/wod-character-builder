@@ -1,0 +1,22 @@
+[
+  {
+    "id": "haunt",
+    "name": "Haunt",
+    "category": "geist",
+    "line": "geist",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "description": "A location with a strong connection to the Underworld serving as the krewe's base. Rated in Utility (usefulness as a base), Fluidity (how easily it shifts), and Residue (extra Plasm per dot at session start). Multiple krewe members may pool dots toward a shared Haunt."
+  },
+  {
+    "id": "memento",
+    "name": "Memento",
+    "category": "geist",
+    "line": "geist",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "description": "A death-charged ritual object tied to the Underworld. Types: Memorabilia (●, personal death-resonant objects), Charms (●●, minor power objects), Vanitas (●●●, artistic death-objects), Fetters (●●●●, bound to a specific ghost), and Deathmarks (●●●●, body modifications). Each type grants distinct benefits."
+  }
+]

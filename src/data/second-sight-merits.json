@@ -1,0 +1,652 @@
+[
+  {
+    "id": "astral_projection",
+    "name": "Astral Projection",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Wits ●●●, Composure ●●",
+    "description": "Project consciousness from the body to observe remote locations in the physical world."
+  },
+  {
+    "id": "automatic_writing",
+    "name": "Automatic Writing",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": "Wits ●●",
+    "description": "Enter a trance state and channel information from spirits or the subconscious through automatic writing."
+  },
+  {
+    "id": "channeling",
+    "name": "Channeling",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Presence ●●",
+    "description": "Allow a spirit or ghost to temporarily speak and act through your body."
+  },
+  {
+    "id": "clairvoyance",
+    "name": "Clairvoyance",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Wits ●●",
+    "description": "See and hear events at a remote location as they happen in real time."
+  },
+  {
+    "id": "death_sight",
+    "name": "Death Sight",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": "Wits ●●",
+    "description": "Perceive the exact manner and circumstances of a person's death by touching them or their remains."
+  },
+  {
+    "id": "dowsing",
+    "name": "Dowsing",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": null,
+    "description": "Detect nearby sources of water, minerals, or other specific substances through psychic sensitivity."
+  },
+  {
+    "id": "dream_travel_psychic",
+    "name": "Dream Travel",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Astral Projection ●●●, Mind Reading ●●●, Thought Projection ●●●",
+    "description": "Enter the Temenos and other dream realms, navigating the landscape of collective and individual consciousness."
+  },
+  {
+    "id": "ghost_calling",
+    "name": "Ghost-Calling",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Presence ●●",
+    "description": "Call a specific known ghost to manifest before you, compelling its presence through psychic force."
+  },
+  {
+    "id": "postcognition",
+    "name": "Postcognition",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 3,
+    "prerequisites": "Wits ●●",
+    "description": "See echoes of past events that occurred at a location, reading the psychic residue left behind."
+  },
+  {
+    "id": "precognition",
+    "name": "Precognition",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": "Wits ●●●",
+    "description": "Experience visions of potential future events, though the future remains mutable."
+  },
+  {
+    "id": "psychometry",
+    "name": "Psychometry",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 4,
+    "prerequisites": "Wits ●●",
+    "description": "Read the psychic impressions and emotional history left on physical objects by their owners."
+  },
+  {
+    "id": "animal_empathy",
+    "name": "Animal Empathy",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": "Presence ●●",
+    "description": "Psychically sense the emotional state, needs, and desires of nearby animals."
+  },
+  {
+    "id": "animal_possession",
+    "name": "Animal Possession",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": "Animal Rapport ●●●",
+    "description": "Inhabit and control the body of an animal, experiencing the world through its senses."
+  },
+  {
+    "id": "animal_rapport",
+    "name": "Animal Rapport",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 5,
+    "prerequisites": "Presence ●●●",
+    "description": "Communicate directly with animals in a limited fashion, exchanging basic concepts and emotions."
+  },
+  {
+    "id": "aura_reading",
+    "name": "Aura Reading",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 5,
+    "prerequisites": "Wits ●●",
+    "description": "See the psychic auras surrounding living beings, revealing their emotional states and supernatural nature."
+  },
+  {
+    "id": "biokinesis",
+    "name": "Biokinesis",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Resolve ●●",
+    "description": "Manipulate biological processes — your own or others' — through concentrated psychic focus."
+  },
+  {
+    "id": "cryokinesis",
+    "name": "Cryokinesis",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Resolve ●●",
+    "description": "Generate and control cold and ice through psychic power, lowering temperatures or forming ice structures."
+  },
+  {
+    "id": "mental_blast",
+    "name": "Mental Blast",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 5,
+    "max_dots": 5,
+    "prerequisites": "Mind Reading ●●●",
+    "description": "Deal lethal mental damage to a target's mind through concentrated psychic assault."
+  },
+  {
+    "id": "mind_breaker",
+    "name": "Mind Breaker",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 5,
+    "max_dots": 5,
+    "prerequisites": "Mind Reading ●●●",
+    "description": "Permanently damage a target's mental faculties, leaving lasting psychological harm."
+  },
+  {
+    "id": "mind_control",
+    "name": "Mind Control",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 5,
+    "max_dots": 5,
+    "prerequisites": "Mind Reading ●●●, Telepathic Communication ●●●●",
+    "description": "Seize control of a target's actions, overriding their will with your own psychic commands."
+  },
+  {
+    "id": "mind_reading",
+    "name": "Mind Reading",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 5,
+    "prerequisites": "Wits ●●●",
+    "description": "Read surface thoughts or delve into deeper memories of nearby people."
+  },
+  {
+    "id": "plant_empathy",
+    "name": "Plant Empathy",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": "Presence ●●",
+    "description": "Psychically sense the slow awareness and vitality of nearby plant life."
+  },
+  {
+    "id": "psychic_empathy",
+    "name": "Psychic Empathy",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 4,
+    "max_dots": 5,
+    "prerequisites": "Empathy ●●●",
+    "description": "Deeply feel and manipulate another's emotions through direct psychic contact."
+  },
+  {
+    "id": "psychic_healing",
+    "name": "Psychic Healing",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 5,
+    "prerequisites": "Resolve ●●●, Medicine ●",
+    "description": "Accelerate the healing of wounds and disease through concentrated psychic focus directed at the body."
+  },
+  {
+    "id": "psychic_illusions",
+    "name": "Psychic Illusions",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 5,
+    "max_dots": 5,
+    "prerequisites": "Thought Projection ●●●",
+    "description": "Create vivid sensory illusions that affect all five senses of those around you."
+  },
+  {
+    "id": "psychic_invisibility",
+    "name": "Psychic Invisibility",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 5,
+    "max_dots": 5,
+    "prerequisites": "Thought Projection ●●●",
+    "description": "Make yourself invisible to those around you by suppressing your presence in their minds."
+  },
+  {
+    "id": "psychic_vampirism",
+    "name": "Psychic Vampirism",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 4,
+    "max_dots": 5,
+    "prerequisites": "Resolve ●●●",
+    "description": "Drain life force or Willpower from nearby people, sustaining yourself at their expense."
+  },
+  {
+    "id": "pyrokinesis",
+    "name": "Pyrokinesis",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 5,
+    "max_dots": 5,
+    "prerequisites": "Pyrokinetic Shaping ●●●●●",
+    "description": "Create fire from nothing and hurl it at targets through pure psychic force."
+  },
+  {
+    "id": "pyrokinetic_immunity",
+    "name": "Pyrokinetic Immunity",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": "Resolve ●●",
+    "description": "Develop resistance to heat and fire damage through psychic attunement to flame."
+  },
+  {
+    "id": "pyrokinetic_shaping",
+    "name": "Pyrokinetic Shaping",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 5,
+    "max_dots": 5,
+    "prerequisites": "Pyrokinetic Immunity ●●",
+    "description": "Shape and control existing fire, directing its movement and form through psychic command."
+  },
+  {
+    "id": "telekinesis",
+    "name": "Telekinesis",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Resolve ●●",
+    "description": "Move objects with the power of the mind, from small nudges to hurling large objects at speed."
+  },
+  {
+    "id": "telepathic_communication",
+    "name": "Telepathic Communication",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": "Telepathic Rapport ●●●",
+    "description": "Send and receive complex messages, concepts, and emotions mentally across distances."
+  },
+  {
+    "id": "telepathic_rapport",
+    "name": "Telepathic Rapport",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Wits ●●●",
+    "description": "Establish a surface-level mental link with another willing person, sharing basic thoughts."
+  },
+  {
+    "id": "thermokinesis",
+    "name": "Thermokinesis",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": "Resolve ●●",
+    "description": "Generate and control heat through psychic power, warming objects or people with focused intent."
+  },
+  {
+    "id": "thought_projection",
+    "name": "Thought Projection",
+    "category": "psychic",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 5,
+    "prerequisites": "Mind Reading ●●●",
+    "description": "Project thoughts, memories, and sensations directly into other minds without their consent."
+  },
+  {
+    "id": "alchemy_external",
+    "name": "Alchemy (External)",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": "Occult ●● or Science ●●",
+    "description": "Transform physical substances through ritual alchemical processes, achieving effects beyond mundane chemistry."
+  },
+  {
+    "id": "alchemy_internal",
+    "name": "Alchemy (Internal)",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": "Occult ●●, Medicine ●",
+    "description": "Refine the spirit and mind through meditation, breathwork, and internal alchemical discipline."
+  },
+  {
+    "id": "communion",
+    "name": "Communion",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": null,
+    "description": "Connect consciousness to powerful spiritual beings, entities, or forces to receive wisdom and guidance."
+  },
+  {
+    "id": "countermagic",
+    "name": "Countermagic",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": "Wits ●●",
+    "description": "Detect and defend against the workings of other thaumaturges, unraveling hostile ritual effects."
+  },
+  {
+    "id": "curse_of_ill_fortune",
+    "name": "Curse of Ill-Fortune",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Luck Magic ●●, Persuasion ●",
+    "description": "Lay a targeted curse of misfortune, removing dice from the victim's pools for specific actions."
+  },
+  {
+    "id": "divination",
+    "name": "Divination",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": null,
+    "description": "Perform ritual readings — tarot, I Ching, entrails — to divine the future or reveal information about a target."
+  },
+  {
+    "id": "dream_thaumaturgy",
+    "name": "Dream",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "description": "Gain insight through dreams into primordial forces and hidden truths, accessing knowledge otherwise unavailable."
+  },
+  {
+    "id": "dream_travel_thaumaturgic",
+    "name": "Dream Travel",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Visionary Trances ●●",
+    "description": "Enter a sleeping person's dreams while in a trance, observing and interacting with their subconscious."
+  },
+  {
+    "id": "enchantment",
+    "name": "Enchantment",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": null,
+    "description": "Control and perceive others' emotions through sympathetic magic, ritual, and focused will."
+  },
+  {
+    "id": "evocation",
+    "name": "Evocation",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": null,
+    "description": "Compel a spirit or ghost to answer your summons and provide information or service."
+  },
+  {
+    "id": "familiar",
+    "name": "Familiar",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 4,
+    "prerequisites": "Visionary Trances ●●●●, Communion ●●●●, or Enchantment ●●●●",
+    "description": "Form a magical bond with a spirit in Twilight, gaining a loyal supernatural companion and advisor."
+  },
+  {
+    "id": "favorable_fortune",
+    "name": "Favorable Fortune",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Luck Magic ●●●●",
+    "description": "Generate a highly directed and powerful turn of good luck for yourself or an ally."
+  },
+  {
+    "id": "geomancy",
+    "name": "Geomancy",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Intelligence ●●, Crafts ●",
+    "description": "Harmonize an environment with natural energy flow through ritual design and placement."
+  },
+  {
+    "id": "healing_thaumaturgy",
+    "name": "Healing",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 4,
+    "prerequisites": "Composure ●●, Medicine ●",
+    "description": "Channel magical energy to heal wounds and cure disease through ritual laying on of hands."
+  },
+  {
+    "id": "invocation",
+    "name": "Invocation",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 5,
+    "prerequisites": null,
+    "description": "Request the presence of spirits or ghosts through ritual plea, offerings, and sacred words."
+  },
+  {
+    "id": "library",
+    "name": "Library",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "description": "A personal collection of occult tomes and reference works, granting bonuses to research and ritual preparation."
+  },
+  {
+    "id": "longevity",
+    "name": "Longevity",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 5,
+    "max_dots": 5,
+    "prerequisites": "Medicine ●●, Alchemy (Internal) ●●●● or Alchemy (External) ●●●●",
+    "description": "Prevent aging through alchemical elixirs, extending natural life far beyond its normal span."
+  },
+  {
+    "id": "luck_magic",
+    "name": "Luck Magic",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 5,
+    "prerequisites": null,
+    "description": "Control chance and bend luck for specific tasks, adding or removing dice from rolls through ritual."
+  },
+  {
+    "id": "magical_nexus",
+    "name": "Magical Nexus",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 2,
+    "prerequisites": "Intelligence ●●, Crafts ●",
+    "description": "A location imbued with power; rituals performed here receive bonuses from the concentrated energy."
+  },
+  {
+    "id": "psychic_projection_thaumaturgy",
+    "name": "Psychic Projection",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": "Visionary Trances ●●●●",
+    "description": "Project your mind into the Twilight realm, gaining an intangible form that can interact with spirits."
+  },
+  {
+    "id": "sacrifice",
+    "name": "Sacrifice",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 1,
+    "prerequisites": null,
+    "description": "Trained in ritual sacrifices that provide Essence or sustenance to spirits in exchange for favor."
+  },
+  {
+    "id": "scrying",
+    "name": "Scrying",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Wits ●●, Occult ●",
+    "description": "View distant locations through scrying devices — mirrors, bowls of water, crystal balls — in real time."
+  },
+  {
+    "id": "second_sight_merit",
+    "name": "Second Sight",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Wits ●●",
+    "description": "Perceive the spiritual realm by sight and sound, seeing spirits and ghosts in Twilight without a trance."
+  },
+  {
+    "id": "see_auras",
+    "name": "See Auras",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": "Empathy ●●",
+    "description": "Open your perceptions to read psychic auras, discerning emotional states and supernatural nature."
+  },
+  {
+    "id": "see_spirits",
+    "name": "See Spirits",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 2,
+    "prerequisites": "Visionary Trances ●●",
+    "description": "Automatically notice spirits from the Shadow Realm that manifest in Twilight."
+  },
+  {
+    "id": "soul_jar",
+    "name": "Soul Jar",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 5,
+    "prerequisites": "Second Sight ●●●",
+    "description": "Trap a dying person's soul in a prepared physical container, preventing it from passing on."
+  },
+  {
+    "id": "spring",
+    "name": "Spring",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 1,
+    "max_dots": 5,
+    "prerequisites": null,
+    "description": "Sense and draw forth water from the earth, locate hidden springs, and purify contaminated water sources."
+  },
+  {
+    "id": "visionary_trances",
+    "name": "Visionary Trances",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 2,
+    "max_dots": 4,
+    "prerequisites": "Resolve ●●",
+    "description": "Enter a ritual trance state to see and communicate with beings from the Shadow Realm."
+  },
+  {
+    "id": "warding",
+    "name": "Warding",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 3,
+    "max_dots": 3,
+    "prerequisites": "Resolve ●●, Occult ●",
+    "description": "Erect a magical barrier that prevents ghosts and spirits from entering a designated area."
+  },
+  {
+    "id": "weather_control",
+    "name": "Weather Control",
+    "category": "thaumaturgy",
+    "line": "second-sight",
+    "min_dots": 4,
+    "max_dots": 4,
+    "prerequisites": null,
+    "description": "Control local weather patterns in a minor way, calling rain, dispersing fog, or stirring winds."
+  }
+]
