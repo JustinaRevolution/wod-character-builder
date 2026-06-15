@@ -119,8 +119,34 @@ function drawHeader(page, form, boldFont, font, character, lineData) {
 
 // ── Placeholder sections (filled in later tasks) ─────────────────────────────
 
-function drawAttributes(_page, _form, _boldFont, _font, _attributes, startY) {
-  return startY
+const ATTR_CATS = [
+  { key: 'mental',   label: 'Mental',   attrs: ['intelligence','wits','resolve'] },
+  { key: 'physical', label: 'Physical', attrs: ['strength','dexterity','stamina'] },
+  { key: 'social',   label: 'Social',   attrs: ['presence','manipulation','composure'] },
+]
+
+function drawAttributes(page, form, boldFont, font, attributes, startY) {
+  let y = drawSectionHeader(page, boldFont, 'ATTRIBUTES', LEFT, startY, HALF)
+
+  // Sub-category headers
+  ATTR_CATS.forEach(({ label }, i) => {
+    const x = LEFT + i * (SUB_W + SUB_GAP)
+    page.drawText(label, { x, y, font, size: 6.5, color: GRAY })
+  })
+  y -= SUBCAT_H
+
+  // 3 rows (one per attribute per category), categories as parallel columns
+  const maxRows = 3
+  for (let row = 0; row < maxRows; row++) {
+    ATTR_CATS.forEach(({ key, attrs }, col) => {
+      const attr = attrs[row]
+      const x = LEFT + col * (SUB_W + SUB_GAP)
+      drawDots(form, page, font, `attr.${key}.${attr}`, toLabel(attr), attributes[key][attr], 5, x, y)
+    })
+    y -= ROW_H
+  }
+
+  return y - 4
 }
 
 function drawSkills(_page, _form, _boldFont, _font, _skills, _specialties, startY) {
