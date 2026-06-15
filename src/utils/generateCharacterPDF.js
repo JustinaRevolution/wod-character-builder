@@ -187,8 +187,61 @@ function drawSkills(page, form, boldFont, font, skills, specialties, startY) {
   return y
 }
 
-function drawPowers(_page, _form, _boldFont, _font, _powers, _lineData, startY) {
-  return startY
+function drawPowers(page, form, boldFont, font, powers, lineData, startY) {
+  let y = drawSectionHeader(page, boldFont, lineData.powers.label.toUpperCase(), LEFT, startY, HALF)
+
+  const powerEntries = Object.entries(powers).filter(([k]) => !k.startsWith('_'))
+
+  for (const [id, val] of powerEntries) {
+    if (y < 100) break  // safety: stop near bottom of page
+    const item = lineData.powers.items?.find(i => i.id === id)
+    const name = item?.name || toLabel(id)
+
+    if (typeof val === 'number') {
+      y = drawDots(form, page, font, `power.${id}`, name, val, 5, LEFT, y)
+    } else {
+      page.drawText(`${name}: `, { x: LEFT, y: y+1, font, size: 7, color: BLACK })
+      drawTextField(form, page, `power.${id}`, String(val), LEFT + LBL_W + 4, y, HALF - LBL_W - 8)
+      y -= ROW_H
+    }
+  }
+
+  // Special underscore fields
+  const selectedKeys = powers._keys || []
+  if (selectedKeys.length) {
+    page.drawText('Keys:', { x: LEFT, y: y+1, font, size: 7, color: GRAY })
+    drawTextField(form, page, 'power._keys', selectedKeys.join(', '), LEFT + 28, y, HALF - 32)
+    y -= ROW_H
+  }
+
+  const rotes = powers._rotes || []
+  if (rotes.length) {
+    page.drawText('Rotes:', { x: LEFT, y: y+1, font, size: 7, color: GRAY })
+    const roteText = rotes.map(id => {
+      const s = SPELL_INDEX[id]
+      return s ? `${s.name} (${s.arcanumName} ${'•'.repeat(s.level)})` : id
+    }).join(', ')
+    drawTextField(form, page, 'power._rotes', roteText, LEFT + 32, y, HALF - 36)
+    y -= ROW_H
+  }
+
+  const affinityIds = [powers._soul_affinity, powers._guild_affinity, powers._free_affinity].filter(Boolean)
+  if (affinityIds.length) {
+    page.drawText('Affinities:', { x: LEFT, y: y+1, font, size: 7, color: GRAY })
+    const affText = affinityIds.map(id => AFFINITIES.find(a => a.id === id)?.name ?? id).join(', ')
+    drawTextField(form, page, 'power._affinities', affText, LEFT + 52, y, HALF - 56)
+    y -= ROW_H
+  }
+
+  const utterances = powers._utterances || []
+  if (utterances.length) {
+    page.drawText('Utterances:', { x: LEFT, y: y+1, font, size: 7, color: GRAY })
+    const uttText = utterances.map(id => UTTERANCES.find(u => u.id === id)?.name ?? id).join(', ')
+    drawTextField(form, page, 'power._utterances', uttText, LEFT + 56, y, HALF - 60)
+    y -= ROW_H
+  }
+
+  return y - 4
 }
 
 function drawMerits(_page, _form, _boldFont, _font, _merits, startY) {
