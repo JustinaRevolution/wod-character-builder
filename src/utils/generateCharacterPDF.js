@@ -244,8 +244,16 @@ function drawPowers(page, form, boldFont, font, powers, lineData, startY) {
   return y - 4
 }
 
-function drawMerits(_page, _form, _boldFont, _font, _merits, startY) {
-  return startY
+function drawMerits(page, form, boldFont, font, merits, startY) {
+  let y = drawSectionHeader(page, boldFont, 'MERITS', MID, startY, HALF)
+
+  for (let i = 0; i < merits.length; i++) {
+    if (y < 100) break
+    const { name, dots } = merits[i]
+    y = drawDots(form, page, font, `merit.${i}`, name, dots, 5, MID, y)
+  }
+
+  return y - 4
 }
 
 function drawRenown(_page, _form, _boldFont, _font, _renown, _lineData, _character, startY) {
