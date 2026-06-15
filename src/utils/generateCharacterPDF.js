@@ -312,10 +312,10 @@ function drawDerived(page, form, boldFont, font, derived, startY) {
   drawBoxRow(form, page, 'derived.health',    health,    cols[0], y)
   drawBoxRow(form, page, 'derived.willpower', willpower, cols[1], y)
   if (resource_pool?.name) {
-    drawBoxRow(form, page, 'derived.resource', Math.min(resource_pool?.max, 15), cols[2], y)
+    drawBoxRow(form, page, 'derived.resource', Math.min(resource_pool?.max ?? 0, 15), cols[2], y)
   }
   // Integrity: text field
-  drawTextField(form, page, 'derived.integrity', String(integrity?.value ?? ''), cols[3], y - DOT_SZ - 4 + DOT_SZ, colW - 8)
+  drawTextField(form, page, 'derived.integrity', String(integrity?.value ?? ''), cols[3], y, colW - 8)
 
   y -= DOT_SZ + 18
 
