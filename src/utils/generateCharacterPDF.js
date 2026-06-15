@@ -149,8 +149,42 @@ function drawAttributes(page, form, boldFont, font, attributes, startY) {
   return y - 4
 }
 
-function drawSkills(_page, _form, _boldFont, _font, _skills, _specialties, startY) {
-  return startY
+const SKILL_CATS = [
+  { key: 'mental',   label: 'Mental',   skills: ['academics','computer','crafts','investigation','medicine','occult','politics','science'] },
+  { key: 'physical', label: 'Physical', skills: ['athletics','brawl','drive','firearms','larceny','stealth','survival','weaponry'] },
+  { key: 'social',   label: 'Social',   skills: ['animal_ken','empathy','expression','intimidation','persuasion','socialize','streetwise','subterfuge'] },
+]
+
+function drawSkills(page, form, boldFont, font, skills, specialties, startY) {
+  let y = drawSectionHeader(page, boldFont, 'SKILLS', MID, startY, HALF)
+
+  // Sub-category headers
+  SKILL_CATS.forEach(({ label }, i) => {
+    const x = MID + i * (SUB_W + SUB_GAP)
+    page.drawText(label, { x, y, font, size: 6.5, color: GRAY })
+  })
+  y -= SUBCAT_H
+
+  // 8 rows (one per skill per category), categories as parallel columns
+  const maxRows = 8
+  for (let row = 0; row < maxRows; row++) {
+    SKILL_CATS.forEach(({ key, skills: sk }, col) => {
+      const skill = sk[row]
+      const x = MID + col * (SUB_W + SUB_GAP)
+      drawDots(form, page, font, `skill.${key}.${skill}`, toLabel(skill), skills[key][skill], 5, x, y)
+    })
+    y -= ROW_H
+  }
+
+  // Specialties text field
+  y -= 4
+  page.drawText('Specialties:', { x: MID, y, font, size: 7, color: GRAY })
+  y -= 2
+  const specText = specialties.map(s => `${toLabel(s.skill)} (${s.name})`).join(', ')
+  drawTextField(form, page, 'specialties', specText, MID, y - FIELD_H, HALF - 4)
+  y -= FIELD_H + 8
+
+  return y
 }
 
 function drawPowers(_page, _form, _boldFont, _font, _powers, _lineData, startY) {
