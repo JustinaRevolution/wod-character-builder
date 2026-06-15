@@ -2,6 +2,7 @@ import DotRating from '../ui/DotRating'
 import { SPELL_INDEX } from '../../utils/arcanaValidation'
 import AFFINITIES from '../../data/affinities.json'
 import UTTERANCES from '../../data/utterances.json'
+import { generateCharacterPDF } from '../../utils/generateCharacterPDF'
 
 export default function StepReview({ character, lineData, onUpdateNotes }) {
   const { meta, template, attributes, skills, specialties, powers, merits, derived } = character
@@ -10,6 +11,17 @@ export default function StepReview({ character, lineData, onUpdateNotes }) {
   const powerItems = lineData.powers.items || []
   const powerEntries = Object.entries(powers).filter(([k]) => !k.startsWith('_'))
   const selectedKeys = powers._keys || []
+
+  async function handleDownloadPDF() {
+    const bytes = await generateCharacterPDF(character, lineData)
+    const blob = new Blob([bytes], { type: 'application/pdf' })
+    const url  = URL.createObjectURL(blob)
+    const a    = document.createElement('a')
+    a.href     = url
+    a.download = `${character.meta.name || 'character'}.pdf`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
 
   return (
     <div>
@@ -114,12 +126,20 @@ export default function StepReview({ character, lineData, onUpdateNotes }) {
         />
       </div>
 
-      <button
-        onClick={() => window.print()}
-        className="px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg text-lg"
-      >
-        Print Character Sheet
-      </button>
+      <div className="flex gap-4">
+        <button
+          onClick={() => window.print()}
+          className="px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg text-lg"
+        >
+          Print Character Sheet
+        </button>
+        <button
+          onClick={handleDownloadPDF}
+          className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg text-lg"
+        >
+          Download Editable PDF
+        </button>
+      </div>
     </div>
   )
 }
