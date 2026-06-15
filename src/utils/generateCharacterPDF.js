@@ -256,8 +256,32 @@ function drawMerits(page, form, boldFont, font, merits, startY) {
   return y - 4
 }
 
-function drawRenown(_page, _form, _boldFont, _font, _renown, _lineData, _character, startY) {
-  return startY
+function drawRenown(page, form, boldFont, font, renown, lineData, character, startY) {
+  if (!lineData.renown) return startY
+
+  let y = drawSectionHeader(page, boldFont, 'RENOWN', LEFT, startY, CW)
+
+  const tracks = lineData.renown.tracks
+  const trackW = CW / tracks.length  // equal width per track
+
+  const g2 = lineData.template.group2
+  const auspiceId  = character.template[g2?.field]
+  const auspiceOpt = g2?.options?.find(o => o.id === auspiceId)
+
+  tracks.forEach((track, i) => {
+    const x = LEFT + i * trackW
+    const trackKey = track.toLowerCase()
+    const isAuspice = auspiceOpt?.renownTrack?.toLowerCase() === trackKey
+    const val = isAuspice ? Math.max(1, renown[trackKey] || 0) : (renown[trackKey] || 0)
+    const label = track.charAt(0).toUpperCase() + track.slice(1).toLowerCase() + (isAuspice ? ' *' : '')
+    page.drawText(label, { x, y, font, size: 7, color: isAuspice ? BLACK : GRAY })
+    drawDots(form, page, font, `renown.${trackKey}`, '', val, 5, x, y - 10)
+  })
+
+  y -= ROW_H + 14
+
+  page.drawLine({ start: {x: LEFT, y}, end: {x: LEFT+CW, y}, thickness: 0.5, color: LGRAY })
+  return y - 8
 }
 
 function drawDerived(_page, _form, _boldFont, _font, _derived, startY) {
