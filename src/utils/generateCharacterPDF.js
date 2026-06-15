@@ -302,7 +302,7 @@ function drawDerived(page, form, boldFont, font, derived, startY) {
   const { health, willpower, resource_pool, integrity, speed, defense, initiative, supernatural_trait } = derived
 
   // Row 1 labels
-  const row1Labels = ['Health', 'Willpower', resource_pool.name || null, integrity.name || 'Integrity']
+  const row1Labels = ['Health', 'Willpower', resource_pool?.name || null, integrity?.name || 'Integrity']
   row1Labels.forEach((lbl, i) => {
     if (lbl) page.drawText(lbl, { x: cols[i], y, font, size: 6.5, color: GRAY })
   })
@@ -311,11 +311,11 @@ function drawDerived(page, form, boldFont, font, derived, startY) {
   // Health and Willpower: checkbox rows
   drawBoxRow(form, page, 'derived.health',    health,    cols[0], y)
   drawBoxRow(form, page, 'derived.willpower', willpower, cols[1], y)
-  if (resource_pool.name) {
-    drawBoxRow(form, page, 'derived.resource', Math.min(resource_pool.max, 15), cols[2], y)
+  if (resource_pool?.name) {
+    drawBoxRow(form, page, 'derived.resource', Math.min(resource_pool?.max, 15), cols[2], y)
   }
   // Integrity: text field
-  drawTextField(form, page, 'derived.integrity', String(integrity.value ?? ''), cols[3], y - DOT_SZ - 4 + DOT_SZ, colW - 8)
+  drawTextField(form, page, 'derived.integrity', String(integrity?.value ?? ''), cols[3], y - DOT_SZ - 4 + DOT_SZ, colW - 8)
 
   y -= DOT_SZ + 18
 
@@ -324,7 +324,7 @@ function drawDerived(page, form, boldFont, font, derived, startY) {
     ['Speed',      'derived.speed',      speed],
     ['Defense',    'derived.defense',    defense],
     ['Initiative', 'derived.initiative', initiative],
-    supernatural_trait?.name ? [supernatural_trait.name, 'derived.supernatural', supernatural_trait.value] : null,
+    supernatural_trait?.name ? [supernatural_trait.name, 'derived.supernatural', supernatural_trait?.value] : null,
   ].filter(Boolean)
 
   row2.forEach(([lbl, name, val], i) => {
