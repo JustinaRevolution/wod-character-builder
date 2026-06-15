@@ -284,8 +284,58 @@ function drawRenown(page, form, boldFont, font, renown, lineData, character, sta
   return y - 8
 }
 
-function drawDerived(_page, _form, _boldFont, _font, _derived, startY) {
-  return startY
+function drawBoxRow(form, page, fieldName, count, x, y) {
+  const max = Math.min(count, 15)
+  for (let i = 1; i <= max; i++) {
+    const cb = form.createCheckBox(`${fieldName}.${i}`)
+    cb.addToPage(page, { x: x + (i-1) * (DOT_SZ + DOT_GAP_PX), y, width: DOT_SZ, height: DOT_SZ, borderWidth: 0.5 })
+  }
+  return y - DOT_SZ - 4
+}
+
+function drawDerived(page, form, boldFont, font, derived, startY) {
+  let y = drawSectionHeader(page, boldFont, 'DERIVED TRAITS', LEFT, startY, CW)
+
+  const colW = CW / 4
+  const cols = [LEFT, LEFT+colW, LEFT+colW*2, LEFT+colW*3]
+
+  const { health, willpower, resource_pool, integrity, speed, defense, initiative, supernatural_trait } = derived
+
+  // Row 1 labels
+  const row1Labels = ['Health', 'Willpower', resource_pool.name || null, integrity.name || 'Integrity']
+  row1Labels.forEach((lbl, i) => {
+    if (lbl) page.drawText(lbl, { x: cols[i], y, font, size: 6.5, color: GRAY })
+  })
+  y -= 10
+
+  // Health and Willpower: checkbox rows
+  drawBoxRow(form, page, 'derived.health',    health,    cols[0], y)
+  drawBoxRow(form, page, 'derived.willpower', willpower, cols[1], y)
+  if (resource_pool.name) {
+    drawBoxRow(form, page, 'derived.resource', Math.min(resource_pool.max, 15), cols[2], y)
+  }
+  // Integrity: text field
+  drawTextField(form, page, 'derived.integrity', String(integrity.value ?? ''), cols[3], y - DOT_SZ - 4 + DOT_SZ, colW - 8)
+
+  y -= DOT_SZ + 18
+
+  // Row 2 labels + text fields
+  const row2 = [
+    ['Speed',      'derived.speed',      speed],
+    ['Defense',    'derived.defense',    defense],
+    ['Initiative', 'derived.initiative', initiative],
+    supernatural_trait?.name ? [supernatural_trait.name, 'derived.supernatural', supernatural_trait.value] : null,
+  ].filter(Boolean)
+
+  row2.forEach(([lbl, name, val], i) => {
+    page.drawText(lbl, { x: cols[i], y, font, size: 6.5, color: GRAY })
+    drawTextField(form, page, name, String(val ?? ''), cols[i], y - FIELD_H - 2, colW - 8)
+  })
+
+  y -= FIELD_H + 14
+
+  page.drawLine({ start: {x: LEFT, y}, end: {x: LEFT+CW, y}, thickness: 0.5, color: LGRAY })
+  return y - 8
 }
 
 // ── Main export ──────────────────────────────────────────────────────────────
