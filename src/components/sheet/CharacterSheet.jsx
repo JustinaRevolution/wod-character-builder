@@ -75,15 +75,13 @@ export default function CharacterSheet({ character, lineData }) {
         </div>
       </div>
 
-      {/* Skills (left) | Powers + Merits (right) */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '10px' }}>
-
-        {/* Left: Skills — 3 stacked groups */}
-        <div>
-          <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>SKILLS</div>
-          {SKILL_CATS.map(({ key, skills: sk }, ci) => (
-            <div key={key} style={{ marginBottom: ci < 2 ? '6px' : 0 }}>
-              <div style={{ textAlign: 'center', color: '#555', fontSize: '7pt', marginBottom: '3px' }}>
+      {/* Skills — full width, 3 columns */}
+      <div style={{ marginBottom: '10px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>SKILLS</div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', fontSize: '8pt' }}>
+          {SKILL_CATS.map(({ key, skills: sk }) => (
+            <div key={key}>
+              <div style={{ textAlign: 'center', color: '#555', fontSize: '7pt', marginBottom: '4px' }}>
                 {key.charAt(0).toUpperCase() + key.slice(1)}
               </div>
               {sk.map(s => (
@@ -95,80 +93,81 @@ export default function CharacterSheet({ character, lineData }) {
               ))}
             </div>
           ))}
-          {specialties.length > 0 && (
-            <div style={{ marginTop: '5px', fontSize: '7.5pt' }}>
-              <strong>Specialties: </strong>{specialties.map(s => `${s.skill} (${s.name})`).join(', ')}
-            </div>
-          )}
+        </div>
+        {specialties.length > 0 && (
+          <div style={{ marginTop: '5px', fontSize: '7.5pt' }}>
+            <strong>Specialties: </strong>{specialties.map(s => `${s.skill} (${s.name})`).join(', ')}
+          </div>
+        )}
+      </div>
+
+      {/* Powers + Merits — 2-column split */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '10px' }}>
+
+        {/* Left: Powers */}
+        <div>
+          <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>
+            {lineData.powers.label.toUpperCase()}
+          </div>
+          <div style={{ fontSize: '8pt', lineHeight: '1.6' }}>
+            {powerEntries.map(([id, val]) => {
+              const item = lineData.powers.items?.find(i => i.id === id)
+              const name = item?.name || id
+              const activePowerNames = item?.powers && typeof val === 'number' && val > 0
+                ? item.powers.slice(0, val).map(p => p.name).join(', ')
+                : null
+              return typeof val === 'number'
+                ? (
+                  <div key={id}>
+                    <div style={traitRow}>
+                      <span>{name}</span>
+                      <span style={dotLeader} />
+                      <DotRating value={val} max={5} />
+                    </div>
+                    {activePowerNames && <div style={{ fontSize: '7pt', color: '#777', marginLeft: '6px', marginBottom: '1px' }}>{activePowerNames}</div>}
+                  </div>
+                )
+                : <div key={id} style={{ marginBottom: '2px' }}>{name}: {val}</div>
+            })}
+            {selectedKeys.length > 0 && (
+              <div style={{ marginTop: '3px' }}><strong>Keys: </strong>{selectedKeys.join(', ')}</div>
+            )}
+            {(powers._rotes || []).length > 0 && (
+              <div style={{ marginTop: '3px' }}>
+                <strong>Rotes: </strong>{(powers._rotes || []).map(id => {
+                  const s = SPELL_INDEX[id]
+                  return s ? `${s.name} (${s.arcanumName} ${'●'.repeat(s.level)})` : id
+                }).join(', ')}
+              </div>
+            )}
+            {(powers._soul_affinity || powers._guild_affinity || powers._free_affinity) && (
+              <div style={{ marginTop: '3px' }}>
+                <strong>Affinities: </strong>{[
+                  AFFINITIES.find(a => a.id === powers._soul_affinity)?.name,
+                  AFFINITIES.find(a => a.id === powers._guild_affinity)?.name,
+                  AFFINITIES.find(a => a.id === powers._free_affinity)?.name,
+                ].filter(Boolean).join(', ')}
+              </div>
+            )}
+            {(powers._utterances || []).length > 0 && (
+              <div style={{ marginTop: '3px' }}>
+                <strong>Utterances: </strong>{(powers._utterances || []).map(id => UTTERANCES.find(u => u.id === id)?.name ?? id).join(', ')}
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Right: Powers + Merits */}
+        {/* Right: Merits */}
         <div>
-          {/* Powers */}
-          <div style={{ marginBottom: '8px' }}>
-            <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>
-              {lineData.powers.label.toUpperCase()}
-            </div>
-            <div style={{ fontSize: '8pt', lineHeight: '1.6' }}>
-              {powerEntries.map(([id, val]) => {
-                const item = lineData.powers.items?.find(i => i.id === id)
-                const name = item?.name || id
-                const activePowerNames = item?.powers && typeof val === 'number' && val > 0
-                  ? item.powers.slice(0, val).map(p => p.name).join(', ')
-                  : null
-                return typeof val === 'number'
-                  ? (
-                    <div key={id}>
-                      <div style={traitRow}>
-                        <span>{name}</span>
-                        <span style={dotLeader} />
-                        <DotRating value={val} max={5} />
-                      </div>
-                      {activePowerNames && <div style={{ fontSize: '7pt', color: '#777', marginLeft: '6px', marginBottom: '1px' }}>{activePowerNames}</div>}
-                    </div>
-                  )
-                  : <div key={id} style={{ marginBottom: '2px' }}>{name}: {val}</div>
-              })}
-              {selectedKeys.length > 0 && (
-                <div style={{ marginTop: '3px' }}><strong>Keys: </strong>{selectedKeys.join(', ')}</div>
-              )}
-              {(powers._rotes || []).length > 0 && (
-                <div style={{ marginTop: '3px' }}>
-                  <strong>Rotes: </strong>{(powers._rotes || []).map(id => {
-                    const s = SPELL_INDEX[id]
-                    return s ? `${s.name} (${s.arcanumName} ${'●'.repeat(s.level)})` : id
-                  }).join(', ')}
-                </div>
-              )}
-              {(powers._soul_affinity || powers._guild_affinity || powers._free_affinity) && (
-                <div style={{ marginTop: '3px' }}>
-                  <strong>Affinities: </strong>{[
-                    AFFINITIES.find(a => a.id === powers._soul_affinity)?.name,
-                    AFFINITIES.find(a => a.id === powers._guild_affinity)?.name,
-                    AFFINITIES.find(a => a.id === powers._free_affinity)?.name,
-                  ].filter(Boolean).join(', ')}
-                </div>
-              )}
-              {(powers._utterances || []).length > 0 && (
-                <div style={{ marginTop: '3px' }}>
-                  <strong>Utterances: </strong>{(powers._utterances || []).map(id => UTTERANCES.find(u => u.id === id)?.name ?? id).join(', ')}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Merits */}
-          <div>
-            <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>MERITS</div>
-            <div style={{ fontSize: '8pt', lineHeight: '1.6' }}>
-              {merits.map((m, i) => (
-                <div key={i} style={traitRow}>
-                  <span>{m.name}</span>
-                  <span style={dotLeader} />
-                  <DotRating value={m.dots} max={5} />
-                </div>
-              ))}
-            </div>
+          <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>MERITS</div>
+          <div style={{ fontSize: '8pt', lineHeight: '1.6' }}>
+            {merits.map((m, i) => (
+              <div key={i} style={traitRow}>
+                <span>{m.name}</span>
+                <span style={dotLeader} />
+                <DotRating value={m.dots} max={5} />
+              </div>
+            ))}
           </div>
         </div>
       </div>

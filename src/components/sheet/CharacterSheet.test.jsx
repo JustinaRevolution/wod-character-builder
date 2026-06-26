@@ -58,6 +58,18 @@ describe('CharacterSheet', () => {
     render(<CharacterSheet character={mageChar} lineData={mage} />)
     expect(screen.getByText(new RegExp(death1.name))).toBeInTheDocument()
   })
+
+  it('renders a skill from each category', () => {
+    render(<CharacterSheet character={character} lineData={vampire} />)
+    expect(screen.getByText('Academics')).toBeInTheDocument()
+    expect(screen.getByText('Athletics')).toBeInTheDocument()
+    expect(screen.getByText('Animal Ken')).toBeInTheDocument()
+  })
+
+  it('renders MERITS section header', () => {
+    render(<CharacterSheet character={character} lineData={vampire} />)
+    expect(screen.getByText('MERITS')).toBeInTheDocument()
+  })
 })
 
 describe('CharacterSheet — Mummy Affinities + Utterances display', () => {
