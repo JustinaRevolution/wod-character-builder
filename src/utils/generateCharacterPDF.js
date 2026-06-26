@@ -173,23 +173,28 @@ function drawAttributes(page, form, boldFont, font, attributes, startY) {
   return y - 6
 }
 
-// ── Skills — left half, 3 stacked groups ────────────────────────────────────
+// ── Skills — full width, 3 columns ─────────────────────────────────────────
 
 function drawSkills(page, form, boldFont, font, skills, specialties, startY) {
-  let y = drawSectionHeader(page, boldFont, 'SKILLS', LEFT, startY, HALF)
+  let y = drawSectionHeader(page, boldFont, 'SKILLS', LEFT, startY, CW)
 
-  SKILL_CATS.forEach(({ key, label, skills: sk }, ci) => {
-    const tw = font.widthOfTextAtSize(label, 6.5)
-    page.drawText(label, { x: LEFT + (HALF - tw)/2, y, font, size: 6.5, color: GRAY })
-    y -= SUBCAT_H
+  const SKILL_COL_W = CW / 3  // 180 — matches ATTR_COL_W
 
-    for (const skill of sk) {
-      if (y < 100) break
-      y = drawTraitRow(form, page, font, `skill.${key}.${skill}`, toLabel(skill), skills[key][skill], 5, LEFT, y, HALF - 4)
-    }
-
-    if (ci < 2) y -= 3
+  SKILL_CATS.forEach(({ label }, i) => {
+    const colX = LEFT + i * SKILL_COL_W
+    const tw   = font.widthOfTextAtSize(label, 6.5)
+    page.drawText(label, { x: colX + (SKILL_COL_W - tw) / 2, y, font, size: 6.5, color: GRAY })
   })
+  y -= SUBCAT_H
+
+  for (let row = 0; row < 8; row++) {
+    SKILL_CATS.forEach(({ key, skills: sk }, col) => {
+      const skill = sk[row]
+      const colX  = LEFT + col * SKILL_COL_W
+      drawTraitRow(form, page, font, `skill.${key}.${skill}`, toLabel(skill), skills[key][skill], 5, colX, y, SKILL_COL_W - 4)
+    })
+    y -= ROW_H
+  }
 
   if (specialties.length > 0) {
     y -= 2
@@ -383,15 +388,18 @@ export async function generateCharacterPDF(character, lineData) {
   page.drawLine({ start: {x: LEFT, y}, end: {x: LEFT+CW, y}, thickness: 0.5, color: LGRAY })
   y -= 8
 
-  // Skills (left) and Powers+Merits (right) in parallel
-  const colTop    = y
-  const skillBot  = drawSkills(page, form, boldFont, font, character.skills, character.specialties, colTop)
-  let   rightY    = colTop
-  rightY = drawPowers(page, form, boldFont, font, character.powers, lineData, rightY)
-  rightY = drawMerits(page, form, boldFont, font, character.merits, rightY)
+  // Skills — full width
+  y = drawSkills(page, form, boldFont, font, character.skills, character.specialties, y)
 
-  // Vertical divider between skills and powers/merits
-  const divBot = Math.min(skillBot, rightY)
+  page.drawLine({ start: {x: LEFT, y}, end: {x: LEFT+CW, y}, thickness: 0.5, color: LGRAY })
+  y -= 8
+
+  // Powers (left) and Merits (right) in parallel
+  const colTop = y
+  const powBot = drawPowers(page, form, boldFont, font, character.powers, lineData, colTop)
+  const merBot = drawMerits(page, form, boldFont, font, character.merits, colTop)
+
+  const divBot = Math.min(powBot, merBot)
   page.drawLine({
     start: { x: MID - 6, y: colTop },
     end:   { x: MID - 6, y: divBot },

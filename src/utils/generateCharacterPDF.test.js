@@ -63,6 +63,19 @@ describe('generateCharacterPDF', () => {
     expect(form.getCheckBox('attr.mental.intelligence.4').isChecked()).toBe(false)
   })
 
+  it('skill checkboxes are pre-checked to correct values', async () => {
+    const bytes = await generateCharacterPDF(baseCharacter, vampire)
+    const doc = await PDFDocument.load(bytes)
+    const form = doc.getForm()
+    // academics = 2 → boxes 1 and 2 checked, 3 not
+    expect(form.getCheckBox('skill.mental.academics.1').isChecked()).toBe(true)
+    expect(form.getCheckBox('skill.mental.academics.2').isChecked()).toBe(true)
+    expect(form.getCheckBox('skill.mental.academics.3').isChecked()).toBe(false)
+    // stealth = 3 → box 3 checked
+    expect(form.getCheckBox('skill.physical.stealth.3').isChecked()).toBe(true)
+    expect(form.getCheckBox('skill.physical.stealth.4').isChecked()).toBe(false)
+  })
+
   it('werewolf character includes renown checkboxes', async () => {
     const wolfChar = {
       ...baseCharacter,
