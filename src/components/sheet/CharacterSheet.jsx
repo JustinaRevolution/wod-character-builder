@@ -40,7 +40,7 @@ export default function CharacterSheet({ character, lineData }) {
     (lineData.powers.picksFrom?.length > 0) ||
     (lineData.powers.items?.length > 0)
 
-  const integrityName  = derived.integrity.name.toUpperCase()
+  const integrityName  = (derived.integrity.name || 'Integrity').toUpperCase()
   const integrityValue = derived.integrity.value
 
   return (
@@ -240,27 +240,27 @@ export default function CharacterSheet({ character, lineData }) {
               </div>
             )}
           </div>
+        </div>
+      )}
 
-          {/* Renown (Werewolf only) */}
-          {lineData.renown && (
-            <div style={{ marginTop: '8px' }}>
-              <div style={{ fontWeight: 'bold', fontSize: '7pt', letterSpacing: '1px', marginBottom: '4px' }}>RENOWN</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '6px', fontSize: '8pt' }}>
-                {lineData.renown.tracks.map(track => {
-                  const auspiceId = template[lineData.template.group2.field]
-                  const auspiceOpt = lineData.template.group2.options.find(o => o.id === auspiceId)
-                  const isAuspice = auspiceOpt?.renownTrack === track
-                  const val = isAuspice ? Math.max(1, renown[track] || 0) : (renown[track] || 0)
-                  return (
-                    <div key={track} style={{ textAlign: 'center', border: '1px solid #ccc', borderRadius: '3px', padding: '3px' }}>
-                      <div style={{ color: '#555', fontSize: '7pt' }}>{track}{isAuspice ? ' ★' : ''}</div>
-                      <DotRating value={val} max={5} />
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          )}
+      {/* ── Renown (Werewolf only) ── */}
+      {lineData.renown && (
+        <div style={{ borderTop: '1px solid #000', paddingTop: '6px', marginBottom: '10px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '7pt', letterSpacing: '1px', marginBottom: '4px' }}>RENOWN</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '6px', fontSize: '8pt' }}>
+            {lineData.renown.tracks.map(track => {
+              const auspiceId = template[lineData.template.group2.field]
+              const auspiceOpt = lineData.template.group2.options.find(o => o.id === auspiceId)
+              const isAuspice = auspiceOpt?.renownTrack === track
+              const val = isAuspice ? Math.max(1, renown[track] || 0) : (renown[track] || 0)
+              return (
+                <div key={track} style={{ textAlign: 'center', border: '1px solid #ccc', borderRadius: '3px', padding: '3px' }}>
+                  <div style={{ color: '#555', fontSize: '7pt' }}>{track}{isAuspice ? ' ★' : ''}</div>
+                  <DotRating value={val} max={5} />
+                </div>
+              )
+            })}
+          </div>
         </div>
       )}
 

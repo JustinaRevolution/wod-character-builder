@@ -9,6 +9,7 @@ import UTTERANCES from '../../data/utterances.json'
 import mummy from '../../data/lines/mummy.json'
 import promethean from '../../data/lines/promethean.json'
 import mortal from '../../data/lines/mortal.json'
+import werewolf from '../../data/lines/werewolf.json'
 
 const character = {
   meta: { line: 'vampire', name: 'Selene', concept: 'Spy', virtue: 'Prudence', vice: 'Envy', chronicle: 'Blood City', player: 'Justina' },
@@ -222,5 +223,30 @@ describe('CharacterSheet — redesigned layout', () => {
     render(<CharacterSheet character={character} lineData={vampire} />)
     // vampire has resource_pool: { name: 'Vitae', max: 10 }
     expect(screen.getByText('VITAE')).toBeInTheDocument()
+  })
+
+  it('renders renown tracks for a werewolf character', () => {
+    const werewolfCharacter = {
+      meta: { line: 'werewolf', name: 'Kira', concept: 'Hunter', virtue: 'Justice', vice: 'Wrath', chronicle: 'City', player: 'Justina' },
+      template: { tribe: 'blood_talons', auspice: 'rahu' },
+      attributes: {
+        mental:   { intelligence: 2, wits: 2, resolve: 2 },
+        physical: { strength: 3, dexterity: 2, stamina: 3 },
+        social:   { presence: 2, manipulation: 1, composure: 2 },
+      },
+      skills: {
+        mental:   { academics:0, computer:0, crafts:0, investigation:1, medicine:0, occult:1, politics:0, science:0 },
+        physical: { athletics:2, brawl:3, drive:0, firearms:1, larceny:0, stealth:1, survival:2, weaponry:2 },
+        social:   { animal_ken:1, empathy:0, expression:0, intimidation:2, persuasion:0, socialize:0, streetwise:1, subterfuge:0 },
+      },
+      specialties: [],
+      powers: { crescent_moon: 2, full_moon: 1 },
+      renown: { Cunning: 0, Glory: 1, Honor: 0, Purity: 1, Wisdom: 0 },
+      merits: [],
+      derived: { health: 8, willpower: 4, speed: 10, defense: 2, initiative: 4, resource_pool: { name: 'Essence', max: 10 }, integrity: { name: 'Harmony', value: 7 }, supernatural_trait: { name: 'Primal Urge', value: 1 } },
+      notes: '',
+    }
+    render(<CharacterSheet character={werewolfCharacter} lineData={werewolf} />)
+    expect(screen.getByText('RENOWN')).toBeInTheDocument()
   })
 })
