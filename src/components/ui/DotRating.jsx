@@ -5,7 +5,7 @@ export default function DotRating({ value, max = 5, onChange }) {
     return (
       <span className="tracking-widest text-sm select-none">
         {dots.map(i => (
-          <span key={i} className={i <= value ? 'text-amber-400' : 'text-gray-600'}>●</span>
+          <span key={i} className={i <= value ? 'text-wod-silver' : 'text-gray-600'}>●</span>
         ))}
       </span>
     )
@@ -19,7 +19,7 @@ export default function DotRating({ value, max = 5, onChange }) {
           role="button"
           aria-pressed={i <= value}
           onClick={() => onChange(i === value ? i - 1 : i)}
-          className={`text-base transition-colors ${i <= value ? 'text-amber-400 hover:text-amber-300' : 'text-gray-600 hover:text-gray-400'}`}
+          className={`text-base transition-colors ${i <= value ? 'text-wod-silver hover:text-[#E0E0E0]' : 'text-gray-600 hover:text-gray-400'}`}
         >
           ●
         </button>

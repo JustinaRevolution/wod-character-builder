@@ -25,7 +25,7 @@ export default function StepReview({ character, lineData, onUpdateNotes }) {
 
   return (
     <div>
-      <h2 className="wod-heading text-2xl font-bold mb-6">Review & Notes</h2>
+      <h2 className="wod-heading text-2xl font-bold mb-4">Review & Notes</h2>
       <p className="text-wod-stone mb-6">Check everything looks right, add any notes, then print.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

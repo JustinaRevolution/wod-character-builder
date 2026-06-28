@@ -123,7 +123,7 @@ export default function App() {
       <div className="no-print min-h-screen">
         <div className="max-w-5xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-wod-silver" style={{ fontFamily: 'Cinzel, serif', letterSpacing: '0.05em' }}>New World of Darkness Character Generator</h1>
+            <h1 className="text-3xl font-bold text-wod-silver font-cinzel" style={{ letterSpacing: '0.05em' }}>New World of Darkness Character Generator</h1>
             <div className="flex items-center gap-2">
               <button onClick={handleExport} className="text-xs text-wod-stone hover:text-wod-cream border border-wod-border px-2 py-1 rounded">
                 Export

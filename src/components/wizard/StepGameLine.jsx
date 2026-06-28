@@ -14,7 +14,7 @@ const LINES = [vampire, werewolf, mage, mummy, hunter, changeling, promethean, g
 export default function StepGameLine({ selectedLine, onSelect }) {
   return (
     <div>
-      <h2 className="wod-heading text-2xl font-bold mb-6">Choose Your Game Line</h2>
+      <h2 className="wod-heading text-2xl font-bold mb-4">Choose Your Game Line</h2>
       <p className="text-wod-stone mb-6">Select the Chronicles of Darkness line you want to play.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {LINES.map(line => (
@@ -28,7 +28,7 @@ export default function StepGameLine({ selectedLine, onSelect }) {
             }`}
             style={selectedLine === line.id ? { borderColor: line.color } : {}}
           >
-            <h3 className="font-bold text-lg" style={{ color: line.color, fontFamily: 'Cinzel, serif' }}>{line.name}</h3>
+            <h3 className="font-bold text-lg font-cinzel" style={{ color: line.color }}>{line.name}</h3>
           </button>
         ))}
       </div>

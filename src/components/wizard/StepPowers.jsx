@@ -211,7 +211,7 @@ function GiftSection({ label, giftLists, maxPicks, maxLevel, selected, onToggle 
             onClick={() => setActiveList(listId)}
             className={`px-3 py-1 text-xs rounded ${
               activeList === listId
-                ? 'bg-wod-red text-white'
+                ? 'bg-wod-red text-wod-cream'
                 : 'bg-gray-800 text-gray-400 hover:text-gray-200'
             }`}
           >
@@ -383,7 +383,7 @@ function RoteSection({ arcanaDots, budget, selected, invalid, onToggle }) {
             key={id}
             onClick={() => setActiveTab(id)}
             className={`px-3 py-1 text-xs rounded ${
-              active === id ? 'bg-wod-red text-white' : 'bg-gray-800 text-gray-400 hover:text-gray-200'
+              active === id ? 'bg-wod-red text-wod-cream' : 'bg-gray-800 text-gray-400 hover:text-gray-200'
             }`}
           >
             {SPELLS[id].name}

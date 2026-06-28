@@ -10,7 +10,7 @@ const FIELDS = [
 export default function StepConcept({ meta, onChange }) {
   return (
     <div>
-      <h2 className="wod-heading text-2xl font-bold mb-6">Concept</h2>
+      <h2 className="wod-heading text-2xl font-bold mb-4">Concept</h2>
       <p className="text-wod-stone mb-6">Who is this character? Give them a name and identity.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
         {FIELDS.map(({ key, label, placeholder }) => (

@@ -9,8 +9,7 @@ export default function StepIndicator({ steps, currentStep, onGoTo }) {
             key={i}
             onClick={() => i < currentStep && onGoTo(i)}
             disabled={i > currentStep}
-            style={{ fontFamily: 'Cinzel, serif' }}
-            className={`px-3 py-1 rounded text-xs font-medium tracking-wide transition-all ${
+            className={`px-3 py-1 rounded text-xs font-medium tracking-wide transition-all font-cinzel ${
               active  ? 'bg-wod-red text-wod-cream'
               : done  ? 'bg-gray-700 text-wod-stone hover:bg-gray-600 hover:text-wod-cream cursor-pointer'
               :         'bg-gray-800 text-gray-600 cursor-not-allowed'
