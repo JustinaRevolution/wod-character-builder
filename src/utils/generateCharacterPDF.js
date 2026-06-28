@@ -424,6 +424,7 @@ export async function generateCharacterPDF(character, lineData) {
     if (character.notes) notesField.setText(character.notes)
     notesField.enableMultiline()
     notesField.addToPage(page, { x: LEFT, y: M + 4, width: CW, height: notesH, borderWidth: 0.5 })
+    notesField.setFontSize(8)
   }
 
   return pdfDoc.save()
