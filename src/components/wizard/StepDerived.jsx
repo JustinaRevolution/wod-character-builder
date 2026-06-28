@@ -5,7 +5,7 @@ function StatBox({ label, value, sub }) {
   return (
     <div className="bg-gray-900 border border-gray-700 rounded-lg p-3 text-center">
       <div className="text-gray-400 text-xs mb-1">{label}</div>
-      <div className="text-2xl font-bold text-amber-400">{value}</div>
+      <div className="text-2xl font-bold text-wod-silver">{value}</div>
       {sub && <div className="text-xs text-gray-500 mt-1">{sub}</div>}
     </div>
   )
@@ -20,8 +20,8 @@ export default function StepDerived({ character, lineData, setDerived }) {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-2">Derived Traits</h2>
-      <p className="text-gray-400 mb-6">Calculated automatically from your Attributes.</p>
+      <h2 className="wod-heading text-2xl font-bold mb-2">Derived Traits</h2>
+      <p className="text-wod-stone mb-6">Calculated automatically from your Attributes.</p>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         <StatBox label="Health"     value={derived.health}     sub="boxes" />

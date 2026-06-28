@@ -19,7 +19,7 @@ function PowersPanel({ itemId, currentDots }) {
           <div key={i} className={unlocked ? 'text-gray-200' : 'text-gray-600'}>
             <div className="flex flex-wrap items-baseline gap-x-2 text-xs">
               {p.dot !== 'passive' && (
-                <span className={`shrink-0 ${unlocked ? 'text-amber-500' : 'text-gray-700'}`}>
+                <span className={`shrink-0 ${unlocked ? 'text-wod-red' : 'text-gray-700'}`}>
                   {'●'.repeat(p.dot)}
                 </span>
               )}
@@ -49,7 +49,7 @@ function InlinePowersPanel({ powers, currentDots }) {
         return (
           <div key={p.level} className={unlocked ? 'text-gray-200' : 'text-gray-600'}>
             <div className="flex items-baseline gap-x-2 text-xs">
-              <span className={`shrink-0 ${unlocked ? 'text-amber-500' : 'text-gray-700'}`}>
+              <span className={`shrink-0 ${unlocked ? 'text-wod-red' : 'text-gray-700'}`}>
                 {'●'.repeat(p.level)}
               </span>
               <span className="font-semibold">{p.name}</span>
@@ -81,8 +81,8 @@ function PoolPowers({ lineData, template, powers, onSetPowers }) {
 
   return (
     <div>
-      <p className="text-gray-400 mb-2">{description}</p>
-      <p className={`text-sm mb-4 font-medium ${remaining < 0 ? 'text-red-400' : 'text-amber-400'}`}>
+      <p className="text-wod-stone mb-2">{description}</p>
+      <p className={`text-sm mb-4 font-medium ${remaining < 0 ? 'text-red-400' : 'text-wod-silver'}`}>
         {remaining} dots remaining
       </p>
       <div className="space-y-1 max-w-sm">
@@ -99,7 +99,7 @@ function PoolPowers({ lineData, template, powers, onSetPowers }) {
                   onClick={() => hasPowers && setExpanded(isExpanded ? null : item.id)}
                 >
                   <span className="text-sm text-gray-300 w-28">{item.name}</span>
-                  {isAffinity && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">{affinityLabel}</span>}
+                  {isAffinity && <span className="text-xs text-wod-red bg-wod-red/20 px-1 rounded">{affinityLabel}</span>}
                   {hasPowers && (
                     <span className="text-xs text-gray-600 select-none">{isExpanded ? '▾' : '▸'}</span>
                   )}
@@ -143,7 +143,7 @@ function PicksPowers({ lineData, powers, onSetPowers }) {
                   value={powers[key] || ''}
                   placeholder={`${label} ${i + 1}`}
                   onChange={e => handleChange(source, i, e.target.value)}
-                  className="w-full max-w-sm bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-amber-400"
+                  className="w-full max-w-sm bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-wod-silver"
                 />
               )
             })}
@@ -167,7 +167,7 @@ function KeysPicker({ keys, selectedKeys, onSetPowers, powers }) {
   return (
     <div className="mt-8">
       <h4 className="font-semibold text-gray-200 mb-2">{keys.label} — choose {keys.startingPicks}</h4>
-      <p className="text-gray-400 text-sm mb-3">{keys.description}</p>
+      <p className="text-wod-stone text-sm mb-3">{keys.description}</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-lg">
         {keys.items.map(key => (
           <button
@@ -175,7 +175,7 @@ function KeysPicker({ keys, selectedKeys, onSetPowers, powers }) {
             onClick={() => toggle(key.id)}
             className={`text-left p-2 rounded border text-sm transition-all ${
               selectedKeys.includes(key.id)
-                ? 'border-amber-400 bg-gray-800 text-gray-100'
+                ? 'border-wod-silver bg-gray-800 text-gray-100'
                 : 'border-gray-700 text-gray-400 hover:border-gray-500'
             }`}
           >
@@ -211,7 +211,7 @@ function GiftSection({ label, giftLists, maxPicks, maxLevel, selected, onToggle 
             onClick={() => setActiveList(listId)}
             className={`px-3 py-1 text-xs rounded ${
               activeList === listId
-                ? 'bg-amber-600 text-white'
+                ? 'bg-wod-red text-white'
                 : 'bg-gray-800 text-gray-400 hover:text-gray-200'
             }`}
           >
@@ -234,7 +234,7 @@ function GiftSection({ label, giftLists, maxPicks, maxLevel, selected, onToggle 
                 onClick={() => !isDisabled && onToggle(gift.id)}
                 className={`p-2 rounded border transition-colors ${
                   isSelected
-                    ? 'border-amber-400 bg-gray-800 cursor-pointer'
+                    ? 'border-wod-silver bg-gray-800 cursor-pointer'
                     : isDisabled
                     ? 'border-gray-800 opacity-40 cursor-not-allowed'
                     : 'border-gray-700 text-gray-400 hover:border-gray-500 cursor-pointer'
@@ -242,7 +242,7 @@ function GiftSection({ label, giftLists, maxPicks, maxLevel, selected, onToggle 
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <span className={`text-xs shrink-0 tracking-widest ${isDisabled ? 'text-gray-700' : 'text-amber-500'}`}>
+                    <span className={`text-xs shrink-0 tracking-widest ${isDisabled ? 'text-gray-700' : 'text-wod-red'}`}>
                       {'●'.repeat(gift.level)}
                     </span>
                     <span className={`text-sm font-medium ${isSelected ? 'text-gray-100' : isDisabled ? 'text-gray-600' : 'text-gray-300'}`}>
@@ -250,7 +250,7 @@ function GiftSection({ label, giftLists, maxPicks, maxLevel, selected, onToggle 
                     </span>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
-                    {isSelected && <span className="text-amber-400 text-xs">✓</span>}
+                    {isSelected && <span className="text-wod-silver text-xs">✓</span>}
                     {isLocked
                       ? <span className="text-xs text-gray-700">{'●'.repeat(gift.level)} req.</span>
                       : <span className="text-xs text-gray-600">{gift.cost} · {gift.action}</span>
@@ -356,7 +356,7 @@ function RoteSection({ arcanaDots, budget, selected, invalid, onToggle }) {
           {spent} of {budget} dots
         </span>
       </h3>
-      <p className="text-gray-400 text-sm mb-3">
+      <p className="text-wod-stone text-sm mb-3">
         Spend {budget} dots on rotes. A rote costs its spell's level and needs that many dots in its Arcanum.
       </p>
 
@@ -383,7 +383,7 @@ function RoteSection({ arcanaDots, budget, selected, invalid, onToggle }) {
             key={id}
             onClick={() => setActiveTab(id)}
             className={`px-3 py-1 text-xs rounded ${
-              active === id ? 'bg-amber-600 text-white' : 'bg-gray-800 text-gray-400 hover:text-gray-200'
+              active === id ? 'bg-wod-red text-white' : 'bg-gray-800 text-gray-400 hover:text-gray-200'
             }`}
           >
             {SPELLS[id].name}
@@ -405,7 +405,7 @@ function RoteSection({ arcanaDots, budget, selected, invalid, onToggle }) {
                 key={spell.id}
                 className={`p-2 rounded border transition-colors ${
                   isSelected
-                    ? 'border-amber-400 bg-gray-800'
+                    ? 'border-wod-silver bg-gray-800'
                     : isDisabled
                     ? 'border-gray-800 opacity-40'
                     : 'border-gray-700 text-gray-400 hover:border-gray-500'
@@ -416,7 +416,7 @@ function RoteSection({ arcanaDots, budget, selected, invalid, onToggle }) {
                   onClick={() => !isDisabled && onToggle(spell.id)}
                 >
                   <div className="flex items-center gap-2">
-                    <span className={`text-xs shrink-0 tracking-widest ${isDisabled ? 'text-gray-700' : 'text-amber-500'}`}>
+                    <span className={`text-xs shrink-0 tracking-widest ${isDisabled ? 'text-gray-700' : 'text-wod-red'}`}>
                       {'●'.repeat(spell.level)}
                     </span>
                     <span className={`text-sm font-medium ${isSelected ? 'text-gray-100' : isDisabled ? 'text-gray-600' : 'text-gray-300'}`}>
@@ -424,7 +424,7 @@ function RoteSection({ arcanaDots, budget, selected, invalid, onToggle }) {
                     </span>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
-                    {isSelected && <span className="text-amber-400 text-xs">✓</span>}
+                    {isSelected && <span className="text-wod-silver text-xs">✓</span>}
                     {isLocked
                       ? <span className="text-xs text-gray-700">{'●'.repeat(spell.level)} req.</span>
                       : <span className="text-xs text-gray-600">{spell.aspect} · {spell.cost}</span>
@@ -479,8 +479,8 @@ function ArcanaPowers({ lineData, template, powers, onSetPowers }) {
 
   return (
     <div>
-      <p className="text-gray-400 mb-2">{description}</p>
-      <p className={`text-sm mb-2 font-medium ${remaining < 0 ? 'text-red-400' : 'text-amber-400'}`}>
+      <p className="text-wod-stone mb-2">{description}</p>
+      <p className={`text-sm mb-2 font-medium ${remaining < 0 ? 'text-red-400' : 'text-wod-silver'}`}>
         {remaining} dots remaining
       </p>
       {errors.length > 0 && (
@@ -497,7 +497,7 @@ function ArcanaPowers({ lineData, template, powers, onSetPowers }) {
             <div key={item.id} className="flex items-center justify-between py-0.5">
               <div className="flex items-center gap-2">
                 <span className="text-sm text-gray-300 w-28">{item.name}</span>
-                {isRuling && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">Ruling</span>}
+                {isRuling && <span className="text-xs text-wod-red bg-wod-red/20 px-1 rounded">Ruling</span>}
                 {isInferior && <span className="text-xs text-gray-500 bg-gray-800 px-1 rounded">Inferior</span>}
               </div>
               <DotRating value={arcanaDots[item.id]} max={itemMax} onChange={v => handleChange(item.id, v)} />
@@ -533,7 +533,7 @@ function RenownSection({ lineData, template, renown, onSetRenown }) {
   return (
     <div className="mt-8">
       <h3 className="font-semibold text-gray-200 mb-1">Renown</h3>
-      <p className="text-gray-400 text-sm mb-4">
+      <p className="text-wod-stone text-sm mb-4">
         Your Auspice Renown starts at 1. Additional Renown is earned through play.
       </p>
       <div className="space-y-2 max-w-sm">
@@ -542,7 +542,7 @@ function RenownSection({ lineData, template, renown, onSetRenown }) {
             <div className="flex items-center gap-2">
               <span className="text-sm text-gray-300 w-28">{track}</span>
               {track === auspiceTrack && (
-                <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">Auspice</span>
+                <span className="text-xs text-wod-red bg-wod-red/20 px-1 rounded">Auspice</span>
               )}
             </div>
             <DotRating value={getValue(track)} max={5} onChange={v => handleChange(track, v)} />
@@ -557,7 +557,7 @@ function UtteranceEntry({ utterance, isSelected, isDisabled, definingPillarName,
   const [expanded, setExpanded] = useState(false)
   return (
     <div className={`p-2 rounded border transition-colors ${
-      isSelected ? 'border-amber-400 bg-gray-800' : isDisabled ? 'border-gray-800 opacity-40' : 'border-gray-700 text-gray-400 hover:border-gray-500'
+      isSelected ? 'border-wod-silver bg-gray-800' : isDisabled ? 'border-gray-800 opacity-40' : 'border-gray-700 text-gray-400 hover:border-gray-500'
     }`}>
       <div
         className={`flex items-center justify-between gap-2 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
@@ -567,7 +567,7 @@ function UtteranceEntry({ utterance, isSelected, isDisabled, definingPillarName,
           {utterance.name}
         </span>
         <div className="flex items-center gap-2">
-          {isSelected && <span className="text-amber-400 text-xs">✓</span>}
+          {isSelected && <span className="text-wod-silver text-xs">✓</span>}
           <button
             onClick={e => { e.stopPropagation(); setExpanded(x => !x) }}
             className="text-xs text-gray-600 select-none px-1"
@@ -584,7 +584,7 @@ function UtteranceEntry({ utterance, isSelected, isDisabled, definingPillarName,
               : tier.pillar.charAt(0).toUpperCase() + tier.pillar.slice(1)
             return (
               <div key={tier.tier} className="text-gray-500">
-                <span className="text-amber-600">Tier {tier.tier}:</span>{' '}
+                <span className="text-wod-red">Tier {tier.tier}:</span>{' '}
                 {pillarLabel} {'●'.repeat(tier.level)}
                 {tier.tags.length > 0 ? ` [${tier.tags.join(', ')}]` : ''} — {tier.description}
               </div>
@@ -666,8 +666,8 @@ function PillarsPowers({ lineData, template, powers, onSetPowers }) {
 
   return (
     <div>
-      <p className="text-gray-400 mb-2">{description}</p>
-      <p className={`text-sm mb-2 font-medium ${spent > totalDots ? 'text-red-400' : 'text-amber-400'}`}>
+      <p className="text-wod-stone mb-2">{description}</p>
+      <p className={`text-sm mb-2 font-medium ${spent > totalDots ? 'text-red-400' : 'text-wod-silver'}`}>
         {spent} of {totalDots} dot-points spent (5th dot costs 2)
       </p>
       {errors.length > 0 && (
@@ -683,7 +683,7 @@ function PillarsPowers({ lineData, template, powers, onSetPowers }) {
             <div key={item.id} className="flex items-center justify-between py-0.5">
               <div className="flex items-center gap-2">
                 <span className="text-sm text-gray-300 w-28">{item.name}</span>
-                {isDefining && <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">Defining</span>}
+                {isDefining && <span className="text-xs text-wod-red bg-wod-red/20 px-1 rounded">Defining</span>}
               </div>
               <DotRating value={powers[item.id] || 0} max={maxDots} onChange={v => handlePillarChange(item.id, v)} />
             </div>
@@ -731,12 +731,12 @@ function PillarsPowers({ lineData, template, powers, onSetPowers }) {
                       key={a.id}
                       onClick={() => toggleFreeAffinity(a.id)}
                       className={`p-2 rounded border cursor-pointer transition-colors ${
-                        isSelected ? 'border-amber-400 bg-gray-800' : 'border-gray-700 text-gray-400 hover:border-gray-500'
+                        isSelected ? 'border-wod-silver bg-gray-800' : 'border-gray-700 text-gray-400 hover:border-gray-500'
                       }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className={`text-sm font-medium ${isSelected ? 'text-gray-100' : 'text-gray-300'}`}>{a.name}</span>
-                        <span className="text-xs text-amber-500 shrink-0 ml-2">{prereqLabel}</span>
+                        <span className="text-xs text-wod-red shrink-0 ml-2">{prereqLabel}</span>
                       </div>
                       <p className={`text-xs mt-1 ${isSelected ? 'text-gray-400' : 'text-gray-600'}`}>{a.description}</p>
                     </div>
@@ -756,7 +756,7 @@ function PillarsPowers({ lineData, template, powers, onSetPowers }) {
               </span>
             </h3>
             {allPillarsRated && (
-              <p className="text-xs text-amber-500 mb-2">All Pillars rated — bonus Utterance unlocked!</p>
+              <p className="text-xs text-wod-red mb-2">All Pillars rated — bonus Utterance unlocked!</p>
             )}
             <div className="space-y-1 max-h-72 overflow-y-auto pr-1 mt-3">
               {eligibleUtterances.map(u => {
@@ -805,12 +805,12 @@ function EndowmentsPowers({ lineData, template, powers, onSetPowers }) {
   }
 
   if (!orgId || filtered.length === 0) {
-    return <p className="text-gray-400 italic">Select a conspiracy to see its Endowments.</p>
+    return <p className="text-wod-stone italic">Select a conspiracy to see its Endowments.</p>
   }
 
   return (
     <div>
-      <p className="text-sm text-amber-400 mb-4 font-medium">
+      <p className="text-sm text-wod-silver mb-4 font-medium">
         {dotsRemaining} of {startingDots} Endowment {dotsRemaining === 1 ? 'dot' : 'dots'} remaining
       </p>
       <div className="space-y-2">
@@ -824,7 +824,7 @@ function EndowmentsPowers({ lineData, template, powers, onSetPowers }) {
               disabled={!isSelected && !canAfford}
               className={`w-full text-left p-3 rounded border transition-colors ${
                 isSelected
-                  ? 'border-amber-500 bg-amber-900/20 text-amber-100'
+                  ? 'border-wod-silver bg-wod-red/20 text-wod-cream'
                   : canAfford
                   ? 'border-gray-600 hover:border-gray-400 text-gray-300 hover:bg-gray-800/40'
                   : 'border-gray-800 text-gray-600 cursor-not-allowed opacity-50'
@@ -832,7 +832,7 @@ function EndowmentsPowers({ lineData, template, powers, onSetPowers }) {
             >
               <div className="flex justify-between items-center gap-2">
                 <span className="font-medium text-sm">{item.name}</span>
-                <span className="text-amber-500 shrink-0 text-xs tracking-widest">{'●'.repeat(item.dots)}</span>
+                <span className="text-wod-red shrink-0 text-xs tracking-widest">{'●'.repeat(item.dots)}</span>
               </div>
               <p className="text-xs mt-1 leading-snug opacity-80">{item.description}</p>
               {(item.cost !== '—' || item.action !== '—' || item.dice !== '—') && (
@@ -860,7 +860,7 @@ function ClausesPanel({ clauses, currentDots }) {
         return (
           <div key={i} className={unlocked ? 'text-gray-200' : 'text-gray-600'}>
             <div className="flex flex-wrap items-baseline gap-x-2 text-xs">
-              <span className={`shrink-0 ${unlocked ? 'text-amber-500' : 'text-gray-700'}`}>
+              <span className={`shrink-0 ${unlocked ? 'text-wod-red' : 'text-gray-700'}`}>
                 {'●'.repeat(c.dot)}
               </span>
               <span className="font-semibold">{c.name}</span>
@@ -904,8 +904,8 @@ function ContractsPowers({ lineData, template, powers, onSetPowers }) {
 
   return (
     <div>
-      <p className="text-gray-400 mb-2">{description}</p>
-      <p className={`text-sm mb-4 font-medium ${remaining < 0 ? 'text-red-400' : 'text-amber-400'}`}>
+      <p className="text-wod-stone mb-2">{description}</p>
+      <p className={`text-sm mb-4 font-medium ${remaining < 0 ? 'text-red-400' : 'text-wod-silver'}`}>
         {remaining} dots remaining
       </p>
       {categories.map(({ key, label }) => {
@@ -930,7 +930,7 @@ function ContractsPowers({ lineData, template, powers, onSetPowers }) {
                       >
                         <span className="text-sm text-gray-300 w-36">{item.name}</span>
                         {affinityLabel && (
-                          <span className="text-xs text-amber-500 bg-amber-900/30 px-1 rounded">{affinityLabel}</span>
+                          <span className="text-xs text-wod-red bg-wod-red/20 px-1 rounded">{affinityLabel}</span>
                         )}
                         <span className="text-xs text-gray-600 select-none">{isExpanded ? '▾' : '▸'}</span>
                       </div>
@@ -959,9 +959,9 @@ export default function StepPowers({ lineData, template, powers, onSetPowers, re
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-2">{label}</h2>
+      <h2 className="wod-heading text-2xl font-bold mb-2">{label}</h2>
       {isCompact
-        ? <p className="text-gray-400 mb-4">{compactNote}</p>
+        ? <p className="text-wod-stone mb-4">{compactNote}</p>
         : type === 'gifts'
           ? <GiftsPowers lineData={lineData} template={template} powers={powers} onSetPowers={onSetPowers} renown={renown} />
           : type === 'arcana'

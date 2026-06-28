@@ -25,13 +25,13 @@ export default function StepReview({ character, lineData, onUpdateNotes }) {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-2">Review & Notes</h2>
-      <p className="text-gray-400 mb-6">Check everything looks right, add any notes, then print.</p>
+      <h2 className="wod-heading text-2xl font-bold mb-6">Review & Notes</h2>
+      <p className="text-wod-stone mb-6">Check everything looks right, add any notes, then print.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Identity */}
         <div className="bg-gray-900 rounded-lg p-4 border border-gray-700">
-          <h3 className="font-bold text-amber-400 mb-3">{meta.name || 'Unnamed'}</h3>
+          <h3 className="font-bold text-wod-silver mb-3">{meta.name || 'Unnamed'}</h3>
           <div className="text-sm text-gray-300 space-y-1">
             <div><span className="text-gray-500">Concept:</span> {meta.concept}</div>
             <div><span className="text-gray-500">Virtue:</span> {meta.virtue} · <span className="text-gray-500">Vice:</span> {meta.vice}</div>
@@ -122,14 +122,14 @@ export default function StepReview({ character, lineData, onUpdateNotes }) {
           onChange={e => onUpdateNotes(e.target.value)}
           placeholder="Background, appearance, personality, story hooks..."
           rows={5}
-          className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-gray-100 focus:outline-none focus:border-amber-400"
+          className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-gray-100 focus:outline-none focus:border-wod-silver"
         />
       </div>
 
       <div className="flex gap-4">
         <button
           onClick={() => window.print()}
-          className="px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg text-lg"
+          className="px-6 py-3 bg-wod-red hover:bg-wod-red-hover text-wod-cream font-bold rounded-lg text-lg"
         >
           Print Character Sheet
         </button>

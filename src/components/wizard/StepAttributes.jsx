@@ -20,8 +20,8 @@ export default function StepAttributes({ attributes, priority, onUpdate, onSetPr
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-2">Attributes</h2>
-      <p className="text-gray-400 mb-6">All attributes start at 1. Prioritize your categories, then spend your dots.</p>
+      <h2 className="wod-heading text-2xl font-bold mb-2">Attributes</h2>
+      <p className="text-wod-stone mb-6">All attributes start at 1. Prioritize your categories, then spend your dots.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {CATEGORIES.map(({ key, label, attrs }) => {
           const level = priority[key] || 'tertiary'

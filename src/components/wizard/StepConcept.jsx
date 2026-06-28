@@ -10,19 +10,19 @@ const FIELDS = [
 export default function StepConcept({ meta, onChange }) {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-2">Concept</h2>
-      <p className="text-gray-400 mb-6">Who is this character? Give them a name and identity.</p>
+      <h2 className="wod-heading text-2xl font-bold mb-6">Concept</h2>
+      <p className="text-wod-stone mb-6">Who is this character? Give them a name and identity.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
         {FIELDS.map(({ key, label, placeholder }) => (
           <div key={key}>
-            <label htmlFor={key} className="block text-sm text-gray-400 mb-1">{label}</label>
+            <label htmlFor={key} className="block text-sm text-wod-stone mb-1">{label}</label>
             <input
               id={key}
               type="text"
               value={meta[key]}
               placeholder={placeholder}
               onChange={e => onChange(key, e.target.value)}
-              className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-gray-100 focus:outline-none focus:border-amber-400"
+              className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-gray-100 focus:outline-none focus:border-wod-silver"
             />
           </div>
         ))}

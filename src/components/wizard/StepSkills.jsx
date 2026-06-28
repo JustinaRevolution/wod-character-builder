@@ -40,8 +40,8 @@ export default function StepSkills({ skills, priority, specialties, onUpdateSkil
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-2">Skills</h2>
-      <p className="text-gray-400 mb-6">Prioritize your categories (11 / 7 / 4 dots), then spend. Add 3 specialties.</p>
+      <h2 className="wod-heading text-2xl font-bold mb-2">Skills</h2>
+      <p className="text-wod-stone mb-6">Prioritize your categories (11 / 7 / 4 dots), then spend. Add 3 specialties.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {CATEGORIES.map(({ key, label, skills: skillList }) => {
           const level = priority[key]
@@ -92,14 +92,14 @@ export default function StepSkills({ skills, priority, specialties, onUpdateSkil
               value={specSkill}
               onChange={e => setSpecSkill(e.target.value)}
               aria-label="Specialty skill"
-              className="bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-gray-100 w-36 focus:outline-none focus:border-amber-400"
+              className="bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-gray-100 w-36 focus:outline-none focus:border-wod-silver"
             >
               <option value="">Skill…</option>
               {ALL_SKILLS.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
             <input value={specName} onChange={e => setSpecName(e.target.value)} placeholder="Specialty name"
-              className="bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-gray-100 flex-1 focus:outline-none focus:border-amber-400" />
-            <button onClick={handleAdd} className="px-3 py-1 text-sm bg-amber-600 hover:bg-amber-500 rounded text-white">
+              className="bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-gray-100 flex-1 focus:outline-none focus:border-wod-silver" />
+            <button onClick={handleAdd} className="px-3 py-1 text-sm bg-wod-red hover:bg-wod-red-hover rounded text-wod-cream">
               Add Specialty
             </button>
           </div>

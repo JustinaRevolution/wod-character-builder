@@ -62,8 +62,8 @@ export default function StepMerits({ merits, onAdd, onRemove, lineId = null }) {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-2">Merits</h2>
-      <p className={`text-sm font-medium mb-4 ${remaining < 0 ? 'text-red-400' : 'text-amber-400'}`}>
+      <h2 className="wod-heading text-2xl font-bold mb-2">Merits</h2>
+      <p className={`text-sm font-medium mb-4 ${remaining < 0 ? 'text-red-400' : 'text-wod-silver'}`}>
         {remaining} of {BUDGET} dots remaining
       </p>
 
@@ -74,7 +74,7 @@ export default function StepMerits({ merits, onAdd, onRemove, lineId = null }) {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search merits..."
-            className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-1.5 text-sm text-gray-100 mb-2 focus:outline-none focus:border-amber-400"
+            className="w-full bg-gray-800 border border-gray-600 rounded px-3 py-1.5 text-sm text-gray-100 mb-2 focus:outline-none focus:border-wod-silver"
           />
           <div className="flex gap-1 mb-3">
             {categories.map(cat => (
@@ -83,7 +83,7 @@ export default function StepMerits({ merits, onAdd, onRemove, lineId = null }) {
                 onClick={() => setCategory(cat)}
                 className={`px-3 py-1 text-xs rounded capitalize ${
                   category === cat
-                    ? 'bg-amber-600 text-white'
+                    ? 'bg-wod-red text-wod-cream'
                     : 'bg-gray-800 text-gray-400 hover:text-gray-200'
                 }`}
               >
@@ -103,14 +103,14 @@ export default function StepMerits({ merits, onAdd, onRemove, lineId = null }) {
                   >
                     <div className="flex items-start justify-between gap-2">
                       <span className="text-sm text-gray-200 font-medium">{merit.name}</span>
-                      <span className="text-xs text-amber-400 tracking-widest shrink-0">{dotLabel(merit)}</span>
+                      <span className="text-xs text-wod-silver tracking-widest shrink-0">{dotLabel(merit)}</span>
                     </div>
                     <p className="text-xs text-gray-500 mt-0.5 leading-snug">{merit.description}</p>
                     {merit.prerequisites && (
                       <p className="text-xs text-gray-600 mt-0.5">Req: {merit.prerequisites}</p>
                     )}
                     {merit.chargen_only && (
-                      <p className="text-xs text-amber-800 mt-0.5">Character creation only</p>
+                      <p className="text-xs text-wod-stone mt-0.5">Character creation only</p>
                     )}
                     {merit.line && (
                       <p className="text-xs text-red-900 mt-0.5">{LINE_LABELS[merit.line] ?? `${merit.line} only`}</p>
@@ -125,7 +125,7 @@ export default function StepMerits({ merits, onAdd, onRemove, lineId = null }) {
                       />
                       <button
                         onClick={() => confirmAdd(merit, pending.dots)}
-                        className="px-3 py-1 text-xs bg-amber-600 hover:bg-amber-500 rounded text-white"
+                        className="px-3 py-1 text-xs bg-wod-red hover:bg-wod-red-hover rounded text-wod-cream"
                       >
                         Add
                       </button>
@@ -189,12 +189,12 @@ function CustomMeritForm({ onAdd }) {
         value={name}
         onChange={e => setName(e.target.value)}
         placeholder="Merit name"
-        className="flex-1 bg-gray-800 border border-gray-600 rounded px-2 py-1.5 text-sm text-gray-100 focus:outline-none focus:border-amber-400"
+        className="flex-1 bg-gray-800 border border-gray-600 rounded px-2 py-1.5 text-sm text-gray-100 focus:outline-none focus:border-wod-silver"
       />
       <DotRating value={dots} max={5} onChange={setDots} />
       <button
         onClick={handleAdd}
-        className="px-3 py-1.5 bg-amber-600 hover:bg-amber-500 rounded text-white text-sm"
+        className="px-3 py-1.5 bg-wod-red hover:bg-wod-red-hover rounded text-wod-cream text-sm"
       >
         Add
       </button>
