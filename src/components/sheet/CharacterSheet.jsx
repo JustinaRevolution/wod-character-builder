@@ -10,16 +10,17 @@ const ATTR_CATS = [
 ]
 
 const SKILL_CATS = [
-  { key: 'mental',   skills: ['academics','computer','crafts','investigation','medicine','occult','politics','science'] },
-  { key: 'physical', skills: ['athletics','brawl','drive','firearms','larceny','stealth','survival','weaponry'] },
-  { key: 'social',   skills: ['animal_ken','empathy','expression','intimidation','persuasion','socialize','streetwise','subterfuge'] },
+  { key: 'mental',   catLabel: 'Mental',   penalty: '-3 unskilled', skills: ['academics','computer','crafts','investigation','medicine','occult','politics','science'] },
+  { key: 'physical', catLabel: 'Physical', penalty: '-1 unskilled', skills: ['athletics','brawl','drive','firearms','larceny','stealth','survival','weaponry'] },
+  { key: 'social',   catLabel: 'Social',   penalty: '-1 unskilled', skills: ['animal_ken','empathy','expression','intimidation','persuasion','socialize','streetwise','subterfuge'] },
 ]
 
-const label = s => s === 'animal_ken' ? 'Animal Ken' : s.charAt(0).toUpperCase() + s.slice(1)
-const boxes = n => '□'.repeat(n)
+const skillLabel = s => s === 'animal_ken' ? 'Animal Ken' : s.charAt(0).toUpperCase() + s.slice(1)
+const attrLabel  = s => s.charAt(0).toUpperCase() + s.slice(1)
 
-const traitRow = { display: 'flex', alignItems: 'baseline', marginBottom: '2px', gap: '3px' }
-const dotLeader = { flex: 1, borderBottom: '1px dotted #bbb', marginBottom: '2px' }
+const traitRow     = { display: 'flex', alignItems: 'baseline', marginBottom: '2px', gap: '3px' }
+const dotLeader    = { flex: 1, borderBottom: '1px dotted #bbb', marginBottom: '2px' }
+const sectionHead  = { fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }
 
 export default function CharacterSheet({ character, lineData }) {
   const { meta, template, attributes, skills, specialties, powers, renown = {}, merits, derived, notes } = character
@@ -35,10 +36,17 @@ export default function CharacterSheet({ character, lineData }) {
   const powerEntries = Object.entries(powers).filter(([k]) => !k.startsWith('_'))
   const selectedKeys = powers._keys || []
 
+  const hasPowers =
+    (lineData.powers.picksFrom?.length > 0) ||
+    (lineData.powers.items?.length > 0)
+
+  const integrityName  = derived.integrity.name.toUpperCase()
+  const integrityValue = derived.integrity.value
+
   return (
     <div className="print-only" style={{ fontFamily: 'Georgia, serif', fontSize: '9pt', color: '#000', background: '#fff', padding: '1cm' }}>
 
-      {/* Header */}
+      {/* ── Header ── */}
       <div style={{ borderBottom: '2px solid #000', paddingBottom: '6px', marginBottom: '10px' }}>
         <div style={{ textAlign: 'center', fontSize: '13pt', fontWeight: 'bold', letterSpacing: '3px', marginBottom: '5px' }}>
           {lineData.name.toUpperCase()}
@@ -54,9 +62,9 @@ export default function CharacterSheet({ character, lineData }) {
         {templateLine && <div style={{ marginTop: '3px', fontSize: '8pt', color: '#555' }}>{templateLine}</div>}
       </div>
 
-      {/* Attributes — full width, 3 equal columns, name + dots on same line */}
+      {/* ── Attributes (unchanged) ── */}
       <div style={{ marginBottom: '10px' }}>
-        <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>ATTRIBUTES</div>
+        <div style={sectionHead}>ATTRIBUTES</div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', fontSize: '8pt' }}>
           {ATTR_CATS.map(({ key, attrs }) => (
             <div key={key}>
@@ -65,7 +73,7 @@ export default function CharacterSheet({ character, lineData }) {
               </div>
               {attrs.map(a => (
                 <div key={a} style={traitRow}>
-                  <span>{label(a)}</span>
+                  <span>{attrLabel(a)}</span>
                   <span style={dotLeader} />
                   <DotRating value={attributes[key][a]} max={5} />
                 </div>
@@ -75,40 +83,108 @@ export default function CharacterSheet({ character, lineData }) {
         </div>
       </div>
 
-      {/* Skills — full width, 3 columns */}
-      <div style={{ marginBottom: '10px' }}>
-        <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>SKILLS</div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', fontSize: '8pt' }}>
-          {SKILL_CATS.map(({ key, skills: sk }) => (
-            <div key={key}>
-              <div style={{ textAlign: 'center', color: '#555', fontSize: '7pt', marginBottom: '4px' }}>
-                {key.charAt(0).toUpperCase() + key.slice(1)}
-              </div>
+      {/* ── Two-column body: Skills (45%) | Other Traits (55%) ── */}
+      <div style={{ display: 'grid', gridTemplateColumns: '45% 55%', gap: '16px', marginBottom: '10px' }}>
+
+        {/* Left column: Skills */}
+        <div>
+          <div style={sectionHead}>SKILLS</div>
+          {SKILL_CATS.map(({ key, catLabel, penalty, skills: sk }) => (
+            <div key={key} style={{ marginBottom: '8px' }}>
+              <div style={{ textAlign: 'center', fontStyle: 'italic', fontWeight: 'bold', fontSize: '8pt' }}>{catLabel}</div>
+              <div style={{ textAlign: 'center', color: '#777', fontSize: '7pt', marginBottom: '4px' }}>{penalty}</div>
               {sk.map(s => (
                 <div key={s} style={traitRow}>
-                  <span>{label(s)}</span>
+                  <span style={{ fontSize: '8pt' }}>{skillLabel(s)}</span>
                   <span style={dotLeader} />
                   <DotRating value={skills[key][s]} max={5} />
                 </div>
               ))}
             </div>
           ))}
+          {specialties.length > 0 && (
+            <div style={{ marginTop: '4px', fontSize: '7.5pt' }}>
+              <strong>Specialties: </strong>{specialties.map(s => `${s.skill} (${s.name})`).join(', ')}
+            </div>
+          )}
         </div>
-        {specialties.length > 0 && (
-          <div style={{ marginTop: '5px', fontSize: '7.5pt' }}>
-            <strong>Specialties: </strong>{specialties.map(s => `${s.skill} (${s.name})`).join(', ')}
+
+        {/* Right column: Other Traits — sub-split 60% | 40% */}
+        <div style={{ display: 'grid', gridTemplateColumns: '60% 40%', gap: '8px' }}>
+
+          {/* Right-left: Merits */}
+          <div>
+            <div style={sectionHead}>MERITS</div>
+            <div style={{ fontSize: '8pt' }}>
+              {merits.map((m, i) => (
+                <div key={i} style={traitRow}>
+                  <span>{m.name}</span>
+                  <span style={dotLeader} />
+                  <DotRating value={m.dots} max={5} />
+                </div>
+              ))}
+            </div>
           </div>
-        )}
+
+          {/* Right-right: Health / Willpower / Integrity / Derived */}
+          <div style={{ fontSize: '8pt' }}>
+
+            {/* Health */}
+            <div style={{ marginBottom: '8px' }}>
+              <div style={{ fontWeight: 'bold', fontSize: '7pt', letterSpacing: '1px', marginBottom: '2px' }}>HEALTH</div>
+              <div style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>{'●'.repeat(derived.health)}</div>
+              <div style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>{'□'.repeat(derived.health)}</div>
+            </div>
+
+            {/* Willpower */}
+            <div style={{ marginBottom: '8px' }}>
+              <div style={{ fontWeight: 'bold', fontSize: '7pt', letterSpacing: '1px', marginBottom: '2px' }}>WILLPOWER</div>
+              <div style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>{'●'.repeat(derived.willpower)}</div>
+              <div style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>{'□'.repeat(derived.willpower)}</div>
+            </div>
+
+            {/* Integrity track */}
+            <div style={{ marginBottom: '8px' }}>
+              <div style={{ fontWeight: 'bold', fontSize: '7pt', letterSpacing: '1px', marginBottom: '2px' }}>{integrityName}</div>
+              {[10,9,8,7,6,5,4,3,2,1].map(n => (
+                <div key={n} style={{ display: 'flex', alignItems: 'center', gap: '2px', marginBottom: '1px' }}>
+                  <span style={{ fontSize: '7pt', width: '10px', textAlign: 'right' }}>{n}</span>
+                  <span style={{ flex: 1, borderBottom: '1px dotted #ccc', marginBottom: '1px' }} />
+                  <span style={{ fontSize: '8pt' }}>{n === integrityValue ? '●' : '○'}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Derived stats */}
+            <div>
+              {[
+                ['Size', '5'],
+                ['Speed', String(derived.speed)],
+                ['Defense', String(derived.defense)],
+                ['Initiative', String(derived.initiative)],
+                ['Experience', ''],
+              ].map(([lbl, val]) => (
+                <div key={lbl} style={{ display: 'flex', gap: '3px', fontSize: '7.5pt', marginBottom: '2px' }}>
+                  <span style={{ color: '#555' }}>{lbl}:</span>
+                  <span>{val}</span>
+                </div>
+              ))}
+              {derived.supernatural_trait?.name && (
+                <div style={{ display: 'flex', gap: '3px', fontSize: '7.5pt', marginBottom: '2px' }}>
+                  <span style={{ color: '#555' }}>{derived.supernatural_trait.name}:</span>
+                  <span>{derived.supernatural_trait.value}</span>
+                </div>
+              )}
+            </div>
+
+          </div>
+        </div>
       </div>
 
-      {/* Powers + Merits — 2-column split */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '10px' }}>
-
-        {/* Left: Powers */}
-        <div>
-          <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>
-            {lineData.powers.label.toUpperCase()}
-          </div>
+      {/* ── Powers add-on block (supernatural lines only) ── */}
+      {hasPowers && (
+        <div style={{ borderTop: '1px solid #000', paddingTop: '6px', marginBottom: '10px' }}>
+          <div style={sectionHead}>{lineData.powers.label.toUpperCase()}</div>
           <div style={{ fontSize: '8pt', lineHeight: '1.6' }}>
             {powerEntries.map(([id, val]) => {
               const item = lineData.powers.items?.find(i => i.id === id)
@@ -155,68 +231,31 @@ export default function CharacterSheet({ character, lineData }) {
               </div>
             )}
           </div>
-        </div>
 
-        {/* Right: Merits */}
-        <div>
-          <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', borderBottom: '1px solid #000', marginBottom: '5px' }}>MERITS</div>
-          <div style={{ fontSize: '8pt', lineHeight: '1.6' }}>
-            {merits.map((m, i) => (
-              <div key={i} style={traitRow}>
-                <span>{m.name}</span>
-                <span style={dotLeader} />
-                <DotRating value={m.dots} max={5} />
+          {/* Renown (Werewolf only) */}
+          {lineData.renown && (
+            <div style={{ marginTop: '8px' }}>
+              <div style={{ fontWeight: 'bold', fontSize: '7pt', letterSpacing: '1px', marginBottom: '4px' }}>RENOWN</div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '6px', fontSize: '8pt' }}>
+                {lineData.renown.tracks.map(track => {
+                  const auspiceId = template[lineData.template.group2.field]
+                  const auspiceOpt = lineData.template.group2.options.find(o => o.id === auspiceId)
+                  const isAuspice = auspiceOpt?.renownTrack === track
+                  const val = isAuspice ? Math.max(1, renown[track] || 0) : (renown[track] || 0)
+                  return (
+                    <div key={track} style={{ textAlign: 'center', border: '1px solid #ccc', borderRadius: '3px', padding: '3px' }}>
+                      <div style={{ color: '#555', fontSize: '7pt' }}>{track}{isAuspice ? ' ★' : ''}</div>
+                      <DotRating value={val} max={5} />
+                    </div>
+                  )
+                })}
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Renown (Werewolf only) */}
-      {lineData.renown && (
-        <div style={{ borderTop: '1px solid #000', paddingTop: '6px', marginBottom: '10px' }}>
-          <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', marginBottom: '5px' }}>RENOWN</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '6px', fontSize: '8pt' }}>
-            {lineData.renown.tracks.map(track => {
-              const auspiceId = template[lineData.template.group2.field]
-              const auspiceOpt = lineData.template.group2.options.find(o => o.id === auspiceId)
-              const isAuspice = auspiceOpt?.renownTrack === track
-              const val = isAuspice ? Math.max(1, renown[track] || 0) : (renown[track] || 0)
-              return (
-                <div key={track} style={{ textAlign: 'center', border: '1px solid #ccc', borderRadius: '3px', padding: '3px' }}>
-                  <div style={{ color: '#555', fontSize: '7pt' }}>{track}{isAuspice ? ' ★' : ''}</div>
-                  <DotRating value={val} max={5} />
-                </div>
-              )
-            })}
-          </div>
+            </div>
+          )}
         </div>
       )}
 
-      {/* Derived Traits */}
-      <div style={{ borderTop: '1px solid #000', paddingTop: '6px', marginBottom: '10px' }}>
-        <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', marginBottom: '5px' }}>DERIVED TRAITS</div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '6px', fontSize: '8pt', textAlign: 'center' }}>
-          {[
-            ['Health',    boxes(derived.health)],
-            ['Willpower', boxes(derived.willpower)],
-            derived.resource_pool.name ? [derived.resource_pool.name, boxes(Math.min(derived.resource_pool.max, 15))] : null,
-            [derived.integrity.name || 'Integrity', `${derived.integrity.value} / 10`],
-            ['Speed',      derived.speed],
-            ['Defense',    derived.defense],
-            ['Initiative', derived.initiative],
-            derived.supernatural_trait.name ? [derived.supernatural_trait.name, derived.supernatural_trait.value] : null,
-            ['Experience', ''],
-          ].filter(Boolean).map(([lbl, val]) => (
-            <div key={lbl} style={{ border: '1px solid #ccc', borderRadius: '3px', padding: '3px' }}>
-              <div style={{ color: '#555', fontSize: '7pt' }}>{lbl}</div>
-              <div style={{ fontFamily: 'monospace', fontSize: '8pt', wordBreak: 'break-all', minHeight: '12px' }}>{val}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Notes */}
+      {/* ── Notes ── */}
       <div style={{ borderTop: '1px solid #000', paddingTop: '6px', fontSize: '8pt' }}>
         <div style={{ fontWeight: 'bold', fontSize: '8pt', letterSpacing: '1px', marginBottom: '3px' }}>NOTES</div>
         <div>{notes}</div>
