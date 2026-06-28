@@ -15,7 +15,7 @@ describe('StepGameLine', () => {
   it('marks the selected line as active', () => {
     render(<StepGameLine selectedLine="vampire" onSelect={() => {}} />)
     const vampireBtn = screen.getByText('Vampire: the Requiem').closest('button')
-    expect(vampireBtn).toHaveClass('ring-2')
+    expect(vampireBtn).toHaveClass('bg-gray-800')
   })
 
   it('calls onSelect with line id when a card is clicked', () => {
