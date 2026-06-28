@@ -1,13 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-wod-red: #8B1A1A;
+  --color-wod-red-hover: #A52020;
+  --color-wod-cream: #E8DCC8;
+  --color-wod-silver: #C8C8C8;
+  --color-wod-stone: #8C8070;
+  --color-wod-border: #2A2520;
+  --font-cinzel: 'Cinzel', serif;
+}
+
 @layer base {
-  body { @apply bg-gray-950 text-gray-100 min-h-screen; }
+  body {
+    @apply bg-gray-950 min-h-screen;
+    color: #E8DCC8;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+}
+
+.wod-heading {
+  font-family: 'Cinzel', serif;
+  position: relative;
+  padding-bottom: 0.625rem;
+}
+
+.wod-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #8B1A1A;
 }
 
 .print-only { display: none; }
 
 @media print {
   body { background: white; color: black; }
+  body::before { display: none; }
   .no-print { display: none !important; }
   .print-only { display: block !important; }
 }
