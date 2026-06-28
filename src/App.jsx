@@ -122,29 +122,33 @@ export default function App() {
       {/* Wizard — hidden on print */}
       <div className="no-print min-h-screen">
         <div className="max-w-5xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-3xl font-bold text-amber-400">New World of Darkness Character Generator</h1>
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-3xl font-bold text-wod-silver" style={{ fontFamily: 'Cinzel, serif', letterSpacing: '0.05em' }}>New World of Darkness Character Generator</h1>
             <div className="flex items-center gap-2">
-              <button onClick={handleExport} className="text-xs text-gray-500 hover:text-gray-300 border border-gray-700 px-2 py-1 rounded">
+              <button onClick={handleExport} className="text-xs text-wod-stone hover:text-wod-cream border border-wod-border px-2 py-1 rounded">
                 Export
               </button>
-              <label className="text-xs text-gray-500 hover:text-gray-300 border border-gray-700 px-2 py-1 rounded cursor-pointer">
+              <label className="text-xs text-wod-stone hover:text-wod-cream border border-wod-border px-2 py-1 rounded cursor-pointer">
                 Import
                 <input type="file" accept=".json" onChange={handleImport} className="hidden" />
               </label>
-              <button onClick={resetCharacter} className="text-xs text-gray-500 hover:text-gray-300 border border-gray-700 px-2 py-1 rounded">
+              <button onClick={resetCharacter} className="text-xs text-wod-stone hover:text-wod-cream border border-wod-border px-2 py-1 rounded">
                 Start Over
               </button>
             </div>
           </div>
 
+          <hr className="border-t border-wod-border mb-6" />
+
           <StepIndicator steps={STEP_LABELS} currentStep={step} onGoTo={setStep} />
 
           <div className="mb-8">{renderStep()}</div>
 
+          <hr className="border-t border-wod-border mb-4" />
+
           <div className="flex gap-4">
             {step > 0 && (
-              <button onClick={() => setStep(s => s - 1)} className="px-5 py-2 border border-gray-600 rounded text-gray-300 hover:border-gray-400">
+              <button onClick={() => setStep(s => s - 1)} className="px-5 py-2 border border-wod-border rounded text-wod-stone hover:text-wod-cream hover:border-wod-stone">
                 ← Back
               </button>
             )}
@@ -152,14 +156,14 @@ export default function App() {
               <button
                 onClick={() => setStep(s => s + 1)}
                 disabled={!canAdvance()}
-                className="px-5 py-2 bg-amber-600 hover:bg-amber-500 disabled:opacity-40 disabled:cursor-not-allowed rounded text-white font-medium"
+                className="px-5 py-2 bg-wod-red hover:bg-wod-red-hover disabled:opacity-40 disabled:cursor-not-allowed rounded text-wod-cream font-medium"
               >
                 Next →
               </button>
             )}
           </div>
 
-          <div className="mt-4 text-xs text-gray-600">Draft saved automatically.</div>
+          <div className="mt-4 text-xs text-wod-stone">Draft saved automatically.</div>
         </div>
       </div>
 
