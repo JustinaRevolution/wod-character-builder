@@ -143,6 +143,15 @@ export default function CharacterSheet({ character, lineData }) {
               <div style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>{'□'.repeat(derived.willpower)}</div>
             </div>
 
+            {/* Resource pool (supernatural lines only) */}
+            {derived.resource_pool.name && (
+              <div style={{ marginBottom: '8px' }}>
+                <div style={{ fontWeight: 'bold', fontSize: '7pt', letterSpacing: '1px', marginBottom: '2px' }}>{derived.resource_pool.name.toUpperCase()}</div>
+                <div style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>{'●'.repeat(Math.min(derived.resource_pool.max, 15))}</div>
+                <div style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>{'□'.repeat(Math.min(derived.resource_pool.max, 15))}</div>
+              </div>
+            )}
+
             {/* Integrity track */}
             <div style={{ marginBottom: '8px' }}>
               <div style={{ fontWeight: 'bold', fontSize: '7pt', letterSpacing: '1px', marginBottom: '2px' }}>{integrityName}</div>

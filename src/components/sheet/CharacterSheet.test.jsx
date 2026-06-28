@@ -217,4 +217,10 @@ describe('CharacterSheet — redesigned layout', () => {
     render(<CharacterSheet character={character} lineData={vampire} />)
     expect(screen.getByText('DISCIPLINES')).toBeInTheDocument()
   })
+
+  it('renders resource pool as circles track for supernatural characters', () => {
+    render(<CharacterSheet character={character} lineData={vampire} />)
+    // vampire has resource_pool: { name: 'Vitae', max: 10 }
+    expect(screen.getByText('VITAE')).toBeInTheDocument()
+  })
 })
